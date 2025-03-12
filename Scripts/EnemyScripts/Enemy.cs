@@ -365,6 +365,70 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    protected virtual void SlowdownAttack(int projectileNum, float launchForce, float angleDivision, GameObject target, GameObject prefab, float afterSpeedPercent = 0.1f, float delay = 0.5f, bool ifInstance = false)
+    {
+        Vector3 targetDirection = AimingWithoutLooking(target);
+        Quaternion baseRotation = Quaternion.LookRotation(targetDirection);
+
+        // 균등하게 퍼지도록 방향 조절
+        float goldenRatio = (1 + Mathf.Sqrt(5)) / 2;
+        float angleIncrement = Mathf.PI * 2 * goldenRatio;
+
+        for (int i = 0; i < projectileNum; i++)
+        {
+            float t = (float)i / projectileNum;
+            float inclination = Mathf.Acos(1 - 2 * t) / angleDivision; // 반구 형태로 제한 (180 / ?)
+            float azimuth = angleIncrement * i;
+
+            Vector3 direction = new Vector3(
+                Mathf.Sin(inclination) * Mathf.Cos(azimuth),
+                Mathf.Sin(inclination) * Mathf.Sin(azimuth),
+                Mathf.Cos(inclination)
+            );
+
+            // 방향을 플레이어를 향한 방향 기준으로 회전
+            direction = baseRotation * direction;
+
+            // 발사체 생성 및 발사
+            Quaternion rotation = Quaternion.LookRotation(direction);
+            GameObject redBall = Instantiate(prefab, transform.position, rotation);
+            Rigidbody rb = redBall.GetComponent<Rigidbody>();
+
+            rb.AddForce(direction * launchForce, ForceMode.Impulse);
+
+            StartCoroutine(SlowDown(rb, afterSpeedPercent, delay, ifInstance));
+        }
+    }
+
+    private IEnumerator SlowDown(Rigidbody rb, float afterSpeedPercent = 0.1f, float delay = 0.5f, bool ifInstance = false)
+    {
+        yield return new WaitForSeconds(delay);
+
+        float elapsedTime = 0f;
+        float slowDuration = 0.5f;
+
+        Vector3 initialVelocity = rb.velocity; //초기 속도
+
+        
+        if (!ifInstance)
+        {
+            while (elapsedTime < slowDuration)
+            {
+                elapsedTime += Time.deltaTime;
+                float t = elapsedTime / slowDuration;
+
+                rb.velocity = Vector3.Lerp(initialVelocity, initialVelocity * afterSpeedPercent, t);
+
+                yield return null;
+            }
+        }
+        else
+        {
+            rb.velocity *= afterSpeedPercent;
+        }
+
+    }
+
     //이동 관련
     protected IEnumerator ObjectMover(GameObject target, Vector3 from, Vector3 to, float time)   //Stage에도 동일한 스크립트 존재
     {
