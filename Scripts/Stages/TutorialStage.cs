@@ -6,6 +6,7 @@ public class TutorialStage : Stage
 {
     public bool goNext = false;
     public GameObject greenBox;
+    public GameObject bossPointer;
 
     protected override void Start()
     {
@@ -150,11 +151,11 @@ public class TutorialStage : Stage
         TextAnimation(text);
 
         yield return new WaitForSeconds(7f);
-        text = "다음은 F를 눌러 슈터를 활성화/비활성화가 가능합니다.";
+        text = "다음은 F를 눌러 슈터를 활성화하거나 \n비활성화가 가능합니다.";
         TextAnimation(text);
 
         yield return new WaitForSeconds(7f);
-        text = "웁님을 향해 공격하는 방개를 향해 슈터로 공격해보도록 합시다.";
+        text = "웁님을 향해 공격하는 방개를 향해 슈터로\n공격해보도록 합시다.";
         TextAnimation(text);
 
         SpawnEnemy(Enemy[0], 0, 0, -50);
@@ -173,18 +174,18 @@ public class TutorialStage : Stage
         TextAnimation(text);
 
         yield return new WaitForSeconds(7f);
-        text = "다음은 Q를 눌러 궁극기를 사용할 수 있습니다.\n 궁극기는 좌측 하단 Bomb이 1개 이상일 때 사용 가능하며\n 사용 시 일정시간 무적이 되기도 합니다.";
+        text = "다음은 Q를 눌러 궁극기를 사용할 수 있습니다.\n 궁극기는 좌측 하단 Bomb이 1개 이상일 때\n사용 가능하며 사용 시 일정시간 무적이 됩니다.";
         TextAnimation(text);
 
         yield return new WaitForSeconds(7f);
-        text = "마지막으로 다시 한 번 방개들을 공격해보도록 합시다.";
+        text = "마지막으로 다시 한 번 방개들을 공격해주세요.";
         TextAnimation(text);
 
-        yield return new WaitForSeconds(7f);
         SpawnEnemy(Enemy[0], 0, 30, -50);
         SpawnEnemy(Enemy[0], -30, 0, -50);
         SpawnEnemy(Enemy[0], 30, 0, -50);
 
+        yield return new WaitForSeconds(7f);
         while (CheckEnemyExist())
         {
             yield return new WaitForSeconds(2f);
@@ -198,11 +199,12 @@ public class TutorialStage : Stage
         TextAnimation(text);
 
         yield return new WaitForSeconds(7f);
-        text = "화면 하단에는 방위표가 있으며, 적의 위치를 알려주기 때문에\n 적이 어디있는지 모르실 때 보시면 도움이 될 것입니다.";
+        text = "화면 하단에 표시되는 방위표가 적의 위치를 \n알려주기 때문에 필요할 때 보시면 \n도움이 될 것입니다.";
         TextAnimation(text);
 
         yield return new WaitForSeconds(7f);
-        text = "보스급 개체의 경우에는 방위표에 표시되진 않으며,\n 대신 웁님 주변에 포인터가 활성화되어 보스를 가리킵니다.";
+        text = "보스급 개체의 경우에는 방위표에 표시되진 않으며,\n 대신 웁님 주변에 포인터가 활성화되어 \n보스를 가리킵니다.";
+        if (bossPointer != null) bossPointer.SetActive(true);
         TextAnimation(text);
 
         yield return new WaitForSeconds(7f);

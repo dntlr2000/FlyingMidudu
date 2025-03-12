@@ -777,6 +777,7 @@ MonoBehaviour:
   BGM_Script: {fileID: 0}
   goNext: 0
   greenBox: {fileID: 7364057160420856165, guid: 19f2dcc02395f744fa6b20e1ab876206, type: 3}
+  bossPointer: {fileID: 1646971589}
 --- !u!1001 &1646971585
 PrefabInstance:
   m_ObjectHideFlags: 0

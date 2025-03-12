@@ -182,9 +182,8 @@ public class MulbumWoop : Enemy_Boss
                 BasicAttack(30, 10, attackPrefab[3]);
                 yield return new WaitForSeconds(0.3f);
             }
-            yield return new WaitForSeconds(1f);
             animator.SetInteger("Motion", 0);
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(2f);
 
 
             newPosition = new Vector3(playerCharacter.transform.position.x, playerCharacter.transform.position.y, -60);
