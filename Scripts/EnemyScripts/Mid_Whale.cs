@@ -67,7 +67,7 @@ public class Mid_Whale : Enemy_Boss
         Health = 1200f;
         TimerCoroutine = StartCoroutine(PhaseTimer(60));
         //StartCoroutine(mainCameraController.BossCutScene(2f));
-        CutScene(2f);
+        CutScene(3f);
         PlaySFX(2);
 
         SpellName = "창조주에 대한 분노 표출";

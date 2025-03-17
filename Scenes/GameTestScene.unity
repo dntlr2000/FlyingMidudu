@@ -812,6 +812,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1813949617169625419, guid: 6f136d425b244be41aebc766e34801d2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5438783265325327019, guid: 6f136d425b244be41aebc766e34801d2, type: 3}
       propertyPath: m_Name
       value: MulbumWoop
