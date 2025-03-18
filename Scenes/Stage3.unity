@@ -498,9 +498,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 4642805166104366220, guid: 24f0b67845f0cd64d88436dbf572e31c, type: 3}
+  - {fileID: 1517926332248108087, guid: 960eee809ada8604f908d0285ac5792b, type: 3}
+  - {fileID: 8587385076727712520, guid: 139db2c30a056594cb8294a4caae2c37, type: 3}
   Boss: {fileID: 1776675751}
   MidBoss: {fileID: 1923670125}
   Text: {fileID: 1726661149}
@@ -526,7 +526,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 452732258147512795, guid: 8f27ad41290da3c458673f748d71317f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Stage1
+      value: Stage3
       objectReference: {fileID: 0}
     - target: {fileID: 666427164208961391, guid: 8f27ad41290da3c458673f748d71317f, type: 3}
       propertyPath: m_text
@@ -662,7 +662,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4918586093976723982, guid: 8f27ad41290da3c458673f748d71317f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Stage1
+      value: Stage3
       objectReference: {fileID: 0}
     - target: {fileID: 5319060912171042313, guid: 8f27ad41290da3c458673f748d71317f, type: 3}
       propertyPath: m_margin.z
@@ -977,7 +977,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6602413828723633303, guid: d787a65e7508107469f0fda4fee5428a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
