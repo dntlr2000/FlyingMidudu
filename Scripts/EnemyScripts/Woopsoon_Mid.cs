@@ -69,13 +69,15 @@ public class Woopsoon_Mid : Enemy_Boss
         CutScene(2f);
         PlaySFX(2);
 
-        SpellName = "우우 쓰레기";
+        SpellName = "100인의 방개수호단";
         SpellCard(SpellName);
 
         yield return new WaitForSeconds(3f);
 
+        SpellName = "너희 중 죄 없는 자만\n 그에게 돌을 던져라.";
+        SpellCard(SpellName);
 
-        
+
     }
 
 

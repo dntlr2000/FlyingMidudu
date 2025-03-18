@@ -61,11 +61,11 @@ public class Woopsoon : Enemy_Boss
         TimerCoroutine = StartCoroutine(PhaseTimer(40));
         CutScene(2f);
         PlaySFX(2);
-        SpellName = "너희들 중 죄가 없는 자만이\n그에게 돌을 던져라";
+        SpellName = "자존심을 버리고\n조회수를 선택한 자의 말로";
         SpellCard(SpellName);
         while (true)
         {
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(3f);
             RandomMove(10f, 2f);
             
 
@@ -80,7 +80,7 @@ public class Woopsoon : Enemy_Boss
 
         while (true)
         {
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(3f);
             RandomMove(10f, 2f);
 
         }
@@ -97,7 +97,7 @@ public class Woopsoon : Enemy_Boss
         SpellCard(SpellName);
         while (true)
         {
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(3f);
             RandomMove(10f, 2f);
 
         }
@@ -111,7 +111,7 @@ public class Woopsoon : Enemy_Boss
         
         while (true)
         {
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(3f);
             RandomMove(10f, 2f);
 
         }
@@ -128,7 +128,7 @@ public class Woopsoon : Enemy_Boss
         SpellCard(SpellName);
         while (true)
         {
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(3f);
             RandomMove(10f, 2f);
 
         }
