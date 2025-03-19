@@ -72,7 +72,7 @@ public class Woopsoon_Mid : Enemy_Boss
         SpellName = "100인의 방개수호단";
         SpellCard(SpellName);
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(4f);
 
         SpellName = "너희 중 죄 없는 자만\n 그에게 돌을 던져라.";
         SpellCard(SpellName);

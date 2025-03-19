@@ -11,7 +11,7 @@ public class BangaeD : Enemy_Minion
         animator = GetComponent<Animator>();
 
         Life = 1;
-        Health = 80f;
+        Health = 100f;
 
         player = FindPlayer();
         if (player == null) return;
@@ -36,7 +36,7 @@ public class BangaeD : Enemy_Minion
             }
             else
             {
-                StartCoroutine(ObjectMover(new Vector3(transform.position.x + 20, transform.position.y + 20, transform.position.z - 30), 6f));
+                StartCoroutine(ObjectMover(new Vector3(transform.position.x + 20, transform.position.y - 20, transform.position.z + 30), 6f));
             }
             
         }
@@ -45,11 +45,11 @@ public class BangaeD : Enemy_Minion
             //Debug.Log("Right to Left");
             if (gameObject.transform.position.y < 0)
             {
-                StartCoroutine(ObjectMover(new Vector3(transform.position.x + 20, transform.position.y + 20, transform.position.z + 30), 6f));
+                StartCoroutine(ObjectMover(new Vector3(transform.position.x - 20, transform.position.y + 20, transform.position.z + 30), 6f));
             }
             else
             {
-                StartCoroutine(ObjectMover(new Vector3(transform.position.x + 20, transform.position.y + 20, transform.position.z - 30), 6f));
+                StartCoroutine(ObjectMover(new Vector3(transform.position.x - 20, transform.position.y - 20, transform.position.z + 30), 6f));
             }
         }
 

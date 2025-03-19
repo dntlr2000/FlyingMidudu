@@ -2948,7 +2948,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Stage1
+          m_StringArgument: Stage3
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2022979577
@@ -3402,6 +3402,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Audio_BGM
       objectReference: {fileID: 0}
+    - target: {fileID: 5787172020526292662, guid: 58b93238ed3493843835968d94673278, type: 3}
+      propertyPath: SFXClips.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787172020526292662, guid: 58b93238ed3493843835968d94673278, type: 3}
+      propertyPath: bgmClips.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787172020526292662, guid: 58b93238ed3493843835968d94673278, type: 3}
+      propertyPath: SFXClips.Array.data[6]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787172020526292662, guid: 58b93238ed3493843835968d94673278, type: 3}
+      propertyPath: SFXClips.Array.data[7]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787172020526292662, guid: 58b93238ed3493843835968d94673278, type: 3}
+      propertyPath: bgmClips.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: d0d1ecf9c697ac94a897952b83f88293, type: 3}
+    - target: {fileID: 5787172020526292662, guid: 58b93238ed3493843835968d94673278, type: 3}
+      propertyPath: bgmClips.Array.data[6]
+      value: 
+      objectReference: {fileID: 8300000, guid: 26dcccfba936ed042a6dfc7e2a3cd1b9, type: 3}
     - target: {fileID: 6892124870753956653, guid: 58b93238ed3493843835968d94673278, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

@@ -498,9 +498,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy:
-  - {fileID: 4642805166104366220, guid: 24f0b67845f0cd64d88436dbf572e31c, type: 3}
   - {fileID: 1517926332248108087, guid: 960eee809ada8604f908d0285ac5792b, type: 3}
   - {fileID: 8587385076727712520, guid: 139db2c30a056594cb8294a4caae2c37, type: 3}
+  - {fileID: 1210034810586387570, guid: 5959e153041bebb4286c37e79cf00eaf, type: 3}
+  - {fileID: 7965855144900372514, guid: 77a65c45530423d4ca23285f4d956611, type: 3}
   Boss: {fileID: 1776675751}
   MidBoss: {fileID: 1923670125}
   Text: {fileID: 1726661149}
