@@ -25,17 +25,25 @@ public class BangaeE : Enemy_Minion
     protected override IEnumerator AttackPattern()
     {
 
+        
+        //int index = 0;
+
+        for (int k = 0; k < 2; k++)
+        {
+            yield return new WaitForSeconds(1.5f);
+            RandomMove(2, 3f);
+            for (int i = 0; i < 3; i++)
+            {
+                yield return new WaitForSeconds(0.2f);
+                PlaySFX(5);
+
+                SlowdownAttack(50, 80, 4, player, AttackPrefab[0], 0.2f);
+            }
+            
+        }
         yield return new WaitForSeconds(1.5f);
 
-        RandomMove(2, 3f);
-        for (int i = 0; i < 5; i++)
-        {
-            yield return new WaitForSeconds(0.5f);
-            PlaySFX(5);
-            //BGM_Script.PlaySFX(3);
-            //SingleShot(40f, AttackPrefab[0], player);
-            SlowdownAttack(50, 80, 3, player, AttackPrefab[0], 0.2f);
-        }
+
         StartCoroutine(ObjectMover(new Vector3(transform.position.x, transform.position.y, -100), 4f));
     }
     

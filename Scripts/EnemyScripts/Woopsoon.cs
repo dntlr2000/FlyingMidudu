@@ -44,7 +44,7 @@ public class Woopsoon : Enemy_Boss
 
     protected override IEnumerator Phase6() //패턴 1 : 통상
     {
-        Health = 600f;
+        Health = 700f;
         TimerCoroutine = StartCoroutine(PhaseTimer(40));
         while (true)
         {
@@ -57,7 +57,7 @@ public class Woopsoon : Enemy_Boss
 
     protected override IEnumerator Phase5() //패턴 2 : 기술
     {
-        Health = 600f;
+        Health = 900f;
         TimerCoroutine = StartCoroutine(PhaseTimer(40));
         CutScene(2f);
         PlaySFX(2);
@@ -75,7 +75,7 @@ public class Woopsoon : Enemy_Boss
 
     protected override IEnumerator Phase4() //패턴 3 : 통상
     {
-        Health = 600f;
+        Health = 700f;
         TimerCoroutine = StartCoroutine(PhaseTimer(40));
 
         while (true)
@@ -89,7 +89,7 @@ public class Woopsoon : Enemy_Boss
 
     protected override IEnumerator Phase3() //패턴 4 : 기술
     {
-        Health = 600f;
+        Health = 900f;
         TimerCoroutine = StartCoroutine(PhaseTimer(40));
         CutScene(3f);
         PlaySFX(2);
@@ -106,7 +106,7 @@ public class Woopsoon : Enemy_Boss
 
     protected override IEnumerator Phase2() //패턴 5 : 통상
     {
-        Health = 600f;
+        Health = 700f;
         TimerCoroutine = StartCoroutine(PhaseTimer(40));
         
         while (true)
@@ -120,7 +120,7 @@ public class Woopsoon : Enemy_Boss
 
     protected override IEnumerator Phase1() //패턴 6 : 기술
     {
-        Health = 600f;
+        Health = 1100f;
         TimerCoroutine = StartCoroutine(PhaseTimer(40));
         CutScene(3f);
         PlaySFX(2);

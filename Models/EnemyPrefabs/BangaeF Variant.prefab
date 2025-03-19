@@ -10,7 +10,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1535306784124556251, guid: 35ce60070e386cc47bb1f910b73cafd7, type: 3}
       propertyPath: m_Name
-      value: Bangae_F Variant
+      value: BangaeF Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 2163225142741535073, guid: 35ce60070e386cc47bb1f910b73cafd7, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2163225142741535073, guid: 35ce60070e386cc47bb1f910b73cafd7, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2163225142741535073, guid: 35ce60070e386cc47bb1f910b73cafd7, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2163225142741535073, guid: 35ce60070e386cc47bb1f910b73cafd7, type: 3}
       propertyPath: m_LocalPosition.x

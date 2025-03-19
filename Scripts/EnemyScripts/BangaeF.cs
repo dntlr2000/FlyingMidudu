@@ -35,7 +35,7 @@ public class BangaeF : Enemy_Minion
                 PlaySFX(4);
                 //BGM_Script.PlaySFX(3);
                 //SingleShot(40f, AttackPrefab[0], player);
-                SlowdownAttack(30, 20, 4, player, AttackPrefab[0], 5f, 1f);
+                SlowdownAttack(30, 20, 4, player, AttackPrefab[0], 4, 1f);
             }
 
             RandomMove(20, 3f);

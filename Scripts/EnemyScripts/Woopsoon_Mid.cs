@@ -69,7 +69,7 @@ public class Woopsoon_Mid : Enemy_Boss
         CutScene(2f);
         PlaySFX(2);
 
-        SpellName = "100인의 방개수호단";
+        SpellName = "100인의 수호단";
         SpellCard(SpellName);
 
         yield return new WaitForSeconds(4f);

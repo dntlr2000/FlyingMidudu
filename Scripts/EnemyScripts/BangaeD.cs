@@ -60,7 +60,7 @@ public class BangaeD : Enemy_Minion
             PlaySFX(4);
             //BGM_Script.PlaySFX(3);
             //SingleShot(40f, AttackPrefab[0], player);
-            ShootAround(player, 40, AttackPrefab[0], 20, 40, 0.2f);
+            ShootAround(player, 30, AttackPrefab[0], 20, 40, 0.2f);
         }
         StartCoroutine(ObjectMover(new Vector3(transform.position.x, transform.position.y, -100), 8f));
 
@@ -70,7 +70,7 @@ public class BangaeD : Enemy_Minion
             PlaySFX(4);
             //BGM_Script.PlaySFX(3);
             //SingleShot(40f, AttackPrefab[0], player);
-            ShootAround(player, 40, AttackPrefab[0], 20, 40, 0.2f);
+            ShootAround(player, 30, AttackPrefab[0], 20, 40, 0.2f);
         }
         //RandomMove(2, 2f);
     }

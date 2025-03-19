@@ -23,45 +23,42 @@ public class Stage3 : Stage
     */
     protected override IEnumerator StagePhase1()
     {
-        //0: ¹æ°³D(±Ý¼Õ), 1:¹æ°³E(½Ê´ö), 2:¹æ°³F(½Ê´ö), 3:¹æ°³G(¿ó¶Ëµþ)
+        //0: ¹æ°³D(±Ý¼Õ), 1:¹æ°³E(½Ê´ö), 2:¹æ°³F(½Ê´ö), 3:¹æ°³G(¿ó¶Ëµþ), 4:¹æ°³B
 
         Debug.Log("Phase 1 Started");
         yield return new WaitForSeconds(6f);
 
-        SpawnEnemy(Enemy[0], 30, 0, -40);
+        SpawnEnemy(Enemy[0], 30, 0, -50);
         yield return new WaitForSeconds(0.3f);
-        SpawnEnemy(Enemy[3], -20, 5, -40);  
+        SpawnEnemy(Enemy[3], -20, 5, -50);  
         yield return new WaitForSeconds(0.3f);
-        SpawnEnemy(Enemy[3], -25, -5, -40);
+        SpawnEnemy(Enemy[3], -25, -5, -50);
         yield return new WaitForSeconds(0.3f);
-        SpawnEnemy(Enemy[3], -30, 0, -40);
+        SpawnEnemy(Enemy[3], -30, 0, -50);
         yield return new WaitForSeconds(0.3f);
-        SpawnEnemy(Enemy[3], -25, 5, -40);
+        SpawnEnemy(Enemy[3], -25, 5, -50);
         yield return new WaitForSeconds(9f);
 
-        SpawnEnemy(Enemy[0], -30, 0, -40);
+        SpawnEnemy(Enemy[0], -30, 0, -50);
         yield return new WaitForSeconds(0.3f);
-        SpawnEnemy(Enemy[3], 20, 5, -40);
+        SpawnEnemy(Enemy[3], 20, 5, -50);
         yield return new WaitForSeconds(0.3f);
-        SpawnEnemy(Enemy[3], 25, -5, -40);
+        SpawnEnemy(Enemy[3], 25, -5, -50);
         yield return new WaitForSeconds(0.3f);
-        SpawnEnemy(Enemy[3], 30, 0, -40);
+        SpawnEnemy(Enemy[3], 30, 0, -50);
         yield return new WaitForSeconds(0.3f);
-        SpawnEnemy(Enemy[3], 25, 5, -40);
+        SpawnEnemy(Enemy[3], 25, 5, -50);
         yield return new WaitForSeconds(9f);
 
 
-        SpawnEnemy(Enemy[0], 30, 0, -40);
+        SpawnEnemy(Enemy[0], 30, 0, -50);
         yield return new WaitForSeconds(0.2f);
         SpawnEnemy(Enemy[0], 30, 30, -50);
         yield return new WaitForSeconds(0.2f);
         SpawnEnemy(Enemy[0], -30, -30, -50);
         yield return new WaitForSeconds(0.2f);
         SpawnEnemy(Enemy[0], -30, 30, -50);
-        yield return new WaitForSeconds(0.2f);
-
-
-        
+        yield return new WaitForSeconds(9f);
 
 
         while (CheckEnemyExist())
@@ -89,28 +86,59 @@ public class Stage3 : Stage
 
     protected IEnumerator StagePhase3()
     {
-        
+
+        SpawnEnemy(Enemy[1], -30, 0, -40);
+
+        yield return new WaitForSeconds(0.3f);
+        SpawnEnemy(Enemy[0], 20, 5, -50);
+        yield return new WaitForSeconds(0.3f);
+        SpawnEnemy(Enemy[0], 25, -5, -50);
+        yield return new WaitForSeconds(0.3f);
+        SpawnEnemy(Enemy[0], 30, 0, -50);
+        yield return new WaitForSeconds(0.3f);
+        SpawnEnemy(Enemy[0], 25, 5, -50);
+        yield return new WaitForSeconds(12f);
+
+        for (int i = 0; i < 2;i++)
+        {
+            SpawnEnemy(Enemy[3], 20, 5, -40);
+            yield return new WaitForSeconds(0.3f);
+            SpawnEnemy(Enemy[3], 25, -5, -50);
+            yield return new WaitForSeconds(0.3f);
+            SpawnEnemy(Enemy[3], 30, 0, -50);
+            yield return new WaitForSeconds(0.3f);
+            SpawnEnemy(Enemy[3], 25, 5, -50);
+            yield return new WaitForSeconds(0.3f);
+            if (i == 1) SpawnEnemy(Enemy[1], -20, 0, -50);
+        }
+
+
 
         while (CheckEnemyExist())
         {
             yield return new WaitForSeconds(2f);
         }
-        Debug.Log("Phase 3 Clear");
-
+        Debug.Log("Phase 2 Clear");
 
         StartCoroutine(StagePhase4());
-
     }
 
     protected IEnumerator StagePhase4()
     {
-        SpawnEnemy(Enemy[3], 15, 0, -20);
-        SpawnEnemy(Enemy[3], -15, -10, -20);
-        SpawnEnemy(Enemy[1], 30, -10, -30);
-        SpawnEnemy(Enemy[3], 0, -10, -40);
-        SpawnEnemy(Enemy[1], -30, -10, -30);
-        SpawnEnemy(Enemy[2], -60, 10, -70);
-        SpawnEnemy(Enemy[2], 60, 10, -70);
+        SpawnEnemy(Enemy[2], 0, 10, -20);
+        SpawnEnemy(Enemy[2], 0, -10, -20);
+
+        SpawnEnemy(Enemy[0], 30, 10, -40);
+        yield return new WaitForSeconds(0.2f);
+        SpawnEnemy(Enemy[0], -30, -10, -40);
+        yield return new WaitForSeconds(4f);
+
+        SpawnEnemy(Enemy[0], -30, 10, -40);
+        yield return new WaitForSeconds(0.2f);
+        SpawnEnemy(Enemy[0], 30, -10, -40);
+        yield return new WaitForSeconds(0.2f);
+
+
 
         while (CheckEnemyExist())
         {
