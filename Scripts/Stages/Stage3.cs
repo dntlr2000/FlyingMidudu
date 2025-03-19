@@ -39,6 +39,7 @@ public class Stage3 : Stage
         SpawnEnemy(Enemy[3], -25, 5, -50);
         yield return new WaitForSeconds(9f);
 
+        /*
         SpawnEnemy(Enemy[0], -30, 0, -50);
         yield return new WaitForSeconds(0.3f);
         SpawnEnemy(Enemy[3], 20, 5, -50);
@@ -49,7 +50,7 @@ public class Stage3 : Stage
         yield return new WaitForSeconds(0.3f);
         SpawnEnemy(Enemy[3], 25, 5, -50);
         yield return new WaitForSeconds(9f);
-
+        */
 
         SpawnEnemy(Enemy[0], 30, 0, -50);
         yield return new WaitForSeconds(0.2f);
@@ -80,7 +81,6 @@ public class Stage3 : Stage
         }
         Debug.Log("Phase 2 Clear");
 
-        yield return new WaitForSeconds(2f);
         StartCoroutine(StagePhase3());
     }
 
@@ -88,7 +88,6 @@ public class Stage3 : Stage
     {
 
         SpawnEnemy(Enemy[1], -30, 0, -40);
-
         yield return new WaitForSeconds(0.3f);
         SpawnEnemy(Enemy[0], 20, 5, -50);
         yield return new WaitForSeconds(0.3f);
@@ -98,6 +97,7 @@ public class Stage3 : Stage
         yield return new WaitForSeconds(0.3f);
         SpawnEnemy(Enemy[0], 25, 5, -50);
         yield return new WaitForSeconds(12f);
+        
 
         for (int i = 0; i < 2;i++)
         {
@@ -125,8 +125,8 @@ public class Stage3 : Stage
 
     protected IEnumerator StagePhase4()
     {
-        SpawnEnemy(Enemy[2], 0, 10, -20);
-        SpawnEnemy(Enemy[2], 0, -10, -20);
+        SpawnEnemy(Enemy[2], 0, 10, -50);
+        SpawnEnemy(Enemy[2], 0, -10, -50);
 
         SpawnEnemy(Enemy[0], 30, 10, -40);
         yield return new WaitForSeconds(0.2f);

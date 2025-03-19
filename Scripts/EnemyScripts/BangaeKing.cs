@@ -113,7 +113,7 @@ public class BangaeKing : Enemy_Boss
         //StartCoroutine(mainCameraController.BossCutScene(3f));
         CutScene(3f);
         yield return new WaitForSeconds(2f);
-        SpellName = "[방개류] - 646개의 탄환";
+        SpellName = "6:4:6의 황금비";
         SpellCard(SpellName);
         yield return new WaitForSeconds(2f);
         SpawnEnemy(Minion, -20, -20, -30);

@@ -24,18 +24,18 @@ public class BangaeF : Enemy_Minion
 
     protected override IEnumerator AttackPattern()
     {
-        
 
         for (int k = 0; k < 5; k++)
         {
             yield return new WaitForSeconds(1.5f);
             for (int i = 0; i < 5; i++)
             {
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(0.2f);
                 PlaySFX(4);
                 //BGM_Script.PlaySFX(3);
                 //SingleShot(40f, AttackPrefab[0], player);
-                SlowdownAttack(30, 20, 4, player, AttackPrefab[0], 4, 1f);
+                //SlowdownAttack(30, 20, 4, player, AttackPrefab[0], 4, 1f);
+                BasicAttack(20, 60, 6, player, AttackPrefab[0]);
             }
 
             RandomMove(20, 3f);

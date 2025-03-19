@@ -11,7 +11,7 @@ public class BangaeG : Enemy_Minion
         animator = GetComponent<Animator>();
 
         Life = 1;
-        Health = 40f;
+        Health = 30f;
 
         player = FindPlayer();
         if (player == null) return;

@@ -58,7 +58,7 @@ public class Woopsoon : Enemy_Boss
     protected override IEnumerator Phase5() //패턴 2 : 기술
     {
         Health = 900f;
-        TimerCoroutine = StartCoroutine(PhaseTimer(40));
+        TimerCoroutine = StartCoroutine(PhaseTimer(60));
         CutScene(2f);
         PlaySFX(2);
         SpellName = "자존심을 버리고\n조회수를 선택한 자의 말로";
@@ -76,7 +76,7 @@ public class Woopsoon : Enemy_Boss
     protected override IEnumerator Phase4() //패턴 3 : 통상
     {
         Health = 700f;
-        TimerCoroutine = StartCoroutine(PhaseTimer(40));
+        TimerCoroutine = StartCoroutine(PhaseTimer(10));
 
         while (true)
         {
@@ -90,7 +90,7 @@ public class Woopsoon : Enemy_Boss
     protected override IEnumerator Phase3() //패턴 4 : 기술
     {
         Health = 900f;
-        TimerCoroutine = StartCoroutine(PhaseTimer(40));
+        TimerCoroutine = StartCoroutine(PhaseTimer(60));
         CutScene(3f);
         PlaySFX(2);
         SpellName = "모두의 아이돌은 죽지않아";
