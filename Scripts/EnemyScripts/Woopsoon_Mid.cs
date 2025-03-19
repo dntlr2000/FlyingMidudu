@@ -42,15 +42,15 @@ public class Woopsoon_Mid : Enemy_Boss
             {
                 RandomMove(10, 1f);
                 PlaySFX(4);
-                BasicAttack(80, 40, 4, playerCharacter, attackPrefab[0]);
+                BasicAttack(60, 40, 6, playerCharacter, attackPrefab[0]);
 
                 yield return new WaitForSeconds(1f);
             }
 
             PlaySFX(5);
-            BasicSpin(50, 50, attackPrefab[1], 20f);
-            BasicSpin(50, 40, attackPrefab[1], 15f);
-            BasicSpin(50, 30, attackPrefab[1], 10f);
+            BasicSpin(60, 50, attackPrefab[1], 10f);
+            BasicSpin(60, 40, attackPrefab[1], 15f);
+            BasicSpin(60, 30, attackPrefab[1], 20f);
 
             yield return new WaitForSeconds(3f);
         }
@@ -132,7 +132,7 @@ public class Woopsoon_Mid : Enemy_Boss
         myCollider.enabled = false;
 
         yield return new WaitForSeconds(1f);
-        Vector3 exitPosition = new Vector3(0, 0, -90);
+        Vector3 exitPosition = new Vector3(100, transform.position.y, transform.position.z);
         StartCoroutine(ObjectMover(exitPosition, 2f));
         yield return new WaitForSeconds(2f);
         Destroy(gameObject);

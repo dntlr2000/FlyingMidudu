@@ -11,7 +11,7 @@ public class BangaeE : Enemy_Minion
     animator = GetComponent<Animator>();
 
     Life = 1;
-    Health = 50f;
+    Health = 30f;
 
     player = FindPlayer();
     if (player == null) return;
@@ -37,7 +37,7 @@ public class BangaeE : Enemy_Minion
                 yield return new WaitForSeconds(0.2f);
                 PlaySFX(5);
 
-                SlowdownAttack(50, 80, 4, player, AttackPrefab[0], 0.2f);
+                SlowdownAttack(50, 70, 4, player, AttackPrefab[0], 0.2f);
             }
             
         }

@@ -11,7 +11,7 @@ public class BangaeG : Enemy_Minion
         animator = GetComponent<Animator>();
 
         Life = 1;
-        Health = 30f;
+        Health = 10f;
 
         player = FindPlayer();
         if (player == null) return;
@@ -52,7 +52,6 @@ public class BangaeG : Enemy_Minion
             }
         }
 
-        yield return new WaitForSeconds(1f);
 
         for (int i = 0; i < 20; i++)
         {
@@ -61,7 +60,7 @@ public class BangaeG : Enemy_Minion
             SingleShot(80, AttackPrefab[0], player);
         }
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
 
         StartCoroutine(ObjectMover(new Vector3(transform.position.x, 100, transform.position.z), 4f));
     }

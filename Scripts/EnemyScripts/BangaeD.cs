@@ -11,7 +11,7 @@ public class BangaeD : Enemy_Minion
         animator = GetComponent<Animator>();
 
         Life = 1;
-        Health = 100f;
+        Health = 50f;
 
         player = FindPlayer();
         if (player == null) return;
@@ -56,22 +56,12 @@ public class BangaeD : Enemy_Minion
 
         for (int i = 0; i < 3; i++)
         {
-            yield return new WaitForSeconds(2f);
             PlaySFX(4);
-            //BGM_Script.PlaySFX(3);
-            //SingleShot(40f, AttackPrefab[0], player);
             ShootAround(player, 30, AttackPrefab[0], 20, 40, 0.2f);
+            yield return new WaitForSeconds(2f);
         }
         StartCoroutine(ObjectMover(new Vector3(transform.position.x, transform.position.y, -100), 8f));
 
-        for (int i = 0; i < 3; i++)
-        {
-            yield return new WaitForSeconds(2f);
-            PlaySFX(4);
-            //BGM_Script.PlaySFX(3);
-            //SingleShot(40f, AttackPrefab[0], player);
-            ShootAround(player, 30, AttackPrefab[0], 20, 40, 0.2f);
-        }
-        //RandomMove(2, 2f);
     }
+    
 }

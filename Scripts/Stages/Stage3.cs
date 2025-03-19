@@ -37,9 +37,8 @@ public class Stage3 : Stage
         SpawnEnemy(Enemy[3], -30, 0, -50);
         yield return new WaitForSeconds(0.3f);
         SpawnEnemy(Enemy[3], -25, 5, -50);
-        yield return new WaitForSeconds(9f);
 
-        /*
+        yield return new WaitForSeconds(4f);
         SpawnEnemy(Enemy[0], -30, 0, -50);
         yield return new WaitForSeconds(0.3f);
         SpawnEnemy(Enemy[3], 20, 5, -50);
@@ -50,9 +49,9 @@ public class Stage3 : Stage
         yield return new WaitForSeconds(0.3f);
         SpawnEnemy(Enemy[3], 25, 5, -50);
         yield return new WaitForSeconds(9f);
-        */
 
-        SpawnEnemy(Enemy[0], 30, 0, -50);
+        /*
+        SpawnEnemy(Enemy[0], 30, 30, -50);
         yield return new WaitForSeconds(0.2f);
         SpawnEnemy(Enemy[0], 30, 30, -50);
         yield return new WaitForSeconds(0.2f);
@@ -60,7 +59,7 @@ public class Stage3 : Stage
         yield return new WaitForSeconds(0.2f);
         SpawnEnemy(Enemy[0], -30, 30, -50);
         yield return new WaitForSeconds(9f);
-
+        */
 
         while (CheckEnemyExist())
         {
@@ -99,17 +98,18 @@ public class Stage3 : Stage
         yield return new WaitForSeconds(12f);
         
 
-        for (int i = 0; i < 2;i++)
+        for (int i = 0; i < 4;i++)
         {
-            SpawnEnemy(Enemy[3], 20, 5, -40);
+            SpawnEnemy(Enemy[3], 20 - i * 10, 5, -50);
             yield return new WaitForSeconds(0.3f);
-            SpawnEnemy(Enemy[3], 25, -5, -50);
+            SpawnEnemy(Enemy[3], 25 - i * 10, -5, -50);
             yield return new WaitForSeconds(0.3f);
-            SpawnEnemy(Enemy[3], 30, 0, -50);
+            SpawnEnemy(Enemy[3], 30 - i * 10, 0, -50);
             yield return new WaitForSeconds(0.3f);
-            SpawnEnemy(Enemy[3], 25, 5, -50);
+            SpawnEnemy(Enemy[3], 25 - i * 10, 5, -50);
             yield return new WaitForSeconds(0.3f);
             if (i == 1) SpawnEnemy(Enemy[1], -20, 0, -50);
+            if (i == 3) SpawnEnemy(Enemy[1], 20, 0, -50);
         }
 
 
@@ -126,8 +126,10 @@ public class Stage3 : Stage
     protected IEnumerator StagePhase4()
     {
         SpawnEnemy(Enemy[2], 0, 10, -50);
-        SpawnEnemy(Enemy[2], 0, -10, -50);
+        //SpawnEnemy(Enemy[2], 0, -10, -50);
 
+
+        yield return new WaitForSeconds(0.2f);
         SpawnEnemy(Enemy[0], 30, 10, -40);
         yield return new WaitForSeconds(0.2f);
         SpawnEnemy(Enemy[0], -30, -10, -40);
