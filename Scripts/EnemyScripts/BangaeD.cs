@@ -57,7 +57,7 @@ public class BangaeD : Enemy_Minion
         for (int i = 0; i < 3; i++)
         {
             PlaySFX(4);
-            ShootAround(player, 30, AttackPrefab[0], 20, 40, 0.2f);
+            ShootAround(player, 30, AttackPrefab[0], 20, 40, 0.2f, 255, 201, 0);
             yield return new WaitForSeconds(2f);
         }
         StartCoroutine(ObjectMover(new Vector3(transform.position.x, transform.position.y, -100), 8f));

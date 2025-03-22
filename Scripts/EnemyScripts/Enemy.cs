@@ -184,8 +184,9 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    //공격 오브젝트 색상
     //공격 패턴
-    protected virtual void BasicAttack(int projectileNum, float launchForce, float angleDivision, GameObject target, GameObject prefab)
+    protected virtual void BasicAttack(int projectileNum, float launchForce, float angleDivision, GameObject target, GameObject prefab, float R = 125f, float G = 125f, float B = 125f)
     {
         Vector3 targetDirection = AimingWithoutLooking(target);
         Quaternion baseRotation = Quaternion.LookRotation(targetDirection);
@@ -213,12 +214,14 @@ public class Enemy : MonoBehaviour
             Quaternion rotation = Quaternion.LookRotation(direction);
             GameObject redBall = Instantiate(prefab, transform.position, rotation);
             Rigidbody rb = redBall.GetComponent<Rigidbody>();
+            AttackColor attackColor = redBall.GetComponent<AttackColor>();
+            if (attackColor != null) attackColor.SetAttackColor(R, G, B);
 
             rb.AddForce(direction * launchForce, ForceMode.Impulse);
         }
     } 
 
-    protected virtual void BasicAttack(int projectileNum, float launchForce, GameObject prefab)
+    protected virtual void BasicAttack(int projectileNum, float launchForce, GameObject prefab, float R = 125f, float G = 125f, float B = 125f)
     {
         // 자기 자신을 기준으로 구의 형태로 그대로 발사
         // 균등하게 퍼지도록 방향 조절
@@ -241,21 +244,26 @@ public class Enemy : MonoBehaviour
             Quaternion rotation = Quaternion.LookRotation(direction);
             GameObject redBall = Instantiate(prefab, transform.position, rotation);
             Rigidbody rb = redBall.GetComponent<Rigidbody>();
+            AttackColor attackColor = redBall.GetComponent<AttackColor>();
+            if (attackColor != null)
+                attackColor.SetAttackColor(R, G, B);
 
             rb.AddForce(direction * launchForce, ForceMode.Impulse);
         }
     }
 
-    protected void SingleShot(float launchForce, GameObject prefab, GameObject target)
+    protected void SingleShot(float launchForce, GameObject prefab, GameObject target, float R = 125f, float G = 125f, float B = 125f)
     {
         Vector3 targetDirection = AimingWithoutLooking(target);
         Quaternion rotation = Quaternion.LookRotation(targetDirection);
         GameObject redBall = Instantiate(prefab, transform.position, rotation);
         Rigidbody rb = redBall.GetComponent<Rigidbody>();
         rb.AddForce(targetDirection * launchForce, ForceMode.Impulse);
+        AttackColor attackColor = redBall.GetComponent<AttackColor>();
+        if (attackColor != null) attackColor.SetAttackColor(R, G, B);
     }
 
-    protected virtual void BasicSpin(int projectileNum, float launchForce, GameObject prefab, float rotationSpeed)
+    protected virtual void BasicSpin(int projectileNum, float launchForce, GameObject prefab, float rotationSpeed, float R = 125f, float G = 125f, float B = 125f)
     {
         //Vector3 rotationAxis = transform.position;
 
@@ -280,12 +288,14 @@ public class Enemy : MonoBehaviour
 
             Rigidbody rb = redBall.GetComponent<Rigidbody>();
             rb.AddForce(direction * launchForce, ForceMode.Impulse);
+            AttackColor attackColor = redBall.GetComponent<AttackColor>();
+            if (attackColor != null) attackColor.SetAttackColor(R, G, B);
 
             // 발사체에 회전 궤적 추가
             StartCoroutine(RotateAroundCenter(redBall.transform, rotationSpeed));
         }
     }
-    private IEnumerator RotateAroundCenter(Transform obj,  float speed)
+    protected IEnumerator RotateAroundCenter(Transform obj,  float speed)
     {
         while (obj != null && obj.transform != null) // obj와 transform이 null인지 확인
         {
@@ -296,7 +306,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    protected virtual void ShootAround(GameObject target, int num, GameObject prefab, float radius, float speed, float randSpeed)
+    protected virtual void ShootAround(GameObject target, int num, GameObject prefab, float radius, float speed, float randSpeed, float R = 125f, float G = 125f, float B = 125f)
     {
         Vector3 targetPosition = target.transform.position;
 
@@ -309,6 +319,8 @@ public class Enemy : MonoBehaviour
             Vector3 targetDirection = (targetPosition + randomOffset - transform.position).normalized;
             
             Rigidbody rb = projectile.GetComponent<Rigidbody>();
+            AttackColor attackColor = projectile.GetComponent<AttackColor>();
+            if (attackColor != null) attackColor.SetAttackColor(R, G, B);
 
             float randomSpeedFactor = Random.Range(1 - randSpeed, 1 + randSpeed);
             rb.velocity = targetDirection * speed * randomSpeedFactor;
@@ -316,14 +328,17 @@ public class Enemy : MonoBehaviour
 
     }
 
-    protected virtual void ShootLasers(GameObject target, int num, GameObject prefab, float radius)
+    protected virtual void ShootLasers(GameObject target, int num, GameObject prefab, float radius , float R = 125f, float G = 125f, float B = 125f)
     {
         
         Vector3 targetPosition = target.transform.position;
         for (int i = 0; i < num - 1; i++)
         {
             GameObject laser = Instantiate(prefab, transform.position + transform.up * 1f, transform.rotation * Quaternion.Euler(0, 0, 0));
-
+            
+            //AttackColor attackColor = laser.GetComponent<AttackColor>();
+            //attackColor.SetAttackColor(R, G, B);
+            
             //주변을 향해 발사
             Vector3 randomOffset = Random.onUnitSphere * radius; //(5: 반지름 크기)
             //randomOffset.y = 0;
@@ -365,7 +380,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    protected virtual void SlowdownAttack(int projectileNum, float launchForce, float angleDivision, GameObject target, GameObject prefab, float afterSpeedPercent = 0.1f, float delay = 0.5f, bool ifInstance = false)
+    protected virtual void SlowdownAttack(int projectileNum, float launchForce, float angleDivision, GameObject target, GameObject prefab, float R = 125f, float G = 125f, float B = 125f, float afterSpeedPercent = 0.1f, float delay = 0.5f, bool ifInstance = false)
     {
         Vector3 targetDirection = AimingWithoutLooking(target);
         Quaternion baseRotation = Quaternion.LookRotation(targetDirection);
@@ -393,6 +408,8 @@ public class Enemy : MonoBehaviour
             Quaternion rotation = Quaternion.LookRotation(direction);
             GameObject redBall = Instantiate(prefab, transform.position, rotation);
             Rigidbody rb = redBall.GetComponent<Rigidbody>();
+            AttackColor attackColor = redBall.GetComponent<AttackColor>();
+            if (attackColor != null) attackColor.SetAttackColor(R, G, B);
 
             rb.AddForce(direction * launchForce, ForceMode.Impulse);
 

@@ -50,12 +50,12 @@ public class BangaeB : Enemy_Minion
         }
         yield return new WaitForSeconds(1f);
         PlaySFX(5);
-        BasicAttack(60, 40, 2, player, AttackPrefab[0]);
+        BasicAttack(60, 40, 2, player, AttackPrefab[0], 199f, 96f, 47f);
     }
 
     protected override void Death() //잡몹은 생성한 공격 오브젝트를 삭제하지 않고 그냥 삭제
     {
-        ShootAround(player, 5, AttackPrefab[1], 10f, 30, 0.3f);
+        ShootAround(player, 5, AttackPrefab[1], 10f, 30, 0.3f, 212, 110, 110);
         base.Death();
     }
 }

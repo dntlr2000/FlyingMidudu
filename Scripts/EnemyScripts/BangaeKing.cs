@@ -51,13 +51,13 @@ public class BangaeKing : Enemy_Boss
             {
                 yield return new WaitForSeconds(0.5f); // 퍼지는 간격
                 PlaySFX(4);
-                BasicAttack(200, 20f, 2, playerCharacter, attackPrefab[1]);
+                BasicAttack(200, 20f, 2, playerCharacter, attackPrefab[1], 250, 0, 0);
             }
   
 
             yield return new WaitForSeconds(1f);
             PlaySFX(5);
-            BasicSpin(200, 20f, attackPrefab[0], 20f);
+            BasicSpin(200, 20f, attackPrefab[0], 20f, 0, 142, 224);
             
         }
     }
@@ -82,7 +82,7 @@ public class BangaeKing : Enemy_Boss
             {
                 yield return new WaitForSeconds(0.5f);
                 PlaySFX(4);
-                BasicAttack(20, 40f, 4, playerCharacter, attackPrefab[1]);
+                BasicAttack(20, 40f, 4, playerCharacter, attackPrefab[1], 250, 0, 0);
                 //SingleShot(30f, attackPrefab[2], playerCharacter);
             }
 
@@ -93,8 +93,8 @@ public class BangaeKing : Enemy_Boss
             {
                 yield return new WaitForSeconds(1f);
                 PlaySFX(5);
-                ShootAround(playerCharacter, 20, attackPrefab[0], 10f, 30f, 0.3f);
-                SingleShot(40f, attackPrefab[2], playerCharacter);
+                ShootAround(playerCharacter, 20, attackPrefab[0], 0.3f, 224, 146, 0);
+                SingleShot(40f, attackPrefab[2], playerCharacter, 0, 38, 224);
             }
             yield return new WaitForSeconds(0.5f);
 
@@ -127,9 +127,9 @@ public class BangaeKing : Enemy_Boss
             
             for (int i = 0;i < 5;i++) {
                 PlaySFX(4);
-                SingleShot(60f, attackPrefab[0], playerCharacter);
-                SingleShot(50f, attackPrefab[0], playerCharacter);
-                SingleShot(40f, attackPrefab[0], playerCharacter);
+                SingleShot(60f, attackPrefab[0], playerCharacter, 140, 20, 20);
+                SingleShot(50f, attackPrefab[0], playerCharacter, 20, 140, 20);
+                SingleShot(40f, attackPrefab[0], playerCharacter, 20, 20, 140);
                 yield return new WaitForSeconds(0.4f);
             }
             RandomMove(20, 2);

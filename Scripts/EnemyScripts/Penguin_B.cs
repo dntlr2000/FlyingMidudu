@@ -44,7 +44,7 @@ public class Penguin_B : Enemy_Minion {
             yield return new WaitForSeconds(1f); ;
 
             PlaySFX(5);
-            BasicAttack(30, 40, 3, player, AttackPrefab[0]);
+            BasicAttack(30, 40, 3, player, AttackPrefab[0], 240, 255, 49);
         }
         
     }

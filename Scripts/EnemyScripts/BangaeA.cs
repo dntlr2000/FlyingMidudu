@@ -30,12 +30,12 @@ public class BangaeA : Enemy_Minion
         if (gameObject.transform.position.x < 0)
         {
             //Debug.Log("Left to Right");
-            StartCoroutine(ObjectMover(new Vector3(transform.position.x + 80, transform.position.y, transform.position.z), 15f));
+            StartCoroutine(ObjectMover(new Vector3(transform.position.x + 100, transform.position.y, transform.position.z), 15f));
         }
         else
         {
             //Debug.Log("Right to Left");
-            StartCoroutine(ObjectMover(new Vector3(transform.position.x - 80, transform.position.y, transform.position.z), 15f));
+            StartCoroutine(ObjectMover(new Vector3(transform.position.x - 100, transform.position.y, transform.position.z), 15f));
         }
 
 
@@ -44,7 +44,7 @@ public class BangaeA : Enemy_Minion
             yield return new WaitForSeconds(1f);
             PlaySFX(4);
             //BGM_Script.PlaySFX(3);
-            SingleShot(40f, AttackPrefab[0], player);
+            SingleShot(40f, AttackPrefab[0], player, 200f, 0f, 0f);
         }
         StartCoroutine(ObjectMover(new Vector3(transform.position.x, transform.position.y, -100), 4f));
         //RandomMove(2, 2f);

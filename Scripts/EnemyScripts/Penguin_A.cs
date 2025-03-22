@@ -31,7 +31,7 @@ public class Penguin_A : Enemy_Minion
         {
             RandomMove(15, 2f);
             PlaySFX(4);
-            BasicAttack(20, 30, 4, player, AttackPrefab[0]);
+            BasicAttack(20, 30, 4, player, AttackPrefab[0], 125, 125, 125);
             yield return new WaitForSeconds(2f);
 
         }

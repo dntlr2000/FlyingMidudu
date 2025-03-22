@@ -1100,11 +1100,11 @@ PrefabInstance:
     - target: {fileID: 5849752337587785713, guid: 6c159fe5ad8453d4baf8be39f10c51a8, type: 3}
       propertyPath: attackPrefab.Array.data[0]
       value: 
-      objectReference: {fileID: 3184244041106848311, guid: 6aa3f8faa7a5b3d47836b118db0fba00, type: 3}
+      objectReference: {fileID: 3997560436894072735, guid: 24522f63ac445054e91b9f2aae0fd717, type: 3}
     - target: {fileID: 5849752337587785713, guid: 6c159fe5ad8453d4baf8be39f10c51a8, type: 3}
       propertyPath: attackPrefab.Array.data[1]
       value: 
-      objectReference: {fileID: 1917152215653351379, guid: f08675457aed81546a28b75f6020ac02, type: 3}
+      objectReference: {fileID: 3184244041106848311, guid: 6aa3f8faa7a5b3d47836b118db0fba00, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -174,7 +174,7 @@ MonoBehaviour:
   pointer: {fileID: 0}
   attackPrefab:
   - {fileID: 4475414099322364756, guid: 5b1094724de87fb42b7119fa27408dfa, type: 3}
-  - {fileID: 1917152215653351379, guid: f08675457aed81546a28b75f6020ac02, type: 3}
+  - {fileID: 3997560436894072735, guid: 24522f63ac445054e91b9f2aae0fd717, type: 3}
   HealthBarObject: {fileID: 0}
   DeathEffect1: {fileID: 1493947276669149963, guid: 8475583dc17922d4b8005149a568a499, type: 3}
   DeathEffect2: {fileID: 2390646017386113098, guid: 2986d99e92729114e964f16d9b4dbc8f, type: 3}

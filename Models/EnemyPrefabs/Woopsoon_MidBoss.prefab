@@ -179,6 +179,7 @@ MonoBehaviour:
   SpellText: {fileID: 0}
   BossText: {fileID: 0}
   stageScript: {fileID: 0}
+  Minion: {fileID: 0}
 --- !u!1 &5308115308111951479 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4951490640581391527, guid: eb0d1ba411e8ba34385ed0920b083d02, type: 3}

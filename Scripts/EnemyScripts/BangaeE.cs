@@ -37,7 +37,7 @@ public class BangaeE : Enemy_Minion
                 yield return new WaitForSeconds(0.2f);
                 PlaySFX(5);
 
-                SlowdownAttack(50, 70, 4, player, AttackPrefab[0], 0.2f);
+                SlowdownAttack(50, 70, 4, player, AttackPrefab[0], 255, 103, 255, 0.2f);
             }
             
         }

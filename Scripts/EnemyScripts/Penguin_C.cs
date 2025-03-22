@@ -46,7 +46,7 @@ public class Penguin_C : Enemy_Minion {
         {
             yield return new WaitForSeconds(0.4f); ;
             PlaySFX(5);
-            BasicAttack(60, 40, 3, player, AttackPrefab[0]);
+            BasicAttack(60, 40, 3, player, AttackPrefab[0], 108, 230, 227);
         }
         yield return new WaitForSeconds(2f);
         StartCoroutine(ObjectMover(new Vector3(transform.position.x, transform.position.y, -150), 4f));

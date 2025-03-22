@@ -33,7 +33,7 @@ public class MinionC : Enemy_Minion
         {
             //Debug.Log("Attack!");
             PlaySFX(4);
-            BasicAttack(50, 20f, 3, player, attackObject);
+            BasicAttack(50, 20f, 3, player, attackObject, 77, 191, 0);
             yield return new WaitForSeconds(2f);
 
         }

@@ -42,7 +42,7 @@ public class Mid_Whale : Enemy_Boss
             {
                 yield return new WaitForSeconds(0.3f);
                 PlaySFX(4);
-                BasicAttack(20, 40f, 5, playerCharacter, attackPrefab[0]);
+                BasicAttack(20, 40f, 5, playerCharacter, attackPrefab[0], 0, 115, 255);
                 //SingleShot(30f, attackPrefab[2], playerCharacter);
             }
 
@@ -51,7 +51,7 @@ public class Mid_Whale : Enemy_Boss
             {
                 yield return new WaitForSeconds(0.3f);
                 PlaySFX(4);
-                ShootAround(playerCharacter, 20, attackPrefab[1], 20f, 30, 0.2f);
+                ShootAround(playerCharacter, 20, attackPrefab[1], 20f, 30, 0.2f, 116, 179, 255);
                 //SingleShot(30f, attackPrefab[2], playerCharacter);
             }
 
@@ -80,8 +80,9 @@ public class Mid_Whale : Enemy_Boss
         {
             for (int i = 0; i < 10; i++)
             {
-                ShootandFall(10, attackPrefab[1]);
+                ShootandFall(20, attackPrefab[0]);
                 yield return new WaitForSeconds(0.2f);
+                PlaySFX(4);
             }
             RandomMove(10, 1);
         }
@@ -115,7 +116,8 @@ public class Mid_Whale : Enemy_Boss
         for (int i = 0; i < num; i++)
         {
             GameObject projectile = Instantiate(prefab, transform.position, Quaternion.identity);
-
+            AttackColor attackColor = projectile.GetComponent<AttackColor>();
+            attackColor.SetAttackColor(0, 116, 184);
             //주변을 향해 발사
             Vector3 randomOffset = Random.onUnitSphere * radius; //(5: 반지름 크기)
             Vector3 targetDirection = (targetPosition + randomOffset - transform.position).normalized;

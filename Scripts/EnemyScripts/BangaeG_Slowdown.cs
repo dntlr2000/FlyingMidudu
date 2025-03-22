@@ -40,7 +40,7 @@ public class BangaeG_Slowdown : BangaeG
         for (int i = 0; i < 2; i++)
         {
             PlaySFX(4);
-            SingleShot(60, AttackPrefab[0], player);
+            SingleShot(60, AttackPrefab[0], player, 255, 103, 136);
             yield return new WaitForSeconds(4f);
         }
 

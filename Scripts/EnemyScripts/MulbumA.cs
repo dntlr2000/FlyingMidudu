@@ -31,7 +31,8 @@ public class MulbumA : Enemy_Minion
             //Debug.Log("Attack!");
             yield return new WaitForSeconds(2f);
             //SingleShot(40f, AttackPrefab[0], player);
-            BasicAttack(6, 30, 6, player, AttackPrefab[0]);
+            BasicAttack(6, 30, 6, player, AttackPrefab[0], 0, 92, 255);
+            PlaySFX(5);
         }
 
         yield return new WaitForSeconds(1f);
@@ -43,7 +44,8 @@ public class MulbumA : Enemy_Minion
         {
             //Debug.Log("Attack!");
             yield return new WaitForSeconds(0.5f);
-            SingleShot(40f, AttackPrefab[0], player);
+            SingleShot(40f, AttackPrefab[0], player, 255, 0, 0);
+            PlaySFX(4);
         }
 
     }

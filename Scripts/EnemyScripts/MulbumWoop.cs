@@ -51,9 +51,9 @@ public class MulbumWoop : Enemy_Boss
             RandomMove(10f, 2f);
             for (int i = 0; i < 10; i++)
             {
-                ShootAround(playerCharacter, 6, attackPrefab[0], 30, 40, 0.3f);
+                ShootAround(playerCharacter, 6, attackPrefab[0], 30, 40, 0.3f, 108, 230, 227);
                 PlaySFX(4);
-                SingleShot(55, attackPrefab[1], playerCharacter);
+                SingleShot(55, attackPrefab[1], playerCharacter, 9, 41, 214);
                 yield return new WaitForSeconds(0.3f);
             }
             
@@ -142,8 +142,8 @@ public class MulbumWoop : Enemy_Boss
             
             for (int i = 0; i < 15; i++)
             {
-                ShootAround(playerCharacter, 10, attackPrefab[0], 40, 50, 0.2f);
-                SingleShot(70, attackPrefab[1], playerCharacter);
+                ShootAround(playerCharacter, 10, attackPrefab[0], 40, 50, 0.2f, 108, 230, 227);
+                SingleShot(70, attackPrefab[1], playerCharacter, 66, 203, 245);
                 PlaySFX(4);
                 yield return new WaitForSeconds(0.2f);
             }
@@ -179,7 +179,7 @@ public class MulbumWoop : Enemy_Boss
             for (int i = 0; i < 5; i++)
             {
                 PlaySFX(5);
-                BasicAttack(30, 10, attackPrefab[3]);
+                BasicAttack(30, 20, attackPrefab[3], 66, 203, 245);
                 yield return new WaitForSeconds(0.3f);
             }
             animator.SetInteger("Motion", 0);
@@ -192,7 +192,7 @@ public class MulbumWoop : Enemy_Boss
             for (int i = 0; i < 10; i++)
             {
                 PlaySFX(4);
-                SingleShot(30f, attackPrefab[0], playerCharacter);
+                SingleShot(30f, attackPrefab[0], playerCharacter, 255, 0, 0);
                 yield return new WaitForSeconds(0.2f);
             }
 

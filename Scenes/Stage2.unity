@@ -1167,9 +1167,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 567272871}
     - target: {fileID: 8894379786861164034, guid: 3877dba0a2ca4704e9e79c44571a8b15, type: 3}
+      propertyPath: attackPrefab.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8894379786861164034, guid: 3877dba0a2ca4704e9e79c44571a8b15, type: 3}
       propertyPath: attackPrefab.Array.data[0]
       value: 
-      objectReference: {fileID: 3705956300503616532, guid: 69ad4730086293c488d74dd2d03669d3, type: 3}
+      objectReference: {fileID: 3997560436894072735, guid: 24522f63ac445054e91b9f2aae0fd717, type: 3}
+    - target: {fileID: 8894379786861164034, guid: 3877dba0a2ca4704e9e79c44571a8b15, type: 3}
+      propertyPath: attackPrefab.Array.data[1]
+      value: 
+      objectReference: {fileID: 78620761728142502, guid: 69ad4730086293c488d74dd2d03669d3, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1294,11 +1302,11 @@ PrefabInstance:
     - target: {fileID: 2046489937177103189, guid: 6f136d425b244be41aebc766e34801d2, type: 3}
       propertyPath: attackPrefab.Array.data[0]
       value: 
-      objectReference: {fileID: 3184244041106848311, guid: 6aa3f8faa7a5b3d47836b118db0fba00, type: 3}
+      objectReference: {fileID: 3997560436894072735, guid: 24522f63ac445054e91b9f2aae0fd717, type: 3}
     - target: {fileID: 2046489937177103189, guid: 6f136d425b244be41aebc766e34801d2, type: 3}
       propertyPath: attackPrefab.Array.data[1]
       value: 
-      objectReference: {fileID: 1917152215653351379, guid: f08675457aed81546a28b75f6020ac02, type: 3}
+      objectReference: {fileID: 3184244041106848311, guid: 6aa3f8faa7a5b3d47836b118db0fba00, type: 3}
     - target: {fileID: 2046489937177103189, guid: 6f136d425b244be41aebc766e34801d2, type: 3}
       propertyPath: attackPrefab.Array.data[2]
       value: 
@@ -1306,7 +1314,7 @@ PrefabInstance:
     - target: {fileID: 2046489937177103189, guid: 6f136d425b244be41aebc766e34801d2, type: 3}
       propertyPath: attackPrefab.Array.data[3]
       value: 
-      objectReference: {fileID: 3705956300503616532, guid: 69ad4730086293c488d74dd2d03669d3, type: 3}
+      objectReference: {fileID: 78620761728142502, guid: 69ad4730086293c488d74dd2d03669d3, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

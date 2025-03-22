@@ -72,9 +72,9 @@ public class Woopsoon_Mid : Enemy_Boss
         int Y = 0 ;
 
         yield return new WaitForSeconds(4f);
-
         for (int i = 0; i < 5; i++)
         {
+            RandomMove(20, 5f);
             for (int k = 0; k < 20; k++)
             {
                 X = Random.Range(-40, 40);
@@ -89,11 +89,10 @@ public class Woopsoon_Mid : Enemy_Boss
             for (int k = 0; k < 8; k++)
             {
                 PlaySFX(5);
-                SlowdownAttack(20, 20, 3, playerCharacter, attackPrefab[1], 4, 1);
+                SlowdownAttack(20, 20, 3, playerCharacter, attackPrefab[1], 125, 125, 125, 4, 1, false) ;
                 yield return new WaitForSeconds(0.5f);
             }
 
-            RandomMove(20, 2f);
             yield return new WaitForSeconds(2f);
 
 
