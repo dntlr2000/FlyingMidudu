@@ -93,7 +93,7 @@ public class BangaeKing : Enemy_Boss
             {
                 yield return new WaitForSeconds(1f);
                 PlaySFX(5);
-                ShootAround(playerCharacter, 20, attackPrefab[0], 0.3f, 224, 146, 0);
+                ShootAround(playerCharacter, 20, attackPrefab[0], 0.3f, 30f, 0.25f, 224, 146, 0);
                 SingleShot(40f, attackPrefab[2], playerCharacter, 0, 38, 224);
             }
             yield return new WaitForSeconds(0.5f);
@@ -127,9 +127,9 @@ public class BangaeKing : Enemy_Boss
             
             for (int i = 0;i < 5;i++) {
                 PlaySFX(4);
-                SingleShot(60f, attackPrefab[0], playerCharacter, 140, 20, 20);
-                SingleShot(50f, attackPrefab[0], playerCharacter, 20, 140, 20);
-                SingleShot(40f, attackPrefab[0], playerCharacter, 20, 20, 140);
+                SingleShot(60f, attackPrefab[0], playerCharacter, 255, 36, 0);
+                SingleShot(50f, attackPrefab[0], playerCharacter, 255, 36, 0);
+                SingleShot(40f, attackPrefab[0], playerCharacter, 255, 36, 0);
                 yield return new WaitForSeconds(0.4f);
             }
             RandomMove(20, 2);

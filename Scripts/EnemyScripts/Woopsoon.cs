@@ -5,6 +5,11 @@ using UnityEngine;
 public class Woopsoon : Enemy_Boss
 {
     private GameObject playerCharacter;
+    public GameObject Satelite;
+    private SateliteController sateliteController;
+
+    private GameObject satelite1;
+    private GameObject satelite2;
 
     protected override void Start()
     {
@@ -18,6 +23,9 @@ public class Woopsoon : Enemy_Boss
         base.Start();
 
         healthBar.SetName("Woopsoon");
+        sateliteController = Satelite.GetComponent<SateliteController>();
+        satelite1 = sateliteController.Satelite1;
+        satelite2 = sateliteController.Satelite2;
     }
 
     protected override void PhaseSetter(int remainLife)
@@ -95,6 +103,7 @@ public class Woopsoon : Enemy_Boss
         PlaySFX(2);
         SpellName = "모두의 아이돌은 죽지않아";
         SpellCard(SpellName);
+        sateliteController.SetMotion(2);
         while (true)
         {
             yield return new WaitForSeconds(3f);

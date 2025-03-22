@@ -9,7 +9,7 @@ public class Stage3 : Stage
     {
         text = $"제 3장\n세상과 격리된 장소, 무릉에 내려온다는\n흰 머리의 선녀로부터 날개옷을 구해야 한다는\n정보를 입수한 흰 머리 악인은 선녀를\n 사모하는 방개들에게 둘러싸였습니다.";
         base.Start();
-        NextStageName = "Stage3";
+        NextStageName = "Stage4";
         SetBGM(5);
 
     }
