@@ -131,6 +131,7 @@ public class Woopsoon : Enemy_Boss
         TimerCoroutine = StartCoroutine(PhaseTimer(10));
 
         yield return new WaitForSeconds(2f);
+        StartCoroutine(ObjectMover(new Vector3(0, 0, -50), 2f));
         while (true)
         {
 
@@ -155,14 +156,16 @@ public class Woopsoon : Enemy_Boss
         PlaySFX(2);
         SpellName = "츤데레 피그말리온";
         SpellCard(SpellName);
+
         yield return new WaitForSeconds(1.5f);
         sateliteController.SetMotion(2);
         yield return new WaitForSeconds(0.1f);
         sateliteController.TurnTrail();
         yield return new WaitForSeconds(0.9f);
+
+
         while (true)
         {
-            RandomMove(10f, 2f);
             for (int i = 0; i < 10; i++)
             {
                 SlowdownAttack(satelite1, 40, 10f, 4, playerCharacter, attackPrefab[2], 125, 125, 125, 8f, 1.5f);
@@ -172,6 +175,7 @@ public class Woopsoon : Enemy_Boss
             }
 
             yield return new WaitForSeconds(2.5f);
+            RandomMove(10f, 2f);
         }
 
     }
@@ -183,11 +187,18 @@ public class Woopsoon : Enemy_Boss
         sateliteController.TurnTrail();
         yield return new WaitForSeconds(2f);
         StartCoroutine(ObjectMover(new Vector3(0, 0, -50), 3f));
+
         while (true)
         {
-           
-            RandomMove(10f, 2f);
-            yield return new WaitForSeconds(3f);
+           for (int i = 0; i < 10; i++)
+            {
+                BasicAttack(30, 50f, 4f, playerCharacter, attackPrefab[1], 0, 82, 204);
+                BasicAttack(30, 30f, 4f, playerCharacter, attackPrefab[0], 125, 125, 125);
+                PlaySFX(4);
+                yield return new WaitForSeconds(0.2f);
+            }
+            RandomMove(10f, 3f);
+            yield return new WaitForSeconds(1f);
         }
 
     }
@@ -200,8 +211,32 @@ public class Woopsoon : Enemy_Boss
         PlaySFX(2);
         SpellName = "자존심을 버리고\n조회수를 선택한 자의 말로";
         SpellCard(SpellName);
+        yield return new WaitForSeconds(3f);
         while (true)
         {
+            for (int i = 0; i< 5; i++)
+            {
+                SlowdownAttack(100, 60, 2f, playerCharacter, attackPrefab[2], 255, 153, 230, 0.2f);
+                PlaySFX(4);
+                yield return new WaitForSeconds(0.2f);
+            }
+
+            yield return new WaitForSeconds(1f);
+
+            PlaySFX(5);
+            BasicSpin(100, 40f, attackPrefab[3], 30f, 125, 125, 125);
+            BasicSpin(100, 40f, attackPrefab[3], -30f, 125, 125, 125);
+
+            yield return new WaitForSeconds(1f);
+
+            RandomMove(10f, 2f);
+            for (int i = 0; i < 10; i++)
+            {
+                ShootAround(playerCharacter, 20, attackPrefab[0], 10, 50, 0.2f, 179, 0, 134);
+                PlaySFX(4);
+                yield return new WaitForSeconds(0.1f);
+            }
+
             yield return new WaitForSeconds(3f);
             RandomMove(10f, 2f);
 
