@@ -19,8 +19,7 @@ public class MainMenu : MenuParent
     // Update is called once per frame
 
     public void StartGame(string StageName = "Stage1")
-    {
-        //BGM_Script.PauseBGM();
+    {        //BGM_Script.PauseBGM();
         BGM_Script.PlaySFX(0);
         StageLoader(StageName);
     }

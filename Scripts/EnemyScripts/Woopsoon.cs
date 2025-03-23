@@ -23,10 +23,13 @@ public class Woopsoon : Enemy_Boss
         base.Start();
 
         healthBar.SetName("Woopsoon");
+
         sateliteController = Satelite.GetComponent<SateliteController>();
         satelite1 = sateliteController.Satelite1;
         satelite2 = sateliteController.Satelite2;
+        //Satelite.SetActive(false);
     }
+
 
     protected override void PhaseSetter(int remainLife)
     {
@@ -54,43 +57,92 @@ public class Woopsoon : Enemy_Boss
     {
         Health = 700f;
         TimerCoroutine = StartCoroutine(PhaseTimer(40));
+        skillMotion(0, 2f);
+
+        yield return new WaitForSeconds(1f);
+        //Satelite.SetActive(true);
+        sateliteSetter();
+        sateliteController.SetMotion(1);
+        yield return new WaitForSeconds(1f);
         while (true)
         {
-            yield return new WaitForSeconds(2f);
             RandomMove(10f, 2f);
-            
+
+            for (int k = 0; k < 2; k++)
+            {
+                for (int i = 0; i < 5; i++)
+                {
+                    BasicAttack(satelite1, 6, 40f, 12f, playerCharacter, attackPrefab[1], 179, 0, 134);
+                    PlaySFX(4);
+                    yield return new WaitForSeconds(0.1f);
+                }
+                yield return new WaitForSeconds(0.5f);
+            }
+
+            RandomMove(10f, 2f);
+            for (int i = 0; i < 5; i++)
+            {
+                BasicAttack(60, 30f, 4f, playerCharacter, attackPrefab[0], 255, 153, 230);
+                PlaySFX(5);
+                yield return new WaitForSeconds(0.2f);
+            }
+            yield return new WaitForSeconds(2f);
         }
 
     }
 
     protected override IEnumerator Phase5() //패턴 2 : 기술
     {
+        sateliteController.SetMotion(0);
+        //Satelite.SetActive(false);
+
         Health = 900f;
         TimerCoroutine = StartCoroutine(PhaseTimer(60));
         CutScene(2f);
         PlaySFX(2);
-        SpellName = "자존심을 버리고\n조회수를 선택한 자의 말로";
+        SpellName = "인방계의 헤르마프로디토스";
         SpellCard(SpellName);
+        yield return new WaitForSeconds(3f);
         while (true)
         {
-            yield return new WaitForSeconds(3f);
-            RandomMove(10f, 2f);
-            
+            RandomMove(20f, 4f);
+            for (int i = 0; i < 10; i++)
+            {
+                BasicAttack(satelite1, 30, 30f, 4f, playerCharacter, attackPrefab[0], 125, 125, 125);
 
+                BasicAttack(satelite2, 30, 30f, 4f, playerCharacter, attackPrefab[0], 125, 125, 125);
+                PlaySFX(4);
+                yield return new WaitForSeconds(0.3f);
+                BasicAttack(60, 40f, 3f, playerCharacter, attackPrefab[2], 0, 82, 204);
+                PlaySFX(4);
+                yield return new WaitForSeconds(0.3f);
+            }
+
+
+            yield return new WaitForSeconds(2f);
         }
 
     }
 
     protected override IEnumerator Phase4() //패턴 3 : 통상
     {
-        Health = 700f;
+        skillMotion(0, 2f);
+        Health = 200f;
         TimerCoroutine = StartCoroutine(PhaseTimer(10));
 
+        yield return new WaitForSeconds(2f);
         while (true)
         {
-            yield return new WaitForSeconds(3f);
-            RandomMove(10f, 2f);
 
+            BasicSpin(100, 40f, attackPrefab[1], 30f, 125, 125, 125);
+            PlaySFX(5);
+
+
+            yield return new WaitForSeconds(0.5f);
+            BasicSpin(100, 40f, attackPrefab[1], -30f, 0, 82, 204);
+            PlaySFX(5);
+
+            yield return new WaitForSeconds(0.5f);
         }
 
     }
@@ -101,14 +153,25 @@ public class Woopsoon : Enemy_Boss
         TimerCoroutine = StartCoroutine(PhaseTimer(60));
         CutScene(3f);
         PlaySFX(2);
-        SpellName = "모두의 아이돌은 죽지않아";
+        SpellName = "츤데레 피그말리온";
         SpellCard(SpellName);
+        yield return new WaitForSeconds(1.5f);
         sateliteController.SetMotion(2);
+        yield return new WaitForSeconds(0.1f);
+        sateliteController.TurnTrail();
+        yield return new WaitForSeconds(0.9f);
         while (true)
         {
-            yield return new WaitForSeconds(3f);
             RandomMove(10f, 2f);
+            for (int i = 0; i < 10; i++)
+            {
+                SlowdownAttack(satelite1, 40, 10f, 4, playerCharacter, attackPrefab[2], 125, 125, 125, 8f, 1.5f);
+                SlowdownAttack(satelite2, 40, 10f, 4, playerCharacter, attackPrefab[2], 0, 82, 204, 8f, 1.5f);
+                PlaySFX(4);
+                yield return new WaitForSeconds(0.1f);
+            }
 
+            yield return new WaitForSeconds(2.5f);
         }
 
     }
@@ -117,12 +180,14 @@ public class Woopsoon : Enemy_Boss
     {
         Health = 700f;
         TimerCoroutine = StartCoroutine(PhaseTimer(40));
-        
+        sateliteController.TurnTrail();
+        yield return new WaitForSeconds(2f);
+        StartCoroutine(ObjectMover(new Vector3(0, 0, -50), 3f));
         while (true)
         {
-            yield return new WaitForSeconds(3f);
+           
             RandomMove(10f, 2f);
-
+            yield return new WaitForSeconds(3f);
         }
 
     }
@@ -133,7 +198,7 @@ public class Woopsoon : Enemy_Boss
         TimerCoroutine = StartCoroutine(PhaseTimer(40));
         CutScene(3f);
         PlaySFX(2);
-        SpellName = "수많은 팬아트의 힘을 빌려...!";
+        SpellName = "자존심을 버리고\n조회수를 선택한 자의 말로";
         SpellCard(SpellName);
         while (true)
         {
@@ -142,5 +207,25 @@ public class Woopsoon : Enemy_Boss
 
         }
 
+    }
+    private void sateliteSetter()
+    {
+        if (sateliteController != null) return;
+        if (Satelite != null)
+        {
+            sateliteController = Satelite.GetComponent<SateliteController>();
+            satelite1 = sateliteController.Satelite1;
+            satelite2 = sateliteController.Satelite2;
+        }
+    }
+
+    private IEnumerator satelitePattern(int num, float duration = 1f)
+    {
+        Satelite.SetActive(true);
+        sateliteSetter();
+        sateliteController.SetMotion(num);
+        yield return new WaitForSeconds(duration);
+        Satelite.SetActive(false);
+        yield return null;
     }
 }
