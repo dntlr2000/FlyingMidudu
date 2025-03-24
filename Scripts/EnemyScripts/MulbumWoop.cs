@@ -32,10 +32,15 @@ public class MulbumWoop : Enemy_Boss
             StartCoroutine(skillMotion(3));
             PlayerCamera.CameraShake(1);
         }
-        if (remainLife == 1)
+        else if (remainLife == 1)
         {            
             StartCoroutine(skillMotion(4));
             PlayerCamera.CameraShake(1);
+        }
+
+        else
+        {
+            StartCoroutine(skillMotion(0, 2f));
         }
 
 

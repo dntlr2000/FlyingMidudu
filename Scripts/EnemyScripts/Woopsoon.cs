@@ -38,15 +38,19 @@ public class Woopsoon : Enemy_Boss
         {
             StartCoroutine(skillMotion(1));
         }
-        if (remainLife == 3)
+        else if (remainLife == 3)
         {
             StartCoroutine(skillMotion(2));
 
         }
-        if (remainLife == 1)
+        else if (remainLife == 1)
         {
             StartCoroutine(skillMotion(3));
 
+        }
+        else
+        {
+            StartCoroutine(skillMotion(0, 2f));
         }
 
 
@@ -126,7 +130,7 @@ public class Woopsoon : Enemy_Boss
 
     protected override IEnumerator Phase4() //패턴 3 : 통상
     {
-        skillMotion(0, 2f);
+        //skillMotion(0, 2f);
         Health = 200f;
         TimerCoroutine = StartCoroutine(PhaseTimer(10));
 
@@ -211,7 +215,7 @@ public class Woopsoon : Enemy_Boss
         PlaySFX(2);
         SpellName = "자존심을 버리고\n조회수를 선택한 자의 말로";
         SpellCard(SpellName);
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(4f);
         while (true)
         {
             for (int i = 0; i< 5; i++)
@@ -232,12 +236,12 @@ public class Woopsoon : Enemy_Boss
             RandomMove(10f, 2f);
             for (int i = 0; i < 10; i++)
             {
-                ShootAround(playerCharacter, 20, attackPrefab[0], 10, 50, 0.2f, 179, 0, 134);
+                ShootAround(playerCharacter, 20, attackPrefab[0], 30, 50, 0.2f, 179, 0, 134);
                 PlaySFX(4);
                 yield return new WaitForSeconds(0.1f);
             }
 
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(2f);
             RandomMove(10f, 2f);
 
         }

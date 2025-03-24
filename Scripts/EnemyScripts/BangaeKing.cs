@@ -32,6 +32,7 @@ public class BangaeKing : Enemy_Boss
             PlayerCamera.CameraShake(1);
         }
 
+
         Debug.Log($"방개킹의 남은 목숨: {Life}");
     }
 
