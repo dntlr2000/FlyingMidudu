@@ -224,8 +224,10 @@ public class Enemy : MonoBehaviour
 
     protected virtual void BasicAttack(GameObject Spawner, int projectileNum, float launchForce, float angleDivision, GameObject target, GameObject prefab, float R = 125f, float G = 125f, float B = 125f)
     {
+        //Vector3 targetDirection = (target.transform.position - Spawner.transform.position).normalized;
+        // 이 버전은 그냥 주변 쏘는 느낌으로??
         Vector3 targetDirection = AimingWithoutLooking(target);
-        
+
         Quaternion baseRotation = Quaternion.LookRotation(targetDirection);
 
         // 균등하게 퍼지도록 방향 조절
@@ -260,9 +262,8 @@ public class Enemy : MonoBehaviour
 
     protected virtual void BasicAttack(Transform Spawner, int projectileNum, float launchForce, float angleDivision, GameObject target, GameObject prefab, float R = 125f, float G = 125f, float B = 125f)
     {
-        Vector3 targetDirection = AimingWithoutLooking(target);
+        Vector3 targetDirection = (target.transform.position - Spawner.position).normalized;
         Quaternion baseRotation = Quaternion.LookRotation(targetDirection);
-        Vector3 directTargetDirection = -(target.transform.position - Spawner.position).normalized;
 
         // 균등하게 퍼지도록 방향 조절
         float goldenRatio = (1 + Mathf.Sqrt(5)) / 2;
@@ -325,6 +326,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
+
     protected void SingleShot(float launchForce, GameObject prefab, GameObject target, float R = 125f, float G = 125f, float B = 125f)
     {
         Vector3 targetDirection = AimingWithoutLooking(target);
@@ -338,7 +340,7 @@ public class Enemy : MonoBehaviour
 
     protected void SingleShot(GameObject spawner, float launchForce, GameObject prefab, GameObject target, float R = 125f, float G = 125f, float B = 125f)
     {
-        Vector3 targetDirection = AimingWithoutLooking(target);
+        Vector3 targetDirection = (target.transform.position - spawner.transform.position).normalized;
         Quaternion rotation = Quaternion.LookRotation(targetDirection);
         GameObject redBall = Instantiate(prefab, spawner.transform.position, rotation);
         Rigidbody rb = redBall.GetComponent<Rigidbody>();
@@ -349,7 +351,7 @@ public class Enemy : MonoBehaviour
 
     protected void SingleShot(Transform spawner, float launchForce, GameObject prefab, GameObject target, float R = 125f, float G = 125f, float B = 125f)
     {
-        Vector3 targetDirection = AimingWithoutLooking(target);
+        Vector3 targetDirection = (target.transform.position - spawner.position).normalized;
         Quaternion rotation = Quaternion.LookRotation(targetDirection);
         GameObject redBall = Instantiate(prefab, spawner.position, rotation);
         Rigidbody rb = redBall.GetComponent<Rigidbody>();
@@ -357,6 +359,18 @@ public class Enemy : MonoBehaviour
         AttackColor attackColor = redBall.GetComponent<AttackColor>();
         if (attackColor != null) attackColor.SetAttackColor(R, G, B);
     }
+
+    protected void SingleShot(Transform spawner, float launchForce, GameObject prefab, Transform target, float R = 125f, float G = 125f, float B = 125f)
+    {
+        Vector3 targetDirection = (target.position - spawner.position).normalized;
+        Quaternion rotation = Quaternion.LookRotation(targetDirection);
+        GameObject redBall = Instantiate(prefab, spawner.position, rotation);
+        Rigidbody rb = redBall.GetComponent<Rigidbody>();
+        rb.AddForce(targetDirection * launchForce, ForceMode.Impulse);
+        AttackColor attackColor = redBall.GetComponent<AttackColor>();
+        if (attackColor != null) attackColor.SetAttackColor(R, G, B);
+    }
+
 
     protected virtual void BasicSpin(int projectileNum, float launchForce, GameObject prefab, float rotationSpeed, float R = 125f, float G = 125f, float B = 125f)
     {
@@ -390,6 +404,7 @@ public class Enemy : MonoBehaviour
             StartCoroutine(RotateAroundCenter(redBall.transform, rotationSpeed));
         }
     }
+
     protected IEnumerator RotateAroundCenter(Transform obj,  float speed)
     {
         while (obj != null && obj.transform != null) // obj와 transform이 null인지 확인
@@ -466,6 +481,7 @@ public class Enemy : MonoBehaviour
         }
 
     }
+
 
     protected virtual void ShootLasers(GameObject target, int num, GameObject prefab, float radius , float R = 125f, float G = 125f, float B = 125f)
     {
@@ -606,7 +622,7 @@ public class Enemy : MonoBehaviour
 
     protected virtual void SlowdownAttack(GameObject spawner, int projectileNum, float launchForce, float angleDivision, GameObject target, GameObject prefab, float R = 125f, float G = 125f, float B = 125f, float afterSpeedPercent = 0.1f, float delay = 0.5f, bool ifInstance = false)
     {
-        Vector3 targetDirection = AimingWithoutLooking(target);
+        Vector3 targetDirection = (target.transform.position - spawner.transform.position).normalized;
         Quaternion baseRotation = Quaternion.LookRotation(targetDirection);
 
         // 균등하게 퍼지도록 방향 조절
@@ -643,7 +659,7 @@ public class Enemy : MonoBehaviour
 
     protected virtual void SlowdownAttack(Transform spawner, int projectileNum, float launchForce, float angleDivision, GameObject target, GameObject prefab, float R = 125f, float G = 125f, float B = 125f, float afterSpeedPercent = 0.1f, float delay = 0.5f, bool ifInstance = false)
     {
-        Vector3 targetDirection = AimingWithoutLooking(target);
+        Vector3 targetDirection = (target.transform.position - spawner.position).normalized;
         Quaternion baseRotation = Quaternion.LookRotation(targetDirection);
 
         // 균등하게 퍼지도록 방향 조절
