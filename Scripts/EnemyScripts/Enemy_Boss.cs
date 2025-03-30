@@ -34,6 +34,10 @@ public class Enemy_Boss : Enemy
     protected Coroutine ph4; // ...
     protected Coroutine ph5;
     protected Coroutine ph6;
+    protected Coroutine ph7;
+    protected Coroutine ph8;
+    protected Coroutine ph9;
+    protected Coroutine ph10;
 
     public GameObject DeathEffect1;
     public GameObject DeathEffect2;
@@ -133,7 +137,26 @@ public class Enemy_Boss : Enemy
         ResetProjectile();
         if (TimerCoroutine != null) StopCoroutine(TimerCoroutine);
         //PlayerCamera.CameraShake(1);
-        if (remainLife == 6) //남은 목숨 6개, 페이즈 추가가 필요할 시 위에 7부터 추가하면 될듯
+
+        if (remainLife == 10) 
+        {
+            ph10 = StartCoroutine(Phase10());
+        }
+        else if (remainLife == 9) 
+        {
+            ph9 = StartCoroutine(Phase9());
+        }
+
+        else if (remainLife == 8) //남은 목숨 8개, 페이즈 추가가 필요할 시 위에 7부터 추가하면 될듯
+        {
+            ph8 = StartCoroutine(Phase8());
+        }
+        else if (remainLife == 7) //남은 목숨 7개, 페이즈 추가가 필요할 시 위에 7부터 추가하면 될듯
+        {
+            ph7 = StartCoroutine(Phase7());
+        }
+
+        else if (remainLife == 6) //남은 목숨 6개, 페이즈 추가가 필요할 시 위에 7부터 추가하면 될듯
         {
             ph6 = StartCoroutine(Phase6());
         }
@@ -249,6 +272,34 @@ public class Enemy_Boss : Enemy
 
     }
     protected virtual IEnumerator Phase6()
+    {
+        Health = 100f;
+        StartCoroutine(PhaseTimer(60));
+        yield return new WaitForSeconds(1f);
+
+    }
+    protected virtual IEnumerator Phase7()
+    {
+        Health = 100f;
+        StartCoroutine(PhaseTimer(60));
+        yield return new WaitForSeconds(1f);
+
+    }
+    protected virtual IEnumerator Phase8()
+    {
+        Health = 100f;
+        StartCoroutine(PhaseTimer(60));
+        yield return new WaitForSeconds(1f);
+
+    }
+    protected virtual IEnumerator Phase9()
+    {
+        Health = 100f;
+        StartCoroutine(PhaseTimer(60));
+        yield return new WaitForSeconds(1f);
+
+    }
+    protected virtual IEnumerator Phase10()
     {
         Health = 100f;
         StartCoroutine(PhaseTimer(60));
