@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 public class MainMenu : MenuParent
@@ -17,6 +18,8 @@ public class MainMenu : MenuParent
 
     private Vector2[] MainButtonOriginPos;
     private Vector2[] GameButtonOriginPos;
+
+    public SaveManager saveManager;
 
     protected override void Start()
     {
@@ -42,6 +45,10 @@ public class MainMenu : MenuParent
             GameButtonsRectTransform[i] = GameButtons[i].GetComponent<RectTransform>();
             GameButtonOriginPos[i] = new Vector2(GameButtonsRectTransform[i].anchoredPosition.x, GameButtonsRectTransform[i].anchoredPosition.y);
         }
+
+        saveManager = GetComponent<SaveManager>();
+
+        ApplyProgress();
     }
 
     // Update is called once per frame
@@ -179,10 +186,50 @@ public class MainMenu : MenuParent
     public void MainUIMode()
     {
         StartCoroutine(MainUIAppear());
+        BGM_Script.PlaySFX(0);
     }
 
     public void GameSelectMode()
     {
         StartCoroutine(MainUIDisAppear());
+        BGM_Script.PlaySFX(0);
     }
+
+    public void ApplyProgress()
+    {
+        int progress = saveManager.LoadProgress();
+        
+        if (progress < 1)
+        {
+            disableButton(GameButtons[1]);
+        }
+
+        if (progress < 2)
+        {
+            disableButton(GameButtons[2]);
+        }
+
+        if (progress < 3)
+        {
+            disableButton(GameButtons[3]);
+        }
+
+
+    }
+
+    public void disableButton(TextMeshProUGUI text)
+    {
+        Button buttonComp = text.gameObject.GetComponent<Button>();
+        if (buttonComp == null)
+        {
+            Debug.Log("Button Component doesn't Exist on text");
+            return;
+        }
+        buttonComp.enabled = false;
+
+        Color color = text.color;
+        color.a = 0.3f;
+        text.color = color;
+    }
+
 }

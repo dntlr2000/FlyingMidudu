@@ -70,7 +70,7 @@ public class Hasae : Enemy_Boss
         Health = 900f;
         TimerCoroutine = StartCoroutine(PhaseTimer(60));
 
-        CutScene(2f);
+        CutScene(3f);
         PlaySFX(2);
         SpellName = "½´ÆÛ ÀÚÀÌ¾ðÆ® °³to³¢";
         SpellCard(SpellName);
@@ -90,7 +90,7 @@ public class Hasae : Enemy_Boss
     {
         Health = 900f;
         TimerCoroutine = StartCoroutine(PhaseTimer(60));
-        CutScene(2f);
+        CutScene(3f);
         PlaySFX(2);
         SpellName = "½´ÆÛ ÀÚÀÌ¾ðÆ® °³to³¢";
         SpellCard(SpellName);
@@ -101,7 +101,7 @@ public class Hasae : Enemy_Boss
     {
         Health = 600f;
         TimerCoroutine = StartCoroutine(PhaseTimer(60));
-        CutScene(2f);
+        CutScene(4f);
 
 
         yield return new WaitForSeconds(3f);
@@ -111,7 +111,7 @@ public class Hasae : Enemy_Boss
     {
         Health = 900f;
         TimerCoroutine = StartCoroutine(PhaseTimer(60));
-        CutScene(2f);
+        CutScene(4f);
         PlaySFX(2);
         SpellName = "½´ÆÛ ÀÚÀÌ¾ðÆ® °³to³¢";
         SpellCard(SpellName);
@@ -131,7 +131,7 @@ public class Hasae : Enemy_Boss
     {
         Health = 900f;
         TimerCoroutine = StartCoroutine(PhaseTimer(60));
-        CutScene(2f);
+        CutScene(3f);
         PlaySFX(2);
         SpellName = "½´ÆÛ ÀÚÀÌ¾ðÆ® °³to³¢";
         SpellCard(SpellName);
