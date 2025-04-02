@@ -418,14 +418,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4508570771733401853, guid: 8f27ad41290da3c458673f748d71317f, type: 3}
-      propertyPath: BGM_Script
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4508570771733401853, guid: 8f27ad41290da3c458673f748d71317f, type: 3}
-      propertyPath: optionsPanel
-      value: 
-      objectReference: {fileID: 1289140542}
     - target: {fileID: 4740842723879609949, guid: 8f27ad41290da3c458673f748d71317f, type: 3}
       propertyPath: m_Name
       value: UI_temp
@@ -600,11 +592,6 @@ MonoBehaviour:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7217120561160648642, guid: 4499f27f8727b37408c07028e4240328, type: 3}
   m_PrefabInstance: {fileID: 1068934423}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1289140542 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4185003492576623555, guid: 8f27ad41290da3c458673f748d71317f, type: 3}
-  m_PrefabInstance: {fileID: 986647884}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1333288723
 GameObject:

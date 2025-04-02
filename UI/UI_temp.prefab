@@ -890,6 +890,10 @@ PrefabInstance:
       propertyPath: loader
       value: 
       objectReference: {fileID: 3148353943164241324}
+    - target: {fileID: 7879212558010901714, guid: f02a82deeebcc5e49b8c1247e1ca6a4e, type: 3}
+      propertyPath: optionsPanel
+      value: 
+      objectReference: {fileID: 4185003492576623555}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1239,6 +1243,11 @@ PrefabInstance:
 --- !u!224 &2172230171737063415 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4957959811083958987, guid: 2aaa79e8e7146e342baf5b67bf6bbc4d, type: 3}
+  m_PrefabInstance: {fileID: 6551464202061972796}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4185003492576623555 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6989418928243736319, guid: 2aaa79e8e7146e342baf5b67bf6bbc4d, type: 3}
   m_PrefabInstance: {fileID: 6551464202061972796}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6907201865736552465

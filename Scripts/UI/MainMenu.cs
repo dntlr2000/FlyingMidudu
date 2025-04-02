@@ -1,12 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
 
 public class MainMenu : MenuParent
 {
     public GameObject CreditScreen;
-    
+
+    public TextMeshProUGUI[] MainButtons;
+    private RectTransform[] MainButtonsRectTransform;
+
+    public TextMeshProUGUI[] GameButtons;
+    private RectTransform[] GameButtonsRectTransform;
+
+    private Vector2[] MainButtonOriginPos;
+    private Vector2[] GameButtonOriginPos;
+
     protected override void Start()
     {
         //SetBGM(0);
@@ -14,6 +25,23 @@ public class MainMenu : MenuParent
         //base.Start();
         BGM_Script = FindObjectOfType<BGMController>();
         SetBGM(0);
+
+
+        MainButtonsRectTransform = new RectTransform[MainButtons.Length];
+        MainButtonOriginPos = new Vector2[MainButtons.Length];
+        for (int i = 0; i < MainButtons.Length; i++)
+        {
+            MainButtonsRectTransform[i] = MainButtons[i].GetComponent<RectTransform>();
+            MainButtonOriginPos[i] = new Vector2(MainButtonsRectTransform[i].anchoredPosition.x, MainButtonsRectTransform[i].anchoredPosition.y);
+        }
+
+        GameButtonsRectTransform = new RectTransform[GameButtons.Length];
+        GameButtonOriginPos = new Vector2[GameButtons.Length];
+        for (int i = 0; i < GameButtons.Length; i++)
+        {
+            GameButtonsRectTransform[i] = GameButtons[i].GetComponent<RectTransform>();
+            GameButtonOriginPos[i] = new Vector2(GameButtonsRectTransform[i].anchoredPosition.x, GameButtonsRectTransform[i].anchoredPosition.y);
+        }
     }
 
     // Update is called once per frame
@@ -50,4 +78,111 @@ public class MainMenu : MenuParent
         BGM_Script.PlayBGM();
     }
 
+    /*
+    private IEnumerator TextMover(Vector2 positionA, Vector2 positionB)
+    {
+        float elapsedTime = 0f;
+        float moveTime = 1f;
+
+        while (elapsedTime < moveTime)
+        {
+            elapsedTime += Time.deltaTime;
+
+            float t = Mathf.Clamp01(elapsedTime / moveTime);
+
+            textRectTransform.anchoredPosition = Vector2.Lerp(positionA, positionB, t);
+            yield return null;
+        }
+        textRectTransform.anchoredPosition = positionB;
+    }
+    */
+
+    private IEnumerator TextMover(RectTransform Buttons, Vector2 positionA, Vector3 positionB)
+    {
+        float elapsedTime = 0f;
+        float moveTime = 0.5f;
+
+        while (elapsedTime < moveTime)
+        {
+            elapsedTime += Time.deltaTime;
+            float t = Mathf.Clamp01(elapsedTime / moveTime);
+
+            Buttons.anchoredPosition = Vector2.Lerp(positionA, positionB, t);
+
+            yield return null;
+        }
+
+        Buttons.anchoredPosition = positionB;
+    }
+
+    private IEnumerator MainUIDisAppear()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            StartCoroutine(TextMover(MainButtonsRectTransform[i], MainButtonOriginPos[i], new Vector2(MainButtonOriginPos[i].x - 400, MainButtonOriginPos[i].y))); //120¹øÂ° ÁÙ
+            yield return new WaitForSecondsRealtime(0.1f);
+        }
+        for (int i = 3; i < 6; i++)
+        {
+            if (i == 5) yield return new WaitForSecondsRealtime(0.2f);
+            StartCoroutine(TextMover(MainButtonsRectTransform[i], MainButtonOriginPos[i], new Vector2(MainButtonOriginPos[i].x + 500, MainButtonOriginPos[i].y)));
+            yield return new WaitForSecondsRealtime(0.1f);
+            
+        }
+
+        yield return new WaitForSecondsRealtime(0.6f);
+        for (int i = 0; i < 4; i++)
+        {
+            StartCoroutine(TextMover(GameButtonsRectTransform[i], GameButtonOriginPos[i], new Vector2(GameButtonOriginPos[i].x + 350, GameButtonOriginPos[i].y)));
+            yield return new WaitForSecondsRealtime(0.1f);
+        }
+
+        for (int i = 4; i < 5; i++)
+        {
+            StartCoroutine(TextMover(GameButtonsRectTransform[i], GameButtonOriginPos[i], new Vector2(GameButtonOriginPos[i].x - 400, GameButtonOriginPos[i].y)));
+            yield return new WaitForSecondsRealtime(0.1f);
+        }
+
+        yield return null;
+    }
+
+    private IEnumerator MainUIAppear()
+    {
+
+        for (int i = 0; i < 4; i++)
+        {
+            StartCoroutine(TextMover(GameButtonsRectTransform[i], new Vector2(GameButtonOriginPos[i].x + 350, GameButtonOriginPos[i].y), GameButtonOriginPos[i]));
+            yield return new WaitForSecondsRealtime(0.1f);
+        }
+
+        for (int i = 4; i < 5; i++)
+        {
+            StartCoroutine(TextMover(GameButtonsRectTransform[i], new Vector2(GameButtonOriginPos[i].x - 400, GameButtonOriginPos[i].y), GameButtonOriginPos[i]));
+            yield return new WaitForSecondsRealtime(0.1f);
+        }
+
+        yield return new WaitForSecondsRealtime(0.6f);
+        for (int i = 0; i < 3; i++)
+        {
+            StartCoroutine(TextMover(MainButtonsRectTransform[i], new Vector2(MainButtonOriginPos[i].x - 400, MainButtonOriginPos[i].y), MainButtonOriginPos[i]));
+            yield return new WaitForSecondsRealtime(0.1f);
+        }
+        for (int i = 3; i < 6; i++)
+        {
+            StartCoroutine(TextMover(MainButtonsRectTransform[i], new Vector2(MainButtonOriginPos[i].x + 500, MainButtonOriginPos[i].y), MainButtonOriginPos[i]));
+            yield return new WaitForSecondsRealtime(0.1f);
+        }
+
+        yield return null;
+    }
+
+    public void MainUIMode()
+    {
+        StartCoroutine(MainUIAppear());
+    }
+
+    public void GameSelectMode()
+    {
+        StartCoroutine(MainUIDisAppear());
+    }
 }
