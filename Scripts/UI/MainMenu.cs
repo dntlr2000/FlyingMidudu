@@ -137,14 +137,14 @@ public class MainMenu : MenuParent
             
         }
 
-        yield return new WaitForSecondsRealtime(0.6f);
+        yield return new WaitForSecondsRealtime(0.5f);
         for (int i = 0; i < 4; i++)
         {
             StartCoroutine(TextMover(GameButtonsRectTransform[i], GameButtonOriginPos[i], new Vector2(GameButtonOriginPos[i].x + 350, GameButtonOriginPos[i].y)));
             yield return new WaitForSecondsRealtime(0.1f);
         }
 
-        for (int i = 4; i < 5; i++)
+        for (int i = 4; i < 6; i++)
         {
             StartCoroutine(TextMover(GameButtonsRectTransform[i], GameButtonOriginPos[i], new Vector2(GameButtonOriginPos[i].x - 400, GameButtonOriginPos[i].y)));
             yield return new WaitForSecondsRealtime(0.1f);
@@ -162,13 +162,13 @@ public class MainMenu : MenuParent
             yield return new WaitForSecondsRealtime(0.1f);
         }
 
-        for (int i = 4; i < 5; i++)
+        for (int i = 4; i < 6; i++)
         {
             StartCoroutine(TextMover(GameButtonsRectTransform[i], new Vector2(GameButtonOriginPos[i].x - 400, GameButtonOriginPos[i].y), GameButtonOriginPos[i]));
             yield return new WaitForSecondsRealtime(0.1f);
         }
 
-        yield return new WaitForSecondsRealtime(0.6f);
+        yield return new WaitForSecondsRealtime(0.5f);
         for (int i = 0; i < 3; i++)
         {
             StartCoroutine(TextMover(MainButtonsRectTransform[i], new Vector2(MainButtonOriginPos[i].x - 400, MainButtonOriginPos[i].y), MainButtonOriginPos[i]));
@@ -212,6 +212,11 @@ public class MainMenu : MenuParent
         if (progress < 3)
         {
             disableButton(GameButtons[3]);
+        }
+
+        if (progress < 6)
+        {
+            disableButton(MainButtons[1]);
         }
 
 

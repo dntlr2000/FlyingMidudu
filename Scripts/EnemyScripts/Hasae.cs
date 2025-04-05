@@ -1,10 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class Hasae : Enemy_Boss
 {
     private GameObject playerCharacter;
+    public GameObject Satelite001;
+    public GameObject Satelite002;
+    public AimConstraint SateliteAim;
+    public ShooterDroneAiming PlayerFollower;
+
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -70,48 +76,58 @@ public class Hasae : Enemy_Boss
         Health = 900f;
         TimerCoroutine = StartCoroutine(PhaseTimer(60));
 
-        CutScene(3f);
+        CutScene(2f);
         PlaySFX(2);
-        SpellName = "슈퍼 자이언트 개to끼";
+        SpellName = "본인을 제외한 주변이 회춘하는 마법";
         SpellCard(SpellName);
         yield return new WaitForSeconds(3f);
 
     }
     protected override IEnumerator Phase6() //패턴 3 : 통상
     {
+        
         Health = 400f;
         TimerCoroutine = StartCoroutine(PhaseTimer(60));
 
 
         yield return new WaitForSeconds(3f);
+        
 
     }
     protected override IEnumerator Phase5() //패턴 4 : 기술
     {
         Health = 900f;
         TimerCoroutine = StartCoroutine(PhaseTimer(60));
-        CutScene(3f);
+        CutScene(2f);
         PlaySFX(2);
-        SpellName = "슈퍼 자이언트 개to끼";
+        SpellName = "자이언트 오리오리빔";
         SpellCard(SpellName);
         yield return new WaitForSeconds(3f);
 
     }
     protected override IEnumerator Phase4() //패턴 5 : 통상, 슈터 추가
     {
+        
         Health = 600f;
         TimerCoroutine = StartCoroutine(PhaseTimer(60));
-        CutScene(4f);
+        CutScene(3f);
+        yield return new WaitForSeconds(1.1f);
+        ActivateShooter();
 
 
         yield return new WaitForSeconds(3f);
+        SateliteAim.constraintActive= true;
+        PlayerFollower.enabled= true;
+
+        
+        
 
     }
     protected override IEnumerator Phase3() //패턴 6 : 기술
     {
         Health = 900f;
         TimerCoroutine = StartCoroutine(PhaseTimer(60));
-        CutScene(4f);
+        CutScene(3f);
         PlaySFX(2);
         SpellName = "슈퍼 자이언트 개to끼";
         SpellCard(SpellName);
@@ -131,12 +147,24 @@ public class Hasae : Enemy_Boss
     {
         Health = 900f;
         TimerCoroutine = StartCoroutine(PhaseTimer(60));
-        CutScene(3f);
+        CutScene(4f);
         PlaySFX(2);
-        SpellName = "슈퍼 자이언트 개to끼";
+        SpellName = "이러면 자존심 상하는데..";
         SpellCard(SpellName);
         yield return new WaitForSeconds(3f);
 
+    }
+
+    void ActivateShooter()
+    {
+        Satelite001.SetActive(true);
+        Satelite002.SetActive(true);
+
+        Animator animator1 = Satelite001.GetComponent<Animator>();
+        Animator animator2 = Satelite002.GetComponent<Animator>();
+
+        animator1.SetInteger("Motion", 1);
+        animator2.SetInteger("Motion", 1);
     }
 }
 

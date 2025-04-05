@@ -28,18 +28,23 @@ public class Stage : MonoBehaviour
     public BGMController BGM_Script;
     //protected int BGM_Index = 0;
 
+    public SaveManager saveScript;
+    protected int currentStage = 1; //이후 nextStageName과 통합할 수 있으면 좋을듯
+
     protected virtual void Start()
     {
 
         //text = $"제 1장\n저 높은 곳에 보물이 있다는 소문을 들은 흰 머리\n 악인의 수하들은 그들의 두목이 떠나는 것을 막기\n 위해 나섰습니다.";
         //StageBuilder();
-        StartCoroutine(StagePhase1());
-        //SpawnBoss(Boss, 0, 0, -50);
+        //StartCoroutine(StagePhase1());
+        SpawnBoss(Boss, 0, 0, -50);
         
         Text.gameObject.SetActive(true);
         StartCoroutine(Text.StageTextAnimation(text));
 
         BGM_Script = FindObjectOfType<BGMController>();
+
+        saveScript = GetComponent<SaveManager>();
 
     }
 
@@ -222,12 +227,15 @@ public class Stage : MonoBehaviour
         //StartCoroutine(Text.StageTextAnimation(text));
         toNextStage1.gameObject.SetActive(true);
         StartCoroutine(toNextStage1.StageClearAnimation("스테이지 클리어!"));
+
         yield return new WaitForSeconds(2f);
         toNextStage2.gameObject.SetActive(true);
         StartCoroutine(toNextStage2.StageClearAnimation("잠시 후 다음 스테이지로 이동합니다."));
 
 
         yield return new WaitForSeconds(5f); //보스 사망 연출 시작으로부터 지연 시간
+
+        saveScript.SaveProgress(currentStage);
         
         loader.LoadSceneAsync(sceneName);
     }

@@ -151,6 +151,7 @@ MonoBehaviour:
   toNextStage1: {fileID: 364189030}
   toNextStage2: {fileID: 364189029}
   BGM_Script: {fileID: 0}
+  saveScript: {fileID: 0}
 --- !u!114 &364189029 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5071651212070189330, guid: 8f27ad41290da3c458673f748d71317f, type: 3}
@@ -919,7 +920,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5929099490478779488, guid: ac89c8e587b6a8f448acccd20c190ae1, type: 3}
-      insertIndex: -1
+      insertIndex: 5
       addedObject: {fileID: 35341465}
   m_SourcePrefab: {fileID: 100100000, guid: ac89c8e587b6a8f448acccd20c190ae1, type: 3}
 --- !u!1001 &2110878348

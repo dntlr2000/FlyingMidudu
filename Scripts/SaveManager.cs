@@ -48,6 +48,22 @@ public class SaveManager : MonoBehaviour
 
     }
 
+    public void ResetSaveProgress()
+    {
+        string path = Application.persistentDataPath + $"/save.json";
+        if (!File.Exists(path)) return;
+
+        ClearProgress data2 = new ClearProgress();
+        data2.clearedStage = 0;
+
+        string json2 = JsonUtility.ToJson(data2);
+        string path2 = Application.persistentDataPath + $"/save.json";
+        File.WriteAllText(path, json2);
+
+        Debug.Log($"저장 경로: {path}\n 클리어한 스테이지: {0}");
+        return;
+    }
+
     public int LoadProgress()
     {
         string path = Application.persistentDataPath + $"/save.json";
@@ -56,15 +72,7 @@ public class SaveManager : MonoBehaviour
         {
             Debug.LogWarning("저장된 위치 정보가 없습니다.");
 
-            ClearProgress data2 = new ClearProgress();
-            data2.clearedStage = 0;
-
-            string json2 = JsonUtility.ToJson(data2);
-            string path2 = Application.persistentDataPath + $"/save.json";
-            File.WriteAllText(path, json2);
-
-            Debug.Log($"저장 경로: {path}\n 클리어한 스테이지: {0}");
-            return 0;
+            ResetSaveProgress();
         }
         
         string json = File.ReadAllText(path);

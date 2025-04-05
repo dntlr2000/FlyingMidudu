@@ -10,6 +10,7 @@ public class Stage1 : Stage
         text = $"제 1장\n저 높은 곳에 보물이 있다는 소문을 들은 흰 머리\n 악인의 수하들은 그들의 두목이 자신들을 두고\n 떠나는 것을 막기 위해 가로막았습니다.";
         base.Start();
         NextStageName = "Stage2";
+        currentStage = 1;
         SetBGM(1);
         
     }

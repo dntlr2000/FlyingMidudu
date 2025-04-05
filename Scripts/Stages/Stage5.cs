@@ -10,7 +10,8 @@ public class Stage5 : Stage
         text = $"제 5장\n날개 옷을 얻어 높은 곳으로\n날아오른 흰 머리 악인.\n하지만 보물에 관심을 가진 자는\n흰 머리 악인만이 아니었습니다.";
         base.Start();
         NextStageName = "Stage6";
-        SetBGM(5);
+        currentStage = 5;
+        SetBGM(7);
 
     }
 
@@ -73,6 +74,6 @@ public class Stage5 : Stage
         yield return new WaitForSeconds(3f);
 
         SpawnBoss(Boss, 0, 0, -50);
-        SetBGM(6);
+        SetBGM(8);
     }
 }

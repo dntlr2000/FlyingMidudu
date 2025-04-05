@@ -56,7 +56,7 @@ public class Enemy : MonoBehaviour
             for (int i = 0; i < 3; i++) HitEffectGen(other);
 
             Destroy(other.gameObject);
-            getHit(10f);
+            getHit(20f);
         }
     }
 
