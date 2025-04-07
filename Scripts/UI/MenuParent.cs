@@ -21,6 +21,7 @@ public class MenuParent : MonoBehaviour
     {
         //SetBGM();
         //BGM_Script = FindObjectOfType<BGMController>();
+        //if (optionsPanel != null) { optionsPanel.SetActive(true); }
     }
 
     // Update is called once per frame

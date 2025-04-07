@@ -1805,10 +1805,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51ccbd4416f43b5469f85a79f8ef954d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volumeSlider: {fileID: 0}
-  SFXSlider: {fileID: 0}
-  RotationSlider: {fileID: 0}
+  volumeSlider: {fileID: 7028112329042547355}
+  SFXSlider: {fileID: 1737621864955783708}
+  RotationSlider: {fileID: 70067320634966065}
   BGM_Script: {fileID: 0}
+  saveManager: {fileID: 0}
 --- !u!1 &7977687450612850981
 GameObject:
   m_ObjectHideFlags: 0

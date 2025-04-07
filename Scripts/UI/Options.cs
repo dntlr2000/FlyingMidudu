@@ -12,12 +12,14 @@ public class Options : MonoBehaviour
     public BGMController BGM_Script;
     private PlayerSetting PlayerSettingScript;
 
+    public SaveManager saveManager;
+
     void Start()
     {
         //volumeSlider.value = PlayerPrefs.GetFloat("Volume", 1.0f);
         //AudioListener.volume = volumeSlider.value;
-        BGM_Script = FindObjectOfType<BGMController>();
-        PlayerSettingScript = FindObjectOfType<PlayerSetting>();
+        //BGM_Script = FindObjectOfType<BGMController>();
+        //PlayerSettingScript = FindObjectOfType<PlayerSetting>();
     }
 
     // Update is called once per frame
@@ -30,6 +32,40 @@ public class Options : MonoBehaviour
 
         //volumeSlider.value = BGM_Script.SettedVolume;
     }
+
+
+    void OnEnable()
+    {
+        BGM_Script = FindObjectOfType<BGMController>();
+        PlayerSettingScript = FindObjectOfType<PlayerSetting>();
+
+        saveManager = FindObjectOfType<SaveManager>();
+        SaveManager.OptionData data = saveManager.LoadOptions();
+        if (data == null)
+        {
+            volumeSlider.value = 0.5f;
+            OnVolumeChanged(0.5f);
+
+            SFXSlider.value = 0.5f;
+            OnSFX_VolChanged(0.5f);
+
+            RotationSlider.value = 240f;
+            OnRotSpeedChanged(240f);
+            return;
+        }
+        
+        volumeSlider.value = data.BGM_Volume;
+        OnVolumeChanged(data.BGM_Volume);
+
+        SFXSlider.value = data.SFX_Volume;
+        OnSFX_VolChanged(data.SFX_Volume);
+
+        RotationSlider.value = data.MouseSpeed;
+        OnRotSpeedChanged(data.MouseSpeed);
+
+        return;
+    }
+    
 
     public void OnVolumeChanged(float value)
     {
@@ -51,6 +87,7 @@ public class Options : MonoBehaviour
 
     public void ExitOption()
     {
+        saveManager.SaveOptions(RotationSlider.value, volumeSlider.value, SFXSlider.value);
         ChangeRotationOption();
         gameObject.SetActive(false);
     }

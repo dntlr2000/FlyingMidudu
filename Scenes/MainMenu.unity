@@ -4199,6 +4199,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Audio_BGM
       objectReference: {fileID: 0}
+    - target: {fileID: 5650296482147152017, guid: 58b93238ed3493843835968d94673278, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5787172020526292662, guid: 58b93238ed3493843835968d94673278, type: 3}
       propertyPath: SFXClips.Array.size
       value: 6
@@ -4284,6 +4288,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 594255160}
     m_Modifications:
+    - target: {fileID: 2129360144808192141, guid: 2aaa79e8e7146e342baf5b67bf6bbc4d, type: 3}
+      propertyPath: BGM_Script
+      value: 
+      objectReference: {fileID: 1332094040}
     - target: {fileID: 3621378893874827736, guid: 2aaa79e8e7146e342baf5b67bf6bbc4d, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0.5
@@ -4382,6 +4390,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4957959811083958987, guid: 2aaa79e8e7146e342baf5b67bf6bbc4d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5012834178733013106, guid: 2aaa79e8e7146e342baf5b67bf6bbc4d, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5012834178733013106, guid: 2aaa79e8e7146e342baf5b67bf6bbc4d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5711478228394136346, guid: 2aaa79e8e7146e342baf5b67bf6bbc4d, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5711478228394136346, guid: 2aaa79e8e7146e342baf5b67bf6bbc4d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5711478228394136346, guid: 2aaa79e8e7146e342baf5b67bf6bbc4d, type: 3}
+      propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6989418928243736319, guid: 2aaa79e8e7146e342baf5b67bf6bbc4d, type: 3}

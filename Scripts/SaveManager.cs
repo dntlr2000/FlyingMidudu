@@ -84,6 +84,38 @@ public class SaveManager : MonoBehaviour
 
         return clearedData;
     }
+
+    public void SaveOptions(float MouseSpeed, float BGM_Volume, float SFX_Volume)
+    {
+        string path = Application.persistentDataPath + $"/options.json";
+        OptionData data = new OptionData();
+        data.MouseSpeed= MouseSpeed;
+        data.BGM_Volume= BGM_Volume;
+        data.SFX_Volume= SFX_Volume;
+
+        string json = JsonUtility.ToJson(data);
+        File.WriteAllText(path, json);
+
+        Debug.Log($"옵션 저장 경로: {path}");
+    }
+
+    public OptionData LoadOptions()
+    {
+        string path = Application.persistentDataPath + $"/options.json";
+        if (!File.Exists(path))
+        {
+            Debug.LogWarning("No Option Data in Path!");
+            return null;
+        }
+        string json = File.ReadAllText(path);
+        OptionData data = JsonUtility.FromJson<OptionData>(json);
+        float mouseSpeed = data.MouseSpeed;
+        float BGM_Volume = data.BGM_Volume;
+        float SFX_Volume = data.SFX_Volume;
+
+        return data;
+    }
+    
 }
 
     

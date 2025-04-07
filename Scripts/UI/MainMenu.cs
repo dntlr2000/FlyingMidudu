@@ -21,13 +21,17 @@ public class MainMenu : MenuParent
 
     public SaveManager saveManager;
 
+    private PlayerSetting PlayerSettingScript;
+
+
     protected override void Start()
     {
         //SetBGM(0);
         //optionsPanel.SetActive(false);
         //base.Start();
         BGM_Script = FindObjectOfType<BGMController>();
-        SetBGM(0);
+        PlayerSettingScript = FindObjectOfType<PlayerSetting>();
+        
 
 
         MainButtonsRectTransform = new RectTransform[MainButtons.Length];
@@ -49,6 +53,10 @@ public class MainMenu : MenuParent
         saveManager = GetComponent<SaveManager>();
 
         ApplyProgress();
+        ApplyOptions();
+
+        //BGM_Script.PlayBGM();
+        SetBGM(0);
     }
 
     // Update is called once per frame
@@ -219,6 +227,27 @@ public class MainMenu : MenuParent
             disableButton(MainButtons[1]);
         }
 
+    }
+
+    public void ApplyOptions()
+    {
+        SaveManager.OptionData data = saveManager.LoadOptions();
+        //yield return new WaitForSeconds(0.2f);
+        if (data == null)
+        {
+            Debug.LogWarning("No Options Data Loaded");
+            return;
+        }
+        
+        BGM_Script.SettedVolume = data.BGM_Volume;
+        BGM_Script.SetBGMVolume(data.BGM_Volume);
+
+        BGM_Script.SetSFXVolume(data.SFX_Volume);
+
+        PlayerSettingScript.MouseSpeed = data.MouseSpeed;
+
+        return;
+        
 
     }
 

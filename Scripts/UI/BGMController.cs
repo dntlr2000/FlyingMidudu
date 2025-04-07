@@ -27,7 +27,7 @@ public class BGMController : MonoBehaviour
         bgmSource.clip = bgmClips[bgmIndex];
         bgmSource.loop = true; // 반복 재생
         //Debug.Log("Bgm On");
-        PlayBGM();
+        //PlayBGM();
 
         //SFXSource.clip = SFXClips[Index_SFX];
         SFXSource.loop = false;
@@ -51,7 +51,7 @@ public class BGMController : MonoBehaviour
     }
 
 
-    public void PlayBGM(float fadeDuration = 1f)
+    public void PlayBGM(float fadeDuration = 0.5f)
     {
 
         if (bgmClips[BgmIndex] == null) { return; }
@@ -63,12 +63,14 @@ public class BGMController : MonoBehaviour
         }
         else
         {
-            Debug.Log($"Playing Track : {BgmIndex}");
+            Debug.Log($"Playing Track : {BgmIndex}, Volume = {settedVolume}");
             FadeInBGM(fadeDuration);
             bgmSource.Play();
             
         }
     }
+
+
 
     public void PauseBGM()
     {
