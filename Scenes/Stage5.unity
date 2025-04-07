@@ -1412,6 +1412,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1160856967}
     - target: {fileID: 2712697816880738121, guid: 3a5612041ec7c1d45ac0e57656a0e329, type: 3}
+      propertyPath: GiantPug
+      value: 
+      objectReference: {fileID: 6485344554444062552, guid: 343bb90b7cbcb494f97edda3b3c052cf, type: 3}
+    - target: {fileID: 2712697816880738121, guid: 3a5612041ec7c1d45ac0e57656a0e329, type: 3}
       propertyPath: SpellText
       value: 
       objectReference: {fileID: 1160856971}
@@ -1497,7 +1501,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5392725122002576601, guid: 3a5612041ec7c1d45ac0e57656a0e329, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

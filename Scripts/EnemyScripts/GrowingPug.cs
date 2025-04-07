@@ -5,11 +5,11 @@ using UnityEngine.Animations;
 
 public class GrowingPug : Enemy_Minion
 {
-    public float duration = 2f;           // 걸리는 시간
+    public float duration = 1f;           // 걸리는 시간
     public float startScale = 0.1f;       // 시작 배율
-    public float endScale = 5f;
+    public float endScale = 3f;
 
-    public float moveSpeed = 20f;
+    private float moveSpeed = 40f;
 
     protected override void Start()
     {
@@ -34,6 +34,7 @@ public class GrowingPug : Enemy_Minion
 
         transform.localScale = initial;
 
+        StartCoroutine(ObjectMover(transform.position + new Vector3(0f, 5f, 0f), 1f));
         while (elapsedTime < duration)
         {
             elapsedTime += Time.deltaTime;
@@ -45,7 +46,7 @@ public class GrowingPug : Enemy_Minion
 
         transform.localScale = target;
 
-        yield return new WaitForSeconds(1f);
+        //yield return new WaitForSeconds(0.5f);
 
         Rigidbody rb = GetComponent<Rigidbody>();
         rb.AddForce(transform.forward * moveSpeed, ForceMode.Impulse);

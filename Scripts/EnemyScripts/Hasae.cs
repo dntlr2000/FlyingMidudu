@@ -11,10 +11,12 @@ public class Hasae : Enemy_Boss
     public AimConstraint SateliteAim;
     public ShooterDroneAiming PlayerFollower;
 
+    public GameObject GiantPug;
+
     // Start is called before the first frame update
     protected override void Start()
     {
-        Life = 8;
+        Life = 6;
         Health = 100f;
         BossName = "하세";
         BossDescription = "남들보다 나이를 빠르게 먹는";
@@ -132,7 +134,10 @@ public class Hasae : Enemy_Boss
         SpellName = "슈퍼 자이언트 개to끼";
         SpellCard(SpellName);
         yield return new WaitForSeconds(0.5f);
-        //SpawnEnemy()
+
+        Vector3 newPos = transform.position + new Vector3(0f, 2.3f, 0f);
+
+        SpawnEnemy(GiantPug, newPos);
 
         yield return new WaitForSeconds(2.5f);
 

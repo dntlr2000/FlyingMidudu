@@ -89,8 +89,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3471774903cb7f4caa5c4abf619e7a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HitEffect: {fileID: 3901673378021655620, guid: b152383de00403b4fa322c84a239ce46, type: 3}
-  deathEffect: {fileID: 4148958616581411556, guid: 3531b0b8ae5cae24eba8774c479861b7, type: 3}
+  HitEffect: {fileID: 8536701366023590476, guid: eb33f6e72c96fe0468156445a99d1761, type: 3}
+  deathEffect: {fileID: 3901673378021655620, guid: b152383de00403b4fa322c84a239ce46, type: 3}
   AttackPrefab:
   - {fileID: 3997560436894072735, guid: 24522f63ac445054e91b9f2aae0fd717, type: 3}
   - {fileID: 3184244041106848311, guid: 6aa3f8faa7a5b3d47836b118db0fba00, type: 3}
@@ -98,3 +98,4 @@ MonoBehaviour:
   duration: 2
   startScale: 0.1
   endScale: 5
+  moveSpeed: 20

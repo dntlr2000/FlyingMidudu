@@ -354,6 +354,23 @@ public class Enemy_Boss : Enemy
         StartCoroutine(ObjectMover(spawnedEnemy, spawnPosition, new Vector3(x, y, z), 2f));
     }
 
+    protected virtual void SpawnEnemy(GameObject enemy, Vector3 newPos, bool isInstant = true)
+    {
+        GameObject spawnedEnemy;
+        if (isInstant)
+        {
+           spawnedEnemy = Instantiate(enemy, newPos, Quaternion.identity);
+        }
+
+        else
+        {
+            spawnedEnemy = Instantiate(enemy, transform.position - new Vector3(0, 0, -50), Quaternion.identity);
+            StartCoroutine(ObjectMover(spawnedEnemy, newPos, 2f));
+        }
+
+
+    }
+
     protected virtual void CutScene(float time)
     {
         MainCamera.SetActive(true);
