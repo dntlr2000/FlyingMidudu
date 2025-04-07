@@ -78,7 +78,7 @@ public class Hasae : Enemy_Boss
 
         CutScene(2f);
         PlaySFX(2);
-        SpellName = "본인을 제외한 주변이 회춘하는 마법";
+        SpellName = "본인 빼고 주변이 회춘하는 마법";
         SpellCard(SpellName);
         yield return new WaitForSeconds(3f);
 
@@ -131,7 +131,10 @@ public class Hasae : Enemy_Boss
         PlaySFX(2);
         SpellName = "슈퍼 자이언트 개to끼";
         SpellCard(SpellName);
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(0.5f);
+        //SpawnEnemy()
+
+        yield return new WaitForSeconds(2.5f);
 
     }
     protected override IEnumerator Phase2() //패턴 7 : 통상

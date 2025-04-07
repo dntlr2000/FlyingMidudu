@@ -32,6 +32,13 @@ public class Enemy_Minion : Enemy
         BGM_Script = FindObjectOfType<BGMController>();
     }
 
+    /*
+    protected void OnEnable()
+    {
+
+    }
+    */
+
     // Update is called once per frame
     protected override void Update()
     {

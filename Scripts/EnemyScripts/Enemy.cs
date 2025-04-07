@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour
 
     protected BGMController BGM_Script;
 
+    
     protected virtual void Start()
     {
         Rigidbody rb = GetComponent<Rigidbody>();
@@ -102,7 +103,7 @@ public class Enemy : MonoBehaviour
         return target != null ? target : gameObject;
     }
 
-    protected void AimingObject(GameObject obj) //(플레이어 탐색 후) 플레이어 바라보기
+    protected void AimingObject(GameObject obj, bool face = true) //(플레이어 탐색 후) 플레이어 바라보기
     {
         AimConstraint aimConstraint = GetComponent<AimConstraint>();
         if (aimConstraint == null)
@@ -122,7 +123,9 @@ public class Enemy : MonoBehaviour
         };
         aimConstraint.AddSource(source);
 
-        aimConstraint.constraintActive = true;
+        if (face == true) aimConstraint.constraintActive = true;
+        else aimConstraint.constraintActive = false;
+
         //aimConstraint.locked = true;
         aimConstraint.rotationAtRest = Vector3.zero;
         aimConstraint.worldUpType = AimConstraint.WorldUpType.SceneUp;
@@ -840,4 +843,12 @@ public class Enemy : MonoBehaviour
         }
         transform.rotation = endRotation; // 최종 각도로 설정
     }
+
+    /*
+    private void OnDisable()
+    {
+        // 자동 반환 (예시)
+        PoolManager.Instance.ReturnToPool("Enemy", gameObject);
+    }
+    */
 }

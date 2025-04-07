@@ -45,7 +45,7 @@ public class Scorpion : Enemy_Boss
         CutScene(2f);
         PlaySFX(2);
 
-        SpellName = "회춘의 비결";
+        SpellName = "캐나다에서 배운 방식";
         SpellCard(SpellName);
 
         yield return new WaitForSeconds(2f);
