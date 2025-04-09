@@ -24,10 +24,7 @@ public class BangaeE : Enemy_Minion
 
     protected override IEnumerator AttackPattern()
     {
-
         
-        //int index = 0;
-
         for (int k = 0; k < 2; k++)
         {
             yield return new WaitForSeconds(1.5f);

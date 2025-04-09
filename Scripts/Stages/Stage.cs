@@ -36,8 +36,8 @@ public class Stage : MonoBehaviour
 
         //text = $"제 1장\n저 높은 곳에 보물이 있다는 소문을 들은 흰 머리\n 악인의 수하들은 그들의 두목이 떠나는 것을 막기\n 위해 나섰습니다.";
         //StageBuilder();
-        //StartCoroutine(StagePhase1());
-        SpawnBoss(Boss, 0, 0, -50);
+        StartCoroutine(StagePhase1());
+        //SpawnBoss(Boss, 0, 0, -50);
         
         Text.gameObject.SetActive(true);
         StartCoroutine(Text.StageTextAnimation(text));

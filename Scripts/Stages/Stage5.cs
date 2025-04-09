@@ -22,6 +22,22 @@ public class Stage5 : Stage
         Debug.Log("Phase 1 Started");
         yield return new WaitForSeconds(6f);
 
+        SpawnEnemy(Enemy[1], 30, 10, -50);
+        yield return new WaitForSeconds(3f);
+        SpawnEnemy(Enemy[1],-30, 10, -50);
+        yield return new WaitForSeconds(6f);
+
+        SpawnEnemy(Enemy[2], 40, -5, -50);
+        yield return new WaitForSeconds(0.6f);
+        SpawnEnemy(Enemy[2], 35, -15, -50);
+        yield return new WaitForSeconds(6f);
+
+        SpawnEnemy(Enemy[2], -40, -5, -50);
+        yield return new WaitForSeconds(0.6f);
+        SpawnEnemy(Enemy[2], -35, -15, -50);
+        yield return new WaitForSeconds(6f);
+
+
         while (CheckEnemyExist())
         {
             yield return new WaitForSeconds(2f);
@@ -32,14 +48,12 @@ public class Stage5 : Stage
 
     protected override IEnumerator StagePhase2()
     {
-
-        SpawnBoss(MidBoss, 0, 0, -50);
-
-        while (CheckEnemyExist("EnemyBoss"))
+        while (CheckEnemyExist())
         {
             yield return new WaitForSeconds(2f);
         }
         Debug.Log("Phase 2 Clear");
+
 
         StartCoroutine(StagePhase3());
     }
@@ -47,13 +61,15 @@ public class Stage5 : Stage
     protected IEnumerator StagePhase3()
     {
 
-       
+        SpawnBoss(MidBoss, 0, 0, -50);
 
-        while (CheckEnemyExist())
+        while (CheckEnemyExist("EnemyBoss"))
         {
             yield return new WaitForSeconds(2f);
         }
-        Debug.Log("Phase 2 Clear");
+        Debug.Log("Phase 3 Clear");
+
+        
 
         StartCoroutine(StagePhase4());
     }

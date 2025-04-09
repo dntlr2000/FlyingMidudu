@@ -16,7 +16,7 @@ public class Hasae : Enemy_Boss
     // Start is called before the first frame update
     protected override void Start()
     {
-        Life = 6;
+        Life = 8;
         Health = 100f;
         BossName = "하세";
         BossDescription = "남들보다 나이를 빠르게 먹는";
@@ -129,7 +129,7 @@ public class Hasae : Enemy_Boss
     {
         Health = 900f;
         TimerCoroutine = StartCoroutine(PhaseTimer(60));
-        CutScene(3f);
+        CutScene(2.5f);
         PlaySFX(2);
         SpellName = "슈퍼 자이언트 개to끼";
         SpellCard(SpellName);
@@ -155,7 +155,7 @@ public class Hasae : Enemy_Boss
     {
         Health = 900f;
         TimerCoroutine = StartCoroutine(PhaseTimer(60));
-        CutScene(4f);
+        CutScene(3f);
         PlaySFX(2);
         SpellName = "이러면 자존심 상하는데..";
         SpellCard(SpellName);
