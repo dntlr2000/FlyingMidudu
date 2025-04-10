@@ -17,7 +17,7 @@ public class Stage5 : Stage
 
     protected override IEnumerator StagePhase1()
     {
-        //0: 방개D(금손), 1:방개E(십덕), 2:방개F(십덕), 3:방개G(웁똥딸), 4:방개B
+        //0: 방개H(공격속도 빨라짐), 1:퍼그A, 2:퍼그B, 3:방개I(5:1), 4:방개J(B상위호환)
 
         Debug.Log("Phase 1 Started");
         yield return new WaitForSeconds(6f);
@@ -48,6 +48,34 @@ public class Stage5 : Stage
 
     protected override IEnumerator StagePhase2()
     {
+        int y;
+        for (int i = 0; i < 8; i++)
+        {
+            y = Random.Range(-10, 10);
+            SpawnEnemy(Enemy[4], -60, y, -50, true);
+            yield return new WaitForSeconds(0.15f);
+        }
+        yield return new WaitForSeconds(6f);
+
+        for (int i = 0; i < 8; i++)
+        {
+            y = Random.Range(-10, 10);
+            SpawnEnemy(Enemy[4], 60, y, -50, true);
+            yield return new WaitForSeconds(0.15f);
+
+            if (i == 3)
+            {
+                SpawnEnemy(Enemy[1], -30, 10, -50);
+            }
+            else if (i == 6)
+            {
+                SpawnEnemy(Enemy[1], -35, -10, -50);
+            }
+
+        }
+        yield return new WaitForSeconds(6f);
+
+
         while (CheckEnemyExist())
         {
             yield return new WaitForSeconds(2f);
@@ -76,8 +104,6 @@ public class Stage5 : Stage
 
     protected IEnumerator StagePhase4()
     {
-     
-
 
         while (CheckEnemyExist())
         {
@@ -85,6 +111,19 @@ public class Stage5 : Stage
         }
 
         Debug.Log("Phase 4 Clear");
+
+        StartCoroutine(StagePhase5());
+    }
+
+    protected IEnumerator StagePhase5()
+    {
+
+        while (CheckEnemyExist())
+        {
+            yield return new WaitForSeconds(2f);
+        }
+
+        Debug.Log("Phase 5 Clear");
 
         if (BGM_Script != null) BGM_Script.StopBGM(true);
         yield return new WaitForSeconds(3f);

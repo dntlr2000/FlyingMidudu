@@ -352,22 +352,22 @@ public class Enemy : MonoBehaviour
         if (attackColor != null) attackColor.SetAttackColor(R, G, B);
     }
 
-    protected void SingleShot(Transform spawner, float launchForce, GameObject prefab, GameObject target, float R = 125f, float G = 125f, float B = 125f)
+    protected void SingleShot(Vector3 spawner, float launchForce, GameObject prefab, GameObject target, float R = 125f, float G = 125f, float B = 125f)
     {
-        Vector3 targetDirection = (target.transform.position - spawner.position).normalized;
+        Vector3 targetDirection = (target.transform.position - spawner).normalized;
         Quaternion rotation = Quaternion.LookRotation(targetDirection);
-        GameObject redBall = Instantiate(prefab, spawner.position, rotation);
+        GameObject redBall = Instantiate(prefab, spawner, rotation);
         Rigidbody rb = redBall.GetComponent<Rigidbody>();
         rb.AddForce(targetDirection * launchForce, ForceMode.Impulse);
         AttackColor attackColor = redBall.GetComponent<AttackColor>();
         if (attackColor != null) attackColor.SetAttackColor(R, G, B);
     }
 
-    protected void SingleShot(Transform spawner, float launchForce, GameObject prefab, Transform target, float R = 125f, float G = 125f, float B = 125f)
+    protected void SingleShot(Vector3 spawner, float launchForce, GameObject prefab, Vector3 target, float R = 125f, float G = 125f, float B = 125f)
     {
-        Vector3 targetDirection = (target.position - spawner.position).normalized;
+        Vector3 targetDirection = (target - spawner).normalized;
         Quaternion rotation = Quaternion.LookRotation(targetDirection);
-        GameObject redBall = Instantiate(prefab, spawner.position, rotation);
+        GameObject redBall = Instantiate(prefab, spawner, rotation);
         Rigidbody rb = redBall.GetComponent<Rigidbody>();
         rb.AddForce(targetDirection * launchForce, ForceMode.Impulse);
         AttackColor attackColor = redBall.GetComponent<AttackColor>();
@@ -463,17 +463,17 @@ public class Enemy : MonoBehaviour
 
     }
 
-    protected virtual void ShootAround(Transform spawner, GameObject target, int num, GameObject prefab, float radius, float speed, float randSpeed, float R = 125f, float G = 125f, float B = 125f)
+    protected virtual void ShootAround(Vector3 spawner, GameObject target, int num, GameObject prefab, float radius, float speed, float randSpeed, float R = 125f, float G = 125f, float B = 125f)
     {
         Vector3 targetPosition = target.transform.position;
 
         for (int i = 0; i < num; i++)
         {
-            GameObject projectile = Instantiate(prefab, spawner.position, Quaternion.identity);
+            GameObject projectile = Instantiate(prefab, spawner, Quaternion.identity);
 
             //주변을 향해 발사
             Vector3 randomOffset = Random.onUnitSphere * radius; //(5: 반지름 크기)
-            Vector3 targetDirection = (targetPosition + randomOffset - spawner.position).normalized;
+            Vector3 targetDirection = (targetPosition + randomOffset - spawner).normalized;
 
             Rigidbody rb = projectile.GetComponent<Rigidbody>();
             AttackColor attackColor = projectile.GetComponent<AttackColor>();
@@ -660,9 +660,9 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    protected virtual void SlowdownAttack(Transform spawner, int projectileNum, float launchForce, float angleDivision, GameObject target, GameObject prefab, float R = 125f, float G = 125f, float B = 125f, float afterSpeedPercent = 0.1f, float delay = 0.5f, bool ifInstance = false)
+    protected virtual void SlowdownAttack(Vector3 spawner, int projectileNum, float launchForce, float angleDivision, GameObject target, GameObject prefab, float R = 125f, float G = 125f, float B = 125f, float afterSpeedPercent = 0.1f, float delay = 0.5f, bool ifInstance = false)
     {
-        Vector3 targetDirection = (target.transform.position - spawner.position).normalized;
+        Vector3 targetDirection = (target.transform.position - spawner).normalized;
         Quaternion baseRotation = Quaternion.LookRotation(targetDirection);
 
         // 균등하게 퍼지도록 방향 조절
@@ -686,7 +686,7 @@ public class Enemy : MonoBehaviour
 
             // 발사체 생성 및 발사
             Quaternion rotation = Quaternion.LookRotation(direction);
-            GameObject redBall = Instantiate(prefab, spawner.position, rotation);
+            GameObject redBall = Instantiate(prefab, spawner, rotation);
             Rigidbody rb = redBall.GetComponent<Rigidbody>();
             AttackColor attackColor = redBall.GetComponent<AttackColor>();
             if (attackColor != null) attackColor.SetAttackColor(R, G, B);

@@ -41,9 +41,9 @@ public class PugA : Enemy_Minion
         yield return new WaitForSeconds(0.5f);
 
         while (true) {
-            for (int i = 0; i < 10; i++)
+            for (int i = 1; i < 12; i++)
             {
-                BasicAttack(10, 8 * i, 4, player ,AttackPrefab[0] ,242, 239, 42);
+                BasicAttack(15, 8 * i, 4, player ,AttackPrefab[0] ,242, 239, 42);
                 PlaySFX(4);
                 yield return new WaitForSeconds(0.1f);
             }

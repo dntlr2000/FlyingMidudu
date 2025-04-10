@@ -45,7 +45,7 @@ public class PugB : Enemy_Minion
             for (int i = 0; i < 20; i++)
             {
                 //BasicAttack(80, 20, 2, player, AttackPrefab[0], 171, 36, 191);
-                BasicAttack(80, 30, AttackPrefab[0], 171, 36, 19);
+                BasicAttack(80, 30, AttackPrefab[0], 116, 3, 179);
                 PlaySFX(4);
                 yield return new WaitForSeconds(0.2f);
             }
