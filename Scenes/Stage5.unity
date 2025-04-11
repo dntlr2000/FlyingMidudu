@@ -519,7 +519,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4918586093976723982, guid: 8f27ad41290da3c458673f748d71317f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Stage3
+      value: Stage5
       objectReference: {fileID: 0}
     - target: {fileID: 5319060912171042313, guid: 8f27ad41290da3c458673f748d71317f, type: 3}
       propertyPath: m_margin.z
@@ -1307,6 +1307,22 @@ PrefabInstance:
       propertyPath: HealthBarObject
       value: 
       objectReference: {fileID: 1160856972}
+    - target: {fileID: 3485815630389342834, guid: 078f4e408029365499ca1be8a78a4f9c, type: 3}
+      propertyPath: attackPrefab.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3485815630389342834, guid: 078f4e408029365499ca1be8a78a4f9c, type: 3}
+      propertyPath: attackPrefab.Array.data[0]
+      value: 
+      objectReference: {fileID: 6449578115389766630, guid: fe373773385c3be479abc20d4eeb77a0, type: 3}
+    - target: {fileID: 3485815630389342834, guid: 078f4e408029365499ca1be8a78a4f9c, type: 3}
+      propertyPath: attackPrefab.Array.data[1]
+      value: 
+      objectReference: {fileID: 3997560436894072735, guid: 24522f63ac445054e91b9f2aae0fd717, type: 3}
+    - target: {fileID: 3485815630389342834, guid: 078f4e408029365499ca1be8a78a4f9c, type: 3}
+      propertyPath: attackPrefab.Array.data[2]
+      value: 
+      objectReference: {fileID: 4475414099322364756, guid: 5b1094724de87fb42b7119fa27408dfa, type: 3}
     - target: {fileID: 5019856414059697003, guid: 078f4e408029365499ca1be8a78a4f9c, type: 3}
       propertyPath: m_Name
       value: ScorpionSD

@@ -22,6 +22,7 @@ public class Stage5 : Stage
         Debug.Log("Phase 1 Started");
         yield return new WaitForSeconds(6f);
 
+
         SpawnEnemy(Enemy[1], 30, 10, -50);
         yield return new WaitForSeconds(3f);
         SpawnEnemy(Enemy[1],-30, 10, -50);
@@ -55,7 +56,7 @@ public class Stage5 : Stage
             SpawnEnemy(Enemy[4], -60, y, -50, true);
             yield return new WaitForSeconds(0.15f);
         }
-        yield return new WaitForSeconds(6f);
+        yield return new WaitForSeconds(9f);
 
         for (int i = 0; i < 8; i++)
         {
@@ -104,6 +105,19 @@ public class Stage5 : Stage
 
     protected IEnumerator StagePhase4()
     {
+        int q = -1;
+        for (int i = -40; i < 45; i+=20)
+        {
+            SpawnEnemy(Enemy[3], i, q * 30, -50);
+            q *= -1;
+            yield return new WaitForSeconds(1.2f);
+            if (i == 20) SpawnEnemy(Enemy[0], -30, 10, -40);
+        }
+
+        yield return new WaitForSeconds(4f);
+        SpawnEnemy(Enemy[0], 30, -10, -40);
+
+        yield return new WaitForSeconds(2f);
 
         while (CheckEnemyExist())
         {
@@ -117,6 +131,18 @@ public class Stage5 : Stage
 
     protected IEnumerator StagePhase5()
     {
+        SpawnEnemy(Enemy[0], -30, -10, -50);
+        yield return new WaitForSeconds(0.7f);
+        SpawnEnemy(Enemy[0], 30, 15, -50);
+        yield return new WaitForSeconds(2f);
+        SpawnEnemy(Enemy[0], 25, -15, -50);
+        yield return new WaitForSeconds(0.7f);
+        SpawnEnemy(Enemy[0], -25, 15, -50);
+        yield return new WaitForSeconds(2f);
+        SpawnEnemy(Enemy[1], -30, 0, -55);
+        yield return new WaitForSeconds(0.7f);
+        SpawnEnemy(Enemy[1], 30, 0, -45);
+
 
         while (CheckEnemyExist())
         {

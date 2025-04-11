@@ -11,7 +11,7 @@ public class BangaeJ : Enemy_Minion
         animator = GetComponent<Animator>();
 
         Life = 1;
-        Health = 40f;
+        Health = 30f;
 
         player = FindPlayer();
         if (player == null) return;
@@ -28,7 +28,6 @@ public class BangaeJ : Enemy_Minion
 
         if (gameObject.transform.position.x < 0)
         {
-            //Debug.Log("Left to Right");
             animator.SetInteger("State", 1);
             StartCoroutine(ObjectMover(new Vector3(transform.position.x + 100, transform.position.y, transform.position.z), 10f));
             R = 232;
@@ -38,7 +37,6 @@ public class BangaeJ : Enemy_Minion
         }
         else
         {
-            //Debug.Log("Right to Left");
             animator.SetInteger("State", 2);
             StartCoroutine(ObjectMover(new Vector3(transform.position.x - 100, transform.position.y, transform.position.z), 10f));
             R = 32;
@@ -48,7 +46,7 @@ public class BangaeJ : Enemy_Minion
         yield return new WaitForSeconds(1f);
         for (int i = 0; i < 10; i++)
         {
-            ShootAround(player, 20, AttackPrefab[0], 5, 90, 0.1f, R, G, B);
+            ShootAround(player, 20, AttackPrefab[1], 5, 90, 0.1f, R, G, B);
             PlaySFX(5);
             yield return new WaitForSeconds(1f);
         }
@@ -58,8 +56,8 @@ public class BangaeJ : Enemy_Minion
 
     protected override void Death() //잡몹은 생성한 공격 오브젝트를 삭제하지 않고 그냥 삭제
     {
-        SlowdownAttack(20, 80, 4, player, AttackPrefab[1], 212, 110, 110, 0.2f, 0.2f);
-        PlaySFX(4);
+        SlowdownAttack(20, 80, 4, player, AttackPrefab[0], 212, 110, 110, 0.2f, 0.2f);
+        //PlaySFX(4);
         base.Death();
     }
 }

@@ -11,7 +11,7 @@ public class BangaeI : Enemy_Minion
         animator = GetComponent<Animator>();
 
         Life = 1;
-        Health = 150f;
+        Health = 40f;
 
         player = FindPlayer();
         if (player == null) return;
@@ -36,7 +36,7 @@ public class BangaeI : Enemy_Minion
         else
         {
             StartCoroutine(RotateObject(0.5f, 0, -90, 0));
-            StartCoroutine(ObjectMover(new Vector3(transform.position.x + 10, transform.position.y + 80, transform.position.z), 12f));
+            StartCoroutine(ObjectMover(new Vector3(transform.position.x + 10, transform.position.y - 80, transform.position.z), 12f));
         }
 
         //yield return new WaitForSeconds(0.5f);
@@ -49,7 +49,7 @@ public class BangaeI : Enemy_Minion
                 SingleShot(80, AttackPrefab[0], player, 232, 23, 23);
                 SingleShot(70, AttackPrefab[0], player, 232, 23, 23);
                 PlaySFX(4);
-                yield return new WaitForSeconds(0.1f);
+                yield return new WaitForSeconds(0.2f);
             }
             BasicAttack(20, 70, 4, player, AttackPrefab[1], 240, 152, 9);
             yield return null;

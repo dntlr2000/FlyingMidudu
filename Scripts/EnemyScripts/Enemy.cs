@@ -263,9 +263,9 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    protected virtual void BasicAttack(Transform Spawner, int projectileNum, float launchForce, float angleDivision, GameObject target, GameObject prefab, float R = 125f, float G = 125f, float B = 125f)
+    protected virtual void BasicAttack(Vector3 Spawner, int projectileNum, float launchForce, float angleDivision, GameObject target, GameObject prefab, float R = 125f, float G = 125f, float B = 125f)
     {
-        Vector3 targetDirection = (target.transform.position - Spawner.position).normalized;
+        Vector3 targetDirection = (target.transform.position - Spawner).normalized;
         Quaternion baseRotation = Quaternion.LookRotation(targetDirection);
 
         // 균등하게 퍼지도록 방향 조절
@@ -289,7 +289,7 @@ public class Enemy : MonoBehaviour
 
             // 발사체 생성 및 발사
             Quaternion rotation = Quaternion.LookRotation(direction);
-            GameObject redBall = Instantiate(prefab, Spawner.position, rotation);
+            GameObject redBall = Instantiate(prefab, Spawner, rotation);
             Rigidbody rb = redBall.GetComponent<Rigidbody>();
             AttackColor attackColor = redBall.GetComponent<AttackColor>();
             if (attackColor != null) attackColor.SetAttackColor(R, G, B);

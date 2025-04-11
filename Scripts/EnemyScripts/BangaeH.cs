@@ -11,7 +11,7 @@ public class BangaeH : Enemy_Minion
         animator = GetComponent<Animator>();
 
         Life = 1;
-        Health = 150f;
+        Health = 120f;
 
         player = FindPlayer();
         if (player == null) return;
@@ -45,7 +45,7 @@ public class BangaeH : Enemy_Minion
             b = 232;
         }
 
-        for (int i = 0; i < 8; i++)
+        for (int i = 0; i < 12; i++)
         {
             yield return new WaitForSeconds(0.15f);
             PlaySFX(4);
@@ -57,9 +57,10 @@ public class BangaeH : Enemy_Minion
             PlaySFX(4);
             BasicAttack(10, 80, 2 + i, player, AttackPrefab[0], r, g, b);
         }
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < 30; i++)
         {
             yield return new WaitForSeconds(0.15f);
+            PlaySFX(4);
             BasicAttack(10, 80, 12, player, AttackPrefab[0], r, g, b);
         }
 

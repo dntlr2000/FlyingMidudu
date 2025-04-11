@@ -65,7 +65,7 @@ public class Woopsoon_Mid : Enemy_Boss
         CutScene(2f);
         PlaySFX(2);
 
-        SpellName = "100마리의 방개들..어셈블";
+        SpellName = "팬아트가 많다는건 팬이 많다는 것";
         SpellCard(SpellName);
 
         int X = 0 ;

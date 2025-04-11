@@ -155,7 +155,7 @@ public class Hasae : Enemy_Boss
     {
         Health = 900f;
         TimerCoroutine = StartCoroutine(PhaseTimer(60));
-        CutScene(3f);
+        CutScene(2f);
         PlaySFX(2);
         SpellName = "이러면 자존심 상하는데..";
         SpellCard(SpellName);
