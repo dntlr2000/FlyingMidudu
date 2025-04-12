@@ -6,6 +6,7 @@ public class AttackColor : MonoBehaviour
 {
     public GameObject Target;
     Color custom = new Color(102f / 255f, 255f / 255f, 180f / 255f);
+    public int changeIndex = 0;
 
     void Start()
     {
@@ -26,17 +27,16 @@ public class AttackColor : MonoBehaviour
         //Material newMat = new Material(renderer.sharedMaterial);
         Material[] mats = renderer.materials;
 
-        mats[0] = new Material(mats[0]);
-
+        mats[changeIndex] = new Material(mats[changeIndex]);
 
         // Emission 활성화
-        mats[0].EnableKeyword("_EMISSION");
+        mats[changeIndex].EnableKeyword("_EMISSION");
 
         // Emission 색 설정
-        mats[0].SetColor("_EmissionColor", custom);
+        mats[changeIndex].SetColor("_EmissionColor", custom);
 
         // 새 메터리얼 적용
-        renderer.material = mats[0];
+        renderer.material = mats[changeIndex];
     }
     
 }

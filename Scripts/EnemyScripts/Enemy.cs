@@ -298,6 +298,41 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    protected virtual void BasicAttack(Vector3 Spawner, int projectileNum, float launchForce, float angleDivision, Vector3 target, GameObject prefab, float R = 125f, float G = 125f, float B = 125f)
+    {
+        Vector3 targetDirection = (target - Spawner).normalized;
+        Quaternion baseRotation = Quaternion.LookRotation(targetDirection);
+
+        // 균등하게 퍼지도록 방향 조절
+        float goldenRatio = (1 + Mathf.Sqrt(5)) / 2;
+        float angleIncrement = Mathf.PI * 2 * goldenRatio;
+
+        for (int i = 0; i < projectileNum; i++)
+        {
+            float t = (float)i / projectileNum;
+            float inclination = Mathf.Acos(1 - 2 * t) / angleDivision; // 반구 형태로 제한 (180 / ?)
+            float azimuth = angleIncrement * i;
+
+            Vector3 direction = new Vector3(
+                Mathf.Sin(inclination) * Mathf.Cos(azimuth),
+                Mathf.Sin(inclination) * Mathf.Sin(azimuth),
+                Mathf.Cos(inclination)
+            );
+
+            // 방향을 플레이어를 향한 방향 기준으로 회전
+            direction = baseRotation * direction;
+
+            // 발사체 생성 및 발사
+            Quaternion rotation = Quaternion.LookRotation(direction);
+            GameObject redBall = Instantiate(prefab, Spawner, rotation);
+            Rigidbody rb = redBall.GetComponent<Rigidbody>();
+            AttackColor attackColor = redBall.GetComponent<AttackColor>();
+            if (attackColor != null) attackColor.SetAttackColor(R, G, B);
+
+            rb.AddForce(direction * launchForce, ForceMode.Impulse);
+        }
+    }
+
     protected virtual void BasicAttack(int projectileNum, float launchForce, GameObject prefab, float R = 125f, float G = 125f, float B = 125f)
     {
         // 자기 자신을 기준으로 구의 형태로 그대로 발사
@@ -493,10 +528,11 @@ public class Enemy : MonoBehaviour
         for (int i = 0; i < num - 1; i++)
         {
             GameObject laser = Instantiate(prefab, transform.position + transform.up * 1f, transform.rotation * Quaternion.Euler(0, 0, 0));
-            
+            AttackColor attackColor1 = laser.GetComponent<AttackColor>();
+            if (attackColor1 != null) attackColor1.SetAttackColor(R, G, B);
             //AttackColor attackColor = laser.GetComponent<AttackColor>();
             //attackColor.SetAttackColor(R, G, B);
-            
+
             //주변을 향해 발사
             Vector3 randomOffset = Random.onUnitSphere * radius; //(5: 반지름 크기)
             //randomOffset.y = 0;
@@ -507,6 +543,8 @@ public class Enemy : MonoBehaviour
         }
         GameObject laser0 = Instantiate(prefab, transform.position + transform.up * 1f, transform.rotation * Quaternion.Euler(0, 0, 0));
         Vector3 directTargetDirection = -(targetPosition - transform.position).normalized;
+        AttackColor attackColor = laser0.GetComponent<AttackColor>();
+        if (attackColor != null) attackColor.SetAttackColor(R, G, B);
         laser0.transform.forward = directTargetDirection;
     }
 
@@ -517,7 +555,8 @@ public class Enemy : MonoBehaviour
         for (int i = 0; i < num - 1; i++)
         {
             GameObject laser = Instantiate(prefab, spawner.transform.position + spawner.transform.up * 1f, spawner.transform.rotation * Quaternion.Euler(0, 0, 0));
-
+            AttackColor attackColor1 = laser.GetComponent<AttackColor>();
+            if (attackColor1 != null) attackColor1.SetAttackColor(R, G, B);
             //AttackColor attackColor = laser.GetComponent<AttackColor>();
             //attackColor.SetAttackColor(R, G, B);
 
@@ -531,6 +570,8 @@ public class Enemy : MonoBehaviour
         }
         GameObject laser0 = Instantiate(prefab, spawner.transform.position + spawner.transform.up * 1f, spawner.transform.rotation * Quaternion.Euler(0, 0, 0));
         Vector3 directTargetDirection = -(targetPosition - spawner.transform.position).normalized;
+        AttackColor attackColor = laser0.GetComponent<AttackColor>();
+        if (attackColor != null) attackColor.SetAttackColor(R, G, B);
         laser0.transform.forward = directTargetDirection;
     }
 
@@ -541,7 +582,8 @@ public class Enemy : MonoBehaviour
         for (int i = 0; i < num - 1; i++)
         {
             GameObject laser = Instantiate(prefab, spawner.transform.position + spawner.transform.up * 1f, spawner.transform.rotation * Quaternion.Euler(0, 0, 0));
-
+            AttackColor attackColor1 = laser.GetComponent<AttackColor>();
+            if (attackColor1 != null) attackColor1.SetAttackColor(R, G, B);
             //AttackColor attackColor = laser.GetComponent<AttackColor>();
             //attackColor.SetAttackColor(R, G, B);
 
@@ -555,6 +597,8 @@ public class Enemy : MonoBehaviour
         }
         GameObject laser0 = Instantiate(prefab, spawner.position + spawner.up * 1f, spawner.rotation * Quaternion.Euler(0, 0, 0));
         Vector3 directTargetDirection = -(targetPosition - spawner.position).normalized;
+        AttackColor attackColor = laser0.GetComponent<AttackColor>();
+        if (attackColor != null) attackColor.SetAttackColor(R, G, B);
         laser0.transform.forward = directTargetDirection;
     }
 

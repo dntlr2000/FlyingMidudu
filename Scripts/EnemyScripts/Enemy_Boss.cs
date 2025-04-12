@@ -144,20 +144,24 @@ public class Enemy_Boss : Enemy
         }
         else if (remainLife == 9) 
         {
+            if (ph10 != null) StopCoroutine(ph10);
             ph9 = StartCoroutine(Phase9());
         }
 
         else if (remainLife == 8) //남은 목숨 8개, 페이즈 추가가 필요할 시 위에 7부터 추가하면 될듯
         {
+            if (ph9 != null) StopCoroutine(ph9);
             ph8 = StartCoroutine(Phase8());
         }
         else if (remainLife == 7) //남은 목숨 7개, 페이즈 추가가 필요할 시 위에 7부터 추가하면 될듯
         {
+            if (ph8 != null) StopCoroutine(ph8);
             ph7 = StartCoroutine(Phase7());
         }
 
         else if (remainLife == 6) //남은 목숨 6개, 페이즈 추가가 필요할 시 위에 7부터 추가하면 될듯
         {
+            if (ph7 != null) StopCoroutine(ph7);
             ph6 = StartCoroutine(Phase6());
         }
         else if (remainLife == 5)

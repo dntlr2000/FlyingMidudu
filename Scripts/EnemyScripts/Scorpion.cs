@@ -70,7 +70,7 @@ public class Scorpion : Enemy_Boss
         SpellCard(SpellName);
         yield return new WaitForSeconds(3f);
 
-        StartCoroutine(ObjectMover(new Vector3(0, 0, 0), 2f));
+        StartCoroutine(ObjectMover(new Vector3(0, 0, -50), 2f));
         while (true)
         {
             for (int i = 10; i > -10; i -= 2)

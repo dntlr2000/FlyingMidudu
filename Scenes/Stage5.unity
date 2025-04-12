@@ -1472,6 +1472,34 @@ PrefabInstance:
       propertyPath: HealthBarObject
       value: 
       objectReference: {fileID: 1160856972}
+    - target: {fileID: 2712697816880738121, guid: 3a5612041ec7c1d45ac0e57656a0e329, type: 3}
+      propertyPath: attackPrefab.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2712697816880738121, guid: 3a5612041ec7c1d45ac0e57656a0e329, type: 3}
+      propertyPath: attackPrefab.Array.data[0]
+      value: 
+      objectReference: {fileID: 3997560436894072735, guid: 24522f63ac445054e91b9f2aae0fd717, type: 3}
+    - target: {fileID: 2712697816880738121, guid: 3a5612041ec7c1d45ac0e57656a0e329, type: 3}
+      propertyPath: attackPrefab.Array.data[1]
+      value: 
+      objectReference: {fileID: 3184244041106848311, guid: 6aa3f8faa7a5b3d47836b118db0fba00, type: 3}
+    - target: {fileID: 2712697816880738121, guid: 3a5612041ec7c1d45ac0e57656a0e329, type: 3}
+      propertyPath: attackPrefab.Array.data[2]
+      value: 
+      objectReference: {fileID: 4475414099322364756, guid: 5b1094724de87fb42b7119fa27408dfa, type: 3}
+    - target: {fileID: 2712697816880738121, guid: 3a5612041ec7c1d45ac0e57656a0e329, type: 3}
+      propertyPath: attackPrefab.Array.data[3]
+      value: 
+      objectReference: {fileID: 78620761728142502, guid: 69ad4730086293c488d74dd2d03669d3, type: 3}
+    - target: {fileID: 2712697816880738121, guid: 3a5612041ec7c1d45ac0e57656a0e329, type: 3}
+      propertyPath: attackPrefab.Array.data[4]
+      value: 
+      objectReference: {fileID: 5852521548270742131, guid: aa6601adca88f254e94b45adaf71edb0, type: 3}
+    - target: {fileID: 2712697816880738121, guid: 3a5612041ec7c1d45ac0e57656a0e329, type: 3}
+      propertyPath: attackPrefab.Array.data[5]
+      value: 
+      objectReference: {fileID: 5890925436087946, guid: d660666fa8f9bfd42b95178b86ef9538, type: 3}
     - target: {fileID: 3787930308877460564, guid: 3a5612041ec7c1d45ac0e57656a0e329, type: 3}
       propertyPath: m_TargetDisplay
       value: 1

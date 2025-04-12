@@ -2,49 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LaserSmall : MonoBehaviour
+public class LaserBig : LaserSmall
 {
-    //Quaternion.Euler(0, 180f, 0)로 보정해야 정면으로 나간다
-
-    protected Collider hitbox;
-    public GameObject parent;
-    public Animator animator;
-    //public float shrinkTIme;
     // Start is called before the first frame update
-    //private BGMController BGM_Script;
-    public float startDelay = 1f;
-    public float laserDuration = 2f;
-    //public float endDelay = 1f;
-
-    protected Vector3 hitBoxScale;
-    protected Vector3 targetScale;
-
-    protected virtual void Start()
+    protected override void Start()
     {
-        hitbox = gameObject.GetComponent<Collider>();
-        //animator = parent.GetComponent<Animator>();
-        AbleLaser(startDelay, laserDuration);
-        //BGM_Script = FindObjectOfType<BGMController>();
+        startDelay = 1f;
+        laserDuration = 4f;
+        base.Start();
+        hitbox.transform.localScale = new Vector3(0, 0, 0);
     }
 
-
-    public void AbleLaser(float startDelay = 1f, float shrinkTime = 3f)
+    protected override IEnumerator LaserCoroutine(float startDelay, float shrinkTime)
     {
-        StartCoroutine(LaserCoroutine(startDelay, shrinkTime));
-    }
 
-    protected virtual IEnumerator LaserCoroutine(float startDelay, float shrinkTime)
-    {
+        hitbox.transform.localScale = new Vector3(0, 0, 0);
+        hitbox.enabled = false;
         yield return new WaitForSeconds(startDelay);
         //BGM_Script.PlaySFX(5); //임시
         hitbox.enabled = true;
-        hitBoxScale = hitbox.transform.localScale;
-        targetScale = new Vector3(2.27f, 2.27f, hitBoxScale.z);
+        hitBoxScale = new Vector3(0.01f, 0.01f, 1f);//hitbox.transform.localScale;
+        targetScale = new Vector3(1f, 1f, hitBoxScale.z);
 
         animator.SetBool("ifOff", false);
-        
+
         float elapsedTime = 0f;
-        
+
         while (elapsedTime < 1f)
         {
             elapsedTime += Time.deltaTime;
@@ -70,7 +53,6 @@ public class LaserSmall : MonoBehaviour
             yield return null; //다음 프레임
         }
         hitbox.transform.localScale = targetScale;
-        
 
         Destroy(parent.gameObject);
 

@@ -100,6 +100,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 5852521548270742131}
   animator: {fileID: 3685321021615342131}
+  startDelay: 1
+  laserDuration: 2
 --- !u!1 &2231857469057611138
 GameObject:
   m_ObjectHideFlags: 0
@@ -183,8 +185,8 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 7987546784124357900, guid: a117ee850acd4b44f91debea8040595e, type: 3}
-  - {fileID: -5030317308937030741, guid: a117ee850acd4b44f91debea8040595e, type: 3}
+  - {fileID: 2100000, guid: 86d77966949d06e4c8ef4f123f10d6ae, type: 2}
+  - {fileID: 2100000, guid: bcdda29ee2e9d76448936ef5441898dd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -264,6 +266,7 @@ GameObject:
   - component: {fileID: 3685321021615342131}
   - component: {fileID: 5635269019500502000}
   - component: {fileID: 7906091448167349206}
+  - component: {fileID: 3186978616373447561}
   m_Layer: 0
   m_Name: EnemyBeam_small
   m_TagString: EnemyAttack
@@ -358,6 +361,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.1, y: 0.1, z: 101.225}
   m_Center: {x: 0, y: 0, z: -50.47742}
+--- !u!114 &3186978616373447561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5852521548270742131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd102f3fbfdc2644aba641cad0260dc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Target: {fileID: 2554534537213002093}
+  changeIndex: 1
 --- !u!1 &6208187287568429910
 GameObject:
   m_ObjectHideFlags: 0

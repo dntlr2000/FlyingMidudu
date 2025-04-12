@@ -65,46 +65,126 @@ public class Hasae : Enemy_Boss
 
     protected override IEnumerator Phase8() //패턴 1 : 통상
     {
-        Health = 700f;
+        Health = 800f;
         TimerCoroutine = StartCoroutine(PhaseTimer(60));
         //MainCamera.SetActive(false);
+        yield return new WaitForSeconds(2f);
 
+        while (true)
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                BasicAttack(7, 30, 4, playerCharacter, attackPrefab[2], 207, 7, 7);
+                for (int k = 0; k < 5; k++)
+                {
+                    PlaySFX(4);
+                    BasicAttack(50, 60, 4, playerCharacter, attackPrefab[0], 242, 239, 42);
+                    yield return new WaitForSeconds(0.2f);
+                }
+            }
 
-        yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(1f);
+            for (int i = 0; i < 5; i++)
+            {
+                BasicAttack(7, 30, 4, playerCharacter, attackPrefab[2], 207, 7, 7);
+                for (int k = 0; k < 5; k++)
+                {
+                    PlaySFX(4);
+                    BasicAttack(transform.position, 25, 60, 4, playerCharacter.transform.position + new Vector3(10, 0, 0), attackPrefab[3], 116, 3, 179);
+                    BasicAttack(transform.position, 25, 60, 4, playerCharacter.transform.position + new Vector3(-10, 0, 0), attackPrefab[3], 116, 3, 179);
+                    yield return new WaitForSeconds(0.2f);
+                }
+            }
+
+            RandomMove(10, 2f);
+
+            yield return new WaitForSeconds(1f);
+        }
+
 
     }
     protected override IEnumerator Phase7() //패턴 2 : 기술
     {
-        Health = 900f;
+        Health = 1000f;
         TimerCoroutine = StartCoroutine(PhaseTimer(60));
 
-        CutScene(2f);
+        CutScene(1.5f);
         PlaySFX(2);
         SpellName = "본인 빼고 주변이 회춘하는 마법";
         SpellCard(SpellName);
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
+        StartCoroutine(ObjectMover(new Vector3(0, 0, -10), 1f));
+        yield return new WaitForSeconds(1f);
+        while (true)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                PlaySFX(5);
+                SlowdownAttack(150, 40, 1, playerCharacter, attackPrefab[3], 116, 3, 179, -1f, 1);
+                yield return new WaitForSeconds(0.5f);
+            }
 
+            for (int i = 0; i < 10; i++)
+            {
+                PlaySFX(4);
+                BasicAttack(100, 60, 3, playerCharacter, attackPrefab[0], 242, 239, 42);
+                yield return new WaitForSeconds(0.2f);
+            }
+            RandomMove(5, 2f);
+            yield return new WaitForSeconds(1f);
+        }
     }
     protected override IEnumerator Phase6() //패턴 3 : 통상
     {
-        
-        Health = 400f;
+        Health = 700f;
         TimerCoroutine = StartCoroutine(PhaseTimer(60));
+        yield return new WaitForSeconds(2f);
+        StartCoroutine(ObjectMover(new Vector3(0, 0, -50), 3f));
+        while (true)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                yield return new WaitForSeconds(0.5f);
+                ShootLasers(playerCharacter, 6, attackPrefab[4], 25, 242, 239, 42);
+                PlaySFX(5);
+            }
 
-
-        yield return new WaitForSeconds(3f);
-        
+            yield return new WaitForSeconds(1f);
+            SlowdownAttack(200, 60, 1, playerCharacter, attackPrefab[1], 116, 3, 179, 0.2f);
+            PlaySFX(4);
+            yield return new WaitForSeconds(1f);
+            RandomMove(20, 2f);
+        }
 
     }
     protected override IEnumerator Phase5() //패턴 4 : 기술
     {
-        Health = 900f;
+        Health = 1600f;
         TimerCoroutine = StartCoroutine(PhaseTimer(60));
         CutScene(2f);
         PlaySFX(2);
         SpellName = "자이언트 오리오리빔";
         SpellCard(SpellName);
         yield return new WaitForSeconds(3f);
+
+        while(true)
+        {
+            ShootLasers(playerCharacter, 1, attackPrefab[5], 1, 242, 239, 42);
+            PlaySFX(5);
+            yield return new WaitForSeconds(1f);
+            for (int i = 0; i < 18; i++)
+            {
+                if (i % 3 == 0) PlayerCamera.CameraShake(2);
+                BasicAttack(50, 40, 2, playerCharacter, attackPrefab[1], 116, 3, 179);
+                BasicAttack(100, 60, 2, playerCharacter, attackPrefab[0], 116, 3, 179);
+                PlaySFX(4);
+                yield return new WaitForSeconds(0.25f);
+            }
+            yield return new WaitForSeconds(2f);
+            RandomMove(10, 1f);
+            yield return new WaitForSeconds(1f);
+
+        }
 
     }
     protected override IEnumerator Phase4() //패턴 5 : 통상, 슈터 추가

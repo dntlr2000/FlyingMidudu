@@ -169,7 +169,11 @@ MonoBehaviour:
   MainCamera: {fileID: 0}
   MyCamera: {fileID: 4804565236881763053}
   pointer: {fileID: 0}
-  attackPrefab: []
+  attackPrefab:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   HealthBarObject: {fileID: 0}
   DeathEffect1: {fileID: 1493947276669149963, guid: 8475583dc17922d4b8005149a568a499, type: 3}
   DeathEffect2: {fileID: 2390646017386113098, guid: 2986d99e92729114e964f16d9b4dbc8f, type: 3}
@@ -178,3 +182,6 @@ MonoBehaviour:
   stageScript: {fileID: 0}
   Satelite001: {fileID: 0}
   Satelite002: {fileID: 0}
+  SateliteAim: {fileID: 0}
+  PlayerFollower: {fileID: 0}
+  GiantPug: {fileID: 0}
