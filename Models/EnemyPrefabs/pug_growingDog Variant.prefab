@@ -97,8 +97,7 @@ MonoBehaviour:
   deathEffect: {fileID: 3901673378021655620, guid: b152383de00403b4fa322c84a239ce46, type: 3}
   AttackPrefab:
   - {fileID: 3997560436894072735, guid: 24522f63ac445054e91b9f2aae0fd717, type: 3}
-  - {fileID: 3184244041106848311, guid: 6aa3f8faa7a5b3d47836b118db0fba00, type: 3}
-  - {fileID: 78620761728142502, guid: 69ad4730086293c488d74dd2d03669d3, type: 3}
+  - {fileID: 6449578115389766630, guid: fe373773385c3be479abc20d4eeb77a0, type: 3}
   duration: 2
   startScale: 0.1
   endScale: 5

@@ -10,6 +10,7 @@ public class Hasae : Enemy_Boss
     public GameObject Satelite002;
     public AimConstraint SateliteAim;
     public ShooterDroneAiming PlayerFollower;
+    public GameObject SatelieAimingObject;
 
     public GameObject GiantPug;
 
@@ -26,6 +27,7 @@ public class Hasae : Enemy_Boss
         base.Start();
 
         healthBar.SetName("Hasae");
+        
     }
 
     protected override void PhaseSetter(int remainLife)
@@ -190,8 +192,8 @@ public class Hasae : Enemy_Boss
     protected override IEnumerator Phase4() //패턴 5 : 통상, 슈터 추가
     {
         
-        Health = 600f;
-        TimerCoroutine = StartCoroutine(PhaseTimer(60));
+        Health = 500f;
+        TimerCoroutine = StartCoroutine(PhaseTimer(40));
         CutScene(3f);
         yield return new WaitForSeconds(1.1f);
         ActivateShooter();
@@ -201,14 +203,38 @@ public class Hasae : Enemy_Boss
         SateliteAim.constraintActive= true;
         PlayerFollower.enabled= true;
 
-        
+        SatelieAimingObject = SateliteAim.gameObject;
+
+        while (true)
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                PlaySFX(4);
+                SingleShot(Satelite001, 100f, attackPrefab[0], playerCharacter, 200, 5, 5);
+                SingleShot(Satelite002, 100f, attackPrefab[0], playerCharacter, 200, 5, 5);
+                yield return new WaitForSeconds(0.2f);
+            }
+
+            for (int i = 0; i < 10; i++)
+            {
+                PlaySFX(5);
+                if (i % 2 == 0)
+                {
+                    SingleShot(Satelite001, 100f, attackPrefab[0], playerCharacter, 200, 5, 5);
+                    SingleShot(Satelite002, 100f, attackPrefab[0], playerCharacter, 200, 5, 5);
+                }
+                BasicAttack(60, 50 + 5 * i, 3, playerCharacter, attackPrefab[3], 242, 239, 42);
+                yield return new WaitForSeconds(0.1f);
+            }
+            RandomMove(15, 1f);
+        }
         
 
     }
     protected override IEnumerator Phase3() //패턴 6 : 기술
     {
-        Health = 900f;
-        TimerCoroutine = StartCoroutine(PhaseTimer(60));
+        Health = 600f;
+        TimerCoroutine = StartCoroutine(PhaseTimer(40));
         CutScene(2.5f);
         PlaySFX(2);
         SpellName = "슈퍼 자이언트 개to끼";
@@ -218,22 +244,77 @@ public class Hasae : Enemy_Boss
         Vector3 newPos = transform.position + new Vector3(0f, 2.3f, 0f);
 
         SpawnEnemy(GiantPug, newPos);
+        yield return new WaitForSeconds(3f);
+        RandomMove(15, 2f);
+        while (true)
+        {
+            yield return new WaitForSeconds(2f);
+            animator.SetInteger("Motion", 3);
+            newPos = transform.position + new Vector3(0f, 2.3f, 0f);
+            SpawnEnemy(GiantPug, newPos);
+            yield return new WaitForSeconds(3f);
+            animator.SetInteger("Motion", 0);
+            RandomMove(15, 2f);
 
-        yield return new WaitForSeconds(2.5f);
+            for ( int i = 0; i < 3; i++)
+            {
+                PlaySFX(4);
+                SlowdownAttack(60, 20, 3, playerCharacter, attackPrefab[3], 100, 100, 100, 4f, 1f);
+                yield return new WaitForSeconds(0.3f);
+            }
+        }
+
 
     }
     protected override IEnumerator Phase2() //패턴 7 : 통상
     {
-        Health = 700f;
-        TimerCoroutine = StartCoroutine(PhaseTimer(60));
+        Health = 600f;
+        TimerCoroutine = StartCoroutine(PhaseTimer(40));
+        animator.SetInteger("Motion", 0);
+        ResetProjectile("Enemy");
+        yield return new WaitForSeconds(2f);
+        StartCoroutine(ObjectMover(new Vector3(0, 0, -10), 2f));
+        yield return new WaitForSeconds(1f);
 
+        while (true)
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                SingleShot(Satelite001, 100, attackPrefab[3], playerCharacter, 116, 3, 179);
+                SingleShot(Satelite002, 100, attackPrefab[3], playerCharacter, 116, 3, 179);
+                SlowdownAttack(40, 40, 3, playerCharacter, attackPrefab[0], 11, 11, 180, 5, 1f);
+                PlaySFX(4);
+                yield return new WaitForSeconds(0.1f);
+            }
 
-        yield return new WaitForSeconds(3f);
+            for (int i = 0; i < 10; i++)
+            {
+                //if (i == 3) { BasicSpin(80, 50, attackPrefab[2], 10f, 116, 3, 179); PlaySFX(5); }
+                //if (i == 8) { BasicSpin(80, 50, attackPrefab[2], 10f, 116, 3, 179); PlaySFX(5); }
+                SlowdownAttack(Satelite001, 1, 20, 1, playerCharacter, attackPrefab[3], 11, 11, 180, 5, 0.1f);
+                SlowdownAttack(Satelite002, 1, 20, 1, playerCharacter, attackPrefab[3], 11, 11, 180, 5, 0.1f);
+                PlaySFX(4);
+                yield return new WaitForSeconds(0.1f);
+            }
+            BasicSpin(80, 50, attackPrefab[2], 10f, 116, 3, 179); PlaySFX(5);
+            for (int i = 0; i < 10; i++)
+            {
+
+                SlowdownAttack(Satelite001, 1, 20, 1, playerCharacter, attackPrefab[3], 11, 11, 180, 5, 0.1f);
+                SlowdownAttack(Satelite002, 1, 20, 1, playerCharacter, attackPrefab[3], 11, 11, 180, 5, 0.1f);
+                yield return new WaitForSeconds(0.1f);
+            }
+            
+            RandomMove(10, 2f);
+            yield return new WaitForSeconds(0.5f);
+
+        }
+
     }
 
         protected override IEnumerator Phase1() //패턴 8 : 기술
     {
-        Health = 900f;
+        Health = 1200f;
         TimerCoroutine = StartCoroutine(PhaseTimer(60));
         CutScene(2f);
         PlaySFX(2);
@@ -241,6 +322,37 @@ public class Hasae : Enemy_Boss
         SpellCard(SpellName);
         yield return new WaitForSeconds(3f);
 
+        Vector3 shootAim = new Vector3(0, 0, 20);
+        while (true)
+        {
+            for (int i = -10; i < 10; i+= 2)
+            {
+                shootAim = new Vector3(i * 3, 0, - i * 3);
+                BasicAttack(transform.position, 80, (i + 15) * 4, 2, playerCharacter.transform.position + (shootAim), attackPrefab[3], 116, 3, 179);
+                PlaySFX(5);
+                yield return new WaitForSeconds(0.2f);
+            }
+            RandomMove(6, 0.5f);
+            yield return new WaitForSeconds(0.5f);
+            for (int i = -10; i < 10; i+= 2)
+            {
+                shootAim = new Vector3(-i * 3, 0, i * 3);
+                BasicAttack(transform.position, 80, (i + 15) * 4, 2, playerCharacter.transform.position + (shootAim), attackPrefab[3], 242, 239, 42);
+                PlaySFX(5);
+                yield return new WaitForSeconds(0.2f);
+            }
+            yield return new WaitForSeconds(0.5f);
+
+            RandomMove(20, 2f);
+            for (int i = 0; i < 10; i++) {
+                BasicAttack(Satelite001, 10, 90, 6, playerCharacter, attackPrefab[0], 242, 239, 42);
+                BasicAttack(Satelite002, 10, 90, 6, playerCharacter, attackPrefab[0], 242, 239, 42);
+                PlaySFX(4);
+                yield return new WaitForSeconds(0.2f);
+            }
+            yield return new WaitForSeconds(1f);
+            ShootLasers(Satelite001, playerCharacter, 1, attackPrefab[4], 1, 125, 125, 125);
+        }
     }
 
     void ActivateShooter()
@@ -253,6 +365,15 @@ public class Hasae : Enemy_Boss
 
         animator1.SetInteger("Motion", 1);
         animator2.SetInteger("Motion", 1);
+    }
+
+    IEnumerator SateliteShooting(GameObject shooter, GameObject attackPrefab, float speed, float restTime)
+    {
+        while (true)
+        {
+            SingleShot(80f, attackPrefab, playerCharacter, 200, 5, 5);
+            yield return new WaitForSeconds(restTime);
+        }
     }
 }
 

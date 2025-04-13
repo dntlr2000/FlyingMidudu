@@ -10,19 +10,23 @@ public class GrowingPug : Enemy_Minion
     public float endScale = 3f;
 
     private float moveSpeed = 40f;
-
+    private CameraController playerCamera;
+    int[] r = { 214, 214, 214, 11, 0, 18, 139 };
+    int[] g = { 0, 139, 214, 214, 139, 0, 0 };
+    int[] b = { 0, 0, 0, 0, 214, 214, 214 };
     protected override void Start()
     {
         Rigidbody rb = GetComponent<Rigidbody>();
 
         Life = 1;
         Health = 1000f;
-        GameObject player = FindPlayer();
+        player = FindPlayer();
         if (player == null) return;
         AimingObject(player);
+        playerCamera = FindAnyObjectByType<CameraController>();
 
         base.Start();
-        
+
     }
 
 
@@ -54,8 +58,29 @@ public class GrowingPug : Enemy_Minion
         AimConstraint aimConstraint = GetComponent<AimConstraint>();
         if (aimConstraint != null) { aimConstraint.enabled= false; }
 
+        yield return new WaitForSeconds(1f);
+        
 
-        yield return null;
+        while (true)
+        {
+            for (int i = 0; i < 7; i++)
+            {
+                PlaySFX(5);
+                BasicAttack(40, 40, 2, player, AttackPrefab[0], r[i], g[i], b[i]);
+                yield return new WaitForSeconds(0.3f);
+            }
+            
+        }
+
     }
+    
 
+    /*
+    private void OnDestroy()
+    {
+        PlaySFX(4);
+        if (playerCamera != null) playerCamera.CameraShake(1);
+        SlowdownAttack(100, 20, 2, player, AttackPrefab[1], 200, 5, 5, 0.5f, 0.4f);
+    }
+    */
 }
