@@ -11,6 +11,8 @@ public class CompassImage : MonoBehaviour
 
     public GameObject pingPrefab;    // 핑 UI Prefab (작은 아이콘)
 
+    public GameObject pingPrefabBoss;
+
     //public Transform[] targets;     // 핑으로 표시할 오브젝트 리스트
     //private RectTransform[] pings;   // 생성된 핑 UI 배열
 
@@ -73,6 +75,8 @@ public class CompassImage : MonoBehaviour
     void FindAndSetTargets()
     {
         GameObject[] foundEnemies = GameObject.FindGameObjectsWithTag("Enemy");
+        GameObject[] foundBosses = GameObject.FindGameObjectsWithTag("EnemyBoss");
+
         List<Transform> newTargets = new List<Transform>();
 
         foreach (GameObject enemy in foundEnemies) {
@@ -82,6 +86,18 @@ public class CompassImage : MonoBehaviour
             {
                 targets.Add(enemy.transform);
                 GameObject ping = Instantiate(pingPrefab, compassBar);
+                pings.Add(ping.GetComponent<RectTransform>());
+            }
+        }
+
+        foreach (GameObject enemy in foundBosses)
+        {
+            newTargets.Add(enemy.transform);
+
+            if (!targets.Contains(enemy.transform))
+            {
+                targets.Add(enemy.transform);
+                GameObject ping = Instantiate(pingPrefabBoss, compassBar);
                 pings.Add(ping.GetComponent<RectTransform>());
             }
         }

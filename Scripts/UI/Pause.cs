@@ -11,7 +11,7 @@ public class Pause : MenuParent
     {
         BGM_Script = FindObjectOfType<BGMController>();
         pauseMenu.SetActive(false);
-
+        CursorSwitch(true);
     }
 
     // Update is called once per frame
@@ -33,6 +33,8 @@ public class Pause : MenuParent
         isPause = true;
         //AudioListener.pause = true;
         if (BGM_Script != null) BGM_Script.PauseBGM();
+        CursorSwitch(false);
+
     }
 
     public void ResumeGame()
@@ -42,6 +44,7 @@ public class Pause : MenuParent
         isPause = false;
         //AudioListener.pause = false;
         if (BGM_Script != null)  BGM_Script.PlayBGM();
+        CursorSwitch(true);
     }
 
     public void ToMain()
@@ -57,6 +60,7 @@ public class Pause : MenuParent
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         StageLoader(sceneName);
+        
     }
 
 

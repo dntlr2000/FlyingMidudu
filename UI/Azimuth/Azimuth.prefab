@@ -108,6 +108,7 @@ MonoBehaviour:
   compassWidth: 200
   visibleAngle: 200
   pingPrefab: {fileID: 4846565370681298755, guid: b203850c528c0f94fa43b8cc05edde7c, type: 3}
+  pingPrefabBoss: {fileID: 5786111732439865543, guid: e8393784355f8414daf66ec61a7be303, type: 3}
 --- !u!1 &5366858960355111687
 GameObject:
   m_ObjectHideFlags: 0

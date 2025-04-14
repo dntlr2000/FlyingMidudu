@@ -1023,6 +1023,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2390442709678535296, guid: 59908c69bd2a1a044ae5b293aac74293, type: 3}
+      propertyPath: m_TagString
+      value: EnemyBoss
+      objectReference: {fileID: 0}
     - target: {fileID: 3042779809698152394, guid: 59908c69bd2a1a044ae5b293aac74293, type: 3}
       propertyPath: m_TargetDisplay
       value: 1

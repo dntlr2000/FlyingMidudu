@@ -14,6 +14,7 @@ public class GameOver : MenuParent
     {
         BGM_Script = FindObjectOfType<BGMController>();
         overMenu.SetActive(false);
+        CursorSwitch(true);
     }
 
     // Update is called once per frame
@@ -24,6 +25,7 @@ public class GameOver : MenuParent
         Time.timeScale = 0f;
         //AudioListener.pause = true;
         BGM_Script.StopBGM();
+        CursorSwitch(false);
     }
 
     public void ResumeGame()
@@ -36,6 +38,7 @@ public class GameOver : MenuParent
         playerScript.Life = 3;
         playerScript.Bomb = 2;
         StartCoroutine(playerScript.Respawn());
+        CursorSwitch(true);
     }
 
     public void ToMain()
@@ -43,6 +46,7 @@ public class GameOver : MenuParent
         overMenu.SetActive(false);
         Time.timeScale = 1f;
         StageLoader("MainMenu");
+        CursorSwitch(true);
     }
     
     public void RestartGame(string sceneName)
@@ -50,5 +54,6 @@ public class GameOver : MenuParent
         overMenu.SetActive(false);
         Time.timeScale = 1f;
         StageLoader(sceneName);
+        CursorSwitch(true);
     }
 }

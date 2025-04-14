@@ -23,6 +23,7 @@ public class MainMenu : MenuParent
 
     private PlayerSetting PlayerSettingScript;
 
+    public TextMeshProUGUI TitleText;
 
     protected override void Start()
     {
@@ -57,6 +58,12 @@ public class MainMenu : MenuParent
 
         //BGM_Script.PlayBGM();
         SetBGM(0);
+        CursorSwitch(false);
+
+        //QualitySettings.vSyncCount = 0;           // VSync 끄기
+        //Application.targetFrameRate = 120;         // 프레임 제한
+
+        StartCoroutine(TitleMover());
     }
 
     // Update is called once per frame
@@ -263,6 +270,36 @@ public class MainMenu : MenuParent
         Color color = text.color;
         color.a = 0.3f;
         text.color = color;
+    }
+
+    private IEnumerator TitleMover()
+    {
+        RectTransform titleRect = TitleText.GetComponent<RectTransform>();
+        Vector2 originPos = titleRect.anchoredPosition;
+        Vector2 randomOffset;
+        Vector2 targetPos;
+        Vector2 StartPos;
+        while (true)
+        {
+            randomOffset = Random.insideUnitCircle * 50;
+            targetPos = originPos+ randomOffset;
+
+            StartPos = titleRect.anchoredPosition;
+            float elapsed = 0f; 
+            float duration = 0.1f;
+
+            while (elapsed < duration)
+            {
+                elapsed += Time.deltaTime;
+                float t = elapsed / duration;
+                titleRect.anchoredPosition = Vector2.Lerp(titleRect.anchoredPosition, targetPos, Time.deltaTime * 2f);
+                yield return null;
+            }
+            titleRect.anchoredPosition = Vector2.Lerp(titleRect.anchoredPosition, targetPos, Time.deltaTime * 2f);
+
+            //yield return new WaitForSeconds(0.2f);
+        }
+        
     }
 
 }

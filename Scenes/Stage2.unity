@@ -879,6 +879,7 @@ MonoBehaviour:
   toNextStage1: {fileID: 641408575}
   toNextStage2: {fileID: 641408574}
   BGM_Script: {fileID: 0}
+  saveScript: {fileID: 0}
 --- !u!1 &1948647732
 GameObject:
   m_ObjectHideFlags: 0
@@ -1262,6 +1263,10 @@ PrefabInstance:
     - target: {fileID: 1813949617169625419, guid: 6f136d425b244be41aebc766e34801d2, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1813949617169625419, guid: 6f136d425b244be41aebc766e34801d2, type: 3}
+      propertyPath: m_TagString
+      value: EnemyBoss
       objectReference: {fileID: 0}
     - target: {fileID: 2046489937177103189, guid: 6f136d425b244be41aebc766e34801d2, type: 3}
       propertyPath: Filter

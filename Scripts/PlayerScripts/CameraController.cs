@@ -66,7 +66,7 @@ public class CameraController : MonoBehaviour
         transform.position = position;
         transform.rotation= rotation;
 
-        Vector3 aimPosition = rotation * new Vector3(0, 0, 50f) + target.position;
+        Vector3 aimPosition = rotation * new Vector3(0, 0, 100f) + target.position;
         aimCenter.position = aimPosition;
         aimCenter.rotation = rotation;
 
