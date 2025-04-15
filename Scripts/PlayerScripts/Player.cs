@@ -27,6 +27,9 @@ public class Player : MonoBehaviour
 
     private BGMController BGM_Script;
 
+    public ShooterDrone drone1;
+    public ShooterDrone drone2;
+
     //private PlayerSetting PlayerSettingScript; //나중에 스테이지 간 목숨 공유가 필요하다고 느낄 때 수정 시작하기로
 
     // Start is called before the first frame update
@@ -121,6 +124,7 @@ public class Player : MonoBehaviour
 
     public virtual IEnumerator Respawn()
     {
+        StartCoroutine(shooterSwitch());
         moveScript.enabled= false;
         playerCollider.enabled= false;
         animator.StartHitMotion();
@@ -164,4 +168,37 @@ public class Player : MonoBehaviour
     }
     */
     
+    IEnumerator shooterSwitch()
+    {
+        if (drone1.ifShoot == true)
+        {
+            drone1.ShootModeChanger();
+            drone2.ShootModeChanger();
+            
+            drone1.enabled = false;
+            drone2.enabled = false;
+
+            yield return new WaitForSeconds(2f);
+
+            drone1.ShootModeChanger();
+            drone2.ShootModeChanger();
+
+            drone1.enabled = true;
+            drone2.enabled = true;
+
+        }
+
+        else
+        {
+            drone1.enabled = false;
+            drone2.enabled = false;
+
+            yield return new WaitForSeconds(2f);
+
+            drone1.enabled = true;
+            drone2.enabled = true;
+        }
+
+        yield return null;
+    }
 }

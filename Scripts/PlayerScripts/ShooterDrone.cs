@@ -26,27 +26,27 @@ public class ShooterDrone : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ShootModeChanger();
+        if (Input.GetKeyDown(KeyCode.F)) ShootModeChanger();
     }
 
-    void ShootModeChanger()
+    public void ShootModeChanger()
     {
-        if (Input.GetKeyDown(KeyCode.F)) {
-            if (ifShoot) // -> 발사 종료
-            {
-                StopCoroutine(shootMode);
-                shootMode = null;
-                ifShoot = false;
-                animator.SetBool("ifShoot", false);
-            }
-            else // -> 발사 시작
-            {
-                shootMode = StartCoroutine(ShootingMode());
-                ifShoot= true;
-                animator.SetBool("ifShoot", true);
-            }
-
+         
+        if (ifShoot) // -> 발사 종료
+        {
+            StopCoroutine(shootMode);
+            shootMode = null;
+            ifShoot = false;
+            animator.SetBool("ifShoot", false);
         }
+        else // -> 발사 시작
+        {
+            shootMode = StartCoroutine(ShootingMode());
+            ifShoot= true;
+            animator.SetBool("ifShoot", true);
+        }
+
+        
     }
 
     IEnumerator ShootingMode()

@@ -1,11 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Mid_Whale : Enemy_Boss
 {
     private GameObject playerCharacter;
     // Start is called before the first frame update
+    //public Image GoraeImage;
+    public CanvasGroup Gorae_Image;
+
+
     protected override void Start()
     {
         Life = 2;
@@ -13,6 +18,7 @@ public class Mid_Whale : Enemy_Boss
 
         base.Start();
         healthBar.SetName("Gorae");
+        StartCoroutine(ImageAppear());
     }
 
     protected override void PhaseSetter(int remainLife)
@@ -129,6 +135,32 @@ public class Mid_Whale : Enemy_Boss
             rb.velocity = targetDirection * speed * randomSpeedFactor;
         }
 
+    }
+    
+    private IEnumerator ImageAppear()
+    {
+        Gorae_Image.alpha = 0f;
+        float fadeInDuration = 0.2f;
+        float fadeOutDuration = 2f;
+
+        float t = 0f;
+        while (t < fadeInDuration)
+        {
+            t += Time.deltaTime;
+            Gorae_Image.alpha = Mathf.Clamp01((t / fadeInDuration) * 0.6f);
+            yield return null;
+
+        }
+
+        t = 0f;
+        while (t < fadeOutDuration)
+        {
+            t += Time.deltaTime;
+            Gorae_Image.alpha = Mathf.Clamp01(1f - t / fadeOutDuration);
+            yield return null;
+        }
+
+        Gorae_Image.gameObject.SetActive(false);
     }
 
 }

@@ -2940,6 +2940,8 @@ MonoBehaviour:
   meshObject: {fileID: 1225532759518706490}
   woopUI: {fileID: 0}
   overScript: {fileID: 0}
+  drone1: {fileID: 5174872702408545082}
+  drone2: {fileID: 3126182754932362328}
 --- !u!1 &4152095943083066146
 GameObject:
   m_ObjectHideFlags: 0

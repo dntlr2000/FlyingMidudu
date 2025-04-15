@@ -23,7 +23,8 @@ public class MainMenu : MenuParent
 
     private PlayerSetting PlayerSettingScript;
 
-    public TextMeshProUGUI TitleText;
+    //public TextMeshProUGUI TitleText;
+    public RectTransform Title;
 
     protected override void Start()
     {
@@ -274,8 +275,8 @@ public class MainMenu : MenuParent
 
     private IEnumerator TitleMover()
     {
-        RectTransform titleRect = TitleText.GetComponent<RectTransform>();
-        Vector2 originPos = titleRect.anchoredPosition;
+        
+        Vector2 originPos = Title.anchoredPosition;
         Vector2 randomOffset;
         Vector2 targetPos;
         Vector2 StartPos;
@@ -284,7 +285,7 @@ public class MainMenu : MenuParent
             randomOffset = Random.insideUnitCircle * 50;
             targetPos = originPos+ randomOffset;
 
-            StartPos = titleRect.anchoredPosition;
+            StartPos = Title.anchoredPosition;
             float elapsed = 0f; 
             float duration = 0.1f;
 
@@ -292,10 +293,10 @@ public class MainMenu : MenuParent
             {
                 elapsed += Time.deltaTime;
                 float t = elapsed / duration;
-                titleRect.anchoredPosition = Vector2.Lerp(titleRect.anchoredPosition, targetPos, Time.deltaTime * 2f);
+                Title.anchoredPosition = Vector2.Lerp(Title.anchoredPosition, targetPos, Time.deltaTime * 2f);
                 yield return null;
             }
-            titleRect.anchoredPosition = Vector2.Lerp(titleRect.anchoredPosition, targetPos, Time.deltaTime * 2f);
+            Title.anchoredPosition = Vector2.Lerp(Title.anchoredPosition, targetPos, Time.deltaTime * 2f);
 
             //yield return new WaitForSeconds(0.2f);
         }
