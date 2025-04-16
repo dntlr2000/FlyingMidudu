@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Woopsoon : Enemy_Boss
 {
-    private GameObject playerCharacter;
+    //private GameObject playerCharacter;
     public GameObject Satelite;
     private SateliteController sateliteController;
 
@@ -18,7 +18,7 @@ public class Woopsoon : Enemy_Boss
         BossName = "¿ó¼øÀÌ";
         BossDescription = "¿ó´Ôº¸´Ùµµ ¸ð¼Ç¿¡ °øÀ» µéÀÎ ¼±³à";
 
-        playerCharacter = FindPlayer();
+        //playerCharacter = FindPlayer();
 
         base.Start();
 

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Mid_Whale : Enemy_Boss
 {
-    private GameObject playerCharacter;
+    //private GameObject playerCharacter;
     // Start is called before the first frame update
     //public Image GoraeImage;
     public CanvasGroup Gorae_Image;
@@ -14,7 +14,7 @@ public class Mid_Whale : Enemy_Boss
     protected override void Start()
     {
         Life = 2;
-        playerCharacter = FindPlayer();
+        //playerCharacter = FindPlayer();
 
         base.Start();
         healthBar.SetName("Gorae");
@@ -29,7 +29,10 @@ public class Mid_Whale : Enemy_Boss
             StartCoroutine(skillMotion(1));
             //PlayerCamera.CameraShake(1);
         }
-
+        else
+        {
+            StartCoroutine(skillMotion(0, 2f));
+        }
         Debug.Log($"고래의 남은 목숨: {Life}");
     }
 

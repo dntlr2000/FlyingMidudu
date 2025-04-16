@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Woopsoon_Mid : Enemy_Boss
 {
-    private GameObject playerCharacter;
+    //private GameObject playerCharacter;
     public GameObject Minion;
     // Start is called before the first frame update
     protected override void Start()
     {
         Life = 2;
-        playerCharacter = FindPlayer();
+        //playerCharacter = FindPlayer();
 
         base.Start();
         healthBar.SetName("???");
@@ -22,6 +22,10 @@ public class Woopsoon_Mid : Enemy_Boss
         if (remainLife == 1)
         {
             StartCoroutine(skillMotion(1));
+        }
+        else
+        {
+            StartCoroutine(skillMotion(0, 2f));
         }
 
         Debug.Log($"¼±?³àÀÇ ³²Àº ¸ñ¼û: {Life}");

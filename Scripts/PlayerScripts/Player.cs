@@ -124,7 +124,7 @@ public class Player : MonoBehaviour
 
     public virtual IEnumerator Respawn()
     {
-        StartCoroutine(shooterSwitch());
+        StartCoroutine(shooterSwitch(2f));
         moveScript.enabled= false;
         playerCollider.enabled= false;
         animator.StartHitMotion();
@@ -168,7 +168,7 @@ public class Player : MonoBehaviour
     }
     */
     
-    IEnumerator shooterSwitch()
+    public IEnumerator shooterSwitch(float time)
     {
         if (drone1.ifShoot == true)
         {
@@ -178,7 +178,7 @@ public class Player : MonoBehaviour
             drone1.enabled = false;
             drone2.enabled = false;
 
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(time);
 
             drone1.ShootModeChanger();
             drone2.ShootModeChanger();

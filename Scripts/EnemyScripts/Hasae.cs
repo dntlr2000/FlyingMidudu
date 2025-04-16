@@ -5,7 +5,7 @@ using UnityEngine.Animations;
 
 public class Hasae : Enemy_Boss
 {
-    private GameObject playerCharacter;
+    //private GameObject playerCharacter;
     public GameObject Satelite001;
     public GameObject Satelite002;
     public AimConstraint SateliteAim;
@@ -22,7 +22,7 @@ public class Hasae : Enemy_Boss
         BossName = "하세";
         BossDescription = "남들보다 나이를 빠르게 먹는";
 
-        playerCharacter = FindPlayer();
+        //playerCharacter = FindPlayer();
 
         base.Start();
 

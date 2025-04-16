@@ -23,22 +23,22 @@ public class Stage1 : Stage
 
         
         SpawnEnemy(Enemy[0], -30, 0, -50);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.8f);
         SpawnEnemy(Enemy[0], -30, 0, -50);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.8f);
         SpawnEnemy(Enemy[0], -20, -5, -50);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.8f);
         SpawnEnemy(Enemy[0], -25, 0, -55);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(2.2f);
 
         SpawnEnemy(Enemy[0], 30, 0, -50);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.8f);
         SpawnEnemy(Enemy[0], 25, 5, -45);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.8f);
         SpawnEnemy(Enemy[0], 20, -5, -50);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.8f);
         SpawnEnemy(Enemy[0], 25, 0, -55);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.8f);
 
 
         while (CheckEnemyExist())
@@ -61,12 +61,14 @@ public class Stage1 : Stage
         yield return new WaitForSeconds(10f);
 
         SpawnEnemy(Enemy[0], -30, 0, -50);
+        yield return new WaitForSeconds(0.3f);
         //SpawnEnemy(Enemy[0], -30, 0, -50);
         SpawnEnemy(Enemy[0], -20, -5, -50);
         //SpawnEnemy(Enemy[0], -25, 0, -55);
-
+        yield return new WaitForSeconds(0.3f);
         //SpawnEnemy(Enemy[0], 30, 0, -50);
         SpawnEnemy(Enemy[0], 25, 5, -45);
+        yield return new WaitForSeconds(0.3f);
         //SpawnEnemy(Enemy[0], 20, -5, -50);
         SpawnEnemy(Enemy[0], 25, 0, -55);
 

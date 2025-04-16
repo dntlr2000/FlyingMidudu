@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Scorpion : Enemy_Boss
 {
-    private GameObject playerCharacter;
+    //private GameObject playerCharacter;
     
     // Start is called before the first frame update
     protected override void Start()
     {
         Life = 2;
-        playerCharacter = FindPlayer();
+        //playerCharacter = FindPlayer();
 
         base.Start();
         healthBar.SetName("Geokdong Jungal");

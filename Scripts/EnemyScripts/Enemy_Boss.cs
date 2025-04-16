@@ -52,6 +52,8 @@ public class Enemy_Boss : Enemy
     protected string BossDescription = "";
 
     public Stage stageScript;
+
+    protected GameObject playerCharacter;
     
     
 
@@ -59,6 +61,7 @@ public class Enemy_Boss : Enemy
     {
         //Life = 3;
         //Health = 100;
+        playerCharacter = FindPlayer();
         HealthBarObject.SetActive(true);
         healthBar = HealthBarObject.GetComponent<HealthBar>();
 
@@ -131,7 +134,7 @@ public class Enemy_Boss : Enemy
 
         else
         {
-
+            StartCoroutine(skillMotion(0, 2f));
         }
 
         ResetProjectile();
@@ -377,8 +380,19 @@ public class Enemy_Boss : Enemy
 
     protected virtual void CutScene(float time)
     {
+        Player playerScript = FindObjectOfType<Player>();
         MainCamera.SetActive(true);
         StartCoroutine(mainCameraController.BossCutScene(time));
+        if (playerScript != null)
+        {
+            StartCoroutine(playerScript.shooterSwitch(time));
+        }
+        else
+        {
+            Debug.LogWarning("playerScript not found!");
+        }
+        ResetProjectile("PlayerAttackA");
+        
     }
 
     protected void SpellCard(string spellName)

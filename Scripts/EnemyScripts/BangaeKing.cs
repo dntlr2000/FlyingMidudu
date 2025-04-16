@@ -5,7 +5,7 @@ using static UnityEngine.GraphicsBuffer;
 
 public class BangaeKing : Enemy_Boss
 {
-    private GameObject playerCharacter;
+    //private GameObject playerCharacter;
     public GameObject Minion;
     
 
@@ -16,7 +16,7 @@ public class BangaeKing : Enemy_Boss
         BossName = "방개킹";
         BossDescription = "스토리상 끼워넣을만한 건덕지가 없지만 그래도 추가한";
 
-        playerCharacter = FindPlayer();
+        //playerCharacter = FindPlayer();
 
         base.Start();
 
@@ -31,7 +31,10 @@ public class BangaeKing : Enemy_Boss
             StartCoroutine(skillMotion(3 - remainLife));
             PlayerCamera.CameraShake(1);
         }
-
+        else
+        {
+            StartCoroutine(skillMotion(0, 2f));
+        }
 
         Debug.Log($"방개킹의 남은 목숨: {Life}");
     }
@@ -94,7 +97,7 @@ public class BangaeKing : Enemy_Boss
             {
                 yield return new WaitForSeconds(1f);
                 PlaySFX(5);
-                ShootAround(playerCharacter, 20, attackPrefab[0], 0.3f, 30f, 0.25f, 224, 146, 0);
+                ShootAround(playerCharacter, 20, attackPrefab[0], 10f, 30f, 0.25f, 224, 146, 0);
                 SingleShot(40f, attackPrefab[2], playerCharacter, 0, 38, 224);
             }
             yield return new WaitForSeconds(0.5f);
@@ -138,7 +141,7 @@ public class BangaeKing : Enemy_Boss
 
             //레이저
             //PlaySFX(4);
-            ShootLasers(playerCharacter, 5, attackPrefab[4], 20f);
+            ShootLasers(playerCharacter, 5, attackPrefab[4], 20f, 200f, 10f, 10f);
             yield return new WaitForSeconds(6f);
         }
 

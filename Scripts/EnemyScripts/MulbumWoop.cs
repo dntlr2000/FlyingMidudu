@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class MulbumWoop : Enemy_Boss
 {
-    private GameObject playerCharacter;
+    //private GameObject playerCharacter;
     public Image Filter;
 
     // Start is called before the first frame update
@@ -16,7 +16,7 @@ public class MulbumWoop : Enemy_Boss
         BossName = "물범웁";
         BossDescription = "심해를 싫어하는 수중생물";
 
-        playerCharacter = FindPlayer();
+        //playerCharacter = FindPlayer();
 
         base.Start();
 
