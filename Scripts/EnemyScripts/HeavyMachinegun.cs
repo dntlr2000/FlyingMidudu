@@ -7,6 +7,10 @@ using UnityEngine.UIElements;
 public class HeavyMachinegun : Enemy_Minion
 {
     public AimConstraint aimConstraint;
+
+    public GameObject upperStand;
+    public GameObject lowerStand;
+
     protected override void Start()
     {
         Rigidbody rb = GetComponent<Rigidbody>();
@@ -20,6 +24,15 @@ public class HeavyMachinegun : Enemy_Minion
 
         BGM_Script = FindObjectOfType<BGMController>();
         AimToPlayer(player);
+
+        if (transform.position.y < 0)
+        {
+            upperStand.SetActive(false);
+        }
+        else
+        {
+            lowerStand.SetActive(false);
+        }
     }
 
     public void MotionChange(int state)

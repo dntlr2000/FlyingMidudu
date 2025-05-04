@@ -9,6 +9,7 @@ public class Enemy_Boss : Enemy
 {
     //보스의 경우 스테이지에 미리 불러낸 상태에서 비활성화된 채로 있다가, 보스전이 시작될 때 활성화하는 방식으로 가야할듯.
     // Start is called before the first frame update
+    //[Header("CamearController 스크립트 할당")]
     public CameraController PlayerCamera;
     //public Camera MainCamera;
     public GameObject MainCamera;

@@ -1482,6 +1482,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: heavyMachinegun
       objectReference: {fileID: 0}
+    - target: {fileID: 8200579969793553102, guid: e46b00505ca28de4f9ec168c2e71dce8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
