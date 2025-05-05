@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Stage6 : Stage
 {
+    public SpaceCraft_st6 SpaceCraft;
+
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -20,24 +22,6 @@ public class Stage6 : Stage
         //0: 방개H(공격속도 빨라짐), 1:퍼그A, 2:퍼그B, 3:방개I(5:1), 4:방개J(B상위호환)
 
         Debug.Log("Phase 1 Started");
-        yield return new WaitForSeconds(6f);
-
-
-        SpawnEnemy(Enemy[1], 30, 10, -50);
-        yield return new WaitForSeconds(3f);
-        SpawnEnemy(Enemy[1], -30, 10, -50);
-        yield return new WaitForSeconds(6f);
-
-        SpawnEnemy(Enemy[2], 40, -5, -50);
-        yield return new WaitForSeconds(0.6f);
-        SpawnEnemy(Enemy[2], 35, -15, -50);
-        yield return new WaitForSeconds(6f);
-
-        SpawnEnemy(Enemy[2], -40, -5, -50);
-        yield return new WaitForSeconds(0.6f);
-        SpawnEnemy(Enemy[2], -35, -15, -50);
-        yield return new WaitForSeconds(6f);
-
 
         while (CheckEnemyExist())
         {
@@ -49,33 +33,6 @@ public class Stage6 : Stage
 
     protected override IEnumerator StagePhase2()
     {
-        int y;
-        for (int i = 0; i < 8; i++)
-        {
-            y = Random.Range(-10, 10);
-            SpawnEnemy(Enemy[4], -60, y, -50, true);
-            yield return new WaitForSeconds(0.15f);
-        }
-        yield return new WaitForSeconds(9f);
-
-        for (int i = 0; i < 8; i++)
-        {
-            y = Random.Range(-10, 10);
-            SpawnEnemy(Enemy[4], 60, y, -50, true);
-            yield return new WaitForSeconds(0.15f);
-
-            if (i == 3)
-            {
-                SpawnEnemy(Enemy[1], -30, 10, -50);
-            }
-            else if (i == 6)
-            {
-                SpawnEnemy(Enemy[1], -35, -10, -50);
-            }
-
-        }
-        yield return new WaitForSeconds(6f);
-
 
         while (CheckEnemyExist())
         {
@@ -90,9 +47,8 @@ public class Stage6 : Stage
     protected IEnumerator StagePhase3()
     {
 
-        SpawnBoss(MidBoss, 0, 0, -50);
 
-        while (CheckEnemyExist("EnemyBoss"))
+        while (CheckEnemyExist("Enemy"))
         {
             yield return new WaitForSeconds(2f);
         }
@@ -105,19 +61,7 @@ public class Stage6 : Stage
 
     protected IEnumerator StagePhase4()
     {
-        int q = -1;
-        for (int i = -40; i < 45; i += 20)
-        {
-            SpawnEnemy(Enemy[3], i, q * 30, -50);
-            q *= -1;
-            yield return new WaitForSeconds(1.2f);
-            if (i == 20) SpawnEnemy(Enemy[0], -30, 10, -40);
-        }
 
-        yield return new WaitForSeconds(4f);
-        SpawnEnemy(Enemy[0], 30, -10, -40);
-
-        yield return new WaitForSeconds(2f);
 
         while (CheckEnemyExist())
         {
@@ -131,18 +75,6 @@ public class Stage6 : Stage
 
     protected IEnumerator StagePhase5()
     {
-        SpawnEnemy(Enemy[0], -30, -10, -50);
-        yield return new WaitForSeconds(0.7f);
-        SpawnEnemy(Enemy[0], 30, 15, -50);
-        yield return new WaitForSeconds(2f);
-        SpawnEnemy(Enemy[0], 25, -15, -50);
-        yield return new WaitForSeconds(0.7f);
-        SpawnEnemy(Enemy[0], -25, 15, -50);
-        yield return new WaitForSeconds(2f);
-        SpawnEnemy(Enemy[1], -30, 0, -55);
-        yield return new WaitForSeconds(0.7f);
-        SpawnEnemy(Enemy[1], 30, 0, -45);
-
 
         while (CheckEnemyExist())
         {
@@ -152,10 +84,36 @@ public class Stage6 : Stage
         Debug.Log("Phase 5 Clear");
 
         if (BGM_Script != null) BGM_Script.StopBGM(true);
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
 
-        SpawnBoss(Boss, 0, 0, -50);
-        SetBGM(9);
+        //SpawnBoss(Boss, 0, 0, -900);
+        SpawnMulbangae(Boss, 0, 0, -900);
+        yield return new WaitForSeconds(1f);
+        SpaceCraft.DoorSwitch();
+        SpawnMulbangae(Boss, 0, 0, -900);
+
+        yield return new WaitForSeconds(3f);
+        MoveSpaceCraft();
+
+        yield return new WaitForSeconds(7f);
+        if (BGM_Script != null) BGM_Script.StopBGM(true);
+
+        yield return new WaitForSeconds(4f);
+        SetBGM(10);
+    }
+
+    void SpawnMulbangae(GameObject enemy, int x, int y, int z)
+    {
+        enemy.transform.position = new Vector3(x, y, z);
+        enemy.SetActive(true);
+
+    }
+
+    void MoveSpaceCraft()
+    {
+        Mulbangae_Phase1 bangaeScript = Boss.GetComponent<Mulbangae_Phase1>();
+        bangaeScript.ToOriginPos();
+        SpaceCraft.MoveSpaceCraft();
     }
 }
 

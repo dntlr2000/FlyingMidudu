@@ -154,13 +154,13 @@ public class MainMenu : MenuParent
         }
 
         yield return new WaitForSecondsRealtime(0.5f);
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 5; i++)
         {
             StartCoroutine(TextMover(GameButtonsRectTransform[i], GameButtonOriginPos[i], new Vector2(GameButtonOriginPos[i].x + 350, GameButtonOriginPos[i].y)));
             yield return new WaitForSecondsRealtime(0.1f);
         }
 
-        for (int i = 4; i < 6; i++)
+        for (int i = 5; i < 7; i++)
         {
             StartCoroutine(TextMover(GameButtonsRectTransform[i], GameButtonOriginPos[i], new Vector2(GameButtonOriginPos[i].x - 400, GameButtonOriginPos[i].y)));
             yield return new WaitForSecondsRealtime(0.1f);
@@ -172,13 +172,13 @@ public class MainMenu : MenuParent
     private IEnumerator MainUIAppear()
     {
 
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 5; i++)
         {
             StartCoroutine(TextMover(GameButtonsRectTransform[i], new Vector2(GameButtonOriginPos[i].x + 350, GameButtonOriginPos[i].y), GameButtonOriginPos[i]));
             yield return new WaitForSecondsRealtime(0.1f);
         }
 
-        for (int i = 4; i < 6; i++)
+        for (int i = 5; i < 7; i++)
         {
             StartCoroutine(TextMover(GameButtonsRectTransform[i], new Vector2(GameButtonOriginPos[i].x - 400, GameButtonOriginPos[i].y), GameButtonOriginPos[i]));
             yield return new WaitForSecondsRealtime(0.1f);

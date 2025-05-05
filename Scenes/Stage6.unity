@@ -20,12 +20,12 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
-  m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
+  m_AmbientSkyColor: {r: 0.36124954, g: 0.7156726, b: 0.7735849, a: 1}
+  m_AmbientEquatorColor: {r: 0.26415092, g: 0.26415092, b: 0.26415092, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
-  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
+  m_AmbientMode: 1
+  m_SubtractiveShadowColor: {r: 0.44544324, g: 0.50627357, b: 0.6603774, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: 1e9488b27b68e874abeafef856c89abd, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
@@ -705,6 +705,7 @@ MonoBehaviour:
   toNextStage2: {fileID: 933236247}
   BGM_Script: {fileID: 0}
   saveScript: {fileID: 0}
+  SpaceCraft: {fileID: 808443328}
 --- !u!1 &437769153 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5565002184701674580, guid: d8c7c8db4115bd84dbbdccd58e61cfe1, type: 3}
@@ -887,7 +888,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3038fe62eb90a4646943726c5abbb6cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Boss: {fileID: 437769153}
 --- !u!1001 &881755991
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -992,7 +992,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 452732258147512795, guid: 8f27ad41290da3c458673f748d71317f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Stage5
+      value: Stage6
       objectReference: {fileID: 0}
     - target: {fileID: 666427164208961391, guid: 8f27ad41290da3c458673f748d71317f, type: 3}
       propertyPath: m_text
@@ -1128,7 +1128,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4918586093976723982, guid: 8f27ad41290da3c458673f748d71317f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Stage5
+      value: Stage6
       objectReference: {fileID: 0}
     - target: {fileID: 5319060912171042313, guid: 8f27ad41290da3c458673f748d71317f, type: 3}
       propertyPath: m_margin.z
@@ -1731,6 +1731,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mulbangae_phase1
       objectReference: {fileID: 0}
+    - target: {fileID: 5565002184701674580, guid: d8c7c8db4115bd84dbbdccd58e61cfe1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5967378146424781644, guid: d8c7c8db4115bd84dbbdccd58e61cfe1, type: 3}
       propertyPath: pointer
       value: 
@@ -1759,6 +1763,10 @@ PrefabInstance:
       propertyPath: HealthBarObject
       value: 
       objectReference: {fileID: 933236251}
+    - target: {fileID: 8610466829627727922, guid: d8c7c8db4115bd84dbbdccd58e61cfe1, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1775,6 +1783,6 @@ SceneRoots:
   - {fileID: 881755991}
   - {fileID: 933236244}
   - {fileID: 389541551}
-  - {fileID: 375974089}
   - {fileID: 1146953388}
+  - {fileID: 375974089}
   - {fileID: 4779871053669541747}

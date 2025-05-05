@@ -3538,6 +3538,7 @@ MonoBehaviour:
   - {fileID: 1056028634}
   - {fileID: 1090718474}
   - {fileID: 1485765641}
+  - {fileID: 1481109715}
   - {fileID: 2134401887}
   - {fileID: 82883282}
   saveManager: {fileID: 0}
@@ -4473,7 +4474,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5787172020526292662, guid: 58b93238ed3493843835968d94673278, type: 3}
       propertyPath: bgmClips.Array.size
-      value: 9
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 5787172020526292662, guid: 58b93238ed3493843835968d94673278, type: 3}
       propertyPath: SFXClips.Array.data[6]
@@ -4499,6 +4500,18 @@ PrefabInstance:
       propertyPath: bgmClips.Array.data[8]
       value: 
       objectReference: {fileID: 8300000, guid: a29f56159e7a47947818a8299713c0ad, type: 3}
+    - target: {fileID: 5787172020526292662, guid: 58b93238ed3493843835968d94673278, type: 3}
+      propertyPath: bgmClips.Array.data[9]
+      value: 
+      objectReference: {fileID: 8300000, guid: f4809d40ffa030e41aadcb9a2d53ac1d, type: 3}
+    - target: {fileID: 5787172020526292662, guid: 58b93238ed3493843835968d94673278, type: 3}
+      propertyPath: bgmClips.Array.data[10]
+      value: 
+      objectReference: {fileID: 8300000, guid: 5c95410200d88bb42a40cfbe6554baa6, type: 3}
+    - target: {fileID: 5787172020526292662, guid: 58b93238ed3493843835968d94673278, type: 3}
+      propertyPath: bgmClips.Array.data[11]
+      value: 
+      objectReference: {fileID: 8300000, guid: 3e77b30965531f14f963f91a71b0d8dd, type: 3}
     - target: {fileID: 6892124870753956653, guid: 58b93238ed3493843835968d94673278, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

@@ -25,7 +25,6 @@ public class Hasae : Enemy_Boss
         //playerCharacter = FindPlayer();
 
         base.Start();
-
         healthBar.SetName("Hasae");
         
     }
@@ -59,6 +58,7 @@ public class Hasae : Enemy_Boss
         {
             StartCoroutine(skillMotion(0, 2f));
         }
+
 
 
         Debug.Log($"하세의 남은 목숨: {Life}");

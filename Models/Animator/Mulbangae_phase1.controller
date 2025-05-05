@@ -29,7 +29,7 @@ AnimatorStateMachine:
     m_Position: {x: 540, y: 510, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6506678689651706054}
-    m_Position: {x: 540, y: 580, z: 0}
+    m_Position: {x: 510, y: 590, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8839577724303401280}
     m_Position: {x: 800, y: 580, z: 0}
@@ -364,7 +364,7 @@ AnimatorController:
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
-    m_DefaultBool: 1
+    m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
   - m_Name: Motion
     m_Type: 3
@@ -392,7 +392,10 @@ AnimatorStateTransition:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  m_Conditions: []
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: ifStart
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -6590970245306590670}
   m_Solo: 0

@@ -6,12 +6,12 @@ public class SpaceCraft_st6 : MonoBehaviour
 {
     private Animator animator;
     private bool ifOpen = false;
-    public GameObject Boss;
+    //public GameObject Boss;
 
     void Start()
     {
         animator= GetComponent<Animator>();
-        MoveSpaceCraft();
+        //MoveSpaceCraft();
     }
 
     // Update is called once per frame
@@ -20,9 +20,9 @@ public class SpaceCraft_st6 : MonoBehaviour
         
     }
 
-    protected IEnumerator ObjectMover(Vector3 to, float time, float delay)   
+    protected IEnumerator ObjectMover(Vector3 to, float time)   
     {
-        yield return new WaitForSeconds(delay);
+        //yield return new WaitForSeconds(delay);
 
         float elapsedTime = 0f;
         Vector3 from = gameObject.transform.position;
@@ -43,7 +43,7 @@ public class SpaceCraft_st6 : MonoBehaviour
 
         }
     }
-
+    /*
     protected IEnumerator ObjectMover(GameObject Boss, Vector3 to, float time, float delay)   //from = 원래 자리, 자기 자신을 이동하므로 Stage에는 존재하진 않음
     {
         yield return new WaitForSeconds(delay);
@@ -67,6 +67,7 @@ public class SpaceCraft_st6 : MonoBehaviour
 
         }
     }
+    */
 
     public void DoorSwitch()
     {
@@ -78,8 +79,8 @@ public class SpaceCraft_st6 : MonoBehaviour
     public void MoveSpaceCraft()
     {
         Vector3 newPos = new Vector3(transform.position.x, transform.position.y, 250);
-        DoorSwitch();
-        StartCoroutine(ObjectMover(newPos, 6f, 3f));
+        //DoorSwitch();
+        StartCoroutine(ObjectMover(newPos, 6f));
         //Vector3 newPosBoss = new Vector3(Boss.transform.position.x, Boss.transform.position.y, 584 - 250 - 60);
         //StartCoroutine(ObjectMover(Boss, newPosBoss, 6f, 3f));
     }
