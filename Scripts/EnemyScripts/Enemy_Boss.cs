@@ -355,14 +355,16 @@ public class Enemy_Boss : Enemy
         }
     }
 
-    protected virtual void SpawnEnemy(GameObject enemy, int x, int y, int z)
+    protected virtual GameObject SpawnEnemy(GameObject enemy, int x, int y, int z)
     {
         Vector3 spawnPosition = new Vector3(x, y, z - 50);
         GameObject spawnedEnemy = Instantiate(enemy, spawnPosition, Quaternion.identity);
         StartCoroutine(ObjectMover(spawnedEnemy, spawnPosition, new Vector3(x, y, z), 2f));
+
+        return spawnedEnemy;
     }
 
-    protected virtual void SpawnEnemy(GameObject enemy, Vector3 newPos, bool isInstant = true)
+    protected virtual GameObject SpawnEnemy(GameObject enemy, Vector3 newPos, bool isInstant = true)
     {
         GameObject spawnedEnemy;
         if (isInstant)
@@ -376,7 +378,7 @@ public class Enemy_Boss : Enemy
             StartCoroutine(ObjectMover(spawnedEnemy, newPos, 2f));
         }
 
-
+        return spawnedEnemy;
     }
 
     protected virtual void CutScene(float time)

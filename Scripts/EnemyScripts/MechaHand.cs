@@ -20,7 +20,7 @@ public class MechaHand : Enemy_Minion
 
         BGM_Script = FindObjectOfType<BGMController>();
 
-        if (gameObject.transform.position.x < 0)
+        if (gameObject.transform.position.x > 0)
         {
             animator.SetBool("ifRightHand", true);
         }
@@ -91,4 +91,10 @@ public class MechaHand : Enemy_Minion
     {
         Destroy(ParentObject.gameObject);
     }
+
+    private void OnDestroy()
+    {
+        Destroy(ParentObject.gameObject);
+    }
+
 }

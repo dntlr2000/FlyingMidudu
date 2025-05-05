@@ -120,7 +120,7 @@ public class Stage : MonoBehaviour
         SpawnBoss(Boss, 0, 0, -50);
     }
 
-    protected virtual GameObject SpawnEnemy(GameObject enemy, int x, int y, int z, bool isInstant = false)
+    protected virtual void SpawnEnemy(GameObject enemy, int x, int y, int z, bool isInstant = false)
     {
         Vector3 spawnPosition;
         if (!isInstant) spawnPosition = new Vector3(x, y, z - 50);
@@ -128,7 +128,7 @@ public class Stage : MonoBehaviour
 
         GameObject spawnedEnemy = Instantiate(enemy, spawnPosition, Quaternion.identity);
         StartCoroutine(ObjectMover(spawnedEnemy, spawnPosition, new Vector3(x, y, z), 1f));
-        return spawnedEnemy;
+        //return spawnedEnemy;
     }
 
     protected virtual void SpawnBoss(GameObject enemy, int x, int y, int z)
@@ -142,7 +142,7 @@ public class Stage : MonoBehaviour
         StartCoroutine(ObjectMover(enemy, new Vector3(x, y, z - 50), new Vector3(x, y, z), 1f));
         
     }
-
+    
     //Enemy 스크립트에서 임시?로 가져온 상태
     protected virtual void ResetProjectile(string tag = "EnemyAttack")
     {
