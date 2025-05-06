@@ -8,13 +8,14 @@ public class HeavyMachinegun : Enemy_Minion
 {
     public AimConstraint aimConstraint;
 
+    public GameObject ParentObject;
     public GameObject upperStand;
     public GameObject lowerStand;
 
     protected override void Start()
     {
         Rigidbody rb = GetComponent<Rigidbody>();
-        animator = GetComponent<Animator>();
+        animator = ParentObject.GetComponent<Animator>();
 
         Life = 9999;
         Health = 30f;
@@ -25,7 +26,7 @@ public class HeavyMachinegun : Enemy_Minion
         BGM_Script = FindObjectOfType<BGMController>();
         AimToPlayer(player);
 
-        if (transform.position.y < 0)
+        if (transform.position.y > 0)
         {
             upperStand.SetActive(false);
         }

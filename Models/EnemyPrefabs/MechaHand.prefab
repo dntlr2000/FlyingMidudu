@@ -84,6 +84,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -5995868252250783739, guid: 42391821eb78732448e9216c62a6c5fb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4687149368242247035}
+    - targetCorrespondingSourceObject: {fileID: -5995868252250783739, guid: 42391821eb78732448e9216c62a6c5fb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5988609658501937348}
   m_SourcePrefab: {fileID: 100100000, guid: 42391821eb78732448e9216c62a6c5fb, type: 3}
 --- !u!1 &582646125342119004 stripped
 GameObject:
@@ -138,6 +141,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.016703904, y: 0.018428942, z: 0.0066964542}
   m_Center: {x: 0.0000062978265, y: 0.0042144433, z: 0.000080809805}
+--- !u!114 &5988609658501937348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582646125342119004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e606ff396fab747449a585ef6622d71f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HitEffect: {fileID: 8536701366023590476, guid: eb33f6e72c96fe0468156445a99d1761, type: 3}
+  deathEffect: {fileID: 3901673378021655620, guid: b152383de00403b4fa322c84a239ce46, type: 3}
+  AttackPrefab: []
+  ParentObject: {fileID: 2891018310664038664}
 --- !u!1 &2891018310664038664 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 42391821eb78732448e9216c62a6c5fb, type: 3}
@@ -171,7 +190,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2891018310664038664}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e606ff396fab747449a585ef6622d71f, type: 3}
   m_Name: 
@@ -179,4 +198,4 @@ MonoBehaviour:
   HitEffect: {fileID: 8536701366023590476, guid: eb33f6e72c96fe0468156445a99d1761, type: 3}
   deathEffect: {fileID: 3901673378021655620, guid: b152383de00403b4fa322c84a239ce46, type: 3}
   AttackPrefab: []
-  ParentObject: {fileID: 2891018310664038664}
+  ParentObject: {fileID: 0}

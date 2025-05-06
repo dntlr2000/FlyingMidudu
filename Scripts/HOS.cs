@@ -5,9 +5,10 @@ using UnityEngine;
 public class HOS : MonoBehaviour
 {
     private Animator animator;
+    private Collider myCollider;
     void Start()
     {
-        
+        myCollider= GetComponent<Collider>();
     }
 
     private void Awake()

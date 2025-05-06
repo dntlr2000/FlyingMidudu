@@ -9,8 +9,8 @@ public class MechaHand : Enemy_Minion
 
     protected override void Start()
     {
-        Rigidbody rb = GetComponent<Rigidbody>();
-        animator = GetComponent<Animator>();
+        //Rigidbody rb = GetComponent<Rigidbody>();
+        animator = ParentObject.GetComponent<Animator>();
 
         Life = 9999;
         Health = 30f;
@@ -79,6 +79,7 @@ public class MechaHand : Enemy_Minion
         StartCoroutine(PunchCoroutine(num, ChargeSpeed, delay, chaseTime));
     }
 
+    
     protected override void Death() //잡몹은 생성한 공격 오브젝트를 삭제하지 않고 그냥 삭제
     {
         Instantiate(deathEffect, transform.position, Quaternion.identity);
@@ -87,14 +88,17 @@ public class MechaHand : Enemy_Minion
 
     }
 
-    public void DestroyHand()
+    
+    public void DisableHand()
     {
-        Destroy(ParentObject.gameObject);
+        Destroy(ParentObject);
+        //ParentObject.gameObject.SetActive(false);
     }
 
     private void OnDestroy()
     {
         Destroy(ParentObject.gameObject);
     }
+
 
 }
