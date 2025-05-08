@@ -1170,22 +1170,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4295981278122172319, guid: d010547a555eeb24aa98b7a935d2d18b, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6246029598963179840, guid: d010547a555eeb24aa98b7a935d2d18b, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6246029598963179840, guid: d010547a555eeb24aa98b7a935d2d18b, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6246029598963179840, guid: d010547a555eeb24aa98b7a935d2d18b, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 6246029598963179840, guid: d010547a555eeb24aa98b7a935d2d18b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1196,7 +1180,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6246029598963179840, guid: d010547a555eeb24aa98b7a935d2d18b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -20
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 6246029598963179840, guid: d010547a555eeb24aa98b7a935d2d18b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1293,7 +1277,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5565002184701674580, guid: d8c7c8db4115bd84dbbdccd58e61cfe1, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5967378146424781644, guid: d8c7c8db4115bd84dbbdccd58e61cfe1, type: 3}
       propertyPath: pointer
@@ -1339,6 +1323,34 @@ PrefabInstance:
       propertyPath: HealthBarObject
       value: 
       objectReference: {fileID: 933236251}
+    - target: {fileID: 5967378146424781644, guid: d8c7c8db4115bd84dbbdccd58e61cfe1, type: 3}
+      propertyPath: attackPrefab.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5967378146424781644, guid: d8c7c8db4115bd84dbbdccd58e61cfe1, type: 3}
+      propertyPath: attackPrefab.Array.data[0]
+      value: 
+      objectReference: {fileID: 3997560436894072735, guid: 24522f63ac445054e91b9f2aae0fd717, type: 3}
+    - target: {fileID: 5967378146424781644, guid: d8c7c8db4115bd84dbbdccd58e61cfe1, type: 3}
+      propertyPath: attackPrefab.Array.data[1]
+      value: 
+      objectReference: {fileID: 3184244041106848311, guid: 6aa3f8faa7a5b3d47836b118db0fba00, type: 3}
+    - target: {fileID: 5967378146424781644, guid: d8c7c8db4115bd84dbbdccd58e61cfe1, type: 3}
+      propertyPath: attackPrefab.Array.data[2]
+      value: 
+      objectReference: {fileID: 4475414099322364756, guid: 5b1094724de87fb42b7119fa27408dfa, type: 3}
+    - target: {fileID: 5967378146424781644, guid: d8c7c8db4115bd84dbbdccd58e61cfe1, type: 3}
+      propertyPath: attackPrefab.Array.data[3]
+      value: 
+      objectReference: {fileID: 78620761728142502, guid: 69ad4730086293c488d74dd2d03669d3, type: 3}
+    - target: {fileID: 5967378146424781644, guid: d8c7c8db4115bd84dbbdccd58e61cfe1, type: 3}
+      propertyPath: attackPrefab.Array.data[4]
+      value: 
+      objectReference: {fileID: 6449578115389766630, guid: fe373773385c3be479abc20d4eeb77a0, type: 3}
+    - target: {fileID: 5967378146424781644, guid: d8c7c8db4115bd84dbbdccd58e61cfe1, type: 3}
+      propertyPath: attackPrefab.Array.data[5]
+      value: 
+      objectReference: {fileID: 5852521548270742131, guid: aa6601adca88f254e94b45adaf71edb0, type: 3}
     - target: {fileID: 8610466829627727922, guid: d8c7c8db4115bd84dbbdccd58e61cfe1, type: 3}
       propertyPath: m_Enabled
       value: 0

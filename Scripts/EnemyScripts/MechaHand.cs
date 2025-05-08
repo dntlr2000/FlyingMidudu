@@ -49,14 +49,14 @@ public class MechaHand : Enemy_Minion
     private IEnumerator PunchCoroutine(int num, float ChargeSpeed, float delay, int chaseTime = 1)
     {
         MotionChange(1);
-        Transform playerTransform = player.transform;
+        Transform PlayerTransform = player.transform;
         Vector3 startLocation;
         Vector3 handleLocation;
         Vector3 punchLocation;
         for (int i  = 0; i < num; i++)
         {
-            for (int k = 0; k < chaseTime / 10; k++) {
-                Vector3 playerPos = playerTransform.position;
+            for (int k = 0; k < 1 * chaseTime; k++) {
+                Vector3 playerPos = PlayerTransform.position;
                 startLocation = new Vector3(playerPos.x, playerPos.y, -50f);
                 StartCoroutine(ObjectMover(startLocation, 0.1f));
                 yield return new WaitForSeconds(0.1f);
@@ -71,7 +71,10 @@ public class MechaHand : Enemy_Minion
 
             yield return new WaitForSeconds(delay);
         }
-        
+        StartCoroutine(ObjectMover(new Vector3(ParentObject.transform.position.x, ParentObject.transform.position.y, -60f), 0.5f));
+        yield return new WaitForSeconds(0.5f);
+        MotionChange(0);
+
     }
 
     public void Punch(int num, float ChargeSpeed, float delay, int chaseTime = 1)

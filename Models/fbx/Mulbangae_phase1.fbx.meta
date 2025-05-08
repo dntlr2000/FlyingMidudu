@@ -44,7 +44,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -240,7 +240,7 @@ ModelImporter:
       takeName: Mulbangae|phase5_idle
       internalID: 1009485405904423495
       firstFrame: 0
-      lastFrame: 48
+      lastFrame: 72
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

@@ -16,6 +16,8 @@ public class Mulbangae_Phase1 : Enemy_Boss
     private GameObject[] HeavyMachineguns;
     private HOS HOS_Script;
 
+
+
     protected override void Start()
     {
         Life = 9;
@@ -96,11 +98,36 @@ public class Mulbangae_Phase1 : Enemy_Boss
 
     protected override IEnumerator Phase9() //패턴 1 : 통상
     {
-        StartCoroutine(skillMotion(0, 3f));
+        
         Health = 200f;
         TimerCoroutine = StartCoroutine(PhaseTimer(40));
         //MainCamera.SetActive(false);
+        BossCollider.enabled = false;
         yield return new WaitForSeconds(2f);
+        BossCollider.enabled = true;
+
+        while (true)
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                BasicAttack(200, 30, 2, playerCharacter, attackPrefab[0], 0, 133, 222);
+                PlaySFX(4);
+                yield return new WaitForSeconds(0.2f);
+            }
+
+            yield return new WaitForSeconds(0.5f);
+
+            for (int i = 0; i < 10; i++)
+            {
+                PlaySFX(5);
+                SlowdownAttack(transform.position + new Vector3(0, 5, 0), 100, 15, 3, playerCharacter, attackPrefab[3], 222, 81, 0, 5, 1f);
+                SlowdownAttack(transform.position + new Vector3(0, -5, 0), 100, 15, 3, playerCharacter, attackPrefab[3], 222, 81, 0, 5, 1f);
+                yield return new WaitForSeconds(0.2f);
+            }
+
+            yield return new WaitForSeconds(0.5f);
+
+        }
     }
 
     protected override IEnumerator Phase8() //패턴 2 : 기술
@@ -125,7 +152,7 @@ public class Mulbangae_Phase1 : Enemy_Boss
 
     protected override IEnumerator Phase6() //패턴 4 : 기술
     {
-        Health = 200f;
+        Health = 400f;
         TimerCoroutine = StartCoroutine(PhaseTimer(60));
 
         CutScene(3f);
@@ -135,9 +162,29 @@ public class Mulbangae_Phase1 : Enemy_Boss
         yield return new WaitForSeconds(2f);
         LeftHand = SpawnEnemy(MechaHand_L, -15, -5, -60);
         RightHand = SpawnEnemy(MechaHand_R, 15, -5, -60);
-        
 
-        yield return new WaitForSeconds(1f);
+        MechaHand LeftHandScript = LeftHand.GetComponent<MechahandParent>().returnChild();
+        MechaHand RightHandScript = RightHand.GetComponent<MechahandParent>().returnChild();
+
+        yield return new WaitForSeconds(2f);
+
+        while (Health > 200f)
+        {
+            LeftHandScript.Punch(3, 0.5f, 0.5f, 5);
+            yield return new WaitForSeconds(1f);
+            RightHandScript.Punch(3, 0.5f, 0.5f, 5);
+
+            yield return new WaitForSeconds(7f);
+        }
+
+        while (true)
+        {
+            LeftHandScript.Punch(5, 0.3f, 0.3f, 3);
+            yield return new WaitForSeconds(0.5f);
+            RightHandScript.Punch(5, 0.3f, 0.3f, 3);
+
+            yield return new WaitForSeconds(8f);
+        }
 
     }
     protected override IEnumerator Phase5() //패턴 5 : 통상
@@ -162,7 +209,7 @@ public class Mulbangae_Phase1 : Enemy_Boss
 
         HeavyMachineguns = new GameObject[6];
 
-        yield return new WaitForSeconds(0.5f);
+        
         HeavyMachineguns[0] = SpawnEnemy(HeavyMachinegun, -30, -20, -60);
         yield return new WaitForSeconds(0.5f);
         HeavyMachineguns[1] = SpawnEnemy(HeavyMachinegun, 30, -20, -60);
@@ -172,6 +219,21 @@ public class Mulbangae_Phase1 : Enemy_Boss
         HeavyMachineguns[3] = SpawnEnemy(HeavyMachinegun, -30, 20, -60);
 
         yield return new WaitForSeconds(2f);
+
+
+
+        while (Health > 200)
+        {
+            yield return new WaitForSeconds(1f);
+        }
+
+        HeavyMachineguns[4] = SpawnEnemy(HeavyMachinegun, -30, -20, 60);
+        HeavyMachineguns[5] = SpawnEnemy(HeavyMachinegun, 30, -20, 60);
+
+        while (true)
+        {
+            yield return new WaitForSeconds(1f);
+        }
     }
     protected override IEnumerator Phase3() //패턴 7 : 통상
     {

@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 42391821eb78732448e9216c62a6c5fb, type: 3}
       propertyPath: m_LocalScale.x
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 42391821eb78732448e9216c62a6c5fb, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 42391821eb78732448e9216c62a6c5fb, type: 3}
       propertyPath: m_LocalScale.z
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 42391821eb78732448e9216c62a6c5fb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -77,7 +77,7 @@ PrefabInstance:
       addedObject: {fileID: 4689648965983360163}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 42391821eb78732448e9216c62a6c5fb, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2170619662244259796}
+      addedObject: {fileID: 7612363293593618005}
     - targetCorrespondingSourceObject: {fileID: -5995868252250783739, guid: 42391821eb78732448e9216c62a6c5fb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 9223288854867220069}
@@ -183,19 +183,16 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &2170619662244259796
+--- !u!114 &7612363293593618005
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2891018310664038664}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e606ff396fab747449a585ef6622d71f, type: 3}
+  m_Script: {fileID: 11500000, guid: e7b421d867c8bcc49b958f88cb423b7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HitEffect: {fileID: 8536701366023590476, guid: eb33f6e72c96fe0468156445a99d1761, type: 3}
-  deathEffect: {fileID: 3901673378021655620, guid: b152383de00403b4fa322c84a239ce46, type: 3}
-  AttackPrefab: []
-  ParentObject: {fileID: 0}
+  hand: {fileID: 5988609658501937348}
