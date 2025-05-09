@@ -199,7 +199,7 @@ public class Mulbangae_Phase1 : Enemy_Boss
 
     protected override IEnumerator Phase4() //패턴 6 : 기술
     {
-        Health = 200f;
+        Health = 400f;
         TimerCoroutine = StartCoroutine(PhaseTimer(60));
 
         CutScene(3f);

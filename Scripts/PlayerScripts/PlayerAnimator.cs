@@ -96,7 +96,11 @@ public class PlayerAnimator : MonoBehaviour
 
     public void StartHitMotion() //피격 모션이 나오도록 코루틴 호출하는 함수. 외부에서 접근 가능함
     {
-        StartCoroutine(HitMotion());
+        Debug.Log("getHit!");
+        isMoving = 0;
+        //StartCoroutine(HitMotion());
+        animator.SetTrigger("getHit");
+
     }
 
     IEnumerator HitMotion()
