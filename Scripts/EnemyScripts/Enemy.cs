@@ -16,6 +16,13 @@ public class Enemy : MonoBehaviour
 
     protected BGMController BGM_Script;
 
+    /*
+    protected struct State //나중에 이 구조로 수정할 수 있음 좋을듯
+    {
+        public float health;
+        public float life;
+    }
+    */
     
     protected virtual void Start()
     {

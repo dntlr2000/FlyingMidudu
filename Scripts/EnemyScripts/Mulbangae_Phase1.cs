@@ -14,6 +14,7 @@ public class Mulbangae_Phase1 : Enemy_Boss
     private GameObject RightHand;
 
     private GameObject[] HeavyMachineguns;
+    private HeavyMachinegun[] MachingunScripts;
     private HOS HOS_Script;
 
 
@@ -137,7 +138,7 @@ public class Mulbangae_Phase1 : Enemy_Boss
         //StartCoroutine(skillMotion(1));
         CutScene(3f);
         PlaySFX(2);
-        SpellName = "고통받는 웁님이 보고 싶다.";
+        SpellName = "아직은 더 고통받아야 해";
         SpellCard(SpellName);
         yield return new WaitForSeconds(2f);
     }
@@ -209,14 +210,20 @@ public class Mulbangae_Phase1 : Enemy_Boss
 
         HeavyMachineguns = new GameObject[6];
 
-        
-        HeavyMachineguns[0] = SpawnEnemy(HeavyMachinegun, -30, -20, -60);
+        yield return new WaitForSeconds(0.2f);
+        HeavyMachineguns[0] = SpawnEnemy(HeavyMachinegun, -30, -20, -60, "down");
         yield return new WaitForSeconds(0.5f);
-        HeavyMachineguns[1] = SpawnEnemy(HeavyMachinegun, 30, -20, -60);
+        HeavyMachineguns[1] = SpawnEnemy(HeavyMachinegun, 30, -20, -60, "down");
         yield return new WaitForSeconds(0.5f);
-        HeavyMachineguns[2] = SpawnEnemy(HeavyMachinegun, 30, 20, -60);
+        HeavyMachineguns[2] = SpawnEnemy(HeavyMachinegun, 30, 20, -60, "upward");
         yield return new WaitForSeconds(0.5f);
-        HeavyMachineguns[3] = SpawnEnemy(HeavyMachinegun, -30, 20, -60);
+        HeavyMachineguns[3] = SpawnEnemy(HeavyMachinegun, -30, 20, -60, "upward");
+
+        MachingunScripts = new HeavyMachinegun[6];
+        for (int i = 0; i < 4; i++)
+        {
+            MachingunScripts[i] = HeavyMachineguns[i].GetComponent<HeavyMachingunParent>().returnChild();
+        }
 
         yield return new WaitForSeconds(2f);
 
@@ -224,14 +231,80 @@ public class Mulbangae_Phase1 : Enemy_Boss
 
         while (Health > 200)
         {
+            for (int i = 0; i < 10; i++)
+            {
+                for (int k = 0; k < 4; k++)
+                {
+                    //SingleShot(HeavyMachineguns[k], 80, attackPrefab[1], playerCharacter, 200, 0, 0);
+                    MachingunScripts[k].ShootSmall();
+                }
+                yield return new WaitForSeconds(0.1f);
+                PlaySFX(4);
+            }
+
+            for (int i = 0; i < 50; i++)
+            {
+                for (int k = 0; k < 4; k++)
+                {
+                    //SingleShot(HeavyMachineguns[k], 80, attackPrefab[1], playerCharacter, 200, 0, 0);
+                    MachingunScripts[k].ShootSmall();
+                }
+
+                if (i % 10 == 0)
+                {
+                    BasicSpin(150, 50, attackPrefab[2], 30, 0, 0, 200);
+                    PlaySFX(5);
+                }
+                else PlaySFX(4);
+
+                yield return new WaitForSeconds(0.1f);
+            }
+
             yield return new WaitForSeconds(1f);
         }
 
-        HeavyMachineguns[4] = SpawnEnemy(HeavyMachinegun, -30, -20, 60);
-        HeavyMachineguns[5] = SpawnEnemy(HeavyMachinegun, 30, -20, 60);
+        HeavyMachineguns[4] = SpawnEnemy(HeavyMachinegun, -30, -20, 60, "down");
+        HeavyMachineguns[5] = SpawnEnemy(HeavyMachinegun, 30, -20, 60, "down");
+
+        for (int i = 4; i < 6; i++)
+        {
+            MachingunScripts[i] = HeavyMachineguns[i].GetComponent<HeavyMachingunParent>().returnChild();
+            if (MachingunScripts[i] == null) Debug.LogWarning($"No MachingunScripts in index{i}");
+        }
+
+        yield return new WaitForSeconds(1f);
 
         while (true)
         {
+            for (int i = 0; i < 10; i++)
+            {
+                for (int k = 0; k < 6; k++)
+                {
+                    //SingleShot(HeavyMachineguns[k], 80, attackPrefab[1], playerCharacter, 200, 0, 0);
+                    MachingunScripts[k].ShootSmall();
+                }
+                yield return new WaitForSeconds(0.1f);
+                PlaySFX(4);
+            }
+
+            for (int i = 0; i < 80; i++)
+            {
+                for (int k = 0; k < 6; k++)
+                {
+                    //SingleShot(HeavyMachineguns[k], 80, attackPrefab[1], playerCharacter, 200, 0, 0);
+                    MachingunScripts[k].ShootSmall();
+                }
+
+                if (i % 10 == 0)
+                {
+                    BasicSpin(200, 50, attackPrefab[2], 30, 0, 0, 200);
+                    PlaySFX(5);
+                }
+                else PlaySFX(4);
+
+                yield return new WaitForSeconds(0.1f);
+            }
+
             yield return new WaitForSeconds(1f);
         }
     }
@@ -288,5 +361,32 @@ public class Mulbangae_Phase1 : Enemy_Boss
             {
                 if (item != null) Destroy(item);
             }
+    }
+
+    protected GameObject SpawnEnemy(GameObject enemy, int x, int y, int z, string direction)
+    {
+        GameObject spawnedEnemy;
+
+        if (direction == "upward")
+        {
+            Vector3 spawnPosition = new Vector3(x, y + 50, z);
+            spawnedEnemy = Instantiate(enemy, spawnPosition, Quaternion.identity);
+            StartCoroutine(ObjectMover(spawnedEnemy, spawnPosition, new Vector3(x, y, z), 1f));
+        }
+
+        else if (direction == "down")
+        {
+            Vector3 spawnPosition = new Vector3(x, y - 50, z);
+            spawnedEnemy = Instantiate(enemy, spawnPosition, Quaternion.identity);
+            StartCoroutine(ObjectMover(spawnedEnemy, spawnPosition, new Vector3(x, y, z), 1f));
+        }
+
+        else
+        {
+            Vector3 spawnPosition = new Vector3(x, y, z - 50);
+            spawnedEnemy = Instantiate(enemy, spawnPosition, Quaternion.identity);
+            StartCoroutine(ObjectMover(spawnedEnemy, spawnPosition, new Vector3(x, y, z), 2f));
+        }
+        return spawnedEnemy;
     }
 }

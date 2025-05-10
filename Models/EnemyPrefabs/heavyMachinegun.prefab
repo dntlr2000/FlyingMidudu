@@ -77,7 +77,7 @@ PrefabInstance:
       addedObject: {fileID: 5021028079397662933}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f1778e881b5b6b6478a7e717dcd66aca, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4438522524977202579}
+      addedObject: {fileID: 550263785423456145}
     - targetCorrespondingSourceObject: {fileID: -2387741863371917507, guid: f1778e881b5b6b6478a7e717dcd66aca, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3512479041680548475}
@@ -110,11 +110,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HitEffect: {fileID: 8536701366023590476, guid: eb33f6e72c96fe0468156445a99d1761, type: 3}
   deathEffect: {fileID: 3901673378021655620, guid: b152383de00403b4fa322c84a239ce46, type: 3}
-  AttackPrefab: []
+  AttackPrefab:
+  - {fileID: 3184244041106848311, guid: 6aa3f8faa7a5b3d47836b118db0fba00, type: 3}
+  - {fileID: 4475414099322364756, guid: 5b1094724de87fb42b7119fa27408dfa, type: 3}
   aimConstraint: {fileID: 6461264873575729612}
   ParentObject: {fileID: 5625929544860099657}
   upperStand: {fileID: 8200579969793553102}
   lowerStand: {fileID: 8771637444606983096}
+  ShooterEnd: {fileID: 6776680943972850567}
 --- !u!54 &472828235230542947
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -189,25 +192,24 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &4438522524977202579
+--- !u!114 &550263785423456145
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5625929544860099657}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01101541f8b684348956a625ef89e5f9, type: 3}
+  m_Script: {fileID: 11500000, guid: 68c1d2fb3ab5e4f47b600175031776b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HitEffect: {fileID: 8536701366023590476, guid: eb33f6e72c96fe0468156445a99d1761, type: 3}
-  deathEffect: {fileID: 3901673378021655620, guid: b152383de00403b4fa322c84a239ce46, type: 3}
-  AttackPrefab: []
-  aimConstraint: {fileID: 6461264873575729612}
-  ParentObject: {fileID: 0}
-  upperStand: {fileID: 8200579969793553102}
-  lowerStand: {fileID: 8771637444606983096}
+  child: {fileID: 3512479041680548475}
+--- !u!1 &6776680943972850567 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2078872640485245599, guid: f1778e881b5b6b6478a7e717dcd66aca, type: 3}
+  m_PrefabInstance: {fileID: 4814973404477118744}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8200579969793553102 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -5540438249417888810, guid: f1778e881b5b6b6478a7e717dcd66aca, type: 3}

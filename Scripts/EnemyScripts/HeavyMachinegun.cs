@@ -12,6 +12,8 @@ public class HeavyMachinegun : Enemy_Minion
     public GameObject upperStand;
     public GameObject lowerStand;
 
+    public GameObject ShooterEnd;
+
     protected override void Start()
     {
         Rigidbody rb = GetComponent<Rigidbody>();
@@ -36,9 +38,11 @@ public class HeavyMachinegun : Enemy_Minion
         }
     }
 
-    public void MotionChange(int state)
+    public void MotionChange(string state)
+
     {
-        animator.SetInteger("Motion", state);
+        //animator.SetInteger("Motion", state);
+        animator.SetTrigger(state);
     }
 
     private void AimToPlayer(GameObject obj, bool face = true)
@@ -69,6 +73,14 @@ public class HeavyMachinegun : Enemy_Minion
         //aimConstraint.locked = true;
         aimConstraint.rotationAtRest = Vector3.zero;
         aimConstraint.worldUpType = AimConstraint.WorldUpType.SceneUp;
+    }
+
+    public void ShootSmall()
+    {
+        //SingleShot(HeavyMachineguns[k], 80, attackPrefab[1], playerCharacter, 200, 0, 0);
+        SingleShot(ShooterEnd.transform.position, 80, AttackPrefab[0], player, 200, 0, 0);
+        MotionChange("ShootSmall");
+        //PlaySFX(4);
     }
 }
 

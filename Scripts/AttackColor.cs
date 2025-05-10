@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class AttackColor : MonoBehaviour
@@ -14,7 +15,15 @@ public class AttackColor : MonoBehaviour
         //SetAttackColor(125, 0, 0);
     }
 
-
+    /*
+    public AttackColor(float R, float B, float G, float multiply = 1f)
+    {
+        custom = custom = new Color(R / 255f, G / 255f, B / 255f) * multiply;
+        //SetAttackColor(R, B, G, multiply);
+    }
+    */
+    
+    //추후 생성자를 사용하는 구조로 갈아치울수도?
     public void SetAttackColor(float R, float G, float B, float multiply = 1f)
     {
         custom = new Color(R / 255f, G /255f, B / 255f) * multiply;

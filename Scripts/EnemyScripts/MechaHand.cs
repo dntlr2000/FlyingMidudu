@@ -6,6 +6,17 @@ public class MechaHand : Enemy_Minion
 {
     // Start is called before the first frame update
     public GameObject ParentObject;
+    //private Vector3 rgb;
+
+    
+    private struct RGB
+    {
+        public int r;
+        public int g;
+        public int b;
+    }
+
+    RGB rgb;
 
     protected override void Start()
     {
@@ -20,13 +31,19 @@ public class MechaHand : Enemy_Minion
 
         BGM_Script = FindObjectOfType<BGMController>();
 
+
+
         if (gameObject.transform.position.x > 0)
         {
             animator.SetBool("ifRightHand", true);
+
+            rgb = new RGB { r =  255, g= 102, b =  51 };
         }
         else
         {
             animator.SetBool("ifRightHand", false);
+            //rgb = new Vector3(51, 102, 255);
+            rgb = new RGB { r = 51, b = 102, g = 255 };
         }
 
         //Vector3 StartLocation = new Vector3(transform.position.x, transform.position.y, -50f);
@@ -68,6 +85,9 @@ public class MechaHand : Enemy_Minion
             punchLocation = new Vector3(transform.position.x, transform.position.y, 70f);
             StartCoroutine(ObjectMover(punchLocation, 0.2f));
             yield return new WaitForSeconds(0.2f);
+
+            BasicAttack(punchLocation, 60, 30f, 2, handleLocation, AttackPrefab[0], rgb.r, rgb.g, rgb.b);
+            PlaySFX(3);
 
             yield return new WaitForSeconds(delay);
         }

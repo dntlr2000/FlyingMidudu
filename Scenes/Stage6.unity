@@ -364,6 +364,10 @@ PrefabInstance:
       propertyPath: m_BackGroundColor.a
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8227887059612163075, guid: ea705c216e2258c498ff51862689d427, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 8959044887392837504, guid: ea705c216e2258c498ff51862689d427, type: 3}
       propertyPath: m_RotationOffset.x
       value: 3.032222
@@ -417,7 +421,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 715267253083095622, guid: ea705c216e2258c498ff51862689d427, type: 3}
   m_PrefabInstance: {fileID: 375974089}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1903151196}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0af97a271db3f4048bc7b4c81ee5df2f, type: 3}
@@ -1170,6 +1174,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2917390929361485438, guid: d010547a555eeb24aa98b7a935d2d18b, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3880321606326338056, guid: d010547a555eeb24aa98b7a935d2d18b, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1903151196}
+    - target: {fileID: 4295981278122172319, guid: d010547a555eeb24aa98b7a935d2d18b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6038434873549580281, guid: d010547a555eeb24aa98b7a935d2d18b, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6246029598963179840, guid: d010547a555eeb24aa98b7a935d2d18b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6246029598963179840, guid: d010547a555eeb24aa98b7a935d2d18b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6246029598963179840, guid: d010547a555eeb24aa98b7a935d2d18b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6246029598963179840, guid: d010547a555eeb24aa98b7a935d2d18b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1218,11 +1250,20 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8956515481350170279, guid: d010547a555eeb24aa98b7a935d2d18b, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d010547a555eeb24aa98b7a935d2d18b, type: 3}
+--- !u!1 &1903151196 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4101519854574168237, guid: ea705c216e2258c498ff51862689d427, type: 3}
+  m_PrefabInstance: {fileID: 375974089}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4779871053669541747
 PrefabInstance:
   m_ObjectHideFlags: 0
