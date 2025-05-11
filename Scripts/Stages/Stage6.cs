@@ -9,7 +9,7 @@ public class Stage6 : Stage
     // Start is called before the first frame update
     protected override void Start()
     {
-        text = $"최종장\n드디어 보물이 있는 곳에 도달했지만\n흰 머리 악인의 앞을 가로막는 건\n복수의 칼날을 가다듬는\n어느 낯익은 방개..";
+        text = $"최종장\n드디어 보물이 있는 곳에 도달했지만\n어째선지 악인의 앞을 가로막아\n온 힘을 짜내는 방개들..";
         base.Start();
         NextStageName = "EndScene";
         currentStage = 6;

@@ -7,6 +7,7 @@ public class MechaHand : Enemy_Minion
     // Start is called before the first frame update
     public GameObject ParentObject;
     //private Vector3 rgb;
+    private Collider myCollider;
 
     
     private struct RGB
@@ -30,6 +31,8 @@ public class MechaHand : Enemy_Minion
         if (player == null) return;
 
         BGM_Script = FindObjectOfType<BGMController>();
+
+        myCollider = GetComponent<Collider>();
 
 
 
@@ -72,12 +75,14 @@ public class MechaHand : Enemy_Minion
         Vector3 punchLocation;
         for (int i  = 0; i < num; i++)
         {
+            myCollider.enabled = false;
             for (int k = 0; k < 1 * chaseTime; k++) {
                 Vector3 playerPos = PlayerTransform.position;
                 startLocation = new Vector3(playerPos.x, playerPos.y, -50f);
                 StartCoroutine(ObjectMover(startLocation, 0.1f));
                 yield return new WaitForSeconds(0.1f);
             }
+            myCollider.enabled = true;
             handleLocation = new Vector3(transform.position.x, transform.position.y, -60f);
             StartCoroutine(ObjectMover(handleLocation, ChargeSpeed));
             yield return new WaitForSeconds(ChargeSpeed);

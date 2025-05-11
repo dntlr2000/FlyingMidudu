@@ -44,6 +44,7 @@ public class Mulbangae_Phase1 : Enemy_Boss
         animator.SetBool("ifStart", true);
 
         yield return new WaitForSeconds(4f);
+        gameObject.tag = "EnemyBoss";
         base.Start();
         healthBar.SetName("Mulbangae");
 
@@ -140,7 +141,45 @@ public class Mulbangae_Phase1 : Enemy_Boss
         PlaySFX(2);
         SpellName = "아직은 더 고통받아야 해";
         SpellCard(SpellName);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(4f);
+
+        int xLoc;
+
+        while (true)
+        {
+            for (int i = -70; i <= 70; i += 5)
+            {
+                for (int k = 0; k < 10; k++)
+                {
+                    xLoc = Random.Range(-50, 50);
+                    ShootLasers(new Vector3(xLoc, -50, i), new Vector3(xLoc, 50, i), 1, attackPrefab[5], 1, 0, 133, 222);
+
+                }
+                PlaySFX(4);
+                yield return new WaitForSeconds(0.1f);
+            }
+
+            AttackBlocks(attackPrefab[1], new Vector3(50, 50, -60), new Vector3(-50, 20, -60), 3f, 30);
+            AttackBlocks(attackPrefab[1], new Vector3(50, -20, -60), new Vector3(-50, -50, -60), 3f, 30);
+            
+            yield return new WaitForSeconds(1f);
+
+            for (int i = -70; i <= 70; i += 5)
+            {
+                for (int k = 0; k < 10; k++)
+                {
+                    xLoc = Random.Range(-50, 50);
+                    ShootLasers(new Vector3(xLoc, -50, i), new Vector3(xLoc, 50, i), 1, attackPrefab[5], 1, 0, 133, 222);
+
+                }
+                PlaySFX(4);
+                yield return new WaitForSeconds(0.1f);
+            }
+
+            AttackBlocks(attackPrefab[1], new Vector3(-20, 50, -60), new Vector3(-50, -50, -60), 3f, 30);
+            AttackBlocks(attackPrefab[1], new Vector3(50, 50, -60), new Vector3(20, -50, -60), 3f, 30);
+            yield return new WaitForSeconds(1f);
+        }
     }
 
     protected override IEnumerator Phase7() //패턴 3 : 통상
@@ -149,6 +188,23 @@ public class Mulbangae_Phase1 : Enemy_Boss
         TimerCoroutine = StartCoroutine(PhaseTimer(30));
         //MainCamera.SetActive(false);
         yield return new WaitForSeconds(2f);
+
+        ShootAround(playerCharacter, 120, attackPrefab[0], 30, 60, 0.3f, 0, 133, 222);
+        PlaySFX(5);
+        yield return new WaitForSeconds(1f);
+        while (true)
+        {
+            ShootAround(playerCharacter, 120, attackPrefab[0], 30, 60, 0.3f, 0, 133, 222);
+            PlaySFX(5);
+            yield return new WaitForSeconds(0.2f);
+            for (int i = 0; i < 3; i++)
+            {
+                SlowdownAttack(200, 90, 2f, playerCharacter, attackPrefab[4], 125, 125, 125, 0.2f, 0.3f);
+                PlaySFX(4);
+                yield return new WaitForSeconds(0.2f);
+            }
+            yield return new WaitForSeconds(0.2f);
+        }
     }
 
     protected override IEnumerator Phase6() //패턴 4 : 기술
@@ -329,9 +385,27 @@ public class Mulbangae_Phase1 : Enemy_Boss
         SpellCard(SpellName);
         HOS_Object.SetActive(true);
         HOS_Script = HOS_Object.GetComponent<HOS>();
+        HOS_Script.PullPlayer(2f);
+        yield return new WaitForSeconds(3f);
 
+        while (true)
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                ShootAround(playerCharacter, 15, attackPrefab[0], 10, 70, 0.2f ,0, 133, 222);
+                yield return new WaitForSeconds(0.1f);
+                PlaySFX(4);
+            }
 
-        yield return new WaitForSeconds(2f);
+            for (int i = 0; i < 5; i++)
+            {
+                SlowdownAttack(150, 60, 2, playerCharacter, attackPrefab[1], 125, 125, 125, 0.2f, 0.5f);
+                yield return new WaitForSeconds(0.2f);
+                PlaySFX(5);
+            }
+
+        }
+
     }
 
     protected override IEnumerator Phase1() //패턴 9 : 기술
@@ -389,4 +463,6 @@ public class Mulbangae_Phase1 : Enemy_Boss
         }
         return spawnedEnemy;
     }
+
+
 }

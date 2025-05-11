@@ -609,6 +609,7 @@ public class Enemy : MonoBehaviour
         laser0.transform.forward = directTargetDirection;
     }
 
+
     protected virtual void AttackBlocks(GameObject prefab, Vector3 from, Vector3 to, float gap = 5f, float speed = 30)
     {
         float x, y, z;

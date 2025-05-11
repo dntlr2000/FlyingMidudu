@@ -1320,6 +1320,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5565002184701674580, guid: d8c7c8db4115bd84dbbdccd58e61cfe1, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 5967378146424781644, guid: d8c7c8db4115bd84dbbdccd58e61cfe1, type: 3}
       propertyPath: pointer
       value: 

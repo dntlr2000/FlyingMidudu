@@ -55,7 +55,10 @@ public class Enemy_Boss : Enemy
     public Stage stageScript;
 
     protected GameObject playerCharacter;
-    
+
+    // 레이저 생성 위치를 특별하게 설정하고 싶을 때 사용 (풀링)
+    //private GameObject LaserSpawnObj;
+    //private GameObject LaserTargetObj;
     
 
     protected override void Start()
@@ -404,6 +407,40 @@ public class Enemy_Boss : Enemy
         StartCoroutine(SpellText.SpellCardAnimation(spellName));
     }
 
-    
+    /*
+    protected void ShootLasers(Vector3 spawner, Vector3 target, int num, GameObject prefab, float radius, float R = 125f, float G = 125f, float B = 125f)
+    {
+        if (LaserSpawnObj == null) LaserSpawnObj = new GameObject("SpawnLocationObj");
+        else LaserSpawnObj.SetActive(true);
+        LaserSpawnObj.transform.position = spawner;
+
+        if (LaserTargetObj == null) LaserTargetObj = new GameObject("TargetLocationObj");
+        else LaserTargetObj.SetActive(true);
+        LaserTargetObj.transform.position = target;
+
+        ShootLasers(LaserSpawnObj, LaserTargetObj, num, prefab, radius, R, G, B);
+
+        LaserSpawnObj.SetActive(false);
+        LaserTargetObj.SetActive(false);
+
+    }
+    */
+
+    protected void ShootLasers(Vector3 spawner, Vector3 target, int num, GameObject prefab, float radius, float R = 125f, float G = 125f, float B = 125f)
+    {
+        //여유 되면 객체 풀링 구조로 구현해보자!
+        GameObject LaserSpawnObj = new GameObject("SpawnLocationObj");
+        LaserSpawnObj.transform.position = spawner;
+
+        GameObject LaserTargetObj = new GameObject("TargetLocationObj");;
+        LaserTargetObj.transform.position = target;
+
+        ShootLasers(LaserSpawnObj, LaserTargetObj, num, prefab, radius, R, G, B);
+
+        Destroy(LaserSpawnObj);
+        Destroy(LaserTargetObj);
+
+    }
+
 }
 

@@ -19,7 +19,8 @@ public class HOS : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         animator.SetBool("ifAlive", true);
-        coroutine = PullObjects();
+
+
         StartCoroutine(coroutine);
     }
 
@@ -27,6 +28,14 @@ public class HOS : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "EnemyAttack")
+        {
+            Destroy(other.gameObject);
+        }
     }
 
     public void ShutDown()
@@ -42,9 +51,15 @@ public class HOS : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    private IEnumerator PullObjects()
+    public void PullPlayer(float delay)
     {
-        yield return new WaitForSeconds(2f);
+        coroutine = PullPlayerCoroutine(delay);
+        StartCoroutine(coroutine);
+    }
+
+    private IEnumerator PullPlayerCoroutine(float delay)
+    {
+        yield return new WaitForSeconds(delay);
 
         while (true)
         {
