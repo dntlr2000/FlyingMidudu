@@ -101,7 +101,7 @@ public class Mulbangae_Phase1 : Enemy_Boss
     protected override IEnumerator Phase9() //패턴 1 : 통상
     {
         
-        Health = 200f;
+        Health = 1600f;
         TimerCoroutine = StartCoroutine(PhaseTimer(40));
         //MainCamera.SetActive(false);
         BossCollider.enabled = false;
@@ -134,7 +134,7 @@ public class Mulbangae_Phase1 : Enemy_Boss
 
     protected override IEnumerator Phase8() //패턴 2 : 기술
     {
-        Health = 200f;
+        Health = 2400f;
         TimerCoroutine = StartCoroutine(PhaseTimer(60));
         //StartCoroutine(skillMotion(1));
         CutScene(3f);
@@ -147,7 +147,7 @@ public class Mulbangae_Phase1 : Enemy_Boss
 
         while (true)
         {
-            for (int i = -70; i <= 70; i += 5)
+            for (int i = -70; i <= 80; i += 5)
             {
                 for (int k = 0; k < 10; k++)
                 {
@@ -164,7 +164,7 @@ public class Mulbangae_Phase1 : Enemy_Boss
             
             yield return new WaitForSeconds(1f);
 
-            for (int i = -70; i <= 70; i += 5)
+            for (int i = -70; i <= 80; i += 5)
             {
                 for (int k = 0; k < 10; k++)
                 {
@@ -179,27 +179,42 @@ public class Mulbangae_Phase1 : Enemy_Boss
             AttackBlocks(attackPrefab[1], new Vector3(-20, 50, -60), new Vector3(-50, -50, -60), 3f, 30);
             AttackBlocks(attackPrefab[1], new Vector3(50, 50, -60), new Vector3(20, -50, -60), 3f, 30);
             yield return new WaitForSeconds(1f);
+
+            for (int i = -70; i <= 80; i += 5)
+            {
+                for (int k = 0; k < 10; k++)
+                {
+                    xLoc = Random.Range(-50, 50);
+                    ShootLasers(new Vector3(xLoc, -50, i), new Vector3(xLoc, 50, i), 1, attackPrefab[5], 1, 0, 133, 222);
+
+                }
+                PlaySFX(4);
+                yield return new WaitForSeconds(0.1f);
+            }
+
+            AttackBlocks(attackPrefab[1], new Vector3(30, 30, -60), new Vector3(-30, -30, -60), 3f, 30);
+            yield return new WaitForSeconds(1f);
         }
     }
 
     protected override IEnumerator Phase7() //패턴 3 : 통상
     {
-        Health = 200f;
-        TimerCoroutine = StartCoroutine(PhaseTimer(30));
+        Health = 2000f;
+        TimerCoroutine = StartCoroutine(PhaseTimer(40));
         //MainCamera.SetActive(false);
         yield return new WaitForSeconds(2f);
 
-        ShootAround(playerCharacter, 120, attackPrefab[0], 30, 60, 0.3f, 0, 133, 222);
+        ShootAround(playerCharacter, 120, attackPrefab[0], 30, 50, 0.2f, 0, 80, 150);
         PlaySFX(5);
         yield return new WaitForSeconds(1f);
         while (true)
         {
-            ShootAround(playerCharacter, 120, attackPrefab[0], 30, 60, 0.3f, 0, 133, 222);
+            ShootAround(playerCharacter, 120, attackPrefab[0], 30, 50, 0.2f, 0, 80, 150);
             PlaySFX(5);
             yield return new WaitForSeconds(0.2f);
             for (int i = 0; i < 3; i++)
             {
-                SlowdownAttack(200, 90, 2f, playerCharacter, attackPrefab[4], 125, 125, 125, 0.2f, 0.3f);
+                SlowdownAttack(200, 90, 2f, playerCharacter, attackPrefab[4], 75, 75, 75, 0.2f, 0.3f);
                 PlaySFX(4);
                 yield return new WaitForSeconds(0.2f);
             }
@@ -209,7 +224,7 @@ public class Mulbangae_Phase1 : Enemy_Boss
 
     protected override IEnumerator Phase6() //패턴 4 : 기술
     {
-        Health = 400f;
+        Health = 3000f;
         TimerCoroutine = StartCoroutine(PhaseTimer(60));
 
         CutScene(3f);
@@ -248,15 +263,43 @@ public class Mulbangae_Phase1 : Enemy_Boss
     {
         ClearHand();
 
-        Health = 200f;
-        TimerCoroutine = StartCoroutine(PhaseTimer(30));
+        Health = 1600f;
+        TimerCoroutine = StartCoroutine(PhaseTimer(40));
         //MainCamera.SetActive(false);
         yield return new WaitForSeconds(2f);
+
+        while (true)
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                ShootAround(transform.position + new Vector3(10, 0, 0), playerCharacter, 120, attackPrefab[0], 40, 60f, 0.2f, 222, 81, 0);
+                ShootAround(transform.position + new Vector3(-10, 0, 0), playerCharacter, 120, attackPrefab[0], 40, 60f, 0.2f, 222, 81, 0);
+                PlaySFX(5);
+                yield return new WaitForSeconds(0.2f);
+            }
+            yield return new WaitForSeconds(0.5f);
+            for (int i = 0; i < 5; i++)
+            {
+                BasicAttack(150, 60, 2, playerCharacter, attackPrefab[1], 0, 133, 222);
+                PlaySFX(4);
+                yield return new WaitForSeconds(0.2f);
+            }
+            yield return new WaitForSeconds(0.5f);
+            for (int i = 0; i < 3; i++)
+            {
+                ShootAround(transform.position + new Vector3(10, 0, 0), playerCharacter, 80, attackPrefab[0], 40, 60f, 0.2f, 222, 81, 0);
+                ShootAround(transform.position + new Vector3(-10, 0, 0), playerCharacter, 80, attackPrefab[0], 40, 60f, 0.2f, 222, 81, 0);
+                BasicAttack(90, 60, 2, playerCharacter, attackPrefab[1], 0, 133, 222);
+                PlaySFX(5);
+                yield return new WaitForSeconds(0.4f);
+            }
+            yield return new WaitForSeconds(1f);
+        }
     }
 
     protected override IEnumerator Phase4() //패턴 6 : 기술
     {
-        Health = 400f;
+        Health = 3000f;
         TimerCoroutine = StartCoroutine(PhaseTimer(60));
 
         CutScene(3f);
@@ -285,7 +328,7 @@ public class Mulbangae_Phase1 : Enemy_Boss
 
 
 
-        while (Health > 200)
+        while (Health > 1500)
         {
             for (int i = 0; i < 10; i++)
             {
@@ -367,15 +410,36 @@ public class Mulbangae_Phase1 : Enemy_Boss
     protected override IEnumerator Phase3() //패턴 7 : 통상
     {
         ClearMachinegun();
-        Health = 200f;
-        TimerCoroutine = StartCoroutine(PhaseTimer(30));
+        Health = 1800f;
+        TimerCoroutine = StartCoroutine(PhaseTimer(45));
         //MainCamera.SetActive(false);
         yield return new WaitForSeconds(2f);
+
+        while (true)
+        {
+            for (int i = 1; i < 12; i++)
+            {
+                BasicAttack(60, 80, i, playerCharacter, attackPrefab[3], 0, 25, 150);
+                yield return new WaitForSeconds(0.1f);
+                PlaySFX(4);
+            }
+
+            //BasicSpin(150, 60, attackPrefab[2], 30f, 150, 25, 0);
+
+            for (int i = 12; i > 1; i--)
+            {
+                BasicAttack(60, 80, i, playerCharacter, attackPrefab[3], 125, 25, 0);
+                yield return new WaitForSeconds(0.1f);
+                PlaySFX(4);
+            }
+            //BasicSpin(150, 60, attackPrefab[2], -30f, 150, 25, 0);
+
+        }
     }
 
     protected override IEnumerator Phase2() //패턴 8 : 기술
     {
-        Health = 200f;
+        Health = 3000f;
         TimerCoroutine = StartCoroutine(PhaseTimer(60));
 
         CutScene(4f);
@@ -392,14 +456,14 @@ public class Mulbangae_Phase1 : Enemy_Boss
         {
             for (int i = 0; i < 10; i++)
             {
-                ShootAround(playerCharacter, 15, attackPrefab[0], 10, 70, 0.2f ,0, 133, 222);
+                ShootAround(playerCharacter, 15, attackPrefab[0], 20, 60, 0.2f ,0, 133, 222);
                 yield return new WaitForSeconds(0.1f);
                 PlaySFX(4);
             }
 
             for (int i = 0; i < 5; i++)
             {
-                SlowdownAttack(150, 60, 2, playerCharacter, attackPrefab[1], 125, 125, 125, 0.2f, 0.5f);
+                SlowdownAttack(150, 50, 2, playerCharacter, attackPrefab[1], 125, 125, 125, 0.2f, 0.5f);
                 yield return new WaitForSeconds(0.2f);
                 PlaySFX(5);
             }
@@ -411,15 +475,140 @@ public class Mulbangae_Phase1 : Enemy_Boss
     protected override IEnumerator Phase1() //패턴 9 : 기술
     {
         HOS_Script.ShutDown();
-        Health = 200f;
-        TimerCoroutine = StartCoroutine(PhaseTimer(60));
+        Health = 4000f;
+        TimerCoroutine = StartCoroutine(PhaseTimer(99));
 
         CutScene(4f);
         PlaySFX(2);
         yield return new WaitForSeconds(2f);
         SpellName = "최종 비기 - 재도전 기원 1일차";
         SpellCard(SpellName);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
+
+        HeavyMachineguns = new GameObject[1];
+        HeavyMachineguns[0] = SpawnEnemy(HeavyMachinegun, 0, -20, 0, "down");
+        MachingunScripts = new HeavyMachinegun[1];
+        MachingunScripts[0] = HeavyMachineguns[0].GetComponent<HeavyMachingunParent>().returnChild();
+
+        yield return new WaitForSeconds(0.5f);
+        while (Health > 2700)
+        {
+            /* //새 패턴이 생각 나면 물방개 페이즈2의 패턴으로 수정 후 옮길 예정
+            ShootLasers(playerCharacter, 30, attackPrefab[5], 30, 0, 133, 222);
+            PlaySFX(5);
+            */
+            MachingunScripts[0].ShootBig();
+            PlaySFX(4);
+            yield return new WaitForSeconds(0.5f);
+            for (int i = 0; i < 10; i++)
+            {
+                BasicAttack(transform.position, 80, 40 + i * 5, 3, playerCharacter.transform.position + new Vector3(-20 + i * 5, 0, 0), attackPrefab[3], 150, 0, 0);
+                PlaySFX(4);
+                yield return new WaitForSeconds(0.1f);
+            }
+
+            yield return new WaitForSeconds(0.5f);
+
+            for (int i = 0; i < 10; i++)
+            {
+                BasicAttack(transform.position, 80, 40 + i * 5, 3, playerCharacter.transform.position + new Vector3(20 - i * 5, 0, 0), attackPrefab[3], 0, 0, 150);
+                PlaySFX(4);
+                yield return new WaitForSeconds(0.1f);
+            }
+
+            yield return new WaitForSeconds(0.5f);
+
+            for (int i = 0; i < 5; i++)
+            {
+                BasicAttack(150, 70 - 7 * i, 2, playerCharacter, attackPrefab[2], 150, 150, 0);
+                yield return new WaitForSeconds(0.1f);
+                PlaySFX(5);
+            }
+
+            yield return new WaitForSeconds(1f);
+        }
+
+        while (Health > 1400) //1차 강화
+        {
+            MachingunScripts[0].ShootBig();
+            PlaySFX(4);
+            yield return new WaitForSeconds(0.5f);
+
+            for (int i = 0; i < 10; i++)
+            {
+                BasicAttack(transform.position, 120, 50 + i * 5, 3, playerCharacter.transform.position + new Vector3(-20 + i * 5, 0, 0), attackPrefab[3], 150, 0, 0);
+                PlaySFX(4);
+                yield return new WaitForSeconds(0.1f);
+            }
+            yield return new WaitForSeconds(0.5f);
+
+            for (int i = 0; i < 10; i++)
+            {
+                BasicAttack(transform.position, 120, 50 + i * 5, 3, playerCharacter.transform.position + new Vector3(20 - i * 5, 0, 0), attackPrefab[3], 0, 0, 150);
+                PlaySFX(4);
+                yield return new WaitForSeconds(0.1f);
+            }
+
+            yield return new WaitForSeconds(0.5f);
+
+            MachingunScripts[0].ShootBig();
+            PlaySFX(4);
+
+            for (int i = 0; i < 5; i++)
+            {
+                BasicAttack(150, 70 - 7 * i, 2, playerCharacter, attackPrefab[2], 150, 150, 0);
+                yield return new WaitForSeconds(0.1f);
+                PlaySFX(5);
+            }
+
+            yield return new WaitForSeconds(1f);
+
+        }
+
+        while (true)
+        {
+            MachingunScripts[0].ShootBig();
+            PlaySFX(4);
+            yield return new WaitForSeconds(0.5f);
+
+            for (int i = 0; i < 10; i++)
+            {
+                BasicAttack(transform.position, 120, 50 + i * 5, 3, playerCharacter.transform.position + new Vector3(-20 + i * 5, 0, 0), attackPrefab[3], 150, 0, 0);
+                PlaySFX(4);
+                yield return new WaitForSeconds(0.1f);
+            }
+            yield return new WaitForSeconds(0.5f);
+
+            MachingunScripts[0].ShootBig();
+
+            for (int i = 0; i < 10; i++)
+            {
+                BasicAttack(transform.position, 120, 50 + i * 5, 3, playerCharacter.transform.position + new Vector3(20 - i * 5, 0, 0), attackPrefab[3], 0, 0, 150);
+                PlaySFX(4);
+                yield return new WaitForSeconds(0.1f);
+            }
+
+            HOS_Object.SetActive(true);
+            //HOS_Script = HOS_Object.GetComponent<HOS>();
+            HOS_Script.PullPlayer(1f); yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.5f);
+
+            MachingunScripts[0].ShootBig();
+            PlaySFX(4);
+
+
+            for (int i = 0; i < 5; i++)
+            {
+                BasicAttack(150, 70 - 7 * i, 2, playerCharacter, attackPrefab[2], 150, 150, 0);
+                yield return new WaitForSeconds(0.1f);
+                PlaySFX(5);
+            }
+
+            yield return new WaitForSeconds(1f);
+
+            HOS_Script.ShutDown();
+
+        }
     }
 
     private void ClearHand()
@@ -431,6 +620,7 @@ public class Mulbangae_Phase1 : Enemy_Boss
 
     private void ClearMachinegun()
     {
+        if (HeavyMachineguns == null) return;
         foreach (GameObject item in HeavyMachineguns)
             {
                 if (item != null) Destroy(item);
@@ -462,6 +652,29 @@ public class Mulbangae_Phase1 : Enemy_Boss
             StartCoroutine(ObjectMover(spawnedEnemy, spawnPosition, new Vector3(x, y, z), 2f));
         }
         return spawnedEnemy;
+    }
+
+    protected override IEnumerator DeathCoroutine()
+    {
+        HOS_Object.SetActive(false);
+
+        BossCollider.enabled = false;
+        Instantiate(DeathEffect1, transform.position, Quaternion.identity);
+        for (int i = 0; i < 5; i++)
+        {
+            PlayerCamera.CameraShake(1);
+            PlaySFX(2);
+            yield return new WaitForSeconds(0.6f);
+        }
+        PlayerCamera.CameraShake(2);
+        ResetProjectile();
+        activatePointer(false);
+        Instantiate(DeathEffect2, transform.position, Quaternion.identity);
+        HealthBarObject.SetActive(false);
+        //stageScript.toNextStage("Stage2");
+        //stageScript.StageLoader(false);
+        PlaySFX(3);
+        Destroy(gameObject);
     }
 
 

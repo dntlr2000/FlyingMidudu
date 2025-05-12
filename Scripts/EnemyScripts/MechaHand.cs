@@ -8,8 +8,8 @@ public class MechaHand : Enemy_Minion
     public GameObject ParentObject;
     //private Vector3 rgb;
     private Collider myCollider;
+    protected CameraController PlayerCamera;
 
-    
     private struct RGB
     {
         public int r;
@@ -34,6 +34,7 @@ public class MechaHand : Enemy_Minion
 
         myCollider = GetComponent<Collider>();
 
+        //PlayerCamera = FindAnyObjectByType<CameraController>();
 
 
         if (gameObject.transform.position.x > 0)
@@ -90,7 +91,7 @@ public class MechaHand : Enemy_Minion
             punchLocation = new Vector3(transform.position.x, transform.position.y, 70f);
             StartCoroutine(ObjectMover(punchLocation, 0.2f));
             yield return new WaitForSeconds(0.2f);
-
+            //if (PlayerCamera != null) PlayerCamera.CameraShake(1);
             BasicAttack(punchLocation, 60, 30f, 2, handleLocation, AttackPrefab[0], rgb.r, rgb.g, rgb.b);
             PlaySFX(3);
 

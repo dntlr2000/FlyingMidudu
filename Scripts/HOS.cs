@@ -21,7 +21,7 @@ public class HOS : MonoBehaviour
         animator.SetBool("ifAlive", true);
 
 
-        StartCoroutine(coroutine);
+        //StartCoroutine(coroutine);
     }
 
     // Update is called once per frame

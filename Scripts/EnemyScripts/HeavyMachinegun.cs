@@ -82,6 +82,14 @@ public class HeavyMachinegun : Enemy_Minion
         MotionChange("ShootSmall");
         //PlaySFX(4);
     }
+
+    public void ShootBig()
+    {
+        //SingleShot(HeavyMachineguns[k], 80, attackPrefab[1], playerCharacter, 200, 0, 0);
+        BasicAttack(ShooterEnd.transform.position, 8, 20f, 6, player, AttackPrefab[1], 200, 0, 0);
+        MotionChange("ShootSmall");
+        //PlaySFX(4);
+    }
 }
 
 
