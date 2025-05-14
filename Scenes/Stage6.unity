@@ -297,7 +297,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6957200864176710655, guid: c1b2311efc53da9488097c8452beb436, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 44561739}
   m_SourcePrefab: {fileID: 100100000, guid: c1b2311efc53da9488097c8452beb436, type: 3}
 --- !u!1 &44561735 stripped
 GameObject:
@@ -309,6 +312,36 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8226391111044611239, guid: c1b2311efc53da9488097c8452beb436, type: 3}
   m_PrefabInstance: {fileID: 44561734}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &44561737 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2133115676156119776, guid: c1b2311efc53da9488097c8452beb436, type: 3}
+  m_PrefabInstance: {fileID: 44561734}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &44561738 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 648459566709672341, guid: c1b2311efc53da9488097c8452beb436, type: 3}
+  m_PrefabInstance: {fileID: 44561734}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1818360608 &44561739
+PositionConstraint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 44561735}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Weight: 1
+  m_TranslationAtRest: {x: 0, y: 0, z: -1.83}
+  m_TranslationOffset: {x: 0, y: 0, z: 0}
+  m_AffectTranslationX: 1
+  m_AffectTranslationY: 1
+  m_AffectTranslationZ: 1
+  m_Active: 0
+  m_IsLocked: 0
+  m_Sources:
+  - sourceTransform: {fileID: 44561738}
+    weight: 1
 --- !u!1001 &65665424
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1552,6 +1585,10 @@ PrefabInstance:
       propertyPath: PlayerCamera
       value: 
       objectReference: {fileID: 375974092}
+    - target: {fileID: 5967378146424781644, guid: d8c7c8db4115bd84dbbdccd58e61cfe1, type: 3}
+      propertyPath: Bangae_Phase2
+      value: 
+      objectReference: {fileID: 44561737}
     - target: {fileID: 5967378146424781644, guid: d8c7c8db4115bd84dbbdccd58e61cfe1, type: 3}
       propertyPath: HealthBarObject
       value: 

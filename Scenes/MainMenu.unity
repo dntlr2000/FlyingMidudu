@@ -4474,7 +4474,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5787172020526292662, guid: 58b93238ed3493843835968d94673278, type: 3}
       propertyPath: bgmClips.Array.size
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 5787172020526292662, guid: 58b93238ed3493843835968d94673278, type: 3}
       propertyPath: SFXClips.Array.data[6]
@@ -4512,6 +4512,10 @@ PrefabInstance:
       propertyPath: bgmClips.Array.data[11]
       value: 
       objectReference: {fileID: 8300000, guid: 3e77b30965531f14f963f91a71b0d8dd, type: 3}
+    - target: {fileID: 5787172020526292662, guid: 58b93238ed3493843835968d94673278, type: 3}
+      propertyPath: bgmClips.Array.data[12]
+      value: 
+      objectReference: {fileID: 8300000, guid: c592a776e107fdd468f3914658990128, type: 3}
     - target: {fileID: 6892124870753956653, guid: 58b93238ed3493843835968d94673278, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

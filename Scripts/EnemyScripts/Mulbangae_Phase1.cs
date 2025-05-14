@@ -17,11 +17,12 @@ public class Mulbangae_Phase1 : Enemy_Boss
     private HeavyMachinegun[] MachingunScripts;
     private HOS HOS_Script;
 
+    public GameObject Bangae_Phase2;
 
 
     protected override void Start()
     {
-        Life = 9;
+        Life = 2;
         Health = 100f;
         BossName = "물방개";
         BossDescription = "영원한 악연";
@@ -456,7 +457,7 @@ public class Mulbangae_Phase1 : Enemy_Boss
         {
             for (int i = 0; i < 10; i++)
             {
-                ShootAround(playerCharacter, 15, attackPrefab[0], 20, 60, 0.2f ,0, 133, 222);
+                ShootAround(playerCharacter, 15, attackPrefab[0], 20, 60, 0.2f ,0, 15, 150);
                 yield return new WaitForSeconds(0.1f);
                 PlaySFX(4);
             }
@@ -656,8 +657,9 @@ public class Mulbangae_Phase1 : Enemy_Boss
 
     protected override IEnumerator DeathCoroutine()
     {
+        ClearMachinegun();
         HOS_Object.SetActive(false);
-
+        BGM_Script.StopBGM(true);
         BossCollider.enabled = false;
         Instantiate(DeathEffect1, transform.position, Quaternion.identity);
         for (int i = 0; i < 5; i++)
@@ -675,10 +677,19 @@ public class Mulbangae_Phase1 : Enemy_Boss
         //stageScript.StageLoader(false);
         PlaySFX(3);
 
-        yield return new WaitForSeconds(4f);
+        //yield return new WaitForSeconds(4f);
 
+        SpawnMulbangae(Bangae_Phase2, 0, 0, -50);
+
+        
 
         Destroy(gameObject);
+    }
+
+    void SpawnMulbangae(GameObject enemy, int x, int y, int z)
+    {
+        enemy.transform.position = new Vector3(x, y, z);
+        enemy.SetActive(true);
     }
 
 

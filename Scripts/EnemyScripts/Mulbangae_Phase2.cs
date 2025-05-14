@@ -33,7 +33,8 @@ public class Mulbangae_Phase2 : Enemy_Boss
         if (MyCamera != null) mainCameraController.camera_e = MyCamera.transform;
 
         yield return new WaitForSeconds(1f);
-
+        BGM_Script.ChangeBGM(12);
+        BGM_Script.PlayBGM();
         CutScene(7f);
 
         yield return new WaitForSeconds(4.5f);
@@ -117,12 +118,13 @@ public class Mulbangae_Phase2 : Enemy_Boss
         Health = 1200f;
         TimerCoroutine = StartCoroutine(PhaseTimer(40));
         //MainCamera.SetActive(false);
-        yield return new WaitForSeconds(2f);
-
         CutScene(3f);
         PlaySFX(2);
-        SpellName = "HeavyMachinegun@@@@@@@@Reloading";
+        SpellName = "절대로 보물 상자를 내줄 수 없다";
         SpellCard(SpellName);
+        yield return new WaitForSeconds(2f);
+
+        
 
         while (true)
         {
@@ -135,7 +137,7 @@ public class Mulbangae_Phase2 : Enemy_Boss
     {
         CutScene(3f);
         PlaySFX(2);
-        SpellName = "HeavyMachinegun@@@@@@@@Reloading";
+        SpellName = "전략적 후퇴";
         SpellCard(SpellName);
 
         Health = 1200f;
@@ -154,7 +156,7 @@ public class Mulbangae_Phase2 : Enemy_Boss
     {
         CutScene(3f);
         PlaySFX(2);
-        SpellName = "HeavyMachinegun@@@@@@@@Reloading";
+        SpellName = "하늘충, 아크충, 그타충 3신기";
         SpellCard(SpellName);
 
         Health = 1200f;
@@ -171,16 +173,19 @@ public class Mulbangae_Phase2 : Enemy_Boss
 
     protected override IEnumerator Phase1() //패턴 5 : 기술
     {
-        CutScene(3f);
+        CutScene(8f);
         PlaySFX(2);
-        SpellName = "HeavyMachinegun@@@@@@@@Reloading";
-        SpellCard(SpellName);
+        
+        GudokBadge.SetActive(false);
+
 
         Health = 1200f;
         TimerCoroutine = StartCoroutine(PhaseTimer(40));
         //MainCamera.SetActive(false);
-        yield return new WaitForSeconds(2f);
-
+        yield return new WaitForSeconds(7f);
+        SpellName = "마지막 발악";
+        SpellCard(SpellName);
+        GudokBadge.SetActive(true);
         while (true)
         {
 

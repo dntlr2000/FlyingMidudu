@@ -107,7 +107,6 @@ public class Stage6 : Stage
     {
         enemy.transform.position = new Vector3(x, y, z);
         enemy.SetActive(true);
-
     }
 
     void MoveSpaceCraft()
