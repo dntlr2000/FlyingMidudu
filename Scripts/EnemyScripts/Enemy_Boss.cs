@@ -75,10 +75,9 @@ public class Enemy_Boss : Enemy
         animator = GetComponent<Animator>();
         BossCollider = GetComponent<Collider>();
 
-        PhaseSetter(Life);
 
         mainCameraController = MainCamera.GetComponent<MainCameraController>();
-
+        
         if (BossText != null)
         {
             BossText.gameObject.SetActive(true);
@@ -86,6 +85,8 @@ public class Enemy_Boss : Enemy
         }
 
         BGM_Script = FindObjectOfType<BGMController>();
+
+        PhaseSetter(Life);
 
         if (MyCamera != null) mainCameraController.camera_e = MyCamera.transform;
     }

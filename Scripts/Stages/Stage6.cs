@@ -5,11 +5,12 @@ using UnityEngine;
 public class Stage6 : Stage
 {
     public SpaceCraft_st6 SpaceCraft;
+    public GameObject FinalBoss;
 
     // Start is called before the first frame update
     protected override void Start()
     {
-        text = $"최종장\n드디어 보물이 있는 곳에 도달했지만\n어째선지 악인의 앞을 가로막아\n온 힘을 짜내는 방개들..";
+        text = $"최종장\n드디어 보물이 있는 곳에 도달했지만\n어째선지 악인의 앞을 온 힘을 다해\n가로막는 방개.. 그 이유가 뭘까";
         base.Start();
         NextStageName = "EndScene";
         currentStage = 6;

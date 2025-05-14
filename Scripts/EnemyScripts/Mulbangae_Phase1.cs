@@ -134,7 +134,7 @@ public class Mulbangae_Phase1 : Enemy_Boss
 
     protected override IEnumerator Phase8() //패턴 2 : 기술
     {
-        Health = 2400f;
+        Health = 1600f;
         TimerCoroutine = StartCoroutine(PhaseTimer(60));
         //StartCoroutine(skillMotion(1));
         CutScene(3f);
@@ -199,7 +199,7 @@ public class Mulbangae_Phase1 : Enemy_Boss
 
     protected override IEnumerator Phase7() //패턴 3 : 통상
     {
-        Health = 2000f;
+        Health = 1400f;
         TimerCoroutine = StartCoroutine(PhaseTimer(40));
         //MainCamera.SetActive(false);
         yield return new WaitForSeconds(2f);
@@ -224,7 +224,7 @@ public class Mulbangae_Phase1 : Enemy_Boss
 
     protected override IEnumerator Phase6() //패턴 4 : 기술
     {
-        Health = 3000f;
+        Health = 2000f;
         TimerCoroutine = StartCoroutine(PhaseTimer(60));
 
         CutScene(3f);
@@ -240,7 +240,7 @@ public class Mulbangae_Phase1 : Enemy_Boss
 
         yield return new WaitForSeconds(2f);
 
-        while (Health > 200f)
+        while (Health > 1000f)
         {
             LeftHandScript.Punch(3, 0.5f, 0.5f, 5);
             yield return new WaitForSeconds(1f);
@@ -263,7 +263,7 @@ public class Mulbangae_Phase1 : Enemy_Boss
     {
         ClearHand();
 
-        Health = 1600f;
+        Health = 1200f;
         TimerCoroutine = StartCoroutine(PhaseTimer(40));
         //MainCamera.SetActive(false);
         yield return new WaitForSeconds(2f);
@@ -299,7 +299,7 @@ public class Mulbangae_Phase1 : Enemy_Boss
 
     protected override IEnumerator Phase4() //패턴 6 : 기술
     {
-        Health = 3000f;
+        Health = 2000f;
         TimerCoroutine = StartCoroutine(PhaseTimer(60));
 
         CutScene(3f);
@@ -328,7 +328,7 @@ public class Mulbangae_Phase1 : Enemy_Boss
 
 
 
-        while (Health > 1500)
+        while (Health > 1000)
         {
             for (int i = 0; i < 10; i++)
             {
@@ -410,7 +410,7 @@ public class Mulbangae_Phase1 : Enemy_Boss
     protected override IEnumerator Phase3() //패턴 7 : 통상
     {
         ClearMachinegun();
-        Health = 1800f;
+        Health = 1400f;
         TimerCoroutine = StartCoroutine(PhaseTimer(45));
         //MainCamera.SetActive(false);
         yield return new WaitForSeconds(2f);
@@ -439,7 +439,7 @@ public class Mulbangae_Phase1 : Enemy_Boss
 
     protected override IEnumerator Phase2() //패턴 8 : 기술
     {
-        Health = 3000f;
+        Health = 2000f;
         TimerCoroutine = StartCoroutine(PhaseTimer(60));
 
         CutScene(4f);
@@ -475,7 +475,7 @@ public class Mulbangae_Phase1 : Enemy_Boss
     protected override IEnumerator Phase1() //패턴 9 : 기술
     {
         HOS_Script.ShutDown();
-        Health = 4000f;
+        Health = 3000f;
         TimerCoroutine = StartCoroutine(PhaseTimer(99));
 
         CutScene(4f);
@@ -491,7 +491,7 @@ public class Mulbangae_Phase1 : Enemy_Boss
         MachingunScripts[0] = HeavyMachineguns[0].GetComponent<HeavyMachingunParent>().returnChild();
 
         yield return new WaitForSeconds(0.5f);
-        while (Health > 2700)
+        while (Health > 2000)
         {
             /* //새 패턴이 생각 나면 물방개 페이즈2의 패턴으로 수정 후 옮길 예정
             ShootLasers(playerCharacter, 30, attackPrefab[5], 30, 0, 133, 222);
@@ -528,7 +528,7 @@ public class Mulbangae_Phase1 : Enemy_Boss
             yield return new WaitForSeconds(1f);
         }
 
-        while (Health > 1400) //1차 강화
+        while (Health > 1000) //1차 강화
         {
             MachingunScripts[0].ShootBig();
             PlaySFX(4);
@@ -674,6 +674,10 @@ public class Mulbangae_Phase1 : Enemy_Boss
         //stageScript.toNextStage("Stage2");
         //stageScript.StageLoader(false);
         PlaySFX(3);
+
+        yield return new WaitForSeconds(4f);
+
+
         Destroy(gameObject);
     }
 
