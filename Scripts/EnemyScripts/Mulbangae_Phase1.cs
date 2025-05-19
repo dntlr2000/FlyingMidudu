@@ -25,7 +25,7 @@ public class Mulbangae_Phase1 : Enemy_Boss
         Life = 2;
         Health = 100f;
         BossName = "물방개";
-        BossDescription = "영원한 악연";
+        BossDescription = "하이-테크로 무장한 영원한 악연";
         animator = GetComponent<Animator>();
         //base.Start();
         //물방개 보스는 Start 메서드를 시간을 두고 실행시켜야 함
@@ -440,13 +440,13 @@ public class Mulbangae_Phase1 : Enemy_Boss
 
     protected override IEnumerator Phase2() //패턴 8 : 기술
     {
-        Health = 2000f;
+        Health = 200f;
         TimerCoroutine = StartCoroutine(PhaseTimer(60));
 
         CutScene(4f);
         PlaySFX(2);
         yield return new WaitForSeconds(2f);
-        SpellName = "시공의 폭풍 속으로";
+        SpellName = "시공의 폭풍에 닿으면 좋은 일이 일어나요";
         SpellCard(SpellName);
         HOS_Object.SetActive(true);
         HOS_Script = HOS_Object.GetComponent<HOS>();
@@ -476,7 +476,7 @@ public class Mulbangae_Phase1 : Enemy_Boss
     protected override IEnumerator Phase1() //패턴 9 : 기술
     {
         HOS_Script.ShutDown();
-        Health = 3000f;
+        Health = 300f;
         TimerCoroutine = StartCoroutine(PhaseTimer(99));
 
         CutScene(4f);
@@ -679,7 +679,7 @@ public class Mulbangae_Phase1 : Enemy_Boss
 
         //yield return new WaitForSeconds(4f);
 
-        SpawnMulbangae(Bangae_Phase2, 0, 0, -50);
+        SpawnMulbangae(Bangae_Phase2, 0, 0, -60);
 
         
 

@@ -64,6 +64,13 @@ public class TutorialStage : Stage
 
             if (loopCount == 24)
             {
+                text = "이걸 안들어간다고?";
+                TextAnimation(text);
+                yield return new WaitForSeconds(7f);
+            }
+
+            if (loopCount == 32)
+            {
                 text = "이 이후로는 기다려도 안 나와요. 그냥 들어가요.";
                 TextAnimation(text);
                 yield return new WaitForSeconds(7f);
@@ -115,20 +122,20 @@ public class TutorialStage : Stage
 
             if (loopCount == 24)
             {
-                text = "초선.";
+                text = "나는 초선의 그 젊은 목소리가 좋더라.";
                 TextAnimation(text);
                 yield return new WaitForSeconds(7f);
             }
             
             if (loopCount == 30)
             {
-                text = "웁똥딸.";
+                text = "많은 분들이 아시겠지만 이 분 덤블도어도 더빙하셨습니다.";
                 TextAnimation(text);
                 yield return new WaitForSeconds(7f);
             }
             if (loopCount == 33)
             {
-                text = "그.. 사실은 웁순이가 좋으면서 싫어하는 척 하지 마요...";
+                text = "웁똥딸.";
                 TextAnimation(text);
                 yield return new WaitForSeconds(7f);
             }
@@ -182,7 +189,9 @@ public class TutorialStage : Stage
         TextAnimation(text);
 
         SpawnEnemy(Enemy[0], 0, 30, -50);
+        yield return new WaitForSeconds(0.2f);
         SpawnEnemy(Enemy[0], -30, 0, -50);
+        yield return new WaitForSeconds(0.2f);
         SpawnEnemy(Enemy[0], 30, 0, -50);
 
         yield return new WaitForSeconds(7f);
@@ -203,7 +212,7 @@ public class TutorialStage : Stage
         TextAnimation(text);
 
         yield return new WaitForSeconds(7f);
-        text = "보스급 개체의 경우에는 방위표에 표시되진 않으며,\n 대신 웁님 주변에 포인터가 활성화되어 \n보스를 가리킵니다.";
+        text = "보스급 개체의 경우에는 아이콘이 다른 모양이며,\n 대신 웁님 주변에 포인터가 활성화되어 \n보스를 가리킵니다.";
         if (bossPointer != null) bossPointer.SetActive(true);
         TextAnimation(text);
 

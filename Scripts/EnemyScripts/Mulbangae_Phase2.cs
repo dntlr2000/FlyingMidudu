@@ -10,7 +10,7 @@ public class Mulbangae_Phase2 : Enemy_Boss
         Life = 5;
         Health = 100f;
         BossName = "물방개의 진심";
-        BossDescription = "보물상자의 정체가 뭐길래 그리 애쓰는가";
+        BossDescription = "대체 그를 이렇게까지 막는 이유는 무엇인가";
         animator = GetComponent<Animator>();
         gameObject.tag = "EnemyBoss";
 
@@ -97,7 +97,7 @@ public class Mulbangae_Phase2 : Enemy_Boss
     protected override IEnumerator Phase5() //패턴 1 : 통상
     {
 
-        Health = 1600f;
+        Health = 160f;
         TimerCoroutine = StartCoroutine(PhaseTimer(40));
         //MainCamera.SetActive(false);
         BossCollider.enabled = false;
@@ -115,21 +115,28 @@ public class Mulbangae_Phase2 : Enemy_Boss
     protected override IEnumerator Phase4() //패턴 2 : 기술
     {
 
-        Health = 1200f;
+        Health = 120f;
         TimerCoroutine = StartCoroutine(PhaseTimer(40));
         //MainCamera.SetActive(false);
-        CutScene(3f);
+        CutScene(2.5f);
         PlaySFX(2);
-        SpellName = "절대로 보물 상자를 내줄 수 없다";
+        SpellName = "하늘, 아크, 그타 3충의 압박";
         SpellCard(SpellName);
-        yield return new WaitForSeconds(2f);
+        AimingObject(playerCharacter);
 
-        
-
+        yield return new WaitForSeconds(1.6f);
+        //StartCoroutine(divideBullets_1(gameObject.transform.position + new Vector3(0, 0, +50), attackPrefab[2], attackPrefab[0]));
         while (true)
         {
-           
-            yield return new WaitForSeconds(1f);
+            StartCoroutine(divideBullets_1(playerCharacter.transform.position, attackPrefab[2], attackPrefab[3]));
+            yield return new WaitForSeconds(2f);
+            RandomMove(20, 1f);
+            for (int i = 0; i < 5; i++)
+            {
+                ShootAround(playerCharacter, 50, attackPrefab[0], 30, 60, 0.2f, 184, 24, 24);
+                PlaySFX(4);
+                yield return new WaitForSeconds(0.2f);
+            }
         }
     }
 
@@ -139,11 +146,14 @@ public class Mulbangae_Phase2 : Enemy_Boss
         PlaySFX(2);
         SpellName = "전략적 후퇴";
         SpellCard(SpellName);
-
+        AimingObject(playerCharacter.gameObject, false);
+        transform.rotation = Quaternion.Euler(0, 0, 0);
         Health = 1200f;
-        TimerCoroutine = StartCoroutine(PhaseTimer(40));
+        TimerCoroutine = StartCoroutine(PhaseTimer(10));
         //MainCamera.SetActive(false);
         yield return new WaitForSeconds(2f);
+        StartCoroutine(ObjectMover(new Vector3(0, 70, -50), 1.5f));
+        yield return new WaitForSeconds(1.5f);
 
         while (true)
         {
@@ -154,20 +164,41 @@ public class Mulbangae_Phase2 : Enemy_Boss
 
     protected override IEnumerator Phase2() //패턴 4 : 기술
     {
+        StartCoroutine(ObjectMover(new Vector3(0, 0, -50), 1f));
         CutScene(3f);
         PlaySFX(2);
-        SpellName = "하늘충, 아크충, 그타충 3신기";
+        SpellName = "화려한 조명이 수령님을 감싸네";
         SpellCard(SpellName);
 
         Health = 1200f;
         TimerCoroutine = StartCoroutine(PhaseTimer(40));
         //MainCamera.SetActive(false);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(4f);
 
         while (true)
         {
-
+            StartCoroutine(SpawnJailObject(playerCharacter.transform, 8, 40, 2f, attackPrefab[0]));
             yield return new WaitForSeconds(1f);
+
+            StartCoroutine(SpawnJailObject(playerCharacter.transform, 8, 40, 2f, attackPrefab[0]));
+            Vector3 TargetPosition = playerCharacter.transform.position;
+            for (int i = 0; i < 5; i++)
+            {
+                BasicAttack(transform.position, 120, 50f, 4f, TargetPosition + new Vector3(-10 + i * 5, 0, 0), attackPrefab[1], 150, 0, 0);
+                PlaySFX(4);
+                yield return new WaitForSeconds(0.2f);
+            }
+
+            StartCoroutine(SpawnJailObject(playerCharacter.transform, 80, 40, 2f, attackPrefab[0]));
+
+            TargetPosition = playerCharacter.transform.position;
+            for (int i = 0; i < 5; i++)
+            {
+                BasicAttack(transform.position + new Vector3(0, -10, 0), 90, 50f, 4f, TargetPosition + new Vector3(0, 10 - i * 5, 0), attackPrefab[3], 0, 0, 150);
+                BasicAttack(transform.position + new Vector3(0, +10, 0), 90, 50f, 4f, TargetPosition + new Vector3(0, -10 + i * 5, 0), attackPrefab[3], 0, 0, 150);
+                PlaySFX(4);
+                yield return new WaitForSeconds(0.2f);
+            }
         }
     }
 
@@ -183,13 +214,89 @@ public class Mulbangae_Phase2 : Enemy_Boss
         TimerCoroutine = StartCoroutine(PhaseTimer(40));
         //MainCamera.SetActive(false);
         yield return new WaitForSeconds(7f);
-        SpellName = "마지막 발악";
+        SpellName = "진짜진짜 마지막 발악";
         SpellCard(SpellName);
         GudokBadge.SetActive(true);
         while (true)
         {
-
             yield return new WaitForSeconds(1f);
         }
     }
+
+    
+
+    protected IEnumerator divideBullets_1(Vector3 target, GameObject attackPrefab1, GameObject attackPrefab2)
+    {
+        float distance = 60f; // 원하는 거리
+        float angleOffset = 25f; // 회전 각도
+
+        // 1. 기본 방향
+        Vector3 direction = (target - transform.position).normalized;
+
+        // 2. 정면 방향 좌표
+        Vector3 forwardPos = transform.position + direction * distance;
+
+        // 3. 왼쪽으로 30도 회전한 방향 좌표
+        Vector3 leftDir = Quaternion.AngleAxis(-angleOffset, Vector3.up) * direction;
+        Vector3 leftPos = transform.position + leftDir * distance;
+
+        // 4. 오른쪽으로 30도 회전한 방향 좌표
+        Vector3 rightDir = Quaternion.AngleAxis(angleOffset, Vector3.up) * direction;
+        Vector3 rightPos = transform.position + rightDir * distance;
+
+        GameObject[] bullets = new GameObject[3];
+        
+        for (int i = 0; i < 3; i++)
+        {
+            bullets[i] = Instantiate(attackPrefab1, transform.position, transform.rotation);
+        }
+
+        StartCoroutine(ObjectMover(bullets[0], forwardPos, 1.2f));
+        StartCoroutine(ObjectMover(bullets[1], leftPos, 1.2f));
+        StartCoroutine(ObjectMover(bullets[2], rightPos, 1.2f));
+        PlaySFX(5);
+        yield return new WaitForSeconds(1.5f);
+
+        Vector3[] eachVector = new Vector3[3];
+        for (int i = 0; i < 3;i++)
+        {
+            eachVector[i] = bullets[i].transform.position;
+            Destroy(bullets[i]);
+        }
+
+        for (int i = 0; i < 3; i++)
+        {
+            BasicAttack(eachVector[i], 80, 40, 3, target, attackPrefab2, 0, 150, 0);
+        }
+        PlaySFX(4);
+
+        yield return null;
+    }
+
+    IEnumerator SpawnJailObject(Transform target, float radius, int num, float duration, GameObject attackPrefab)
+    {
+        GameObject[] bullets = new GameObject[num];
+        for (int i = 0; i < num; i++)
+        {
+            // 구 안의 랜덤한 방향과 거리
+            Vector3 randomOffset = Random.onUnitSphere * radius;
+
+            // 최종 위치 = 기준 위치 + 랜덤 오프셋
+            Vector3 randomPosition = target.position + randomOffset;
+
+            bullets[i] = Instantiate(attackPrefab, randomPosition, attackPrefab.transform.rotation);
+            StartCoroutine(RotateAroundCenter(bullets[i].transform, 120, target));
+        }
+        
+        yield return new WaitForSeconds(duration);
+
+        for (int i = 0; i < num; i++)
+        {
+            Destroy(bullets[i]);
+        }
+        bullets = null;
+
+
+    }
+
 }

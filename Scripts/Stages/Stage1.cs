@@ -94,7 +94,9 @@ public class Stage1 : Stage
     protected IEnumerator StagePhase3()
     {
         SpawnEnemy(Enemy[2], 0, 0, -30);
+        yield return new WaitForSeconds(0.1f);
         SpawnEnemy(Enemy[3], -30, -10, -30);
+        yield return new WaitForSeconds(0.1f);
         SpawnEnemy(Enemy[3], 30, -10, -30);
 
         while (CheckEnemyExist())

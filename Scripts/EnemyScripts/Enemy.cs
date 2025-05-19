@@ -231,7 +231,6 @@ public class Enemy : MonoBehaviour
             rb.AddForce(direction * launchForce, ForceMode.Impulse);
         }
     }
-
     protected virtual void BasicAttack(GameObject Spawner, int projectileNum, float launchForce, float angleDivision, GameObject target, GameObject prefab, float R = 125f, float G = 125f, float B = 125f)
     {
         //Vector3 targetDirection = (target.transform.position - Spawner.transform.position).normalized;
@@ -269,7 +268,6 @@ public class Enemy : MonoBehaviour
             rb.AddForce(direction * launchForce, ForceMode.Impulse);
         }
     }
-
     protected virtual void BasicAttack(Vector3 Spawner, int projectileNum, float launchForce, float angleDivision, GameObject target, GameObject prefab, float R = 125f, float G = 125f, float B = 125f)
     {
         Vector3 targetDirection = (target.transform.position - Spawner).normalized;
@@ -304,7 +302,6 @@ public class Enemy : MonoBehaviour
             rb.AddForce(direction * launchForce, ForceMode.Impulse);
         }
     }
-
     protected virtual void BasicAttack(Vector3 Spawner, int projectileNum, float launchForce, float angleDivision, Vector3 target, GameObject prefab, float R = 125f, float G = 125f, float B = 125f)
     {
         Vector3 targetDirection = (target - Spawner).normalized;
@@ -339,7 +336,6 @@ public class Enemy : MonoBehaviour
             rb.AddForce(direction * launchForce, ForceMode.Impulse);
         }
     }
-
     protected virtual void BasicAttack(int projectileNum, float launchForce, GameObject prefab, float R = 125f, float G = 125f, float B = 125f)
     {
         // 자기 자신을 기준으로 구의 형태로 그대로 발사
@@ -382,7 +378,6 @@ public class Enemy : MonoBehaviour
         AttackColor attackColor = redBall.GetComponent<AttackColor>();
         if (attackColor != null) attackColor.SetAttackColor(R, G, B);
     }
-
     protected void SingleShot(GameObject spawner, float launchForce, GameObject prefab, GameObject target, float R = 125f, float G = 125f, float B = 125f)
     {
         Vector3 targetDirection = (target.transform.position - spawner.transform.position).normalized;
@@ -393,7 +388,6 @@ public class Enemy : MonoBehaviour
         AttackColor attackColor = redBall.GetComponent<AttackColor>();
         if (attackColor != null) attackColor.SetAttackColor(R, G, B);
     }
-
     protected void SingleShot(Vector3 spawner, float launchForce, GameObject prefab, GameObject target, float R = 125f, float G = 125f, float B = 125f)
     {
         Vector3 targetDirection = (target.transform.position - spawner).normalized;
@@ -404,7 +398,6 @@ public class Enemy : MonoBehaviour
         AttackColor attackColor = redBall.GetComponent<AttackColor>();
         if (attackColor != null) attackColor.SetAttackColor(R, G, B);
     }
-
     protected void SingleShot(Vector3 spawner, float launchForce, GameObject prefab, Vector3 target, float R = 125f, float G = 125f, float B = 125f)
     {
         Vector3 targetDirection = (target - spawner).normalized;
@@ -456,6 +449,17 @@ public class Enemy : MonoBehaviour
         {
             // 구의 중심을 기준으로 회전
             obj.transform.RotateAround(transform.position, Vector3.up, speed * Time.deltaTime);
+
+            yield return null; // 다음 프레임까지 대기
+        }
+    }
+
+    protected IEnumerator RotateAroundCenter(Transform obj, float speed, Transform target)
+    {
+        while (obj != null && obj.transform != null) // obj와 transform이 null인지 확인
+        {
+            // 구의 중심을 기준으로 회전
+            obj.transform.RotateAround(target.position, Vector3.up, speed * Time.deltaTime);
 
             yield return null; // 다음 프레임까지 대기
         }

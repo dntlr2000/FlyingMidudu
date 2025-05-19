@@ -30,6 +30,7 @@ public class HOS : MonoBehaviour
         
     }
 
+    /*
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "EnemyAttack")
@@ -37,6 +38,7 @@ public class HOS : MonoBehaviour
             Destroy(other.gameObject);
         }
     }
+    */
 
     public void ShutDown()
     {
