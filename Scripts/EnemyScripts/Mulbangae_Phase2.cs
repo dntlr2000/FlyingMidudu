@@ -5,6 +5,7 @@ using UnityEngine;
 public class Mulbangae_Phase2 : Enemy_Boss
 {
     public GameObject GudokBadge;
+    private IEnumerator finalPhase;
     protected override void Start()
     {
         Life = 5;
@@ -101,14 +102,40 @@ public class Mulbangae_Phase2 : Enemy_Boss
         TimerCoroutine = StartCoroutine(PhaseTimer(40));
         //MainCamera.SetActive(false);
         BossCollider.enabled = false;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         BossCollider.enabled = true;
 
         while (true)
         {
+            for (int i = 0; i < 5; i++)
+            {
+                BasicAttack(transform.position + new Vector3(-10, 0, 0), 100, 70f, 4, playerCharacter, attackPrefab[2], 200, 0, 0);
+                PlaySFX(5);
+                yield return new WaitForSeconds(0.5f);
+                BasicAttack(transform.position + new Vector3(10, 0, 0), 100, 70f, 4, playerCharacter, attackPrefab[2], 0, 0, 200);
+                PlaySFX(5);
+                yield return new WaitForSeconds(0.5f);
+            }
 
             yield return new WaitForSeconds(0.5f);
 
+            for (int i = -15; i <= 15; i+= 3)
+            {
+                SlowdownAttack(transform.position + new Vector3(i, i, 0), 40, 10f, 3, playerCharacter.transform.position + new Vector3(i, i, 0), attackPrefab[3], 100, 0, 0, 8f, 1f);
+                PlaySFX(4);
+                yield return new WaitForSeconds(0.1f);
+            }
+
+            yield return new WaitForSeconds(0.5f);
+
+            for (int i = -15; i <= 15; i += 3)
+            {
+                SlowdownAttack(transform.position + new Vector3(-i, i, 0), 40, 10f, 3, playerCharacter.transform.position + new Vector3(-i, i, 0), attackPrefab[3], 0, 0, 100, 8f, 1f);
+                PlaySFX(4);
+                yield return new WaitForSeconds(0.1f);
+            }
+
+            yield return new WaitForSeconds(0.5f);
         }
     }
 
@@ -265,7 +292,7 @@ public class Mulbangae_Phase2 : Enemy_Boss
     protected override IEnumerator Phase2() //패턴 4 : 기술
     {
         StartCoroutine(ObjectMover(new Vector3(0, 0, -50), 1f));
-        CutScene(3f);
+        CutScene(2f);
         PlaySFX(2);
         SpellName = "화려한 조명이 수령님을 감싸네";
         SpellCard(SpellName);
@@ -310,17 +337,86 @@ public class Mulbangae_Phase2 : Enemy_Boss
         GudokBadge.SetActive(false);
 
 
-        Health = 1200f;
-        TimerCoroutine = StartCoroutine(PhaseTimer(40));
+        Health = 3000f;
+        TimerCoroutine = StartCoroutine(PhaseTimer(99));
         //MainCamera.SetActive(false);
         yield return new WaitForSeconds(7f);
         SpellName = "진짜진짜 마지막 발악";
         SpellCard(SpellName);
         GudokBadge.SetActive(true);
         //모든 탄막 유형 총출동
+        yield return new WaitForSeconds(1f);
+
+        while (Health > 2500 && Timer > 80)
+        {
+            SlowdownAttack(120, 70, 3, playerCharacter, attackPrefab[3], 125, 0, 0, 0.2f, 0.5f);
+            PlaySFX(4);
+            yield return new WaitForSeconds(1f);
+        }
+
+        while (Health > 2000 && Timer > 60)
+        {
+            SlowdownAttack(120, 70, 3, playerCharacter, attackPrefab[3], 125, 0, 0, 0.2f, 0.5f);
+            PlaySFX(4);
+            yield return new WaitForSeconds(0.5f);
+            ShootAround(playerCharacter, 80, attackPrefab[0], 30, 40, 0.2f, 0, 125, 0);
+            PlaySFX(4);
+            yield return new WaitForSeconds(0.5f);
+        }
+
+        while (Health > 1500 && Timer > 40)
+        {
+            SlowdownAttack(120, 70, 3, playerCharacter, attackPrefab[3], 125, 0, 0, 0.2f, 0.5f);
+            PlaySFX(4);
+            yield return new WaitForSeconds(0.25f);
+            BasicAttack(120, 60, 3, playerCharacter, attackPrefab[4], 0, 0, 125);
+            PlaySFX(5);
+            yield return new WaitForSeconds(0.25f);
+            ShootAround(playerCharacter, 80, attackPrefab[0], 30, 40, 0.2f, 0, 125, 0);
+            PlaySFX(4);
+            yield return new WaitForSeconds(0.25f);
+            //BasicSpin(100, 40f, attackPrefab[2], 50, 100, 100, 100);
+            yield return new WaitForSeconds(0.25f);
+
+        }
+
+        while (Health > 1000 && Timer > 20)
+        {
+            SlowdownAttack(120, 70, 3, playerCharacter, attackPrefab[3], 125, 0, 0, 0.2f, 0.5f);
+            //ShootLasers(playerCharacter, 5, attackPrefab[5], 184, 48, 191);
+            PlaySFX(4);
+            yield return new WaitForSeconds(0.25f);
+            BasicAttack(120, 60, 3, playerCharacter, attackPrefab[4], 0, 0, 125);
+            PlaySFX(5);
+            yield return new WaitForSeconds(0.25f);
+            ShootAround(playerCharacter, 80, attackPrefab[0], 30, 40, 0.2f, 0, 125, 0);
+            PlaySFX(4);
+            yield return new WaitForSeconds(0.25f);
+            BasicSpin(100, 40f, attackPrefab[2], 30, 100, 100, 100);
+            PlaySFX(5);
+            yield return new WaitForSeconds(0.25f);
+
+        }
+
+        finalPhase = FinalPattern();
+        StartCoroutine(finalPhase);
         while (true)
         {
-            yield return new WaitForSeconds(1f);
+            SlowdownAttack(150, 70, 2, playerCharacter, attackPrefab[3], 125, 0, 0, 0.2f, 0.5f);
+            //ShootLasers(playerCharacter, 5, attackPrefab[5], 184, 48, 191);
+            PlaySFX(4);
+            yield return new WaitForSeconds(0.25f);
+            BasicAttack(120, 60, 2, playerCharacter, attackPrefab[4], 0, 0, 125);
+            PlaySFX(5);
+            yield return new WaitForSeconds(0.25f);
+            ShootAround(playerCharacter, 80, attackPrefab[0], 30, 40, 0.2f, 0, 125, 0);
+            PlaySFX(4);
+            yield return new WaitForSeconds(0.25f);
+            BasicSpin(100, 40f, attackPrefab[2], 30, 100, 100, 100);
+            //ShootLasers(playerCharacter, 3, attackPrefab[5], 30, 184, 48, 191);
+            PlaySFX(5);
+            yield return new WaitForSeconds(0.25f);
+
         }
     }
 
@@ -400,4 +496,29 @@ public class Mulbangae_Phase2 : Enemy_Boss
 
     }
 
+    IEnumerator FinalPattern()
+    {
+        while (true)
+        {
+            for (int i = 0; i <= 5; i++)
+            {
+                SlowdownAttack(transform.position, 40, 10, 6, new Vector3(-25 + 10 * i, 30, 20), attackPrefab[3], 184, 130, 39, 8f, 2f);
+                PlaySFX(4);
+                yield return new WaitForSeconds(0.2f);
+            }
+
+            for (int i = 0; i <= 5; i++)
+            {
+                SlowdownAttack(transform.position, 40, 10, 6, new Vector3(25 - 10 * i, -30, 20), attackPrefab[3], 184, 130, 39, 8f, 2f);
+                PlaySFX(4);
+                yield return new WaitForSeconds(0.2f);
+            }
+        }
+    }
+
+    protected override IEnumerator DeathCoroutine()
+    {
+        StartCoroutine(finalPhase);
+        return base.DeathCoroutine();
+    }
 }

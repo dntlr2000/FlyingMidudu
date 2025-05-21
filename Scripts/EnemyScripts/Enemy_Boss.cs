@@ -236,7 +236,7 @@ public class Enemy_Boss : Enemy
     {
         healthBar.SetTimer(time);
         yield return new WaitForSeconds(3f);
-        //Timer = time;
+        Timer = time;
         for (int i = time; i > 0; i--)
         {
             healthBar.SetTimer(i);
