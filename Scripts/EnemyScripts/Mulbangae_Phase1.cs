@@ -22,7 +22,7 @@ public class Mulbangae_Phase1 : Enemy_Boss
 
     protected override void Start()
     {
-        Life = 2;
+        Life = 1;
         Health = 100f;
         BossName = "물방개";
         BossDescription = "하이-테크로 무장한 영원한 악연";

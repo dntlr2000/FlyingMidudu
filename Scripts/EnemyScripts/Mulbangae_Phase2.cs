@@ -120,7 +120,7 @@ public class Mulbangae_Phase2 : Enemy_Boss
         //MainCamera.SetActive(false);
         CutScene(2.5f);
         PlaySFX(2);
-        SpellName = "하늘, 아크, 그타 3충의 압박";
+        SpellName = "하늘, 아크, 그타 3대 충의 압박";
         SpellCard(SpellName);
         AimingObject(playerCharacter);
 
@@ -149,17 +149,117 @@ public class Mulbangae_Phase2 : Enemy_Boss
         AimingObject(playerCharacter.gameObject, false);
         transform.rotation = Quaternion.Euler(0, 0, 0);
         Health = 1200f;
-        TimerCoroutine = StartCoroutine(PhaseTimer(10));
+        TimerCoroutine = StartCoroutine(PhaseTimer(60));
         //MainCamera.SetActive(false);
         yield return new WaitForSeconds(2f);
         StartCoroutine(ObjectMover(new Vector3(0, 70, -50), 1.5f));
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(2.5f);
 
-        while (true)
+        for (int i = 0; i < 5; i++)
         {
-
-            yield return new WaitForSeconds(1f);
+            AttackBlocks(attackPrefab[1], new Vector3(50, -60, 75), new Vector3(-50, -60, -75), new Vector3(0, 1, 0), 5, 40, 150, 0, 0);
+            yield return new WaitForSeconds(0.4f);
         }
+        yield return new WaitForSeconds(1f);
+
+        for (int i = 0; i < 5; i++)
+        {
+            AttackBlocks(attackPrefab[1], new Vector3(52.5f, 50, -85f), new Vector3(-52.5f, -50, -85f), new Vector3(0, 0, 1), 5, 40, 0, 0, 150);
+            yield return new WaitForSeconds(0.4f);
+        }
+
+        yield return new WaitForSeconds(3f);
+
+        for (int i = 0; i < 10; i++)
+        {
+            if (i%2==0)
+            {
+                AttackBlocks(attackPrefab[1], new Vector3(50, -60, 75), new Vector3(-50, -60, -75), new Vector3(0, 1, 0), 5, 40, 150, 0, 0);
+            }
+            else
+            {
+                AttackBlocks(attackPrefab[1], new Vector3(52.5f, 50, -85f), new Vector3(-52.5f, -50, -85f), new Vector3(0, 0, 1), 5, 40, 0, 0, 150);
+            }
+            yield return new WaitForSeconds(0.6f);
+        }
+
+        yield return new WaitForSeconds(5f);
+        ResetProjectile();
+
+        for (int i = -75; i <= 75; i+=3)
+        {
+            for (int k = -50; k <= 50; k+=3)
+            {
+                SlowdownAttack(new Vector3(50, k, i), 1, 10, 1, new Vector3(0, k, -25 + i/2), attackPrefab[3], 74, 161, 137, 8f, 1f);
+                SlowdownAttack(new Vector3(-50, k - 1.5f, -i), 1, 10, 1, new Vector3(0, k, + i/2), attackPrefab[3], 74, 161, 137, 8f, 1f);
+            }
+            yield return new WaitForSeconds(0.05f);
+        }
+
+        yield return new WaitForSeconds(3f);
+
+        for (int i = -75; i <= 75; i += 3)
+        {
+            for (int k = -50; k <= 50; k += 3)
+            {
+                SlowdownAttack(new Vector3(50, k, i), 1, 20, 1, new Vector3(0, k, -20 - i/2), attackPrefab[3], 74, 161, 137, 4f, 1f);
+                SlowdownAttack(new Vector3(-50, k - 1.5f, -i), 1, 10, 1, new Vector3(0, k, 20 + i/2), attackPrefab[3], 74, 161, 137, 8f, 1f);
+            }
+            yield return new WaitForSeconds(0.05f);
+        }
+
+        yield return new WaitForSeconds(3f);
+
+        ResetProjectile();
+
+        for (int i = 0; i < 3; i++)
+        {
+            BasicAttack(new Vector3(-50, 50, -75), 60, 50, 4, new Vector3(0, 0, 0), attackPrefab[1], 150, 0, 0);
+            PlaySFX(4);
+            yield return new WaitForSeconds(0.4f);
+            BasicAttack(new Vector3(50, 50, -75), 60, 50, 4, new Vector3(0, 0, 0), attackPrefab[1], 150, 0, 0);
+            PlaySFX(4);
+            yield return new WaitForSeconds(0.4f);
+            BasicAttack(new Vector3(50, -50, -75), 60, 50, 4, new Vector3(0, 0, 0), attackPrefab[1], 150, 0, 0);
+            PlaySFX(4);
+            yield return new WaitForSeconds(0.4f);
+            BasicAttack(new Vector3(-50, -50, -75), 60, 50, 4, new Vector3(0, 0, 0), attackPrefab[1], 150, 0, 0);
+            PlaySFX(4);
+            yield return new WaitForSeconds(0.4f);
+
+            BasicAttack(new Vector3(-50, -50, 75), 60, 50, 4, new Vector3(0, 0, 0), attackPrefab[1], 150, 0, 0);
+            PlaySFX(4);
+            yield return new WaitForSeconds(0.4f);
+            BasicAttack(new Vector3(-50, 50, 75), 60, 50, 4, new Vector3(0, 0, 0), attackPrefab[1], 150, 0, 0);
+            PlaySFX(4);
+            yield return new WaitForSeconds(0.4f);
+            BasicAttack(new Vector3(50, 50, 75), 60, 50, 4, new Vector3(0, 0, 0), attackPrefab[1], 150, 0, 0);
+            PlaySFX(4);
+            yield return new WaitForSeconds(0.4f);
+            BasicAttack(new Vector3(50, -50, 75), 60, 50, 4, new Vector3(0, 0, 0), attackPrefab[1], 150, 0, 0);
+            PlaySFX(4);
+            yield return new WaitForSeconds(0.4f);
+        }
+
+        yield return new WaitForSeconds(3f);
+        ResetProjectile();
+
+        for (int i = -50; i <= 50; i+= 3)
+        {
+            for (int k = - 75; k <= 75; k += 3)
+            {
+                ShootLasers(new Vector3(i, -50, k), new Vector3(i, 50, k), 1, attackPrefab[5], 1, 102, 30, 150);
+                
+            }
+            PlaySFX(5);
+            yield return new WaitForSeconds(0.2f);
+            if (i >= 45)
+            {
+                yield return new WaitForSeconds(4f);
+            }
+        }
+        yield return new WaitForSeconds(1f);
+
     }
 
     protected override IEnumerator Phase2() //패턴 4 : 기술
@@ -184,7 +284,7 @@ public class Mulbangae_Phase2 : Enemy_Boss
             Vector3 TargetPosition = playerCharacter.transform.position;
             for (int i = 0; i < 5; i++)
             {
-                BasicAttack(transform.position, 120, 50f, 4f, TargetPosition + new Vector3(-10 + i * 5, 0, 0), attackPrefab[1], 150, 0, 0);
+                BasicAttack(transform.position, 120, 50f, 6f, TargetPosition + new Vector3(-10 + i * 5, 0, 0), attackPrefab[0], 150, 0, 0);
                 PlaySFX(4);
                 yield return new WaitForSeconds(0.2f);
             }
@@ -217,6 +317,7 @@ public class Mulbangae_Phase2 : Enemy_Boss
         SpellName = "진짜진짜 마지막 발악";
         SpellCard(SpellName);
         GudokBadge.SetActive(true);
+        //모든 탄막 유형 총출동
         while (true)
         {
             yield return new WaitForSeconds(1f);

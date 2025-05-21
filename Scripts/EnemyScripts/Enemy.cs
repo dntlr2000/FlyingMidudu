@@ -616,6 +616,7 @@ public class Enemy : MonoBehaviour
 
     protected virtual void AttackBlocks(GameObject prefab, Vector3 from, Vector3 to, float gap = 5f, float speed = 30)
     {
+        /*
         float x, y, z;
         x = from.x;
 
@@ -634,6 +635,37 @@ public class Enemy : MonoBehaviour
                     Rigidbody rb = Attack.GetComponent<Rigidbody>();
 
                     rb.AddForce(direction * speed, ForceMode.Impulse);
+                    z -= gap;
+                }
+                y -= gap;
+            }
+            x -= gap;
+        }
+        */
+        Vector3 direction = new Vector3(0, 0, 1);
+        AttackBlocks(prefab, from, direction, gap, speed);
+    }
+
+    protected virtual void AttackBlocks(GameObject prefab, Vector3 from, Vector3 to, Vector3 direction, float gap = 5f, float speed = 30, int R = 125, int G = 125, int B = 125)
+    {
+        float x, y, z;
+        x = from.x;
+
+        while (x >= to.x)
+        {
+            y = from.y;
+            while (y >= to.y)
+            {
+                z = from.z;
+                while (z >= to.z)
+                {
+                    Vector3 spawnPosition = new Vector3(x, y, z);
+                    GameObject Attack = Instantiate(prefab, spawnPosition, Quaternion.identity);
+                    Rigidbody rb = Attack.GetComponent<Rigidbody>();
+
+                    rb.AddForce(direction * speed, ForceMode.Impulse);
+                    AttackColor attackColor = Attack.GetComponent<AttackColor>();
+                    if (attackColor != null) attackColor.SetAttackColor(R, G, B);
                     z -= gap;
                 }
                 y -= gap;
@@ -719,6 +751,43 @@ public class Enemy : MonoBehaviour
     protected virtual void SlowdownAttack(Vector3 spawner, int projectileNum, float launchForce, float angleDivision, GameObject target, GameObject prefab, float R = 125f, float G = 125f, float B = 125f, float afterSpeedPercent = 0.1f, float delay = 0.5f, bool ifInstance = false)
     {
         Vector3 targetDirection = (target.transform.position - spawner).normalized;
+        Quaternion baseRotation = Quaternion.LookRotation(targetDirection);
+
+        // 균등하게 퍼지도록 방향 조절
+        float goldenRatio = (1 + Mathf.Sqrt(5)) / 2;
+        float angleIncrement = Mathf.PI * 2 * goldenRatio;
+
+        for (int i = 0; i < projectileNum; i++)
+        {
+            float t = (float)i / projectileNum;
+            float inclination = Mathf.Acos(1 - 2 * t) / angleDivision; // 반구 형태로 제한 (180 / ?)
+            float azimuth = angleIncrement * i;
+
+            Vector3 direction = new Vector3(
+                Mathf.Sin(inclination) * Mathf.Cos(azimuth),
+                Mathf.Sin(inclination) * Mathf.Sin(azimuth),
+                Mathf.Cos(inclination)
+            );
+
+            // 방향을 플레이어를 향한 방향 기준으로 회전
+            direction = baseRotation * direction;
+
+            // 발사체 생성 및 발사
+            Quaternion rotation = Quaternion.LookRotation(direction);
+            GameObject redBall = Instantiate(prefab, spawner, rotation);
+            Rigidbody rb = redBall.GetComponent<Rigidbody>();
+            AttackColor attackColor = redBall.GetComponent<AttackColor>();
+            if (attackColor != null) attackColor.SetAttackColor(R, G, B);
+
+            rb.AddForce(direction * launchForce, ForceMode.Impulse);
+
+            StartCoroutine(SlowDown(rb, afterSpeedPercent, delay, ifInstance));
+        }
+    }
+
+    protected virtual void SlowdownAttack(Vector3 spawner, int projectileNum, float launchForce, float angleDivision, Vector3 target, GameObject prefab, float R = 125f, float G = 125f, float B = 125f, float afterSpeedPercent = 0.1f, float delay = 0.5f, bool ifInstance = false)
+    {
+        Vector3 targetDirection = (target - spawner).normalized;
         Quaternion baseRotation = Quaternion.LookRotation(targetDirection);
 
         // 균등하게 퍼지도록 방향 조절
