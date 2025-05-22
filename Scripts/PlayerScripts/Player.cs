@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private int life = 9; //格见
+    private int life = 3; //格见
     private int bomb = 2; //航
 
     private PlayerMovement moveScript;

@@ -14,12 +14,10 @@ public class AttackColor : MonoBehaviour
 
     void Start()
     {
-        originScale = new Vector3(gameObject.transform.localScale.x, transform.localScale.y, transform.localScale.z);
-        StartScale = new Vector3(0.1f, 0.1f, 0.1f);
-        transform.localScale = StartScale;
+
         //if (Target == null) Target = gameObject;
         //SetAttackColor(125, 0, 0);
-        StartCoroutine(ScaleToOrigin());
+
     }
 
     /*
@@ -56,20 +54,4 @@ public class AttackColor : MonoBehaviour
 
     }
 
-    private IEnumerator ScaleToOrigin(float duration = 0.3f)
-    {
-        float elapsedTime = 0f;
-        transform.localScale = StartScale;
-
-        while (elapsedTime < duration)
-        {
-            elapsedTime += Time.deltaTime;
-            float t = Mathf.Clamp01(elapsedTime / duration);
-
-            transform.localScale = Vector3.Lerp(StartScale, originScale, t);
-            yield return null;
-        }
-
-        transform.localScale = originScale; // 정확하게 맞추기
-    }
 }

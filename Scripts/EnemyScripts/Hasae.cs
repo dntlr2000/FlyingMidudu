@@ -204,6 +204,7 @@ public class Hasae : Enemy_Boss
         PlayerFollower.enabled= true;
 
         SatelieAimingObject = SateliteAim.gameObject;
+        AimingObject(playerCharacter);
 
         while (true)
         {
@@ -233,6 +234,8 @@ public class Hasae : Enemy_Boss
     }
     protected override IEnumerator Phase3() //패턴 6 : 기술
     {
+        AimingObject(playerCharacter, false);
+        transform.rotation = Quaternion.Euler(0, 0, 0);
         Health = 600f;
         TimerCoroutine = StartCoroutine(PhaseTimer(40));
         CutScene(2.5f);
@@ -268,7 +271,8 @@ public class Hasae : Enemy_Boss
     }
     protected override IEnumerator Phase2() //패턴 7 : 통상
     {
-        Health = 600f;
+        AimingObject(playerCharacter);
+        Health = 800f;
         TimerCoroutine = StartCoroutine(PhaseTimer(40));
         animator.SetInteger("Motion", 0);
         ResetProjectile("Enemy");

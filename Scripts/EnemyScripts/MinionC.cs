@@ -7,6 +7,7 @@ public class MinionC : Enemy_Minion
     //GameObject player;
     // Start is called before the first frame update
     public GameObject attackObject;
+    public GameObject laserObject;
     protected override void Start()
     {
         //Debug.Log("Minion spawned");
@@ -32,6 +33,10 @@ public class MinionC : Enemy_Minion
         for (int i = 0; i < 40; i++)
         {
             //Debug.Log("Attack!");
+            if (i % 3 == 0)
+            {
+                ShootLasers(player, 6, laserObject, 40, 125, 0, 0);
+            }
             PlaySFX(4);
             BasicAttack(50, 20f, 3, player, attackObject, 77, 191, 0);
             yield return new WaitForSeconds(2f);

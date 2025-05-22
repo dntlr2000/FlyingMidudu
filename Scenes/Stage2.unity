@@ -562,10 +562,6 @@ PrefabInstance:
       propertyPath: m_TranslationOffset.z
       value: 0.000001758337
       objectReference: {fileID: 0}
-    - target: {fileID: 5174872702408545082, guid: ea705c216e2258c498ff51862689d427, type: 3}
-      propertyPath: ifShoot
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5523429822998026015, guid: ea705c216e2258c498ff51862689d427, type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.000001758337

@@ -7,7 +7,7 @@ public class Stage5 : Stage
     // Start is called before the first frame update
     protected override void Start()
     {
-        text = $"제 5장\n날개 옷을 얻어 높은 곳으로\n날아오른 흰 머리 악인.\n하지만 보물에 관심을 가진 자는\n흰 머리 악인만이 아니었습니다.";
+        text = $"제 4장\n날개 옷을 얻어 높은 곳으로\n날아오른 흰 머리 악인.\n하지만 보물에 관심을 가진 자는\n흰 머리 악인만이 아니었습니다.";
         base.Start();
         NextStageName = "Stage6";
         currentStage = 5;

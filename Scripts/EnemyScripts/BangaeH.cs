@@ -11,7 +11,7 @@ public class BangaeH : Enemy_Minion
         animator = GetComponent<Animator>();
 
         Life = 1;
-        Health = 120f;
+        Health = 80f;
 
         player = FindPlayer();
         if (player == null) return;

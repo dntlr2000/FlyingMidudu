@@ -86,7 +86,7 @@ public class BangaeKing : Enemy_Boss
             {
                 yield return new WaitForSeconds(0.5f);
                 PlaySFX(4);
-                BasicAttack(20, 40f, 4, playerCharacter, attackPrefab[1], 250, 0, 0);
+                BasicAttack(40, 50f, 4, playerCharacter, attackPrefab[1], 250, 0, 0);
                 //SingleShot(30f, attackPrefab[2], playerCharacter);
             }
 
@@ -97,8 +97,9 @@ public class BangaeKing : Enemy_Boss
             {
                 yield return new WaitForSeconds(1f);
                 PlaySFX(5);
-                ShootAround(playerCharacter, 20, attackPrefab[0], 10f, 30f, 0.25f, 224, 146, 0);
-                SingleShot(40f, attackPrefab[2], playerCharacter, 0, 38, 224);
+                ShootAround(playerCharacter, 30, attackPrefab[0], 20f, 40f, 0.25f, 224, 146, 0);
+                //SingleShot(40f, attackPrefab[2], playerCharacter, 0, 38, 224);
+                SlowdownAttack(5, 10f, 4, playerCharacter, attackPrefab[2], 224, 146, 0, 4f, 1f);
             }
             yield return new WaitForSeconds(0.5f);
 
@@ -141,7 +142,7 @@ public class BangaeKing : Enemy_Boss
 
             //∑π¿Ã¿˙
             //PlaySFX(4);
-            ShootLasers(playerCharacter, 5, attackPrefab[4], 20f, 200f, 10f, 10f);
+            ShootLasers(playerCharacter, 4, attackPrefab[4], 30f, 200f, 10f, 10f);
             yield return new WaitForSeconds(6f);
         }
 

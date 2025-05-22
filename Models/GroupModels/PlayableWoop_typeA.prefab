@@ -1350,7 +1350,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Projectile: {fileID: 5875457110927283187, guid: 14b6a2aec9a01bf438a41a08528a2934, type: 3}
-  launchSpeed: 200
+  launchSpeed: 300
   launchinterval: 0.1
   ifShoot: 1
   launchCenter: {fileID: 7253808288416984091}
@@ -2369,8 +2369,8 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.099999994
-  far clip plane: 150
+  near clip plane: 0.09999999
+  far clip plane: 2000
   field of view: 26.991467
   orthographic: 0
   orthographic size: 0.0023999996
@@ -2380,7 +2380,7 @@ Camera:
     m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 2
+  m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
@@ -4722,7 +4722,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Projectile: {fileID: 5875457110927283187, guid: 14b6a2aec9a01bf438a41a08528a2934, type: 3}
-  launchSpeed: 200
+  launchSpeed: 300
   launchinterval: 0.1
   ifShoot: 1
   launchCenter: {fileID: 3508216851225885741}

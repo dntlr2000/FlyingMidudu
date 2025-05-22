@@ -98,7 +98,7 @@ public class Mulbangae_Phase2 : Enemy_Boss
     protected override IEnumerator Phase5() //패턴 1 : 통상
     {
 
-        Health = 160f;
+        Health = 1200f;
         TimerCoroutine = StartCoroutine(PhaseTimer(40));
         //MainCamera.SetActive(false);
         BossCollider.enabled = false;
@@ -142,7 +142,7 @@ public class Mulbangae_Phase2 : Enemy_Boss
     protected override IEnumerator Phase4() //패턴 2 : 기술
     {
 
-        Health = 120f;
+        Health = 1400f;
         TimerCoroutine = StartCoroutine(PhaseTimer(40));
         //MainCamera.SetActive(false);
         CutScene(2.5f);
@@ -175,7 +175,7 @@ public class Mulbangae_Phase2 : Enemy_Boss
         SpellCard(SpellName);
         AimingObject(playerCharacter.gameObject, false);
         transform.rotation = Quaternion.Euler(0, 0, 0);
-        Health = 1200f;
+        Health = 1600f;
         TimerCoroutine = StartCoroutine(PhaseTimer(60));
         //MainCamera.SetActive(false);
         yield return new WaitForSeconds(2f);
@@ -297,7 +297,7 @@ public class Mulbangae_Phase2 : Enemy_Boss
         SpellName = "화려한 조명이 수령님을 감싸네";
         SpellCard(SpellName);
 
-        Health = 1200f;
+        Health = 1800f;
         TimerCoroutine = StartCoroutine(PhaseTimer(40));
         //MainCamera.SetActive(false);
         yield return new WaitForSeconds(4f);
@@ -326,6 +326,8 @@ public class Mulbangae_Phase2 : Enemy_Boss
                 PlaySFX(4);
                 yield return new WaitForSeconds(0.2f);
             }
+
+            RandomMove(10f, 1f);
         }
     }
 

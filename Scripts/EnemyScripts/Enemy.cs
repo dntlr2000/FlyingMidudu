@@ -616,7 +616,7 @@ public class Enemy : MonoBehaviour
 
     protected virtual void AttackBlocks(GameObject prefab, Vector3 from, Vector3 to, float gap = 5f, float speed = 30)
     {
-        /*
+        
         float x, y, z;
         x = from.x;
 
@@ -641,9 +641,8 @@ public class Enemy : MonoBehaviour
             }
             x -= gap;
         }
-        */
-        Vector3 direction = new Vector3(0, 0, 1);
-        AttackBlocks(prefab, from, direction, gap, speed);
+        
+        
     }
 
     protected virtual void AttackBlocks(GameObject prefab, Vector3 from, Vector3 to, Vector3 direction, float gap = 5f, float speed = 30, int R = 125, int G = 125, int B = 125)

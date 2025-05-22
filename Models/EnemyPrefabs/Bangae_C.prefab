@@ -2284,6 +2284,7 @@ MonoBehaviour:
   deathEffect: {fileID: 3901673378021655620, guid: b152383de00403b4fa322c84a239ce46, type: 3}
   AttackPrefab: []
   attackObject: {fileID: 3997560436894072735, guid: 24522f63ac445054e91b9f2aae0fd717, type: 3}
+  laserObject: {fileID: 5852521548270742131, guid: aa6601adca88f254e94b45adaf71edb0, type: 3}
 --- !u!1 &7030664061724883204
 GameObject:
   m_ObjectHideFlags: 0

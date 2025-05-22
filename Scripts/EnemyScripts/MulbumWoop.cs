@@ -56,9 +56,9 @@ public class MulbumWoop : Enemy_Boss
             RandomMove(10f, 2f);
             for (int i = 0; i < 10; i++)
             {
-                ShootAround(playerCharacter, 6, attackPrefab[0], 30, 40, 0.3f, 108, 230, 227);
+                ShootAround(playerCharacter, 10, attackPrefab[0], 30, 50, 0.2f, 108, 230, 227);
                 PlaySFX(4);
-                SingleShot(55, attackPrefab[1], playerCharacter, 9, 41, 214);
+                SingleShot(60, attackPrefab[1], playerCharacter, 9, 41, 214);
                 yield return new WaitForSeconds(0.3f);
             }
             
@@ -75,7 +75,7 @@ public class MulbumWoop : Enemy_Boss
         CutScene(1f);
 
 
-        SpellName = "물범웁 탈출기는 끝나지 않았다!";
+        SpellName = "물범웁 탈출기 재시동";
         SpellCard(SpellName);
 
         //Vector3 toRight = new Vector3(45, 0, -50);
@@ -102,23 +102,16 @@ public class MulbumWoop : Enemy_Boss
             Vector3 nextPosition = new Vector3(X, Y, -60);
             StartCoroutine(ObjectMover(nextPosition, 2f));
             yield return new WaitForSeconds(1f);
-            AroundBlocks(nextPosition, 10);
-            yield return new WaitForSeconds(1f);
 
-            for (int i = 0; i < 5; i++)
+            if (Random.Range(0, 10) % 2 == 0)
             {
-                PlaySFX(4);
-                BasicAttack(30, 15, 3, playerCharacter, attackPrefab[0]);
-                yield return new WaitForSeconds(0.4f);
+                AroundBlocks(nextPosition, 10);
+            }
+            else
+            {
+                AroundBlocksVertical(nextPosition, 10);
             }
 
-            X = Random.Range(-40, 40);
-            Y = Random.Range(-40, 40);
-
-            nextPosition = new Vector3(X, Y, -60);
-            StartCoroutine(ObjectMover(nextPosition, 2f));
-            yield return new WaitForSeconds(1f);
-            AroundBlocksVertical(nextPosition, 10);
             yield return new WaitForSeconds(1f);
 
             for (int i = 0; i < 5; i++)
@@ -147,8 +140,8 @@ public class MulbumWoop : Enemy_Boss
             
             for (int i = 0; i < 15; i++)
             {
-                ShootAround(playerCharacter, 10, attackPrefab[0], 40, 50, 0.2f, 108, 230, 227);
-                SingleShot(70, attackPrefab[1], playerCharacter, 66, 203, 245);
+                ShootAround(playerCharacter, 20, attackPrefab[0], 40, 60, 0.2f, 108, 230, 227);
+                SingleShot(75, attackPrefab[1], playerCharacter, 9, 41, 214);
                 PlaySFX(4);
                 yield return new WaitForSeconds(0.2f);
             }
@@ -184,7 +177,7 @@ public class MulbumWoop : Enemy_Boss
             for (int i = 0; i < 5; i++)
             {
                 PlaySFX(5);
-                BasicAttack(30, 20, attackPrefab[3], 66, 203, 245);
+                BasicAttack(40, 20, attackPrefab[3], 66, 203, 245);
                 yield return new WaitForSeconds(0.3f);
             }
             animator.SetInteger("Motion", 0);

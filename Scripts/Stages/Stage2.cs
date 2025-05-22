@@ -116,11 +116,17 @@ public class Stage2 : Stage
     protected IEnumerator StagePhase4()
     {
         SpawnEnemy(Enemy[3], 15, 0, -20);
+        yield return new WaitForSeconds(0.1f);
         SpawnEnemy(Enemy[3], -15, -10, -20);
+        yield return new WaitForSeconds(0.1f);
         SpawnEnemy(Enemy[1], 30, -10, -30);
+        yield return new WaitForSeconds(0.1f);
         SpawnEnemy(Enemy[3], 0, -10, -40);
+        yield return new WaitForSeconds(0.1f);
         SpawnEnemy(Enemy[1], -30, -10, -30);
+        yield return new WaitForSeconds(0.1f);
         SpawnEnemy(Enemy[2], -60, 10, -70);
+        yield return new WaitForSeconds(0.1f);
         SpawnEnemy(Enemy[2], 60, 10, -70);
 
         while (CheckEnemyExist())

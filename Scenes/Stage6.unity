@@ -564,34 +564,6 @@ PrefabInstance:
       propertyPath: m_TranslationOffset.z
       value: -0.29057312
       objectReference: {fileID: 0}
-    - target: {fileID: 8227887059612163075, guid: ea705c216e2258c498ff51862689d427, type: 3}
-      propertyPath: m_FOVAxisMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8227887059612163075, guid: ea705c216e2258c498ff51862689d427, type: 3}
-      propertyPath: far clip plane
-      value: 2000
-      objectReference: {fileID: 0}
-    - target: {fileID: 8227887059612163075, guid: ea705c216e2258c498ff51862689d427, type: 3}
-      propertyPath: m_TargetDisplay
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8227887059612163075, guid: ea705c216e2258c498ff51862689d427, type: 3}
-      propertyPath: near clip plane
-      value: 0.09999999
-      objectReference: {fileID: 0}
-    - target: {fileID: 8227887059612163075, guid: ea705c216e2258c498ff51862689d427, type: 3}
-      propertyPath: m_OcclusionCulling
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8227887059612163075, guid: ea705c216e2258c498ff51862689d427, type: 3}
-      propertyPath: m_BackGroundColor.a
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8227887059612163075, guid: ea705c216e2258c498ff51862689d427, type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 4294967295
-      objectReference: {fileID: 0}
     - target: {fileID: 8959044887392837504, guid: ea705c216e2258c498ff51862689d427, type: 3}
       propertyPath: m_RotationOffset.x
       value: 3.032222
@@ -1009,10 +981,6 @@ PrefabInstance:
     - target: {fileID: 7217120561160648642, guid: 4499f27f8727b37408c07028e4240328, type: 3}
       propertyPath: m_Name
       value: CutScene_Camera
-      objectReference: {fileID: 0}
-    - target: {fileID: 8126854386940449085, guid: 4499f27f8727b37408c07028e4240328, type: 3}
-      propertyPath: far clip plane
-      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 9115546298000553698, guid: 4499f27f8727b37408c07028e4240328, type: 3}
       propertyPath: m_Sources.Array.data[0].sourceTransform
