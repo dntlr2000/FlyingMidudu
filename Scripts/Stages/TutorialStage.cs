@@ -12,7 +12,7 @@ public class TutorialStage : Stage
     {
         StartCoroutine(StagePhase1());
 
-        text = "미두두 어드벤처 튜토리얼";
+        text = "플라잉 미두두 튜토리얼";
         Text.gameObject.SetActive(true);
         StartCoroutine(Text.StageTextAnimation(text));
 
@@ -45,7 +45,7 @@ public class TutorialStage : Stage
         int loopCount = 0;
         while (goNext == false)
         {
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1.5f);
             loopCount++;
 
             if (loopCount == 8)
@@ -102,7 +102,7 @@ public class TutorialStage : Stage
         int loopCount = 0;
         while (goNext == false)
         {
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1.5f);
             loopCount++;
             
 
@@ -162,7 +162,7 @@ public class TutorialStage : Stage
         TextAnimation(text);
 
         yield return new WaitForSeconds(7f);
-        text = "웁님을 향해 공격하는 방개를 향해 슈터로\n공격해보도록 합시다.";
+        text = "웁님에게 대드는 방개를 향해\n매니저의 칼로 밴을 먹여주세요.";
         TextAnimation(text);
 
         SpawnEnemy(Enemy[0], 0, 0, -50);
@@ -181,11 +181,11 @@ public class TutorialStage : Stage
         TextAnimation(text);
 
         yield return new WaitForSeconds(7f);
-        text = "다음은 Q를 눌러 궁극기를 사용할 수 있습니다.\n 궁극기는 좌측 하단 Bomb이 1개 이상일 때\n사용 가능하며 사용 시 일정시간 무적이 됩니다.";
+        text = "Q를 눌러 궁극기를 사용할 수 있습니다.\n 궁극기는 좌측 하단 Bomb이 1개 이상일 때\n사용 가능하며 사용 시 일정시간 무적이 됩니다.";
         TextAnimation(text);
 
         yield return new WaitForSeconds(7f);
-        text = "마지막으로 다시 한 번 방개들을 공격해주세요.";
+        text = "다시 한 번 방개들에게 \n 밴을 먹여줍시다.";
         TextAnimation(text);
 
         SpawnEnemy(Enemy[0], 0, 30, -50);
@@ -198,7 +198,10 @@ public class TutorialStage : Stage
         while (CheckEnemyExist())
         {
             yield return new WaitForSeconds(2f);
+
         }
+
+
         StartCoroutine(StagePhase5());
     }
 
@@ -212,11 +215,28 @@ public class TutorialStage : Stage
         TextAnimation(text);
 
         yield return new WaitForSeconds(7f);
-        text = "보스급 개체의 경우에는 아이콘이 다른 모양이며,\n 대신 웁님 주변에 포인터가 활성화되어 \n보스를 가리킵니다.";
+        text = "보스급 개체의 경우에는 아이콘이 다른 모양이며,\n또한 웁님 주변에 포인터가 활성화되어 \n보스를 가리킵니다.";
         if (bossPointer != null) bossPointer.SetActive(true);
         TextAnimation(text);
 
         yield return new WaitForSeconds(7f);
+        text = "또한 보스의 공격 패턴은 \n제한 시간이 존재하는데, 시간이 초과되면\n체력이 0이 되지 않더라도 패턴이 종료되며\n그 다음 패턴으로 넘어갑니다.";
+        TextAnimation(text);
+
+
+        yield return new WaitForSeconds(7f);
+        text = "마지막으로 보스급 개체를 \n무찔러줍시다.";
+        TextAnimation(text);
+
+        yield return new WaitForSeconds(2f);
+        SpawnBoss(MidBoss, 0, 0, -50);
+
+        while (CheckEnemyExist("EnemyBoss"))
+        {
+            yield return new WaitForSeconds(2f);
+        }
+
+
         text = "이상으로 튜토리얼을 마치겠습니다. \n 감사합니다.";
         TextAnimation(text);
 

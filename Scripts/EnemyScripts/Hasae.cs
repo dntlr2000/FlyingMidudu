@@ -20,7 +20,7 @@ public class Hasae : Enemy_Boss
         Life = 8;
         Health = 100f;
         BossName = "하세";
-        BossDescription = "남들보다 나이를 빠르게 먹는";
+        BossDescription = "분명 나에게는 두 명의 형이 있었다..";
 
         //playerCharacter = FindPlayer();
 

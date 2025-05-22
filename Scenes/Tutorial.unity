@@ -444,6 +444,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4476142069288942100, guid: 8f27ad41290da3c458673f748d71317f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4508570771733401853, guid: 8f27ad41290da3c458673f748d71317f, type: 3}
       propertyPath: BGM_Script
       value: 
@@ -769,12 +773,13 @@ MonoBehaviour:
   Enemy:
   - {fileID: 6431292716416850168, guid: 556167175ba66f04eac0909bb0e19068, type: 3}
   Boss: {fileID: 0}
-  MidBoss: {fileID: 0}
+  MidBoss: {fileID: 1730440890}
   Text: {fileID: 591985369}
   loader: {fileID: 591985363}
   toNextStage1: {fileID: 591985365}
   toNextStage2: {fileID: 591985364}
   BGM_Script: {fileID: 0}
+  saveScript: {fileID: 0}
   goNext: 0
   greenBox: {fileID: 7364057160420856165, guid: 19f2dcc02395f744fa6b20e1ab876206, type: 3}
   bossPointer: {fileID: 1646971589}
@@ -1034,12 +1039,12 @@ PrefabInstance:
       objectReference: {fileID: 1399643231}
     - target: {fileID: -6086444635688812643, guid: 59908c69bd2a1a044ae5b293aac74293, type: 3}
       propertyPath: attackPrefab.Array.size
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -6086444635688812643, guid: 59908c69bd2a1a044ae5b293aac74293, type: 3}
       propertyPath: attackPrefab.Array.data[0]
       value: 
-      objectReference: {fileID: 1917152215653351379, guid: f08675457aed81546a28b75f6020ac02, type: 3}
+      objectReference: {fileID: 3997560436894072735, guid: 24522f63ac445054e91b9f2aae0fd717, type: 3}
     - target: {fileID: -6086444635688812643, guid: 59908c69bd2a1a044ae5b293aac74293, type: 3}
       propertyPath: attackPrefab.Array.data[1]
       value: 
@@ -1064,25 +1069,13 @@ PrefabInstance:
       propertyPath: PlayerCamera
       value: 
       objectReference: {fileID: 1646971590}
-    - target: {fileID: 1992947703828854698, guid: 59908c69bd2a1a044ae5b293aac74293, type: 3}
-      propertyPath: m_Size.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1992947703828854698, guid: 59908c69bd2a1a044ae5b293aac74293, type: 3}
-      propertyPath: m_Size.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1992947703828854698, guid: 59908c69bd2a1a044ae5b293aac74293, type: 3}
-      propertyPath: m_Size.z
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1992947703828854698, guid: 59908c69bd2a1a044ae5b293aac74293, type: 3}
-      propertyPath: m_Center.y
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 2390442709678535296, guid: 59908c69bd2a1a044ae5b293aac74293, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2390442709678535296, guid: 59908c69bd2a1a044ae5b293aac74293, type: 3}
+      propertyPath: m_TagString
+      value: EnemyBoss
       objectReference: {fileID: 0}
     - target: {fileID: 3042779809698152394, guid: 59908c69bd2a1a044ae5b293aac74293, type: 3}
       propertyPath: m_TargetDisplay
@@ -1140,10 +1133,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -6086444635688812643, guid: 59908c69bd2a1a044ae5b293aac74293, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2390442709678535296, guid: 59908c69bd2a1a044ae5b293aac74293, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1730440893}
   m_SourcePrefab: {fileID: 100100000, guid: 59908c69bd2a1a044ae5b293aac74293, type: 3}
 --- !u!1 &1730440890 stripped
 GameObject:
@@ -1160,6 +1157,32 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3529022714059453535, guid: 59908c69bd2a1a044ae5b293aac74293, type: 3}
   m_PrefabInstance: {fileID: 1730440889}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1730440893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1730440890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f83be2da3ae462148be8f5cd6bd33ae0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HitEffect: {fileID: 8536701366023590476, guid: eb33f6e72c96fe0468156445a99d1761, type: 3}
+  PlayerCamera: {fileID: 1646971590}
+  MainCamera: {fileID: 1399643232}
+  MyCamera: {fileID: 1730440891}
+  pointer: {fileID: 1646971589}
+  attackPrefab:
+  - {fileID: 3997560436894072735, guid: 24522f63ac445054e91b9f2aae0fd717, type: 3}
+  - {fileID: 3184244041106848311, guid: 6aa3f8faa7a5b3d47836b118db0fba00, type: 3}
+  HealthBarObject: {fileID: 591985368}
+  DeathEffect1: {fileID: 1493947276669149963, guid: 8475583dc17922d4b8005149a568a499, type: 3}
+  DeathEffect2: {fileID: 2390646017386113098, guid: 2986d99e92729114e964f16d9b4dbc8f, type: 3}
+  SpellText: {fileID: 591985367}
+  BossText: {fileID: 0}
+  stageScript: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -145,15 +145,16 @@ public class MainMenu : MenuParent
             StartCoroutine(TextMover(MainButtonsRectTransform[i], MainButtonOriginPos[i], new Vector2(MainButtonOriginPos[i].x - 400, MainButtonOriginPos[i].y))); //120번째 줄
             yield return new WaitForSecondsRealtime(0.1f);
         }
-        for (int i = 3; i < 6; i++)
+
+        for (int i = 3; i < 5; i++)
         {
-            if (i == 5) yield return new WaitForSecondsRealtime(0.2f);
+            if (i == 4) yield return new WaitForSecondsRealtime(0.2f);
             StartCoroutine(TextMover(MainButtonsRectTransform[i], MainButtonOriginPos[i], new Vector2(MainButtonOriginPos[i].x + 500, MainButtonOriginPos[i].y)));
             yield return new WaitForSecondsRealtime(0.1f);
             
         }
 
-        yield return new WaitForSecondsRealtime(0.5f);
+        yield return new WaitForSecondsRealtime(0.3f);
         for (int i = 0; i < 5; i++)
         {
             StartCoroutine(TextMover(GameButtonsRectTransform[i], GameButtonOriginPos[i], new Vector2(GameButtonOriginPos[i].x + 350, GameButtonOriginPos[i].y)));
@@ -184,13 +185,13 @@ public class MainMenu : MenuParent
             yield return new WaitForSecondsRealtime(0.1f);
         }
 
-        yield return new WaitForSecondsRealtime(0.5f);
+        yield return new WaitForSecondsRealtime(0.3f);
         for (int i = 0; i < 3; i++)
         {
             StartCoroutine(TextMover(MainButtonsRectTransform[i], new Vector2(MainButtonOriginPos[i].x - 400, MainButtonOriginPos[i].y), MainButtonOriginPos[i]));
             yield return new WaitForSecondsRealtime(0.1f);
         }
-        for (int i = 3; i < 6; i++)
+        for (int i = 3; i < 5; i++)
         {
             StartCoroutine(TextMover(MainButtonsRectTransform[i], new Vector2(MainButtonOriginPos[i].x + 500, MainButtonOriginPos[i].y), MainButtonOriginPos[i]));
             yield return new WaitForSecondsRealtime(0.1f);
@@ -230,10 +231,12 @@ public class MainMenu : MenuParent
             disableButton(GameButtons[3]);
         }
 
-        if (progress < 6)
+        /*
+        if (progress < 6) // 엑스트라 모드가 설정으로 변경됨
         {
             disableButton(MainButtons[1]);
         }
+        */
 
     }
 
