@@ -749,6 +749,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3473494534249254148, guid: ea705c216e2258c498ff51862689d427, type: 3}
+      propertyPath: m_TagString
+      value: MainCamera
+      objectReference: {fileID: 0}
     - target: {fileID: 3896252261407174555, guid: ea705c216e2258c498ff51862689d427, type: 3}
       propertyPath: m_TranslationOffset.z
       value: 0.000001758337
@@ -815,7 +819,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8227887059612163075, guid: ea705c216e2258c498ff51862689d427, type: 3}
       propertyPath: far clip plane
-      value: 200
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 8227887059612163075, guid: ea705c216e2258c498ff51862689d427, type: 3}
       propertyPath: m_TargetDisplay
@@ -960,6 +964,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 35341465}
     - target: {fileID: -6086444635688812643, guid: 59908c69bd2a1a044ae5b293aac74293, type: 3}
+      propertyPath: DeathEffect1
+      value: 
+      objectReference: {fileID: 1493947276669149963, guid: 8475583dc17922d4b8005149a568a499, type: 3}
+    - target: {fileID: -6086444635688812643, guid: 59908c69bd2a1a044ae5b293aac74293, type: 3}
       propertyPath: PlayerCamera
       value: 
       objectReference: {fileID: 1387790814338406102}
@@ -967,6 +975,10 @@ PrefabInstance:
       propertyPath: HealthBarObject
       value: 
       objectReference: {fileID: 986647889}
+    - target: {fileID: -6086444635688812643, guid: 59908c69bd2a1a044ae5b293aac74293, type: 3}
+      propertyPath: gatheringEffect
+      value: 
+      objectReference: {fileID: 4258147973808339398, guid: 87a00d2d5abb19d418efe21a309558f1, type: 3}
     - target: {fileID: -6086444635688812643, guid: 59908c69bd2a1a044ae5b293aac74293, type: 3}
       propertyPath: mainCameraController
       value: 
@@ -1030,6 +1042,18 @@ PrefabInstance:
     - target: {fileID: 3042779809698152394, guid: 59908c69bd2a1a044ae5b293aac74293, type: 3}
       propertyPath: m_TargetDisplay
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3055514596409337914, guid: 59908c69bd2a1a044ae5b293aac74293, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3055514596409337914, guid: 59908c69bd2a1a044ae5b293aac74293, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3055514596409337914, guid: 59908c69bd2a1a044ae5b293aac74293, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3055514596409337914, guid: 59908c69bd2a1a044ae5b293aac74293, type: 3}
       propertyPath: m_LocalPosition.z

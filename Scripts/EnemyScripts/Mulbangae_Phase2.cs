@@ -342,7 +342,9 @@ public class Mulbangae_Phase2 : Enemy_Boss
         Health = 3000f;
         TimerCoroutine = StartCoroutine(PhaseTimer(99));
         //MainCamera.SetActive(false);
-        yield return new WaitForSeconds(7f);
+        yield return new WaitForSeconds(6f);
+        GatherEffect(transform.position);
+        yield return new WaitForSeconds(1f);
         SpellName = "진짜진짜 마지막 발악";
         SpellCard(SpellName);
         GudokBadge.SetActive(true);

@@ -87,7 +87,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HitEffect: {fileID: 8536701366023590476, guid: eb33f6e72c96fe0468156445a99d1761, type: 3}
-  deathEffect: {fileID: 3901673378021655620, guid: b152383de00403b4fa322c84a239ce46, type: 3}
+  deathEffect: {fileID: 5435599221481598426, guid: 27e4d87b06764ca4f955469e36d7997f, type: 3}
+  AttackPrefab: []
   attackObject: {fileID: 5852521548270742131, guid: aa6601adca88f254e94b45adaf71edb0, type: 3}
   shootSpeed: 0
-  shootInterval: 6

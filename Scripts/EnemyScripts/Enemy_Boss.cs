@@ -42,6 +42,7 @@ public class Enemy_Boss : Enemy
 
     public GameObject DeathEffect1;
     public GameObject DeathEffect2;
+    public GameObject gatheringEffect;
 
     protected Coroutine TimerCoroutine;
     
@@ -215,8 +216,9 @@ public class Enemy_Boss : Enemy
     protected virtual IEnumerator DeathCoroutine()
     {
         BossCollider.enabled= false;
-        Instantiate(DeathEffect1, transform.position, Quaternion.identity);
+        
         for (int i = 0;i < 2; i++) {
+            Instantiate(DeathEffect1, transform.position, Quaternion.identity);
             PlayerCamera.CameraShake(1);
             PlaySFX(2);
             yield return new WaitForSeconds(0.6f);
@@ -441,6 +443,12 @@ public class Enemy_Boss : Enemy
         Destroy(LaserSpawnObj);
         Destroy(LaserTargetObj);
 
+    }
+
+    protected void GatherEffect(Vector3 position)
+    {
+        if (gatheringEffect== null) { return; }
+        Instantiate(gatheringEffect, position, Quaternion.identity);
     }
 
 }

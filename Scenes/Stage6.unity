@@ -263,6 +263,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 933236251}
     - target: {fileID: 7984591706084785933, guid: c1b2311efc53da9488097c8452beb436, type: 3}
+      propertyPath: gatheringEffect
+      value: 
+      objectReference: {fileID: 4258147973808339398, guid: 87a00d2d5abb19d418efe21a309558f1, type: 3}
+    - target: {fileID: 7984591706084785933, guid: c1b2311efc53da9488097c8452beb436, type: 3}
       propertyPath: attackPrefab.Array.size
       value: 7
       objectReference: {fileID: 0}

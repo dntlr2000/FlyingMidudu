@@ -167,8 +167,9 @@ public class Hasae : Enemy_Boss
         PlaySFX(2);
         SpellName = "자이언트 오리오리빔";
         SpellCard(SpellName);
-        yield return new WaitForSeconds(3f);
-
+        yield return new WaitForSeconds(2f);
+        GatherEffect(transform.position);
+        yield return new WaitForSeconds(1f);
         while(true)
         {
             ShootLasers(playerCharacter, 1, attackPrefab[5], 1, 242, 239, 42);
@@ -184,6 +185,8 @@ public class Hasae : Enemy_Boss
             }
             yield return new WaitForSeconds(2f);
             RandomMove(10, 1f);
+            yield return new WaitForSeconds(1f);
+            GatherEffect(transform.position);
             yield return new WaitForSeconds(1f);
 
         }

@@ -117,7 +117,9 @@ public class BangaeKing : Enemy_Boss
         TimerCoroutine = StartCoroutine(PhaseTimer(60));
         //StartCoroutine(mainCameraController.BossCutScene(3f));
         CutScene(3f);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.5f);
+        GatherEffect(transform.position + new Vector3(0, 2.5f, -1f));
+        yield return new WaitForSeconds(1.5f);
         SpellName = "6:4:6의 황금비";
         SpellCard(SpellName);
         yield return new WaitForSeconds(2f);
