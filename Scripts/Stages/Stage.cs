@@ -240,6 +240,7 @@ public class Stage : MonoBehaviour
         loader.LoadSceneAsync(sceneName);
     }
 
+    
 
     
     protected void SetBGM(int index)
@@ -253,11 +254,19 @@ public class Stage : MonoBehaviour
         BGM_Script.PlayBGM();
     }
 
-    private IEnumerator spawnBossAfter1Second()
+    public void FinalStageCleared()
     {
-        yield return new WaitForSeconds(1f);
-        SpawnBoss(Boss, 0, 0, -50);
-        yield return null;
+        StartCoroutine(toCreditCoroutine());
     }
+
+    private IEnumerator toCreditCoroutine()
+    {
+        yield return new WaitForSeconds(5f);
+        saveScript.SaveProgress(currentStage);
+
+        loader.LoadSceneAsync("Credit");
+    }
+
+
 }
     

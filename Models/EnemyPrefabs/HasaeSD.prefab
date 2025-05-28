@@ -9,6 +9,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 4cca5d720aef6874eaf7f1d8ce3017d7, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4cca5d720aef6874eaf7f1d8ce3017d7, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4cca5d720aef6874eaf7f1d8ce3017d7, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4cca5d720aef6874eaf7f1d8ce3017d7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.7079086
       objectReference: {fileID: 0}
@@ -177,6 +189,7 @@ MonoBehaviour:
   HealthBarObject: {fileID: 0}
   DeathEffect1: {fileID: 1493947276669149963, guid: 8475583dc17922d4b8005149a568a499, type: 3}
   DeathEffect2: {fileID: 2390646017386113098, guid: 2986d99e92729114e964f16d9b4dbc8f, type: 3}
+  gatheringEffect: {fileID: 0}
   SpellText: {fileID: 0}
   BossText: {fileID: 0}
   stageScript: {fileID: 0}
@@ -184,4 +197,5 @@ MonoBehaviour:
   Satelite002: {fileID: 0}
   SateliteAim: {fileID: 0}
   PlayerFollower: {fileID: 0}
+  SatelieAimingObject: {fileID: 0}
   GiantPug: {fileID: 0}

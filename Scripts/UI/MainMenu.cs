@@ -231,6 +231,13 @@ public class MainMenu : MenuParent
             disableButton(GameButtons[3]);
         }
 
+        if (progress < 4)
+        {
+            disableButton(GameButtons[4]);
+        }
+
+
+
         /*
         if (progress < 6) // 엑스트라 모드가 설정으로 변경됨
         {

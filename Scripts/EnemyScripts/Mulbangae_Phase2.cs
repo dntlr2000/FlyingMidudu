@@ -522,7 +522,24 @@ public class Mulbangae_Phase2 : Enemy_Boss
 
     protected override IEnumerator DeathCoroutine()
     {
-        StartCoroutine(finalPhase);
-        return base.DeathCoroutine();
+        StopCoroutine(finalPhase);
+        BGM_Script.StopBGM(true);
+        BossCollider.enabled = false;
+        Instantiate(DeathEffect1, transform.position, Quaternion.identity);
+        for (int i = 0; i < 5; i++)
+        {
+            PlayerCamera.CameraShake(1);
+            PlaySFX(2);
+            yield return new WaitForSeconds(0.6f);
+        }
+        PlayerCamera.CameraShake(2);
+        ResetProjectile();
+        activatePointer(false);
+        Instantiate(DeathEffect2, transform.position, Quaternion.identity);
+        HealthBarObject.SetActive(false);
+        PlaySFX(3);
+
+        stageScript.FinalStageCleared();
+        Destroy(gameObject);
     }
 }
