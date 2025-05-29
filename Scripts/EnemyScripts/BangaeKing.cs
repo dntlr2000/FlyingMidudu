@@ -140,12 +140,12 @@ public class BangaeKing : Enemy_Boss
                 yield return new WaitForSeconds(0.4f);
             }
             RandomMove(20, 2);
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(2f);
 
             //∑π¿Ã¿˙
             //PlaySFX(4);
             ShootLasers(playerCharacter, 4, attackPrefab[4], 30f, 200f, 10f, 10f);
-            yield return new WaitForSeconds(6f);
+            yield return new WaitForSeconds(5f);
         }
 
     }

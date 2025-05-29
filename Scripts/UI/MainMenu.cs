@@ -146,7 +146,7 @@ public class MainMenu : MenuParent
             yield return new WaitForSecondsRealtime(0.1f);
         }
 
-        for (int i = 3; i < 5; i++)
+        for (int i = 3; i < 6; i++)
         {
             if (i == 4) yield return new WaitForSecondsRealtime(0.2f);
             StartCoroutine(TextMover(MainButtonsRectTransform[i], MainButtonOriginPos[i], new Vector2(MainButtonOriginPos[i].x + 500, MainButtonOriginPos[i].y)));
@@ -191,7 +191,7 @@ public class MainMenu : MenuParent
             StartCoroutine(TextMover(MainButtonsRectTransform[i], new Vector2(MainButtonOriginPos[i].x - 400, MainButtonOriginPos[i].y), MainButtonOriginPos[i]));
             yield return new WaitForSecondsRealtime(0.1f);
         }
-        for (int i = 3; i < 5; i++)
+        for (int i = 3; i < 6; i++)
         {
             StartCoroutine(TextMover(MainButtonsRectTransform[i], new Vector2(MainButtonOriginPos[i].x + 500, MainButtonOriginPos[i].y), MainButtonOriginPos[i]));
             yield return new WaitForSecondsRealtime(0.1f);
@@ -234,6 +234,11 @@ public class MainMenu : MenuParent
         if (progress < 4)
         {
             disableButton(GameButtons[4]);
+        }
+
+        if (progress < 5)
+        {
+            disableButton(MainButtons[5]);
         }
 
 

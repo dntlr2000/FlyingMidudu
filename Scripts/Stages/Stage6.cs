@@ -13,7 +13,7 @@ public class Stage6 : Stage
         text = $"최종장\n드디어 보물이 있는 곳에 도달했지만\n어째선지 악인의 앞을 온 힘을 다해\n가로막는 방개.. 그 이유가 뭘까";
         base.Start();
         NextStageName = "EndScene";
-        currentStage = 6;
+        currentStage = 5;
         SetBGM(9);
 
     }

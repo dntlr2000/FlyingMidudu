@@ -1072,8 +1072,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -209}
-  m_SizeDelta: {x: 400, y: 500}
+  m_AnchoredPosition: {x: 0, y: -388}
+  m_SizeDelta: {x: 600, y: 1000}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1694105141
 MonoBehaviour:
@@ -1096,12 +1096,30 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "\uD504\uB85C\uADF8\uB798\uBC0D : \uAFC8\uC18D\uC138\uACC4\n\uBAA8\uB378\uB9C1
-    : \uAFC8\uC18D\uC138\uACC4\n\n\uBCA0\uD0C0\uD14C\uC2A4\uD130\n\n\n\uC0AC\uC6A9
-    \uD234\nUnity, C#\nBlender\n\n\uCC38\uACE0 \uC790\uB8CC\nMinusT - Blender 100\uAC15
-    \uC0AC\uC804\n\uB514\uBC84\uAE45\uD560 \uB54C \uAD6C\uAE00\uB9C1\uD574\uC11C
-    \uB098\uC628 \n\uC218\uB9CE\uC740 \uC0AC\uC774\uD2B8\uB4E4\n\n\uAE00\uAF34\n\uD559\uAD50\uC548\uC2EC\uBC1B\uC544\uC4F0\uAE30B\n\nBGM
-    \uBC0F SFX\nPixabay (\uBB34\uB8CC \uC74C\uC6D0)\ndark-energy-motivational-cinematic-304343\nfreedom-wings-272748\n\n\n\uC81C\uC791
-    \uAE30\uAC04\n5\uAC1C\uC6D4\n"
+    : \uAFC8\uC18D\uC138\uACC4\n\n\n\uC0AC\uC6A9 \uD234 \uBC0F \uC5B8\uC5B4\nUnity,
+    C#\nBlender\n\n\n\uCC38\uACE0 \uC790\uB8CC\nMinusT - Blender 100\uAC15 \uC0AC\uC804\n\uB514\uBC84\uAE45\uD560
+    \uB54C \uAD6C\uAE00\uB9C1\uD574\uC11C \uB098\uC628 \n\uC218\uB9CE\uC740 \uC0AC\uC774\uD2B8\uB4E4\n\n\n\uAE00\uAF34\n\uD559\uAD50\uC548\uC2EC\uBC1B\uC544\uC4F0\uAE30B\n\n\nBGM
+    -Pixabay (\uBB34\uB8CC \uC74C\uC6D0)\ndark-energy-motivational-cinematic-304343\nfreedom-wings-272748\nhonor-and-sword-main-11222\nmountain-path-125573\nneon-gaming-128925\r\nno-place-to-go-216744\r\nrisk-136788\r\nscience-documentary-169621\r\nspace-120280\r\nstranger-things-124008\r\nunlimited-motivation-158250\r\nwaterfall-140894\r\nwinter-legacy-the-four-seasons-hip-hop-version-background-music-201042\r\nworld-war-iii-268932\n\n\n\uC8FC\uC694
+    \uB808\uD37C\uB7F0\uC2A4\nMinusT - \uB3D9\uBC293D\n\uBBF8\uB450\uB450 \uC5B4\uB4DC\uBCA4\uCC98\n\n\uADF8
+    \uC678 \uB808\uD37C\uB7F0\uC2A4\n\uBB3C\uBC94\uC6C1 \uD0C8\uCD9C\uAE30\n\n\n\uC81C\uC791
+    \uAE30\uAC04 - 5\uAC1C\uC6D4\n\uBAA8\uB378\uB9C1/\uC560\uB2C8\uBA54\uC774\uC158
+    2\uAC1C\uC6D4 \uBC18\n\uD504\uB85C\uADF8\uB798\uBC0D 2\uAC1C\uC6D4 \uBC18\n\n\n\uAC04\uB7B5\uD55C
+    \uD6C4\uAE30\n\uBCF8\uB798 \uD5C8\uC811\uD55C \uBAA8\uB378\uB9C1\uC5D0 \uAC78\uB9DE\uB294
+    \n3\uAC1C\uC6D4\uC9DC\uB9AC \uD504\uB85C\uC81D\uD2B8\uC600\uC5C8\uB294\uB370\n\uD604\uC0DD
+    \uC774\uC288\uC640 \uC810\uCC28 \uCEE4\uC9C0\uB294 \uC2A4\uCF00\uC77C,\n\uADF8\uB9AC\uACE0
+    \uC2DC\uB3C4\uD574\uBCF4\uACE0 \uC2F6\uC740 \uAC83\uB4E4 \uC774\uAC83\uC800\uAC83\n\uD558\uB2E4\uBCF4\uB2C8\uAE4C
+    5\uAC1C\uC6D4 \uC774\uC0C1 \uAC78\uB9AC\uAC8C \uB418\uC5C8\uC2B5\uB2C8\uB2E4.\n\nUnity\uC758
+    \uACBD\uD5D8\uC774 \uD48D\uBD80\uD55C \uC0C1\uD0DC\uC5D0\uC11C \uC2DC\uC791\uD55C
+    \uAC83\uB3C4\n\uC544\uB2C8\uC5C8\uACE0, \uBAA8\uB378\uB9C1\uAE4C\uC9C0 \uC804\uBD80
+    \uD63C\uC790 \uCC98\uB9AC\uD558\uB824\uACE0 \uD588\uB2E4\uBCF4\uB2C8\n\uAE30\uAC04
+    \uB300\uBE44 \uB192\uC740 \uD004\uB9AC\uD2F0\uB97C \uB0B4\uC9C0 \uBABB\uD55C
+    \uAC83 \uAC19\uC544\n\uC544\uC26C\uC6B4 \uB9C8\uC74C\uC774 \uC788\uC9C0\uB9CC
+    \uADF8\uB798\uB3C4 \uB05D\uB0AC\uC73C\uB2C8 \uD6C4\uB828\uD569\uB2C8\uB2E4 :)\n\n\uC6C1\uB2D8
+    \uC544\uD504\uB9AC\uCE74\uC5D0\uC11C \uD2B8\uC704\uCE58\uB85C \uC62E\uAE30\uAE30
+    \n\uC5BC\uB9C8 \uC804\uBD80\uD130 \uC0DD\uBC29\uC5D0 \uC720\uC785\uB41C \uD6C4\uB85C
+    \uD56D\uC0C1 \n\uB611\uAC19\uC740 \uD32C\uC2EC\uC73C\uB85C \uC751\uC6D0\uD558\uACE0
+    \uC788\uC2B5\uB2C8\uB2E4!\n\uD56D\uC0C1 \uC7AC\uBC0C\uAC8C \uBC29\uC1A1\uD574\uC8FC\uC154\uC11C
+    \uAC10\uC0AC\uD569\uB2C8\uB2E4!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 97f305ff8159f9945b43e36c1ba505b6, type: 2}
   m_sharedMaterial: {fileID: 5392468181208355536, guid: 97f305ff8159f9945b43e36c1ba505b6, type: 2}
@@ -1164,7 +1182,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 0, w: -401.61847}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1210,9 +1228,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2063132234}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -158}
   m_SizeDelta: {x: 409.6, y: 307.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1725654350
@@ -1506,10 +1524,10 @@ RectTransform:
   - {fileID: 1725654349}
   m_Father: {fileID: 1264636390}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -817}
+  m_SizeDelta: {x: 100, y: 1500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2106259002
 GameObject:

@@ -25,7 +25,7 @@ public class Hasae : Enemy_Boss
         //playerCharacter = FindPlayer();
 
         base.Start();
-        healthBar.SetName("Hasae");
+        healthBar.SetName("Hase");
         
     }
 

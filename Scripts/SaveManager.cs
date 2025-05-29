@@ -73,6 +73,7 @@ public class SaveManager : MonoBehaviour
             Debug.LogWarning("저장된 위치 정보가 없습니다.");
 
             ResetSaveProgress();
+            return 0;
         }
         
         string json = File.ReadAllText(path);

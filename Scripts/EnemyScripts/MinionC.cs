@@ -27,7 +27,7 @@ public class MinionC : Enemy_Minion
     protected override IEnumerator AttackPattern()  //예시, 이후 파생 클래스에서 오버라이드해서 제대로 된 패턴 구현
     {
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
         //Debug.Log("Attack started");
         //while (true)
         for (int i = 0; i < 40; i++)
@@ -35,7 +35,7 @@ public class MinionC : Enemy_Minion
             //Debug.Log("Attack!");
             if (i % 3 == 0)
             {
-                ShootLasers(player, 6, laserObject, 40, 125, 0, 0);
+                ShootLasers(player, 6, laserObject, 40, 175, 103, 181);
             }
             PlaySFX(4);
             BasicAttack(50, 20f, 3, player, attackObject, 77, 191, 0);
