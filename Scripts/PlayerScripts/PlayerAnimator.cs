@@ -23,13 +23,13 @@ public class PlayerAnimator : MonoBehaviour
             animator.SetBool("goFront", false);
         }
 
-        
+
         if (Input.GetKey(KeyCode.LeftControl))
         {
 
             animator.SetBool("goDown", true);
         }
-        
+
         if (Input.GetKey(KeyCode.Space))
         {
 
@@ -41,7 +41,7 @@ public class PlayerAnimator : MonoBehaviour
             }
 
         }
-        
+
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
@@ -59,7 +59,7 @@ public class PlayerAnimator : MonoBehaviour
 
 
         //떼기
-        
+
         if (Input.GetKeyUp(KeyCode.LeftControl))
         {
             animator.SetBool("goDown", false);
@@ -72,7 +72,7 @@ public class PlayerAnimator : MonoBehaviour
             animator.SetBool("goUp", false);
 
         }
-        
+
 
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
@@ -103,12 +103,26 @@ public class PlayerAnimator : MonoBehaviour
 
     }
 
-    IEnumerator HitMotion()
+    /*IEnumerator HitMotion()
     {
-        Debug.Log("getHit!");
         animator.SetBool("getHit", true);
         yield return new WaitForSeconds(1f);
         animator.SetBool("getHit", false);
     }
+    */
 
+
+    IEnumerator UltMotion()
+    {
+        Debug.Log("Ult used");
+        animator.SetBool("isUlt", true);
+        yield return new WaitForSeconds(4f);
+        animator.SetBool("isUlt", false);
+    }
+
+    public void StartUltMotion() //피격 모션이 나오도록 코루틴 호출하는 함수. 외부에서 접근 가능함
+    {
+        StartCoroutine(UltMotion());
+
+    }
 }

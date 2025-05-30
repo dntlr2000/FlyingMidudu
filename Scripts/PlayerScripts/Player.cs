@@ -30,6 +30,8 @@ public class Player : MonoBehaviour
     public ShooterDrone drone1;
     public ShooterDrone drone2;
 
+    public GameObject UltEffect;
+
     //private PlayerSetting PlayerSettingScript; //나중에 스테이지 간 목숨 공유가 필요하다고 느낄 때 수정 시작하기로
 
     // Start is called before the first frame update
@@ -151,10 +153,14 @@ public class Player : MonoBehaviour
     {
         if (Invincible != null) StopCoroutine(Invincible);
         if (BGM_Script != null) BGM_Script.PlaySFX(2);
+        if (UltEffect != null) Instantiate(UltEffect, transform.position + new Vector3(0, 1.5f, 0), transform.rotation);
         woopUI.SetBomb(Bomb);
         CameraScript.CameraShake(1);
         playerCollider.enabled = false;
-        yield return new WaitForSeconds(3f);
+        animator.StartUltMotion();
+        yield return new WaitForSeconds(0.5f);
+        CameraScript.CameraShake(1);
+        yield return new WaitForSeconds(2.5f);
         StartCoroutine(BlinkingMesh());
         yield return new WaitForSeconds(2f);
         playerCollider.enabled = true;

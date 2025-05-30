@@ -159,7 +159,7 @@ public class Mid_Whale : Enemy_Boss
         while (t < fadeOutDuration)
         {
             t += Time.deltaTime;
-            Gorae_Image.alpha = Mathf.Clamp01(1f - t / fadeOutDuration);
+            Gorae_Image.alpha = Mathf.Clamp01((1f - t / fadeOutDuration) * 0.6f);
             yield return null;
         }
 

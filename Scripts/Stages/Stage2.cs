@@ -7,7 +7,7 @@ public class Stage2 : Stage
     // Start is called before the first frame update
     protected override void Start()
     {
-        text = $"제 2장\n흰 머리의 악인은 보물이 있는 곳을\n알고 있다는 이형의 동물들의 수장을 찾기 위해\n그들의 보금자리를 헤집기 시작했습니다.";
+        text = $"제 2장\n흰 머리의 악인은 보물이 있는 곳을\n알고 있다는 이형의 동물들을 찾아가서\n그들의 보금자리를 헤집기 시작했습니다.";
         base.Start();
         NextStageName = "Stage3";
         currentStage = 2;

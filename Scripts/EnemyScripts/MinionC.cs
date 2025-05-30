@@ -37,7 +37,7 @@ public class MinionC : Enemy_Minion
             {
                 ShootLasers(player, 6, laserObject, 40, 175, 103, 181);
             }
-            PlaySFX(4);
+            PlaySFX(6);
             BasicAttack(50, 20f, 3, player, attackObject, 77, 191, 0);
             yield return new WaitForSeconds(2f);
 

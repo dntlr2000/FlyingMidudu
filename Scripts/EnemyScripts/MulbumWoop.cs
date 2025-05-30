@@ -301,10 +301,11 @@ public class MulbumWoop : Enemy_Boss
         imageColor.a = 0f; //alpha
         Filter.color = imageColor;
 
+        PlaySFX(7);
         while (elapsedTime < durationTime)
         {
             elapsedTime += Time.deltaTime;
-            float alpha = Mathf.Clamp01(elapsedTime / durationTime);
+            float alpha = Mathf.Clamp01(elapsedTime * 0.9f/ durationTime);
 
             imageColor.a = alpha;
             Filter.color = imageColor;
@@ -313,7 +314,7 @@ public class MulbumWoop : Enemy_Boss
 
         }
 
-        imageColor.a = 1f;
+        imageColor.a = 0.9f;
         Filter.color = imageColor;
 
         //StartCoroutine(FadeOut(4f));

@@ -71,13 +71,31 @@ public class PlayerMovement : MonoBehaviour
             currentSpeed *= dashMul;
         }
 
-        //캐릭터 이동 방향으로 회전(수평)
-        if (direction != Vector3.zero) //방향이 없을 때를 제외하고
+        if (!usingUlt)
         {
-            // 캐릭터 방향을 이동 방향으로 회전시키기
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), 0.05f);
-            //방향이 바뀌었을 때 프레임마다 15% 돌도록 하여 비교적 자연스럽게 회전하도록 함
+            //캐릭터 이동 방향으로 회전(수평)
+            if (direction != Vector3.zero) //방향이 없을 때를 제외하고
+            {
+                // 캐릭터 방향을 이동 방향으로 회전시키기
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), 0.05f);
+                //방향이 바뀌었을 때 프레임마다 15% 돌도록 하여 비교적 자연스럽게 회전하도록 함
+            }
         }
+        else
+        {
+            Vector3 camForward = baseCamera.forward;
+            //camForward.y = 0;
+            camForward.Normalize();
+            
+            transform.rotation = Quaternion.Slerp(
+                transform.rotation,
+                Quaternion.LookRotation(camForward),
+                0.05f
+            );
+            
+            //transform.rotation = Quaternion.LookRotation(camForward);
+        }
+
 
         if (Input.GetKey(KeyCode.Space))
         {
@@ -121,17 +139,18 @@ public class PlayerMovement : MonoBehaviour
     public IEnumerator useUlt()
     {
         StartCoroutine(PlayerScript.UltInvincible());
+        yield return new WaitForSeconds(0.8f);
         for (int i = 0; i < 10; i++)
         {
             Vector3 forward = baseCamera.forward;
             Quaternion rotation = baseCamera.rotation;
-            GameObject redBall = Instantiate(UltPrefab, transform.position + forward * 2f, rotation);
+            GameObject redBall = Instantiate(UltPrefab, transform.position + forward * 2f + new Vector3(0, -1.5f, 0), rotation);
             Rigidbody rb = redBall.GetComponent<Rigidbody>();
             rb.AddForce(forward * 100f, ForceMode.Impulse);
             yield return new WaitForSeconds(0.3f);
         }
 
-        yield return new WaitForSeconds(2.1f);
+        yield return new WaitForSeconds(0.6f);
         usingUlt= false;
     }
 

@@ -2942,6 +2942,7 @@ MonoBehaviour:
   overScript: {fileID: 0}
   drone1: {fileID: 5174872702408545082}
   drone2: {fileID: 3126182754932362328}
+  UltEffect: {fileID: 4151301812554500900, guid: d464e1691a3d9f84994ebbcef6e8da32, type: 3}
 --- !u!1 &4152095943083066146
 GameObject:
   m_ObjectHideFlags: 0

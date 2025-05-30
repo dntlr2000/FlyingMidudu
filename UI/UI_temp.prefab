@@ -728,6 +728,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3534420075515739637}
     m_Modifications:
+    - target: {fileID: 415906893503329367, guid: 9b9e1d8b434e19249baa2d85618acee3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -41
+      objectReference: {fileID: 0}
+    - target: {fileID: 692415682252013290, guid: 9b9e1d8b434e19249baa2d85618acee3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -56.1
+      objectReference: {fileID: 0}
     - target: {fileID: 733757885635948433, guid: 9b9e1d8b434e19249baa2d85618acee3, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -23
@@ -1616,6 +1624,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3534420075515739637}
     m_Modifications:
+    - target: {fileID: 2703196381284815773, guid: e437888903571f842ad37067683b804e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 133.33333
+      objectReference: {fileID: 0}
     - target: {fileID: 2783194668178263992, guid: e437888903571f842ad37067683b804e, type: 3}
       propertyPath: m_Name
       value: WoopUI

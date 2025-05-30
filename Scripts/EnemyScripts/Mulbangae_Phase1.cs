@@ -27,6 +27,7 @@ public class Mulbangae_Phase1 : Enemy_Boss
         BossName = "물방개";
         BossDescription = "하이-테크로 무장한 영원한 악연";
         animator = GetComponent<Animator>();
+        BGM_Script = FindObjectOfType<BGMController>();
         //base.Start();
         //물방개 보스는 Start 메서드를 시간을 두고 실행시켜야 함
         StartCoroutine(StartFight());
@@ -43,6 +44,7 @@ public class Mulbangae_Phase1 : Enemy_Boss
     {
         yield return new WaitForSeconds(12f);
         animator.SetBool("ifStart", true);
+        PlaySFX(9);
 
         yield return new WaitForSeconds(4f);
         gameObject.tag = "EnemyBoss";
@@ -238,7 +240,7 @@ public class Mulbangae_Phase1 : Enemy_Boss
 
         MechaHand LeftHandScript = LeftHand.GetComponent<MechahandParent>().returnChild();
         MechaHand RightHandScript = RightHand.GetComponent<MechahandParent>().returnChild();
-
+        PlaySFX(10);
         yield return new WaitForSeconds(2f);
 
         while (Health > 1000f)
@@ -312,12 +314,16 @@ public class Mulbangae_Phase1 : Enemy_Boss
 
         yield return new WaitForSeconds(0.2f);
         HeavyMachineguns[0] = SpawnEnemy(HeavyMachinegun, -30, -20, -60, "down");
+        PlaySFX(10);
         yield return new WaitForSeconds(0.5f);
         HeavyMachineguns[1] = SpawnEnemy(HeavyMachinegun, 30, -20, -60, "down");
+        PlaySFX(10);
         yield return new WaitForSeconds(0.5f);
         HeavyMachineguns[2] = SpawnEnemy(HeavyMachinegun, 30, 20, -60, "upward");
+        PlaySFX(10);
         yield return new WaitForSeconds(0.5f);
         HeavyMachineguns[3] = SpawnEnemy(HeavyMachinegun, -30, 20, -60, "upward");
+        PlaySFX(10);
 
         MachingunScripts = new HeavyMachinegun[6];
         for (int i = 0; i < 4; i++)
@@ -363,7 +369,7 @@ public class Mulbangae_Phase1 : Enemy_Boss
 
             yield return new WaitForSeconds(1f);
         }
-
+        PlaySFX(10);
         HeavyMachineguns[4] = SpawnEnemy(HeavyMachinegun, -30, -20, 60, "down");
         HeavyMachineguns[5] = SpawnEnemy(HeavyMachinegun, 30, -20, 60, "down");
 
@@ -450,6 +456,7 @@ public class Mulbangae_Phase1 : Enemy_Boss
         SpellName = "시공의 폭풍에 닿으면 좋은 일이 일어나요";
         SpellCard(SpellName);
         HOS_Object.SetActive(true);
+        PlaySFX(7);
         HOS_Script = HOS_Object.GetComponent<HOS>();
         HOS_Script.PullPlayer(2f);
         yield return new WaitForSeconds(3f);
@@ -489,16 +496,13 @@ public class Mulbangae_Phase1 : Enemy_Boss
 
         HeavyMachineguns = new GameObject[1];
         HeavyMachineguns[0] = SpawnEnemy(HeavyMachinegun, 0, -20, 0, "down");
+        PlaySFX(10);
         MachingunScripts = new HeavyMachinegun[1];
         MachingunScripts[0] = HeavyMachineguns[0].GetComponent<HeavyMachingunParent>().returnChild();
 
         yield return new WaitForSeconds(0.5f);
         while (Health > 1400)
         {
-            /* //새 패턴이 생각 나면 물방개 페이즈2의 패턴으로 수정 후 옮길 예정
-            ShootLasers(playerCharacter, 30, attackPrefab[5], 30, 0, 133, 222);
-            PlaySFX(5);
-            */
             MachingunScripts[0].ShootBig();
             PlaySFX(4);
             yield return new WaitForSeconds(0.5f);
@@ -593,6 +597,7 @@ public class Mulbangae_Phase1 : Enemy_Boss
             }
 
             HOS_Object.SetActive(true);
+            PlaySFX(7);
             //HOS_Script = HOS_Object.GetComponent<HOS>();
             HOS_Script.PullPlayer(1f); yield return new WaitForSeconds(0.5f);
             yield return new WaitForSeconds(0.5f);

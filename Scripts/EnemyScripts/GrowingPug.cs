@@ -65,7 +65,7 @@ public class GrowingPug : Enemy_Minion
         {
             for (int i = 0; i < 7; i++)
             {
-                PlaySFX(5);
+                PlaySFX(6);
                 BasicAttack(40, 40, 2, player, AttackPrefab[0], r[i], g[i], b[i]);
                 yield return new WaitForSeconds(0.3f);
             }

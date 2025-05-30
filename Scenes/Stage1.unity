@@ -714,6 +714,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 986647886}
     - target: {fileID: 715267253083095622, guid: ea705c216e2258c498ff51862689d427, type: 3}
+      propertyPath: UltEffect
+      value: 
+      objectReference: {fileID: 4151301812554500900, guid: d464e1691a3d9f84994ebbcef6e8da32, type: 3}
+    - target: {fileID: 715267253083095622, guid: ea705c216e2258c498ff51862689d427, type: 3}
       propertyPath: overScript
       value: 
       objectReference: {fileID: 575559698}

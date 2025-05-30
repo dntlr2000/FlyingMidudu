@@ -178,6 +178,8 @@ MonoBehaviour:
   HealthBarObject: {fileID: 0}
   DeathEffect1: {fileID: 1493947276669149963, guid: 8475583dc17922d4b8005149a568a499, type: 3}
   DeathEffect2: {fileID: 2390646017386113098, guid: 2986d99e92729114e964f16d9b4dbc8f, type: 3}
+  gatheringEffect: {fileID: 0}
   SpellText: {fileID: 0}
   BossText: {fileID: 0}
   stageScript: {fileID: 0}
+  Gorae_Image: {fileID: 0}

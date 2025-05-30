@@ -49,7 +49,7 @@ public class Scorpion : Enemy_Boss
             RandomMove(10, 2f);
             for (int i = 0; i < 5; i++)
             {
-                BasicSpin(40, 40 + 5 * i, attackPrefab[2], i * 5, 64, 64, 64);
+                BasicSpin(40, 40 + 5 * i, attackPrefab[2], i * 5, 18, 222, 18);
                 PlaySFX(5);
                 yield return new WaitForSeconds(0.2f);
             }

@@ -181,7 +181,7 @@ public class TutorialStage : Stage
         TextAnimation(text);
 
         yield return new WaitForSeconds(7f);
-        text = "Q를 눌러 궁극기를 사용할 수 있습니다.\n 궁극기는 좌측 하단 Bomb이 1개 이상일 때\n사용 가능하며 사용 시 일정시간 무적이 됩니다.";
+        text = "Q를 눌러 웁 쿠션을 발사할 수 있습니다.\n 웁 쿠션은 좌측 하단 Bomb이 1개 이상일 때\n사용 가능하며 사용 시 일정시간 무적이 됩니다.";
         TextAnimation(text);
 
         yield return new WaitForSeconds(7f);
