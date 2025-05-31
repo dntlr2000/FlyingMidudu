@@ -243,7 +243,7 @@ public class Mulbangae_Phase1 : Enemy_Boss
         PlaySFX(10);
         yield return new WaitForSeconds(2f);
 
-        while (Health > 1000f)
+        while (Health > 900f)
         {
             LeftHandScript.Punch(3, 0.5f, 0.5f, 5);
             yield return new WaitForSeconds(1f);

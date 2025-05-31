@@ -27,6 +27,8 @@ public class CreditManager : MenuParent
     {
         creditRect = creditObject.GetComponent<RectTransform>();
         BGM_Script = FindAnyObjectByType<BGMController>();
+        CursorSwitch(false);
+        
 
         if (creditRect == null)
         {
@@ -78,6 +80,8 @@ public class CreditManager : MenuParent
         }
 
         yield return new WaitForSeconds(3f);
+        creditObject.SetActive(false);
+        yield return new WaitForSeconds(1f);
         toMainScreen.SetActive(true);
         //BGM_Script.StopBGM();
         ifEnd = true;

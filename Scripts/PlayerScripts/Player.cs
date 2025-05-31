@@ -97,9 +97,10 @@ public class Player : MonoBehaviour
 
     protected virtual void getHit()
     {
-        
+       
        if (Life > 1)
         {
+            if (UltEffect != null) Instantiate(UltEffect, transform.position + new Vector3(0, 1.5f, 0), transform.rotation);
             Life -= 1;
             woopUI.SetLife(Life);
             if (Bomb < 2)
@@ -153,7 +154,7 @@ public class Player : MonoBehaviour
     {
         if (Invincible != null) StopCoroutine(Invincible);
         if (BGM_Script != null) BGM_Script.PlaySFX(2);
-        if (UltEffect != null) Instantiate(UltEffect, transform.position + new Vector3(0, 1.5f, 0), transform.rotation);
+        //if (UltEffect != null) Instantiate(UltEffect, transform.position + new Vector3(0, 1.5f, 0), transform.rotation);
         woopUI.SetBomb(Bomb);
         CameraScript.CameraShake(1);
         playerCollider.enabled = false;

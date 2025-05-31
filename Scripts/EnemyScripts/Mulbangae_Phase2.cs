@@ -300,8 +300,8 @@ public class Mulbangae_Phase2 : Enemy_Boss
         Health = 1800f;
         TimerCoroutine = StartCoroutine(PhaseTimer(40));
         //MainCamera.SetActive(false);
-        yield return new WaitForSeconds(4f);
-
+   
+        yield return new WaitForSeconds(3f);
         while (true)
         {
             StartCoroutine(SpawnJailObject(playerCharacter.transform, 8, 40, 2f, attackPrefab[0]));
@@ -342,9 +342,9 @@ public class Mulbangae_Phase2 : Enemy_Boss
         Health = 3000f;
         TimerCoroutine = StartCoroutine(PhaseTimer(99));
         //MainCamera.SetActive(false);
-        yield return new WaitForSeconds(6f);
+        yield return new WaitForSeconds(5f);
         GatherEffect(transform.position);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
         SpellName = "진짜진짜 마지막 발악";
         SpellCard(SpellName);
         GudokBadge.SetActive(true);
