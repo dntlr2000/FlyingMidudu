@@ -578,6 +578,40 @@ PrefabInstance:
       propertyPath: playerScript
       value: 
       objectReference: {fileID: 286545465}
+    - target: {fileID: 1114699589485912486, guid: 8f27ad41290da3c458673f748d71317f, type: 3}
+      propertyPath: Texts.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114699589485912486, guid: 8f27ad41290da3c458673f748d71317f, type: 3}
+      propertyPath: Texts.Array.data[1]
+      value: "\uBE60\uB974\uACE0 \uD06C\uAC8C \uB3CC\uBA74 \uC5B4\uB835\uC9C0 \uC54A\uC744
+        \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114699589485912486, guid: 8f27ad41290da3c458673f748d71317f, type: 3}
+      propertyPath: Texts.Array.data[2]
+      value: "\uC218\uB9CE\uC740 \uD0C4\uB9C9 \uC911\uC5D0\uC11C \uC6C1\uB2D8\uC744
+        \uB178\uB9AC\uB294\uAC74 \uC815\uD574\uC838\uC788\uC5B4\uC694."
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114699589485912486, guid: 8f27ad41290da3c458673f748d71317f, type: 3}
+      propertyPath: Texts.Array.data[3]
+      value: "\uBC18\uD22C\uBA85\uD558\uACE0 \uD070\uAC74 \uC548\uC758  \uC791\uC740
+        \uAD6C\uB9CC \uD310\uC815\uC774 \uC874\uC7AC\uD569\uB2C8\uB2E4."
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114699589485912486, guid: 8f27ad41290da3c458673f748d71317f, type: 3}
+      propertyPath: Texts.Array.data[4]
+      value: "\uB538\uAE30\uD0C4\uC744 \uC3D8\uB294 \uC560\uB4E4 \uC5BC\uAD74\uC774
+        \uC774\uC0C1\uD574\uC694"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114699589485912486, guid: 8f27ad41290da3c458673f748d71317f, type: 3}
+      propertyPath: Texts.Array.data[5]
+      value: "\uC0AC\uC2E4 \uC81C\uC791\uC790\uB294 \uC6C1\uC21C\uC774\uB97C \uC88B\uC544\uD558\uC9C0
+        \uC54A\uC2B5\uB2C8\uB2E4."
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114699589485912486, guid: 8f27ad41290da3c458673f748d71317f, type: 3}
+      propertyPath: Texts.Array.data[6]
+      value: "\uC5F0\uD544\uC744 \uB4E4\uACE0 \uC788\uB294 \uBC29\uAC1C\uB4E4 \uC190\uC774
+        \uAE08\uC0C9\uC774\uC5D0\uC694"
+      objectReference: {fileID: 0}
     - target: {fileID: 1240266701802111546, guid: 8f27ad41290da3c458673f748d71317f, type: 3}
       propertyPath: m_IsActive
       value: 0

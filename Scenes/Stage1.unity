@@ -307,6 +307,28 @@ PrefabInstance:
       propertyPath: playerScript
       value: 
       objectReference: {fileID: 715267252190127912}
+    - target: {fileID: 1114699589485912486, guid: 8f27ad41290da3c458673f748d71317f, type: 3}
+      propertyPath: Texts.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114699589485912486, guid: 8f27ad41290da3c458673f748d71317f, type: 3}
+      propertyPath: Texts.Array.data[0]
+      value: "\uCEF7"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114699589485912486, guid: 8f27ad41290da3c458673f748d71317f, type: 3}
+      propertyPath: Texts.Array.data[1]
+      value: "Tab \uD0A4\uB97C \uB204\uB974\uBA74 \uC8FC\uBCC0 \uC0C1\uD669\uC744
+        \uD30C\uC545\uD558\uAE30 \uC6D0\uD65C\uD574\uC694!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114699589485912486, guid: 8f27ad41290da3c458673f748d71317f, type: 3}
+      propertyPath: Texts.Array.data[2]
+      value: "\uC0C1\uD558\uC88C\uC6B0 \uBFD0\uB9CC \uC544\uB2C8\uB77C \uC218\uC9C1
+        \uC774\uB3D9\uB3C4 \uC788\uC5B4\uC694!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114699589485912486, guid: 8f27ad41290da3c458673f748d71317f, type: 3}
+      propertyPath: Texts.Array.data[3]
+      value: "Shift\uB85C \uBE60\uB974\uAC8C \uC6C0\uC9C1\uC77C \uC218 \uC788\uC5B4\uC694!"
+      objectReference: {fileID: 0}
     - target: {fileID: 1240266701802111546, guid: 8f27ad41290da3c458673f748d71317f, type: 3}
       propertyPath: m_IsActive
       value: 0

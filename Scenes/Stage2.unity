@@ -146,6 +146,38 @@ PrefabInstance:
       propertyPath: playerScript
       value: 
       objectReference: {fileID: 1349857758}
+    - target: {fileID: 1114699589485912486, guid: 8f27ad41290da3c458673f748d71317f, type: 3}
+      propertyPath: Texts.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114699589485912486, guid: 8f27ad41290da3c458673f748d71317f, type: 3}
+      propertyPath: Texts.Array.data[0]
+      value: "\uCEF7"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114699589485912486, guid: 8f27ad41290da3c458673f748d71317f, type: 3}
+      propertyPath: Texts.Array.data[1]
+      value: "\uB09C\uC7A1\uD574\uBCF4\uC5EC\uB3C4 \uD0C4\uB9C9\uB4E4\uC740 \uC815\uC9C1\uD569\uB2C8\uB2E4."
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114699589485912486, guid: 8f27ad41290da3c458673f748d71317f, type: 3}
+      propertyPath: Texts.Array.data[2]
+      value: "\uADFC\uBCF8 \uC5C6\uC5B4\uBCF4\uC774\uB294 \uC560\uB4E4\uB3C4 \uB2E4
+        \uC6D0\uBCF8\uC774 \uC788\uC2B5\uB2C8\uB2E4."
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114699589485912486, guid: 8f27ad41290da3c458673f748d71317f, type: 3}
+      propertyPath: Texts.Array.data[3]
+      value: "\uC6C1\uB2D8\uC744 \uD5A5\uD574 \uB0A0\uC544\uC624\uB294 \uAC8C \uBB54\uC9C0
+        \uAD6C\uBCC4\uD558\uBA74 \uC26C\uC6CC\uC6A9"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114699589485912486, guid: 8f27ad41290da3c458673f748d71317f, type: 3}
+      propertyPath: Texts.Array.data[4]
+      value: "\uC6D0\uB798\uB294 \uC218\uC911\uC804\uC744  \uC0DD\uAC01\uD588\uB294\uB370
+        \uC774\uAC70 \uB9CC\uB4E4 \uB54C\uB294 \uC2EC\uD574 \uD544\uD130 \uB07C\uC6B0\uB294
+        \uBC95\uC744 \uBAB0\uB77C\uC11C \uB0A8\uADF9 \uCEE8\uC149\uC73C\uB85C \uC7A1\uC558\uC5B4\uC694"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114699589485912486, guid: 8f27ad41290da3c458673f748d71317f, type: 3}
+      propertyPath: Texts.Array.data[5]
+      value: "\uB2E4\uC74C\uC5D0\uB294 \uD3AD\uADC4 \uAD7F\uC988\uB3C4 \uB0B4\uC8FC\uC138\uC694"
+      objectReference: {fileID: 0}
     - target: {fileID: 1240266701802111546, guid: 8f27ad41290da3c458673f748d71317f, type: 3}
       propertyPath: m_IsActive
       value: 0

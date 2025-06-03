@@ -393,6 +393,46 @@ PrefabInstance:
       propertyPath: playerScript
       value: 
       objectReference: {fileID: 1281903481}
+    - target: {fileID: 1114699589485912486, guid: 8f27ad41290da3c458673f748d71317f, type: 3}
+      propertyPath: Texts.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114699589485912486, guid: 8f27ad41290da3c458673f748d71317f, type: 3}
+      propertyPath: Texts.Array.data[0]
+      value: "\uC6D0\uB798\uB294 \uC774 \uC2A4\uD14C\uC774\uC9C0 \uC804\uC5D0 \uC2A4\uD14C\uC774\uC9C0\uAC00
+        \uD558\uB098 \uB354 \uC788\uC5C8\uB358\uC9C0\uB77C \uB09C\uC774\uB3C4\uAC00
+        \uAE09\uC0C1\uC2B9\uD55C \uAC10\uC774 \uC788\uC5B4\uC694."
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114699589485912486, guid: 8f27ad41290da3c458673f748d71317f, type: 3}
+      propertyPath: Texts.Array.data[1]
+      value: "\uAC15\uC544\uC9C0\uB4E4 \uC678\uD615\uC740 \uCD5C\uB300\uD55C \u314D\u3131\uAC9C\uC5D0\uC11C\uC758
+        \uBAA8\uC2B5\uC73C\uB85C \uAD6C\uD604\uD588\uC2B5\uB2C8\uB2E4."
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114699589485912486, guid: 8f27ad41290da3c458673f748d71317f, type: 3}
+      propertyPath: Texts.Array.data[2]
+      value: "\uC911\uAC04\uBCF4\uC2A4\uC758 \uBAA8\uC158\uC740 \uADF8\uD0C0\uC758
+        \uADF8 \uBAA8\uC158\uC744..."
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114699589485912486, guid: 8f27ad41290da3c458673f748d71317f, type: 3}
+      propertyPath: Texts.Array.data[3]
+      value: "\uBCF4\uC2A4\uC758 \uACF5\uACA9\uC740 \uD544\uB4DC\uC804\uACFC \uB2EC\uB9AC
+        \uC758\uC678\uB85C \uC815\uC9C1\uD569\uB2C8\uB2E4."
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114699589485912486, guid: 8f27ad41290da3c458673f748d71317f, type: 3}
+      propertyPath: Texts.Array.data[4]
+      value: "\uD544\uB4DC\uC804\uC740 \uC7A1\uBAB9 \uB4F1\uC7A5 \uC21C\uC11C\uB300\uB85C
+        \uBE60\uB974\uAC8C \uC7A1\uC544\uB0B4\uB294\uAC8C \uC88B\uC2B5\uB2C8\uB2E4."
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114699589485912486, guid: 8f27ad41290da3c458673f748d71317f, type: 3}
+      propertyPath: Texts.Array.data[5]
+      value: "\uC2DC\uC57C\uB97C \uBA40\uB9AC\uC11C \uC7A1\uB294\uAC8C \uC88B\uC544\uBCF4\uC774\uC9C0\uB9CC
+        \uADF8 \uBC18\uB300\uB9CC\uC758 \uC7A5\uC810\uB3C4 \uC788\uC2B5\uB2C8\uB2E4."
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114699589485912486, guid: 8f27ad41290da3c458673f748d71317f, type: 3}
+      propertyPath: Texts.Array.data[6]
+      value: "\uC2DC\uC57C\uB97C \uBA40\uB9AC\uC11C \uC7A1\uB294\uAC8C \uC88B\uC544\uBCF4\uC774\uC9C0\uB9CC
+        \uADF8 \uBC18\uB300\uB9CC\uC758 \uC7A5\uC810\uB3C4 \uC788\uC2B5\uB2C8\uB2E4."
+      objectReference: {fileID: 0}
     - target: {fileID: 1240266701802111546, guid: 8f27ad41290da3c458673f748d71317f, type: 3}
       propertyPath: m_IsActive
       value: 0

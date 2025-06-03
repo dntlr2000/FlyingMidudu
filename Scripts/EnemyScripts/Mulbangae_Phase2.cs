@@ -142,12 +142,12 @@ public class Mulbangae_Phase2 : Enemy_Boss
     protected override IEnumerator Phase4() //패턴 2 : 기술
     {
 
-        Health = 1400f;
+        Health = 1200f;
         TimerCoroutine = StartCoroutine(PhaseTimer(40));
         //MainCamera.SetActive(false);
         CutScene(2.5f);
         PlaySFX(2);
-        SpellName = "하늘, 아크, 그타 3대 충의 압박";
+        SpellName = "하늘, 아크, 그타 모두 해줘";
         SpellCard(SpellName);
         AimingObject(playerCharacter);
 
@@ -157,10 +157,10 @@ public class Mulbangae_Phase2 : Enemy_Boss
         {
             StartCoroutine(divideBullets_1(playerCharacter.transform.position, attackPrefab[2], attackPrefab[3]));
             yield return new WaitForSeconds(2f);
-            RandomMove(20, 1f);
+            RandomMove(10, 1f);
             for (int i = 0; i < 5; i++)
             {
-                ShootAround(playerCharacter, 50, attackPrefab[0], 30, 60, 0.2f, 184, 24, 24);
+                ShootAround(playerCharacter, 50, attackPrefab[0], 40, 60, 0.2f, 184, 24, 24);
                 PlaySFX(4);
                 yield return new WaitForSeconds(0.2f);
             }

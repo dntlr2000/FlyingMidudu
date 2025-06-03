@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameOver : MenuParent
@@ -8,7 +9,11 @@ public class GameOver : MenuParent
     public GameObject overMenu;
     public Player playerScript;
 
-    
+    //public GameObject TextObject;
+    public TextMeshProUGUI Text;
+    public string[] Texts;
+
+
 
     protected override void Start()
     {
@@ -26,6 +31,9 @@ public class GameOver : MenuParent
         //AudioListener.pause = true;
         BGM_Script.StopBGM();
         CursorSwitch(false);
+        //Text = TextObject.GetComponent<TextMesh>
+        int randomIndex = Random.Range(0, Texts.Length);
+        Text.text = "ÈùÆ®: " + Texts[randomIndex];
     }
 
     public void ResumeGame()

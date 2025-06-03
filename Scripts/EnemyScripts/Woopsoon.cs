@@ -131,8 +131,8 @@ public class Woopsoon : Enemy_Boss
     protected override IEnumerator Phase4() //패턴 3 : 통상
     {
         //skillMotion(0, 2f);
-        Health = 200f;
-        TimerCoroutine = StartCoroutine(PhaseTimer(10));
+        Health = 400f;
+        TimerCoroutine = StartCoroutine(PhaseTimer(20));
 
         yield return new WaitForSeconds(2f);
         StartCoroutine(ObjectMover(new Vector3(0, 0, -50), 2f));
@@ -167,19 +167,22 @@ public class Woopsoon : Enemy_Boss
         sateliteController.TurnTrail();
         yield return new WaitForSeconds(0.9f);
 
+        
 
         while (true)
         {
+
             for (int i = 0; i < 10; i++)
             {
+
                 SlowdownAttack(satelite1, 40, 10f, 4, playerCharacter, attackPrefab[2], 125, 125, 125, 8f, 1.5f);
                 SlowdownAttack(satelite2, 40, 10f, 4, playerCharacter, attackPrefab[2], 0, 82, 204, 8f, 1.5f);
                 PlaySFX(4);
                 yield return new WaitForSeconds(0.1f);
             }
-
-            yield return new WaitForSeconds(2.5f);
             RandomMove(10f, 2f);
+            yield return new WaitForSeconds(2.5f);
+            
         }
 
     }
