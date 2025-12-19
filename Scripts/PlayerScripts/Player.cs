@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private int life = 3; //格见
-    private int bomb = 2; //航
+    private int life = 5; //格见
+    private int bomb = 3; //航
 
     private PlayerMovement moveScript;
     private PlayerAnimator animator;

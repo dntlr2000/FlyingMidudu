@@ -351,6 +351,8 @@ public class Mulbangae_Phase2 : Enemy_Boss
         //¸ðµç Åº¸· À¯Çü ÃÑÃâµ¿
         yield return new WaitForSeconds(1f);
 
+        StartCoroutine(ObjectMover(new Vector3(0, 0, -40), 1f));
+
         while (Health > 2500 && Timer > 80)
         {
             SlowdownAttack(120, 70, 3, playerCharacter, attackPrefab[3], 125, 0, 0, 0.2f, 0.5f);
