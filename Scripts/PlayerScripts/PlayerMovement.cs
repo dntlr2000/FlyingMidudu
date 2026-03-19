@@ -73,10 +73,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (!usingUlt)
         {
-            //캐릭터 이동 방향으로 회전(수평)
             if (direction != Vector3.zero) //방향이 없을 때를 제외하고
             {
-                // 캐릭터 방향을 이동 방향으로 회전시키기
                 transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), 0.05f);
                 //방향이 바뀌었을 때 프레임마다 15% 돌도록 하여 비교적 자연스럽게 회전하도록 함
             }
@@ -84,7 +82,6 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             Vector3 camForward = baseCamera.forward;
-            //camForward.y = 0;
             camForward.Normalize();
             
             transform.rotation = Quaternion.Slerp(
@@ -92,8 +89,6 @@ public class PlayerMovement : MonoBehaviour
                 Quaternion.LookRotation(camForward),
                 0.05f
             );
-            
-            //transform.rotation = Quaternion.LookRotation(camForward);
         }
 
 
@@ -114,8 +109,6 @@ public class PlayerMovement : MonoBehaviour
             direction += Vector3.down * v_speed; // 아래로 이동
         }
 
-
-        //transform.Translate(direction * currentSpeed * Time.deltaTime, Space.World);
         Vector3 newPosition = transform.position + direction * currentSpeed * Time.deltaTime; //위치 갱신
 
         // x, y, z 축의 위치를 제한

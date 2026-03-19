@@ -57,11 +57,6 @@ public class Enemy_Boss : Enemy
 
     protected GameObject playerCharacter;
 
-    // 레이저 생성 위치를 특별하게 설정하고 싶을 때 사용 (풀링)
-    //private GameObject LaserSpawnObj;
-    //private GameObject LaserTargetObj;
-    
-
     protected override void Start()
     {
         //Life = 3;
@@ -90,12 +85,6 @@ public class Enemy_Boss : Enemy
         PhaseSetter(Life);
 
         if (MyCamera != null) mainCameraController.camera_e = MyCamera.transform;
-    }
-
-    // Update is called once per frame
-    protected override void Update()
-    {
-
     }
 
     public int Timer
@@ -409,25 +398,6 @@ public class Enemy_Boss : Enemy
         //SpellText.gameObject.SetActive(true);
         StartCoroutine(SpellText.SpellCardAnimation(spellName));
     }
-
-    /*
-    protected void ShootLasers(Vector3 spawner, Vector3 target, int num, GameObject prefab, float radius, float R = 125f, float G = 125f, float B = 125f)
-    {
-        if (LaserSpawnObj == null) LaserSpawnObj = new GameObject("SpawnLocationObj");
-        else LaserSpawnObj.SetActive(true);
-        LaserSpawnObj.transform.position = spawner;
-
-        if (LaserTargetObj == null) LaserTargetObj = new GameObject("TargetLocationObj");
-        else LaserTargetObj.SetActive(true);
-        LaserTargetObj.transform.position = target;
-
-        ShootLasers(LaserSpawnObj, LaserTargetObj, num, prefab, radius, R, G, B);
-
-        LaserSpawnObj.SetActive(false);
-        LaserTargetObj.SetActive(false);
-
-    }
-    */
 
     protected void ShootLasers(Vector3 spawner, Vector3 target, int num, GameObject prefab, float radius, float R = 125f, float G = 125f, float B = 125f)
     {

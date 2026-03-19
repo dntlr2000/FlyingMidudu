@@ -16,33 +16,9 @@ public class Enemy_Minion : Enemy
     // Start is called before the first frame update
     protected override void Start()
     {
-        //Debug.Log("Minion spawned");
-        //Rigidbody rb = GetComponent<Rigidbody>();
-        //animator = GetComponent<Animator>();
-
-        //Life = 1;
-        //Health = 200f;
-        
-        //player = FindPlayer();
-        //if (player == null) return;
-        //AimingObject(player);
-        
 
         attack = StartCoroutine(AttackPattern());
         BGM_Script = FindObjectOfType<BGMController>();
-    }
-
-    /*
-    protected void OnEnable()
-    {
-
-    }
-    */
-
-    // Update is called once per frame
-    protected override void Update()
-    {
-        
     }
 
     

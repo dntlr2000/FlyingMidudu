@@ -10,7 +10,6 @@ public class SaveManager : MonoBehaviour
     [Serializable]
     public class ClearProgress
     {
-        //public string name;
         public int clearedStage;
     }
 

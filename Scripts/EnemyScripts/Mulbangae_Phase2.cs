@@ -84,13 +84,10 @@ public class Mulbangae_Phase2 : Enemy_Boss
         {
             StartCoroutine(skillMotion(4));
         }
-
         else
         {
             StartCoroutine(skillMotion(0, 3f));
         }
-
-
         Debug.Log($"물방개의 남은 목숨: {Life}");
 
     }

@@ -16,26 +16,12 @@ public class Enemy : MonoBehaviour
 
     protected BGMController BGM_Script;
 
-    /*
-    protected struct State //나중에 이 구조로 수정할 수 있음 좋을듯
-    {
-        public float health;
-        public float life;
-    }
-    */
-    
     protected virtual void Start()
     {
         Rigidbody rb = GetComponent<Rigidbody>();
         PhaseSetter(life);
         BGM_Script = FindObjectOfType<BGMController>();
     }
-
-    protected virtual void Update()
-    {
-        
-    }
-
     protected float Health //체력
     {
         get { return health; }
@@ -133,7 +119,6 @@ public class Enemy : MonoBehaviour
         if (face == true) aimConstraint.constraintActive = true;
         else aimConstraint.constraintActive = false;
 
-        //aimConstraint.locked = true;
         aimConstraint.rotationAtRest = Vector3.zero;
         aimConstraint.worldUpType = AimConstraint.WorldUpType.SceneUp;
     }

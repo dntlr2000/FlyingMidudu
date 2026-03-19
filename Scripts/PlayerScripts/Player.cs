@@ -21,7 +21,6 @@ public class Player : MonoBehaviour
 
     private Coroutine Invincible;
 
-    //public GameObject HitEffect;
 
     public GameOver overScript;
 
@@ -32,17 +31,12 @@ public class Player : MonoBehaviour
 
     public GameObject UltEffect;
 
-    //private PlayerSetting PlayerSettingScript; //나중에 스테이지 간 목숨 공유가 필요하다고 느낄 때 수정 시작하기로
-
-    // Start is called before the first frame update
     protected virtual void Start()
     {
         _ = GetComponent<Rigidbody>();
         moveScript = GetComponent<PlayerMovement>();
         animator = GetComponent<PlayerAnimator>(); 
         playerCollider = GetComponent<Collider>();
-        //PlayerSettingScript = FindObjectOfType<PlayerSetting>();
-
         woopUI.SetLife(Life);
         woopUI.SetBomb(Bomb);
 
@@ -50,7 +44,6 @@ public class Player : MonoBehaviour
         BGM_Script = FindAnyObjectByType<BGMController>();
     }
 
-    // Update is called once per frame
     protected virtual void Update()
     {
 
@@ -166,14 +159,6 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(2f);
         playerCollider.enabled = true;
     }
-
-    /*
-    private IEnumerator askContinue()
-    {
-        yield return new WaitForSeconds(2f);
-        overScript.PauseGame();
-    }
-    */
     
     public IEnumerator shooterSwitch(float time)
     {

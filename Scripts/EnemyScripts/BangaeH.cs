@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BangaeH : Enemy_Minion
 {
-    // Start is called before the first frame update
     protected override void Start()
     {
         Rigidbody rb = GetComponent<Rigidbody>();
@@ -16,7 +15,6 @@ public class BangaeH : Enemy_Minion
         player = FindPlayer();
         if (player == null) return;
         AimingObject(player);
-        //attack = StartCoroutine(AttackPattern());
 
         base.Start();
 
@@ -65,6 +63,5 @@ public class BangaeH : Enemy_Minion
         }
 
         StartCoroutine(ObjectMover(new Vector3(transform.position.x, transform.position.y, -100), 2f));
-        //RandomMove(2, 2f);
     }
 }
