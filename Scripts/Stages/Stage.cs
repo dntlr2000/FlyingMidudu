@@ -42,7 +42,7 @@ public class Stage : MonoBehaviour
         Text.gameObject.SetActive(true);
         StartCoroutine(Text.StageTextAnimation(text));
 
-        BGM_Script = FindObjectOfType<BGMController>();
+        BGM_Script = BGMController.Instance;
 
         saveScript = GetComponent<SaveManager>();
 

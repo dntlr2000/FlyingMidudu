@@ -31,7 +31,7 @@ public class MainMenu : MenuParent
         //SetBGM(0);
         //optionsPanel.SetActive(false);
         //base.Start();
-        BGM_Script = FindObjectOfType<BGMController>();
+        BGM_Script = BGMController.Instance;
         PlayerSettingScript = FindObjectOfType<PlayerSetting>();
         
 

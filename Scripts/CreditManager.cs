@@ -26,7 +26,7 @@ public class CreditManager : MenuParent
     protected override void Start()
     {
         creditRect = creditObject.GetComponent<RectTransform>();
-        BGM_Script = FindAnyObjectByType<BGMController>();
+        BGM_Script = BGMController.Instance;
         CursorSwitch(false);
         
 

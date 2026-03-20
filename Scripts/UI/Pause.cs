@@ -9,7 +9,7 @@ public class Pause : MenuParent
 
     protected override void Start()
     {
-        BGM_Script = FindObjectOfType<BGMController>();
+        BGM_Script = BGMController.Instance;
         pauseMenu.SetActive(false);
         CursorSwitch(true);
     }

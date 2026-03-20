@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
     {
         Rigidbody rb = GetComponent<Rigidbody>();
         PhaseSetter(life);
-        BGM_Script = FindObjectOfType<BGMController>();
+        BGM_Script = BGMController.Instance;
     }
     protected float Health //Ã¼·Â
     {
